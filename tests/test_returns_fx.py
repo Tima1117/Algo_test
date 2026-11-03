@@ -1,0 +1,41 @@
+"""Доходность по ряду, сверка с официальной и курсы ЦБ."""
+from datetime import date, timedelta
+
+import pytest
+
+from conftest import FIXTURES
+from pif.fx import Rates, parse_cbr_dynamic
+from pif.normalize import Point
+from pif.parsing import UnknownFormat
+from pif.returns import compare_official, period_return
+
+
+def daily(start, days, price0, step):
+    return [Point(start + timedelta(days=i), 1.0, price0 + step * i, 0) for i in range(days)]
+
+
+def test_period_return():
+    pts = daily(date(2026, 1, 1), 120, 100.0, 0.1)
+    # 31.03 → цена 100 + 0.1*89 = 108.9; 28.02 → 100 + 0.1*58 = 105.8
+    assert period_return(pts, date(2026, 3, 31), 1) == pytest.approx((108.9 / 105.8 - 1) * 100)
+
+
+def test_compare_official_flags_discrepancy():
+    pts = daily(date(2025, 12, 1), 150, 100.0, 0.1)
+    ours = (112.0 / 108.9 - 1) * 100  # 31.03: 100 + 0.1*120; 28.02: 100 + 0.1*89
+    official = [{"period": "1m", "value_pct": ours + 0.2, "as_of": "2026-03-31", "source_url": "s"},
+                {"period": "3m", "value_pct": 1.0, "as_of": "2026-03-31", "source_url": "s"}]
+    checks, bad = compare_official("X", pts, official)
+    assert checks[0]["status"] == "сходится"
+    assert len(bad) == 1 and bad[0]["period"] == "3m"
+
+
+def test_cbr_rates_fixture():
+    rows = parse_cbr_dynamic((FIXTURES / "cbr" / "usd_dynamic.xml").read_bytes())
+    assert rows[0] == ("2026-10-01", pytest.approx(83.5588))
+    r = Rates({"USD": rows})
+    assert r.on("USD", "2026-10-01") == pytest.approx(83.5588)
+    assert r.on("USD", "2026-09-01") is None
+    assert r.on("RUB", "2026-10-01") == 1.0
+    with pytest.raises(UnknownFormat):
+        parse_cbr_dynamic(b"<html>error</html>")
