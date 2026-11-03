@@ -79,8 +79,11 @@ def merge_with_previous(new: dict, prev: dict | None) -> dict:
     """
     if not prev or not prev.get("segments"):
         return new
-    # выплаты дохода: при докачке хвоста старые выплаты не теряются (новые по той же дате важнее)
-    pays = {str(p["date"])[:10]: p for p in prev.get("payouts", [])}
+    # выплаты дохода: адаптер отвечает за период, который скачал сейчас; из прошлого сбора остаются
+    # только выплаты раньше этого периода (докачка хвоста их не видит)
+    new_dates = [str(pt["date"])[:10] for seg in new["segments"] for pt in seg["points"]]
+    since = min(new_dates) if new_dates else "9999"
+    pays = {str(p["date"])[:10]: p for p in prev.get("payouts", []) if str(p["date"])[:10] < since}
     pays.update({str(p["date"])[:10]: p for p in new.get("payouts", [])})
     new["payouts"] = [pays[d] for d in sorted(pays)]
     new_urls = {s["raw_url"] for s in new["segments"]}

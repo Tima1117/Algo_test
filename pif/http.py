@@ -14,6 +14,7 @@ import fcntl
 import hashlib
 import json
 import logging
+import ssl
 import threading
 import time
 from dataclasses import dataclass, field
@@ -159,20 +160,35 @@ class Fetcher:
         self._last_hit: dict[str, float] = {}
         self._guard = threading.Lock()
         self.proxies = proxies or {}
-        self._clients: dict[str | None, httpx.Client] = {}
+        self._clients: dict[tuple, httpx.Client] = {}
         self._transport = transport   # для тестов: httpx.MockTransport
+        self._extra_ca: dict[str, str] = {}   # домен -> дополнительный корневой сертификат (PEM)
 
     # ---------- внутреннее ----------
+    def trust_extra_ca(self, domain: str, pem: str) -> None:
+        """Доверять дополнительному корневому сертификату — только для одного домена.
+
+        Нужно для сайтов с сертификатом российского НУЦ Минцифры, которого нет в стандартных
+        хранилищах. Проверка TLS не отключается: к системным корням добавляется ровно один.
+        """
+        with self._guard:
+            self._extra_ca[domain] = pem
+
     def _client(self, domain: str) -> httpx.Client:
         proxy = self.proxies.get(domain)
+        ca = self._extra_ca.get(domain)
+        key = (proxy, domain if ca else None)
         with self._guard:
-            if proxy not in self._clients:
-                self._clients[proxy] = httpx.Client(
+            if key not in self._clients:
+                kw: dict = {"transport": self._transport} if self._transport else {"proxy": proxy}
+                if ca and not self._transport:
+                    ctx = ssl.create_default_context()
+                    ctx.load_verify_locations(cadata=ca)
+                    kw["verify"] = ctx
+                self._clients[key] = httpx.Client(
                     headers={"User-Agent": config.USER_AGENT, "Accept-Language": "ru,en;q=0.8"},
-                    timeout=config.TIMEOUT_SEC, follow_redirects=True,
-                    **({"transport": self._transport} if self._transport else {"proxy": proxy}),
-                )
-            return self._clients[proxy]
+                    timeout=config.TIMEOUT_SEC, follow_redirects=True, **kw)
+            return self._clients[key]
 
     def _domain_lock(self, domain: str) -> threading.Lock:
         with self._guard:
