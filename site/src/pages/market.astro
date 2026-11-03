@@ -13,7 +13,7 @@ const cell = (rows: any[], m: string, k: string) => {
   return r && r[k === 'flow_rub' ? 'funds_flow' : 'funds_nav'] ? r[k] ?? null : null;
 };
 const flowByType = {
-  kind: 'line', unit: '₽', x: months.map(ts),
+  kind: 'line', monthly: true, unit: '₽', x: months.map(ts),
   series: market.type.map((t: any) => ({ label: meta.type_labels[t.key], color: TYPE_COLORS[t.key] ?? '#9298ba',
     values: months.map((m) => cell(t.monthly, m, 'flow_rub')) })),
 };

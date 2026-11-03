@@ -16,7 +16,7 @@ const chart = {
   series: [{ label: 'Чистый приток, ₽', values: u.monthly.map((r) => (r.funds_flow ? r.flow_rub ?? null : null)), color: '#22d3ee' }],
 };
 const navChart = {
-  kind: 'line', unit: '₽', x: u.monthly.map((r) => ts(r.month)),
+  kind: 'line', monthly: true, unit: '₽', x: u.monthly.map((r) => ts(r.month)),
   series: [{ label: 'СЧА фондов с рядом, ₽', values: u.monthly.map((r) => (r.funds_nav ? r.nav_rub ?? null : null)), color: '#38bdf8' }],
 };
 const statusClass = (s: string) => (s === 'ok' ? 'ok' : ['partial', 'stale', 'not_formed'].includes(s) ? 'warn' : 'bad');

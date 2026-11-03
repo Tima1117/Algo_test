@@ -7,6 +7,7 @@
 
   type Cfg = {
     kind: 'line' | 'bars';
+    monthly?: boolean;                   // точки — месяцы: в легенде показываем месяц, а не дату
     x: number[];                         // unix-время, секунды
     series: { label: string; values: (number | null)[]; color: string }[];
     unit: string;
@@ -23,22 +24,34 @@
     return fmt.format(v);
   };
   const day = (t: number) => new Date(t * 1000).toLocaleDateString('ru-RU', { timeZone: 'UTC' });
+  const monthLabel = (t: number) => new Date(t * 1000).toLocaleDateString('ru-RU', { timeZone: 'UTC', month: 'long', year: 'numeric' });
+
+  // подписи дат на осях и в легенде — по-русски
+  const ru = {
+    MMMM: ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'],
+    MMM: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
+    WWWW: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+    WWW: ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'],
+  };
 
   function render(el: HTMLElement) {
     const cfg = JSON.parse(el.dataset.chart!) as Cfg;
     const bars = cfg.kind === 'bars';
+    const monthly = cfg.monthly ?? bars;
     const info = cfg.info ? document.getElementById(cfg.info) : null;
     const opts: uPlot.Options = {
       width: el.clientWidth,
       height: el.clientWidth < 500 ? 220 : 280,
       scales: { x: { time: true } },
+      tzDate: (ts) => uPlot.tzDate(new Date(ts * 1000), 'UTC'),
+      fmtDate: (tpl) => uPlot.fmtDate(tpl, ru),
       axes: [
         { stroke: '#9298ba', grid: { stroke: 'rgba(146,152,186,.10)' }, ticks: { stroke: 'rgba(146,152,186,.2)' } },
         { stroke: '#9298ba', grid: { stroke: 'rgba(146,152,186,.10)' }, ticks: { stroke: 'rgba(146,152,186,.2)' },
           size: 70, values: (_u, vals) => vals.map((v) => short(v)) },
       ],
       series: [
-        { value: (_u, v) => (v == null ? '—' : day(v)) },
+        { label: monthly ? 'Месяц' : 'Дата', value: (_u, v) => (v == null ? '—' : monthly ? monthLabel(v) : day(v)) },
         ...cfg.series.map((s) => ({
           label: s.label, stroke: s.color, width: bars ? 0 : 2,
           fill: bars ? s.color + 'cc' : s.color + '14',
