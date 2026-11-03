@@ -1,0 +1,184 @@
+---
+import Base from '../../layouts/Base.astro';
+import Charts from '../../components/Charts.astro';
+import { COMPARE_UK_URL, funds, meta, series, type FundSummary } from '../../lib/data';
+import { date, host, money, month, num, pct, sign } from '../../lib/format';
+
+export function getStaticPaths() {
+  return funds.map((f) => ({ params: { rules: f.rules }, props: { f } }));
+}
+const { f } = Astro.props as { f: FundSummary };
+const s = series(f.rules);
+const base = import.meta.env.BASE_URL;
+const ts = (d: string) => Date.UTC(+d.slice(0, 4), +d.slice(5, 7) - 1, +d.slice(8, 10)) / 1000;
+const srcUrl = (id: number) => (s ? s.sources[id]?.page || s.sources[id]?.url : null);
+const cur = f.currency === 'RUB' ? '₽' : f.currency;
+const PERIOD_LABEL: Record<string, string> = { '1m': '1 месяц', '3m': '3 месяца', '6m': '6 месяцев', '1y': '1 год' };
+const statusClass = ['ok'].includes(f.data_status) ? 'ok' : ['partial', 'stale', 'not_formed'].includes(f.data_status) ? 'warn' : 'bad';
+
+const navChart = s && {
+  kind: 'line', unit: '₽', info: 'nav-info',
+  x: s.points.map((p) => ts(p.date)), links: s.points.map((p) => srcUrl(p.src)),
+  series: [{ label: 'СЧА, ₽', values: s.points.map((p) => p.nav_rub), color: '#38bdf8' }],
+};
+const priceChart = s && {
+  kind: 'line', unit: cur, info: 'price-info',
+  x: s.points.map((p) => ts(p.date)), links: s.points.map((p) => srcUrl(p.src)),
+  series: [{ label: `Стоимость пая, ${cur}`, values: s.points.map((p) => p.price), color: '#c084fc' }],
+};
+const flowRows = s ? s.monthly.filter((r) => r.month >= meta.months[0]) : [];
+const flowChart = s && {
+  kind: 'bars', unit: '₽',
+  x: flowRows.map((r) => ts(r.month + '-15')),
+  series: [{ label: 'Чистый приток, ₽', values: flowRows.map((r) => r.flow_rub), color: '#22d3ee' }],
+};
+---
+<Base title={f.name} active="rating" description={`${f.full_name}: СЧА, стоимость пая и притоки по данным УК`}>
+  <p class="muted"><a href={base}>Рейтинг</a> / <a href={`${base}uk/${f.uk_inn}/`}>{f.uk_short}</a></p>
+  <h1>{f.name}</h1>
+  <p>
+    <span class="badge blue">{f.type_label}</span> <span class="badge">{f.category}</span>
+    <span class={`badge ${statusClass}`}>{f.data_status_label}</span>
+    {f.discrepancy && <span class="badge warn">доходность расходится с официальной</span>}
+    {f.ticker && <span class="badge">{f.ticker}</span>}
+  </p>
+
+  {f.data_status !== 'ok' && <div class={`note ${statusClass === 'bad' ? 'bad' : 'warn'}`}><b>{f.data_status_label}.</b> {f.data_reason}</div>}
+
+  <div class="grid kpis">
+    <div class="panel kpi"><div class="label">СЧА</div><div class="value">{money(f.nav_rub)}</div>
+      <div class="hint">{f.currency !== 'RUB' && f.nav !== null ? `${money(f.nav, f.currency)} · ` : ''}на {date(f.last_date)}</div></div>
+    <div class="panel kpi"><div class="label">Стоимость пая</div><div class="value">{f.price === null ? '—' : `${num(f.price, 2)} ${cur}`}</div>
+      <div class="hint">на {date(f.ret_as_of)}</div></div>
+    <div class="panel kpi"><div class="label">Приток, {month(meta.last_month)}</div><div class={`value ${sign(f.flow_m)}`}>{money(f.flow_m)}</div>
+      <div class="hint">квартал: {money(f.flow_q)}</div></div>
+    <div class="panel kpi"><div class="label">Приток за 12 месяцев</div><div class={`value ${sign(f.flow_y)}`}>{money(f.flow_y)}</div>
+      <div class="hint">{month(meta.months[0])} — {month(meta.last_month)}</div></div>
+  </div>
+
+  <div class="grid two">
+    <div class="panel">
+      <h3>О фонде</h3>
+      <dl class="props">
+        <dt>Полное название</dt><dd>{f.full_name}</dd>
+        <dt>Управляющая компания</dt><dd><a href={`${base}uk/${f.uk_inn}/`}>{f.uk_short}</a>, ИНН <span class="mono">{f.uk_inn}</span></dd>
+        <dt>Номер правил</dt><dd class="mono">{f.rules}</dd>
+        <dt>Дата регистрации</dt><dd>{date(f.reg_date)}</dd>
+        <dt>Статус в реестре ЦБ</dt><dd>{f.status}</dd>
+        <dt>ISIN / тикер</dt><dd class="mono">{f.isin ?? '—'} / {f.ticker ?? '—'}</dd>
+        <dt>Валюта пая</dt><dd>{f.currency}</dd>
+        <dt>Страница фонда у УК</dt><dd>{f.page_url ? <a href={f.page_url} rel="nofollow noopener" target="_blank">{host(f.page_url)}</a> : '—'}</dd>
+        <dt>Ряд</dt><dd>{f.n_points ? `${f.n_points} точек, ${date(f.first_date)} — ${date(f.last_date)}, ${({daily: 'ежедневно', weekly: 'еженедельно', monthly: 'ежемесячно'} as any)[f.frequency ?? ''] ?? f.frequency}` : 'нет'}</dd>
+      </dl>
+      <p style="margin-top:12px"><a class="btn" href={`${COMPARE_UK_URL}?inn=${f.uk_inn}`}>УК в разделе «Сравнить УК»</a>
+        {s && <a class="btn" href={`${base}data/fund/${f.rules}.csv`} download>Ряд в CSV</a>}</p>
+    </div>
+    <div class="panel">
+      <h3>Доходность пая</h3>
+      <div class="table-wrap" style="border:0">
+        <table>
+          <thead><tr><th>Период</th><th class="num">По ряду</th><th class="num">Официальная</th><th>Сверка</th></tr></thead>
+          <tbody>
+            {(['1m', '3m', '6m', '1y'] as const).map((k) => {
+              const o = f.official[k];
+              return <tr>
+                <td>{PERIOD_LABEL[k]}</td>
+                <td class={`num ${sign(f[`ret_${k}`])}`}>{pct(f[`ret_${k}`])}</td>
+                <td class="num">{o ? <a href={o.url ?? '#'} rel="nofollow noopener" target="_blank">{pct(o.value)}</a> : '—'}</td>
+                <td>{o ? <span class={`badge ${o.status === 'сходится' ? 'ok' : o.status.startsWith('расхождение') ? 'warn' : ''}`}
+                  title={o.ours !== null ? `по ряду на ${date(o.as_of)}: ${pct(o.ours)}` : ''}>{o.status}{o.as_of ? `, ${date(o.as_of)}` : ''}</span> : <span class="muted">УК не публикует / не найдено</span>}</td>
+              </tr>;
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p class="disclaimer">«По ряду» — на {date(f.ret_as_of)}; сверка с официальной — на дату, указанную УК. Не является
+        инвестиционной рекомендацией. Доходность в прошлом не гарантирует доходности в будущем.</p>
+    </div>
+  </div>
+
+  {s ? (
+    <>
+      <div class="grid two" style="margin-top:14px">
+        <div class="panel">
+          <div class="chart-title"><h3>СЧА</h3><span class="muted mono" id="nav-info">наведите на график — покажу точку и источник</span></div>
+          <div class="chart" data-chart={JSON.stringify(navChart)}></div>
+        </div>
+        <div class="panel">
+          <div class="chart-title"><h3>Стоимость пая</h3><span class="muted mono" id="price-info"></span></div>
+          <div class="chart" data-chart={JSON.stringify(priceChart)}></div>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:14px">
+        <h3>Чистые притоки по месяцам</h3>
+        <div class="chart" data-chart={JSON.stringify(flowChart)}></div>
+        <p class="muted" style="font-size:13px">Приток = СЧА<sub>м</sub> − СЧА<sub>м−1</sub> × пай<sub>м</sub> / пай<sub>м−1</sub>
+          по последней опубликованной точке месяца. Пустой месяц — данных нет, а не ноль.</p>
+      </div>
+
+      <h2>Помесячно</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Месяц</th><th>Точка</th><th class="num">СЧА, ₽</th><th class="num">Пай, {cur}</th><th class="num">Приток, ₽</th><th>Примечание</th><th>Источник</th></tr></thead>
+          <tbody>
+            {[...s.monthly].reverse().map((r) => (
+              <tr>
+                <td>{month(r.month)}</td><td class="mono">{date(r.date)}</td>
+                <td class="num">{money(r.nav_rub)}</td><td class="num">{r.price === null ? '—' : num(r.price, 4)}</td>
+                <td class={`num ${sign(r.flow_rub)}`}>{money(r.flow_rub)}</td><td class="muted">{r.note}</td>
+                <td>{r.src !== undefined && srcUrl(r.src) ? <a href={srcUrl(r.src)!} rel="nofollow noopener" target="_blank">{host(srcUrl(r.src))}</a> : ''}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Источники</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Что скачано</th><th>Страница УК</th><th>Получено</th><th>SHA-256</th></tr></thead>
+          <tbody>
+            {s.sources.map((src) => (
+              <tr>
+                <td class="mono">{src.id}</td>
+                <td style="word-break:break-all"><a href={src.url} rel="nofollow noopener" target="_blank">{src.url}</a>{src.stale && <span class="badge warn">старая копия</span>}</td>
+                <td>{src.page ? <a href={src.page} rel="nofollow noopener" target="_blank">{host(src.page)}</a> : '—'}</td>
+                <td class="mono">{date(src.fetched_at)}</td><td class="mono" title={src.sha256}>{src.sha256.slice(0, 12)}…</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {(s.corrections.length > 0 || s.anomalies.length > 0 || s.gaps.length > 0) && (
+        <>
+          <h2>Исправления и особенности ряда</h2>
+          <ul>
+            {s.corrections.map((c) => <li><span class="mono">{date(c.date)}{c.date_to ? `—${date(c.date_to)}` : ''}</span> {c.field === 'nav' ? 'СЧА' : 'пай'}: {c.reason}</li>)}
+            {s.anomalies.map((a) => <li><span class="mono">{date(a.date)}</span> движение цены пая {pct(a.change_pct)} (СЧА {pct(a.nav_change_pct)}) — оставлено как есть, проверьте у УК</li>)}
+            {s.gaps.map((g) => <li><span class="mono">{date(g.from)} — {date(g.to)}</span>: пропуск {g.days} дн., точки не придуманы</li>)}
+          </ul>
+        </>
+      )}
+
+      <details>
+        <summary>Все точки ряда ({s.points.length}) с источником каждой</summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Дата</th><th class="num">СЧА, {cur}</th><th class="num">Пай, {cur}</th><th>Источник</th></tr></thead>
+            <tbody>
+              {[...s.points].reverse().map((p) => (
+                <tr><td class="mono">{date(p.date)}</td><td class="num">{p.nav === null ? '—' : num(p.nav, 2)}</td>
+                  <td class="num">{p.price === null ? '—' : num(p.price, 4)}</td>
+                  <td><a href={srcUrl(p.src) ?? '#'} rel="nofollow noopener" target="_blank">#{p.src}</a></td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <Charts />
+    </>
+  ) : (
+    <div class="note warn" style="margin-top:20px">Истории СЧА и стоимости пая по этому фонду нет: {f.data_reason || f.data_status_label}.</div>
+  )}
+</Base>

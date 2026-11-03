@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import Charts from '../components/Charts.astro';
+import { funds, market, meta, uks } from '../lib/data';
+import { money, month, sign } from '../lib/format';
+
+const base = import.meta.env.BASE_URL;
+const ts = (m: string) => Date.UTC(+m.slice(0, 4), +m.slice(5, 7) - 1, 15) / 1000;
+const months: string[] = meta.months;
+const TYPE_COLORS: Record<string, string> = { open: '#38bdf8', exchange: '#c084fc', interval: '#34e3b0' };
+const cell = (rows: any[], m: string, k: string) => {
+  const r = rows.find((x: any) => x.month === m);
+  return r && r[k === 'flow_rub' ? 'funds_flow' : 'funds_nav'] ? r[k] ?? null : null;
+};
+const flowByType = {
+  kind: 'line', unit: '₽', x: months.map(ts),
+  series: market.type.map((t: any) => ({ label: meta.type_labels[t.key], color: TYPE_COLORS[t.key] ?? '#9298ba',
+    values: months.map((m) => cell(t.monthly, m, 'flow_rub')) })),
+};
+const navByType = { ...flowByType, series: market.type.map((t: any) => ({ label: meta.type_labels[t.key], color: TYPE_COLORS[t.key] ?? '#9298ba',
+  values: months.map((m) => cell(t.monthly, m, 'nav_rub')) })) };
+const total = (rows: any[], k: string, n = 12) => months.slice(-n).reduce((s, m) => s + (cell(rows, m, k) ?? 0), 0);
+const last = (rows: any[]) => cell(rows, meta.last_month, 'nav_rub');
+const groups = (key: 'type' | 'category') => market[key].map((g: any) => ({
+  key: g.key, label: key === 'type' ? meta.type_labels[g.key] : g.key, nav: last(g.monthly),
+  fm: cell(g.monthly, meta.last_month, 'flow_rub'), fq: total(g.monthly, 'flow_rub', 3), fy: total(g.monthly, 'flow_rub', 12),
+  n: funds.filter((f) => (key === 'type' ? f.type : f.category) === g.key && f.n_points > 0).length,
+  all: funds.filter((f) => (key === 'type' ? f.type : f.category) === g.key).length,
+})).sort((a: any, b: any) => (b.nav ?? 0) - (a.nav ?? 0));
+const topNav = [...uks].sort((a, b) => b.nav_rub - a.nav_rub).slice(0, 10);
+const topFlow = [...uks].sort((a, b) => b.flow_y - a.flow_y).slice(0, 10);
+const covered = funds.filter((f) => f.n_points > 0).length;
+---
+<Base title="Рынок" active="market">
+  <h1>Рынок розничных ПИФов</h1>
+  <p class="lead">СЧА и чистые притоки по типам и категориям фондов, лидеры среди управляющих компаний.
+    Считается по фондам с собранной историей: {covered} из {funds.length}. Фонды без данных в суммы не входят —
+    это нижняя оценка рынка, а не его полный размер.</p>
+
+  <div class="grid two">
+    <div class="panel"><h3>Чистые притоки по типам, ₽ в месяц</h3><div class="chart" data-chart={JSON.stringify(flowByType)}></div></div>
+    <div class="panel"><h3>СЧА по типам, ₽</h3><div class="chart" data-chart={JSON.stringify(navByType)}></div></div>
+  </div>
+
+  {(['type', 'category'] as const).map((key) => (
+    <>
+      <h2>{key === 'type' ? 'По типам фондов' : 'По категориям'}</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>{key === 'type' ? 'Тип' : 'Категория'}</th><th class="num">Фондов с рядом</th><th class="num">СЧА, {month(meta.last_month)}</th>
+            <th class="num">Приток, мес</th><th class="num">Приток, кв</th><th class="num">Приток, 12 мес</th></tr></thead>
+          <tbody>
+            {groups(key).map((g: any) => (
+              <tr><td>{g.label}</td><td class="num">{g.n} из {g.all}</td><td class="num">{money(g.nav)}</td>
+                <td class={`num ${sign(g.fm)}`}>{money(g.fm)}</td><td class={`num ${sign(g.fq)}`}>{money(g.fq)}</td>
+                <td class={`num ${sign(g.fy)}`}>{money(g.fy)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  ))}
+
+  <div class="grid two" style="margin-top:10px">
+    <div>
+      <h2>Топ-10 УК по СЧА</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>#</th><th>УК</th><th class="num">СЧА</th><th class="num">Фондов с рядом</th></tr></thead>
+        <tbody>{topNav.map((u, i) => <tr><td class="mono">{i + 1}</td><td><a href={`${base}uk/${u.inn}/`}>{u.short}</a></td>
+          <td class="num">{money(u.nav_rub)}</td><td class="num">{u.funds_with_data} из {u.funds}</td></tr>)}</tbody>
+      </table></div>
+    </div>
+    <div>
+      <h2>Топ-10 УК по притокам за 12 месяцев</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>#</th><th>УК</th><th class="num">Приток, 12 мес</th><th class="num">Приток, мес</th></tr></thead>
+        <tbody>{topFlow.map((u, i) => <tr><td class="mono">{i + 1}</td><td><a href={`${base}uk/${u.inn}/`}>{u.short}</a></td>
+          <td class={`num ${sign(u.flow_y)}`}>{money(u.flow_y)}</td><td class={`num ${sign(u.flow_m)}`}>{money(u.flow_m)}</td></tr>)}</tbody>
+      </table></div>
+    </div>
+  </div>
+  <p class="disclaimer">Не является инвестиционной рекомендацией.</p>
+  <Charts />
+</Base>

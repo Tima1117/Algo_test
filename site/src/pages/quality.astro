@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import { corrections, funds, manualCheck, meta, quality } from '../lib/data';
+import { date, money, month, num, pct } from '../lib/format';
+
+const base = import.meta.env.BASE_URL;
+const byRules = new Map(funds.map((f) => [f.rules, f]));
+const fundLink = (r: string) => byRules.get(r)?.name ?? r;
+const statuses = Object.entries(quality.totals.by_status as Record<string, number>).sort((a, b) => b[1] - a[1]);
+const checked = manualCheck.filter((r) => r.value_on_site);
+---
+<Base title="Качество данных" active="quality">
+  <h1>Качество данных</h1>
+  <p class="lead">Отчёт строится после каждого прогона сбора. Публикация данных блокируется ошибками сбора и разбора;
+    расхождения с официальной доходностью публикацию не блокируют, а помечаются в рейтинге и на карточке фонда.</p>
+
+  <div class="grid kpis">
+    <div class="panel kpi"><div class="label">Публикация</div>
+      <div class={`value ${quality.publish_allowed ? 'pos' : 'neg'}`}>{quality.publish_allowed ? 'разрешена' : 'запрещена'}</div>
+      <div class="hint">ошибок сбора/разбора: {quality.errors.length}</div></div>
+    <div class="panel kpi"><div class="label">Фондов с рядом</div><div class="value">{quality.totals.with_series} / {quality.totals.funds}</div>
+      <div class="hint">данные на {date(quality.as_of)}</div></div>
+    <div class="panel kpi"><div class="label">Сверок доходности</div><div class="value">{quality.checks.ok} / {quality.checks.total}</div>
+      <div class="hint">сошлись в пределах 0,5 п. п.; расхождений: {quality.checks.discrepancies}</div></div>
+    <div class="panel kpi"><div class="label">Исправлений рядов</div><div class="value">{quality.corrections_count}</div>
+      <div class="hint">аномалий без исправления: {quality.anomalies.length}</div></div>
+  </div>
+
+  <h2>Покрытие и статусы</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Статус данных</th><th class="num">Фондов</th></tr></thead>
+    <tbody>{statuses.map(([k, v]) => <tr><td>{meta.status_labels[k] ?? k}</td><td class="num">{v}</td></tr>)}</tbody>
+  </table></div>
+
+  <h2>Расхождения с официальной доходностью</h2>
+  {quality.discrepancies.length === 0 ? <p class="muted">Нет.</p> : (
+    <div class="table-wrap"><table>
+      <thead><tr><th>Фонд</th><th>Период</th><th>На дату</th><th class="num">По ряду</th><th class="num">Официальная</th><th class="num">Разница, п. п.</th><th>Источник</th></tr></thead>
+      <tbody>{quality.discrepancies.map((d: any) => (
+        <tr><td><a href={`${base}fund/${d.rules}/`}>{fundLink(d.rules)}</a><div class="sub muted">{d.uk}</div></td><td>{d.period}</td><td class="mono">{date(d.as_of)}</td>
+          <td class="num">{pct(d.ours)}</td><td class="num">{pct(d.official)}</td><td class="num neg">{num(d.diff_pp, 2)}</td>
+          <td>{d.source_url && <a href={d.source_url} rel="nofollow noopener" target="_blank">открыть</a>}</td></tr>
+      ))}</tbody>
+    </table></div>
+  )}
+
+  <h2>Ручная сверка: 15 случайных значений</h2>
+  <p class="muted">Выборка фиксирована (seed), значения проверяются глазами на сайтах УК. Проверено: {checked.length} из {manualCheck.length}.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Фонд</th><th>Дата</th><th>Поле</th><th class="num">У нас</th><th class="num">На сайте УК</th><th>Совпало</th><th>Где смотреть</th></tr></thead>
+    <tbody>{manualCheck.map((r) => (
+      <tr><td class="mono">{r.n}</td><td><a href={`${base}fund/${r.rules}/`}>{r.fund}</a><div class="sub muted">{r.uk}</div></td>
+        <td class="mono">{date(r.date)}</td><td>{r.field}</td><td class="num">{num(Number(r.our_value), 4)}</td>
+        <td class="num">{r.value_on_site || '—'}</td><td>{r.match || 'не проверено'}</td>
+        <td><a href={r.page_url || r.raw_url} rel="nofollow noopener" target="_blank">источник</a></td></tr>
+    ))}</tbody>
+  </table></div>
+
+  <h2>Ошибки сбора и разбора</h2>
+  {quality.errors.length === 0 ? <p class="muted">Нет.</p> : <ul>{quality.errors.map((e: any) => <li>{e.uk} {e.rules && <a href={`${base}fund/${e.rules}/`}>{e.rules}</a>}: {e.message}</li>)}</ul>}
+
+  <h2>Предупреждения</h2>
+  <details><summary>Сайты, которые не ответили или закрыли доступ ({quality.warnings.length})</summary>
+    <ul>{quality.warnings.map((w: any) => <li>{w.uk} <a href={`${base}fund/${w.rules}/`}>{fundLink(w.rules)}</a>: {w.message}</li>)}</ul>
+  </details>
+
+  <h2>Журнал исправлений рядов</h2>
+  <details><summary>Все исправления ({corrections.length})</summary>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Фонд</th><th>Дата</th><th>Поле</th><th>Действие</th><th>Причина</th></tr></thead>
+      <tbody>{corrections.map((c) => (
+        <tr><td><a href={`${base}fund/${c.rules}/`}>{fundLink(c.rules)}</a></td><td class="mono">{date(c.date)}{c.date_to ? ` — ${date(c.date_to)}` : ''}</td>
+          <td>{c.field === 'nav' ? 'СЧА' : 'пай'}</td><td>{c.action}{c.factor ? ` ×${c.factor}` : ''}</td><td class="muted">{c.reason}</td></tr>
+      ))}</tbody>
+    </table></div>
+  </details>
+
+  <h2>Аномалии без исправления</h2>
+  <details><summary>Большие движения цены пая, оставленные как есть ({quality.anomalies.length})</summary>
+    <ul>{quality.anomalies.map((a: any) => <li><a href={`${base}fund/${a.rules}/`}>{fundLink(a.rules)}</a>, {date(a.date)}: пай {pct(a.change_pct)}, СЧА {pct(a.nav_change_pct)}</li>)}</ul>
+  </details>
+
+  <h2>Сходимость сводов притоков</h2>
+  <p class="muted">Сумма притоков по фондам должна совпадать с итогами по УК, типам, категориям и рынку.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Месяц</th><th class="num">Сумма по фондам</th><th class="num">По УК</th><th class="num">По типам</th><th class="num">По категориям</th><th class="num">Рынок</th><th>Сходится</th></tr></thead>
+    <tbody>{quality.consistency.map((c: any) => (
+      <tr><td>{month(c.month)}</td><td class="num">{money(c.funds)}</td><td class="num">{money(c.uk)}</td><td class="num">{money(c.type)}</td>
+        <td class="num">{money(c.category)}</td><td class="num">{money(c.market)}</td><td>{c.ok ? <span class="badge ok">да</span> : <span class="badge bad">нет</span>}</td></tr>
+    ))}</tbody>
+  </table></div>
+</Base>

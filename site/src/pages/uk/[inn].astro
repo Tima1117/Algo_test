@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import Charts from '../../components/Charts.astro';
+import { COMPARE_UK_URL, funds, meta, uks, type Uk } from '../../lib/data';
+import { date, host, money, month, pct, sign } from '../../lib/format';
+
+export function getStaticPaths() {
+  return uks.map((u) => ({ params: { inn: u.inn }, props: { u } }));
+}
+const { u } = Astro.props as { u: Uk };
+const base = import.meta.env.BASE_URL;
+const list = funds.filter((f) => f.uk_inn === u.inn).sort((a, b) => (b.nav_rub ?? -1) - (a.nav_rub ?? -1));
+const ts = (m: string) => Date.UTC(+m.slice(0, 4), +m.slice(5, 7) - 1, 15) / 1000;
+const chart = {
+  kind: 'bars', unit: '₽', x: u.monthly.map((r) => ts(r.month)),
+  series: [{ label: 'Чистый приток, ₽', values: u.monthly.map((r) => (r.funds_flow ? r.flow_rub ?? null : null)), color: '#22d3ee' }],
+};
+const navChart = {
+  kind: 'line', unit: '₽', x: u.monthly.map((r) => ts(r.month)),
+  series: [{ label: 'СЧА фондов с рядом, ₽', values: u.monthly.map((r) => (r.funds_nav ? r.nav_rub ?? null : null)), color: '#38bdf8' }],
+};
+const statusClass = (s: string) => (s === 'ok' ? 'ok' : ['partial', 'stale', 'not_formed'].includes(s) ? 'warn' : 'bad');
+---
+<Base title={u.short} active="rating">
+  <p class="muted"><a href={base}>Рейтинг</a> / управляющая компания</p>
+  <h1>{u.short}</h1>
+  <p class="muted">{u.name} · ИНН <span class="mono">{u.inn}</span> · ОГРН <span class="mono">{u.ogrn}</span>
+    {u.site && <> · <a href={u.site} rel="nofollow noopener" target="_blank">{host(u.site)}</a></>}</p>
+  <p><a class="btn" href={`${COMPARE_UK_URL}?inn=${u.inn}`}>Открыть в разделе «Сравнить УК»</a>
+    <a class="btn" href={`${base}?uk=${u.inn}`}>Фонды УК в рейтинге</a></p>
+
+  <div class="grid kpis">
+    <div class="panel kpi"><div class="label">Розничных фондов</div><div class="value">{u.funds}</div><div class="hint">с рядом: {u.funds_with_data}</div></div>
+    <div class="panel kpi"><div class="label">Суммарная СЧА</div><div class="value">{money(u.nav_rub)}</div><div class="hint">по фондам с рядом, {date(meta.as_of)}</div></div>
+    <div class="panel kpi"><div class="label">Приток, {month(meta.last_month)}</div><div class={`value ${sign(u.flow_m)}`}>{money(u.flow_m)}</div><div class="hint">квартал: {money(u.flow_q)}</div></div>
+    <div class="panel kpi"><div class="label">Приток за 12 месяцев</div><div class={`value ${sign(u.flow_y)}`}>{money(u.flow_y)}</div><div class="hint">сумма по фондам с полным годом</div></div>
+  </div>
+
+  {u.funds_with_data > 0 && (
+    <div class="grid two">
+      <div class="panel"><h3>СЧА по месяцам</h3><div class="chart" data-chart={JSON.stringify(navChart)}></div></div>
+      <div class="panel"><h3>Чистые притоки по месяцам</h3><div class="chart" data-chart={JSON.stringify(chart)}></div></div>
+    </div>
+  )}
+
+  <h2>Фонды</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Фонд</th><th class="num">СЧА</th><th class="num">Приток, мес</th><th class="num">Приток, год</th><th class="num">1 год</th><th>Данные</th></tr></thead>
+      <tbody>
+        {list.map((f) => (
+          <tr>
+            <td class="fund"><a href={`${base}fund/${f.rules}/`}>{f.name}</a><div class="sub">{f.type_label} · {f.category}</div></td>
+            <td class="num">{money(f.nav_rub)}</td>
+            <td class={`num ${sign(f.flow_m)}`}>{money(f.flow_m)}</td>
+            <td class={`num ${sign(f.flow_y)}`}>{money(f.flow_y)}</td>
+            <td class={`num ${sign(f.ret_1y)}`}>{pct(f.ret_1y)}</td>
+            <td><span class={`badge ${statusClass(f.data_status)}`} title={f.data_reason}>{f.data_status_label}</span></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="disclaimer">Суммы — только по фондам с собранным рядом; месяц без данных по фонду в сумму не входит.
+    Не является инвестиционной рекомендацией.</p>
+  <Charts />
+</Base>

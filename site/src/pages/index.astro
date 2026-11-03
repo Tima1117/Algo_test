@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+import { funds, meta, quality, uks } from '../lib/data';
+import { date, money, month, pct, sign } from '../lib/format';
+
+const base = import.meta.env.BASE_URL;
+const sorted = [...funds].sort((a, b) => (b.nav_rub ?? -1) - (a.nav_rub ?? -1));
+const categories = [...new Set(funds.map((f) => f.category))].sort();
+const currencies = [...new Set(funds.map((f) => f.currency))].sort();
+const ukOptions = [...uks].sort((a, b) => a.short.localeCompare(b.short, 'ru'));
+const withData = funds.filter((f) => f.n_points > 0).length;
+const navTotal = funds.reduce((s, f) => s + (f.nav_rub ?? 0), 0);
+const flowMonth = funds.reduce((s, f) => s + (f.flow_m ?? 0), 0);
+const statusClass = (s: string) => (['ok'].includes(s) ? 'ok' : ['partial', 'stale', 'not_formed'].includes(s) ? 'warn' : 'bad');
+const attr = (v: number | null) => (v === null || v === undefined ? '' : String(v));
+---
+<Base title="Рейтинг фондов" active="rating">
+  <h1><span class="grad">Реестр розничных ПИФов</span></h1>
+  <p class="lead">
+    Все действующие открытые, интервальные и биржевые паевые фонды для неквалифицированных инвесторов
+    по реестру Банка России на {date(meta.registry.fetched_at)}. СЧА, стоимость пая и притоки собраны с сайтов
+    управляющих компаний; у каждой цифры есть источник.
+  </p>
+
+  <div class="grid kpis">
+    <div class="panel kpi"><div class="label">Фондов в реестре</div><div class="value">{funds.length}</div>
+      <div class="hint">{uks.length} управляющих компаний</div></div>
+    <div class="panel kpi"><div class="label">С собранной историей</div><div class="value">{withData}</div>
+      <div class="hint">у остальных — статус с причиной</div></div>
+    <div class="panel kpi"><div class="label">СЧА собранных фондов</div><div class="value">{money(navTotal)}</div>
+      <div class="hint">на {date(meta.as_of)}</div></div>
+    <div class="panel kpi"><div class="label">Чистый приток, {month(meta.last_month)}</div>
+      <div class={`value ${sign(flowMonth)}`}>{money(flowMonth)}</div><div class="hint">по фондам с рядом</div></div>
+  </div>
+
+  {!quality.publish_allowed && <div class="note bad">Последний прогон нашёл ошибки сбора или разбора — данные не обновлялись. Подробности в разделе «Качество данных».</div>}
+
+  <form class="filters" id="filters" role="search" onsubmit="return false">
+    <input type="search" name="q" placeholder="Название, ISIN, тикер или номер правил" aria-label="Поиск" />
+    <select name="type" aria-label="Тип">
+      <option value="">Все типы</option><option value="open">Открытые</option>
+      <option value="exchange">Биржевые</option><option value="interval">Интервальные</option>
+    </select>
+    <select name="cat" aria-label="Категория">
+      <option value="">Все категории</option>{categories.map((c) => <option value={c}>{c}</option>)}
+    </select>
+    <select name="uk" aria-label="Управляющая компания">
+      <option value="">Все УК</option>{ukOptions.map((u) => <option value={u.inn}>{u.short}</option>)}
+    </select>
+    <select name="cur" aria-label="Валюта">
+      <option value="">Любая валюта</option>{currencies.map((c) => <option value={c}>{c}</option>)}
+    </select>
+    <label><input type="checkbox" name="has" value="1" /> только с данными</label>
+    <a class="btn" href={`${base}data/rating.csv`} download>Скачать CSV</a>
+  </form>
+  <p class="count" id="count"></p>
+
+  <div class="table-wrap">
+    <table id="rating">
+      <thead>
+        <tr>
+          <th class="sticky-col sortable" data-key="name">Фонд</th>
+          <th class="num sortable" data-key="nav" aria-sort="descending">СЧА</th>
+          <th class="num sortable" data-key="fm" title={`Чистый приток за ${month(meta.last_month)}`}>Приток, мес</th>
+          <th class="num sortable" data-key="fq" title="За последние 3 полных месяца">Приток, кв</th>
+          <th class="num sortable" data-key="fy" title="За последние 12 полных месяцев">Приток, год</th>
+          <th class="num sortable" data-key="r1m">1 мес</th>
+          <th class="num sortable" data-key="r3m">3 мес</th>
+          <th class="num sortable" data-key="r6m">6 мес</th>
+          <th class="num sortable" data-key="r1y">1 год</th>
+          <th class="hide-sm">Данные</th>
+        </tr>
+      </thead>
+      <tbody>
+        {sorted.map((f) => (
+          <tr data-name={`${f.name} ${f.full_name} ${f.isin ?? ''} ${f.ticker ?? ''} ${f.rules}`.toLowerCase()}
+              data-type={f.type} data-cat={f.category} data-uk={f.uk_inn} data-cur={f.currency}
+              data-has={f.n_points > 0 ? '1' : '0'} data-nav={attr(f.nav_rub)} data-fm={attr(f.flow_m)}
+              data-fq={attr(f.flow_q)} data-fy={attr(f.flow_y)} data-r1m={attr(f.ret_1m)} data-r3m={attr(f.ret_3m)}
+              data-r6m={attr(f.ret_6m)} data-r1y={attr(f.ret_1y)} data-sortname={f.name.toLowerCase()}>
+            <td class="fund sticky-col">
+              <a href={`${base}fund/${f.rules}/`}>{f.name}</a>
+              <div class="sub">{f.type_label} · <a href={`${base}uk/${f.uk_inn}/`} class="muted">{f.uk_short}</a>{f.ticker && <> · <span class="mono">{f.ticker}</span></>}{f.currency !== 'RUB' && <> · {f.currency}</>}</div>
+            </td>
+            <td class="num">{money(f.nav_rub)}</td>
+            <td class={`num ${sign(f.flow_m)}`}>{money(f.flow_m)}</td>
+            <td class={`num ${sign(f.flow_q)}`}>{money(f.flow_q)}</td>
+            <td class={`num ${sign(f.flow_y)}`}>{money(f.flow_y)}</td>
+            {(['1m', '3m', '6m', '1y'] as const).map((k) => {
+              const v = f[`ret_${k}`];
+              const off = f.official[k];
+              const bad = off && off.status.startsWith('расхождение');
+              return <td class={`num ${sign(v)}`} title={off ? `Официальная: ${pct(off.value)} на ${date(off.as_of)} — ${off.status}` : ''}>
+                {pct(v)}{bad && <span class="badge warn" title="Расходится с официальной доходностью больше чем на 0,5 п. п."> ≠</span>}
+              </td>;
+            })}
+            <td class="hide-sm"><span class={`badge ${statusClass(f.data_status)}`} title={f.data_reason}>{f.data_status_label}</span></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="disclaimer">
+    Доходность — изменение расчётной стоимости пая по собранному ряду на {date(meta.as_of)}; знак ≠ — расхождение с официально
+    опубликованной УК доходностью больше 0,5 п. п. Не является инвестиционной рекомендацией; доходность в прошлом не гарантирует
+    доходности в будущем. Притоки — в рублях, за последний полный месяц ({month(meta.last_month)}), квартал и 12 месяцев.
+  </p>
+
+  <script>
+    const form = document.getElementById('filters') as HTMLFormElement;
+    const table = document.getElementById('rating') as HTMLTableElement;
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    const count = document.getElementById('count')!;
+    const keys = ['q', 'type', 'cat', 'uk', 'cur', 'has', 'sort', 'dir'];
+    let sortKey = 'nav';
+    let sortDir: 'asc' | 'desc' = 'desc';
+
+    function readUrl() {
+      const p = new URLSearchParams(location.search);
+      for (const el of Array.from(form.elements) as HTMLInputElement[]) {
+        if (!el.name) continue;
+        if (el.type === 'checkbox') el.checked = p.get(el.name) === el.value;
+        else el.value = p.get(el.name) ?? '';
+      }
+      sortKey = p.get('sort') || 'nav';
+      sortDir = (p.get('dir') as 'asc' | 'desc') || (sortKey === 'name' ? 'asc' : 'desc');
+    }
+
+    function writeUrl() {
+      const p = new URLSearchParams(location.search);
+      keys.forEach((k) => p.delete(k));
+      const fd = new FormData(form);
+      for (const [k, v] of fd.entries()) if (v) p.set(k, String(v));
+      if (sortKey !== 'nav' || sortDir !== 'desc') { p.set('sort', sortKey); p.set('dir', sortDir); }
+      const qs = p.toString();
+      history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
+    }
+
+    function apply() {
+      const fd = new FormData(form);
+      const q = String(fd.get('q') || '').trim().toLowerCase();
+      const f = { type: fd.get('type'), cat: fd.get('cat'), uk: fd.get('uk'), cur: fd.get('cur'), has: fd.get('has') };
+      let shown = 0;
+      for (const r of rows) {
+        const d = r.dataset;
+        const ok = (!q || q.split(/\s+/).every((w) => d.name!.includes(w))) &&
+          (!f.type || d.type === f.type) && (!f.cat || d.cat === f.cat) && (!f.uk || d.uk === f.uk) &&
+          (!f.cur || d.cur === f.cur) && (!f.has || d.has === '1');
+        r.hidden = !ok;
+        if (ok) shown++;
+      }
+      const sorted = rows.slice().sort((a, b) => {
+        if (sortKey === 'name') {
+          const c = a.dataset.sortname!.localeCompare(b.dataset.sortname!, 'ru');
+          return sortDir === 'asc' ? c : -c;
+        }
+        const av = a.dataset[sortKey], bv = b.dataset[sortKey];
+        if (!av && !bv) return 0;
+        if (!av) return 1;          // пустые значения всегда внизу
+        if (!bv) return -1;
+        return sortDir === 'asc' ? Number(av) - Number(bv) : Number(bv) - Number(av);
+      });
+      tbody.append(...sorted);
+      table.querySelectorAll('th.sortable').forEach((th) => {
+        const k = (th as HTMLElement).dataset.key;
+        if (k === sortKey) th.setAttribute('aria-sort', sortDir === 'asc' ? 'ascending' : 'descending');
+        else th.removeAttribute('aria-sort');
+      });
+      count.textContent = `Показано фондов: ${shown} из ${rows.length}`;
+    }
+
+    table.querySelectorAll('th.sortable').forEach((th) => th.addEventListener('click', () => {
+      const k = (th as HTMLElement).dataset.key!;
+      if (k === sortKey) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      else { sortKey = k; sortDir = k === 'name' ? 'asc' : 'desc'; }
+      apply(); writeUrl();
+    }));
+    form.addEventListener('input', () => { apply(); writeUrl(); });
+    readUrl();
+    apply();
+  </script>
+</Base>

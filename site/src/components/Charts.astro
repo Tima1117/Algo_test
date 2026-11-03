@@ -1,0 +1,68 @@
+---
+// Подключается один раз на страницу: рисует все блоки <div data-chart='{...}'> через uPlot.
+---
+<script>
+  import uPlot from 'uplot';
+  import 'uplot/dist/uPlot.min.css';
+
+  type Cfg = {
+    kind: 'line' | 'bars';
+    x: number[];                         // unix-время, секунды
+    series: { label: string; values: (number | null)[]; color: string }[];
+    unit: string;
+    links?: (string | null)[];           // источник каждой точки
+    info?: string;                       // id элемента, куда выводить точку под курсором
+  };
+
+  const fmt = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 2 });
+  const short = (v: number) => {
+    const a = Math.abs(v);
+    if (a >= 1e9) return fmt.format(v / 1e9) + ' млрд';
+    if (a >= 1e6) return fmt.format(v / 1e6) + ' млн';
+    if (a >= 1e3) return fmt.format(v / 1e3) + ' тыс';
+    return fmt.format(v);
+  };
+  const day = (t: number) => new Date(t * 1000).toLocaleDateString('ru-RU', { timeZone: 'UTC' });
+
+  function render(el: HTMLElement) {
+    const cfg = JSON.parse(el.dataset.chart!) as Cfg;
+    const bars = cfg.kind === 'bars';
+    const info = cfg.info ? document.getElementById(cfg.info) : null;
+    const opts: uPlot.Options = {
+      width: el.clientWidth,
+      height: el.clientWidth < 500 ? 220 : 280,
+      scales: { x: { time: true } },
+      axes: [
+        { stroke: '#9298ba', grid: { stroke: 'rgba(146,152,186,.10)' }, ticks: { stroke: 'rgba(146,152,186,.2)' } },
+        { stroke: '#9298ba', grid: { stroke: 'rgba(146,152,186,.10)' }, ticks: { stroke: 'rgba(146,152,186,.2)' },
+          size: 70, values: (_u, vals) => vals.map((v) => short(v)) },
+      ],
+      series: [
+        { value: (_u, v) => (v == null ? '—' : day(v)) },
+        ...cfg.series.map((s) => ({
+          label: s.label, stroke: s.color, width: bars ? 0 : 2,
+          fill: bars ? s.color + 'cc' : s.color + '14',
+          spanGaps: false,                          // пропуски остаются пропусками
+          paths: bars ? uPlot.paths.bars!({ size: [0.6, 40] }) : undefined,
+          points: { show: false },
+          value: (_u: uPlot, v: number | null) => (v == null ? '—' : `${fmt.format(v)} ${cfg.unit}`),
+        })),
+      ],
+      cursor: { points: { size: 6 } },
+      hooks: info && cfg.links ? {
+        setCursor: [(u: uPlot) => {
+          const i = u.cursor.idx;
+          if (i == null) return;
+          const link = cfg.links![i];
+          info.innerHTML = `${day(cfg.x[i])}: ` + cfg.series.map((s) => s.values[i] == null ? '—'
+            : `${fmt.format(s.values[i]!)} ${cfg.unit}`).join(' / ') +
+            (link ? ` · <a href="${link}" rel="nofollow noopener" target="_blank">источник</a>` : '');
+        }],
+      } : {},
+    };
+    const plot = new uPlot(opts, [cfg.x, ...cfg.series.map((s) => s.values)] as uPlot.AlignedData, el);
+    new ResizeObserver(() => plot.setSize({ width: el.clientWidth, height: opts.height })).observe(el);
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-chart]').forEach(render);
+</script>

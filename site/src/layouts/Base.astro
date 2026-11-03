@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+import { meta } from '../lib/data';
+import { date } from '../lib/format';
+
+interface Props { title: string; description?: string; active?: string }
+const { title, description = 'Реестр открытых, интервальных и биржевых ПИФов России: СЧА, стоимость пая, притоки. Данные из первичных источников.', active = '' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const nav = [
+  ['rating', '', 'Рейтинг'],
+  ['market', 'market/', 'Рынок'],
+  ['quality', 'quality/', 'Качество данных'],
+  ['about', 'about/', 'Источники и методика'],
+];
+---
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Реестр ПИФов · Алгосфера</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#05060f" />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap">
+        <a class="brand" href={base}>Алгосфера <span>· ПИФы</span></a>
+        <nav class="main">
+          {nav.map(([key, href, label]) => <a href={base + href} class={active === key ? 'on' : ''}>{label}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main class="wrap"><slot /></main>
+    <footer class="bottom">
+      <div class="wrap">
+        <p>
+          Данные на {date(meta.as_of)}. Список фондов — <a href={meta.registry.source_page} rel="nofollow">реестр ПИФ Банка России</a>
+          (получен {date(meta.registry.fetched_at)}), СЧА и стоимость пая — сайты управляющих компаний, у каждой точки есть ссылка на источник.
+        </p>
+        <p>Информация носит справочный характер и не является инвестиционной рекомендацией. Доходность в прошлом не гарантирует доходности в будущем.</p>
+      </div>
+    </footer>
+  </body>
+</html>
