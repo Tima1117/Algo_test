@@ -21,8 +21,7 @@
   ],
   "method": "GET",
   "path": "aaacapital.ru/dd8b33b193b65ad217ab.html",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:32:25+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "0f53180abb283950a5b0",
@@ -32,8 +31,7 @@
   "funds": [],
   "method": "GET",
   "path": "aaacapital.ru/0f53180abb283950a5b0.txt",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:07:05+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "f64ff7b910b20fdbdfd3",
@@ -45,8 +43,7 @@
   ],
   "method": "GET",
   "path": "amgeneralinvest.ru/f64ff7b910b20fdbdfd3.html",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:32:25+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "ba711e9132f92f2ae24b",
@@ -56,8 +53,7 @@
   "funds": [],
   "method": "GET",
   "path": "amgeneralinvest.ru/ba711e9132f92f2ae24b.txt",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:07:43+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "1c84736baa19dc7ef48d",
@@ -1626,8 +1622,7 @@
   "funds": [],
   "method": "GET",
   "path": "api-invest-gw.tinkoff.ru/91a0aa02380e4d9f4ffa.txt",
-  "status": "error: HTTP 404",
-  "checked_at": "2026-11-03T16:31:28+00:00"
+  "status": "error: HTTP 404"
  },
  {
   "key": "c0da51dd3ed857caa33f",
@@ -2160,8 +2155,7 @@
   ],
   "method": "GET",
   "path": "astra-am.ru/9dc907d7940ed3e77069.html",
-  "status": "error: сайт не отвечает (ReadTimeout)",
-  "checked_at": "2026-11-03T16:31:44+00:00"
+  "status": "error: сайт не отвечает (ReadTimeout)"
  },
  {
   "key": "df45c209470eed979e5b",
@@ -2205,8 +2199,7 @@
   ],
   "method": "GET",
   "path": "bcs.ru/a2aa15cfd05bf60ea555.html",
-  "status": "error: антибот-проверка вместо данных",
-  "checked_at": "2026-11-03T16:32:27+00:00"
+  "status": "error: антибот-проверка вместо данных"
  },
  {
   "key": "39abf02f0cf8b878a707",
@@ -2216,8 +2209,7 @@
   "funds": [],
   "method": "GET",
   "path": "bcs.ru/39abf02f0cf8b878a707.txt",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:07:53+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "4dc18de0a92b48b6c20b",
@@ -2976,8 +2968,7 @@
   "funds": [],
   "method": "GET",
   "path": "entrustment.ru/d211dc02b094f91365b8.txt",
-  "status": "error: доступ закрыт сайтом (HTTP 404)",
-  "checked_at": "2026-11-03T16:31:07+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 404)"
  },
  {
   "key": "6983d277c6f7d0ea9c74",
@@ -3045,8 +3036,7 @@
   "funds": [],
   "method": "GET",
   "path": "ew-mc.ru/81962c4df994a1fda5d8.txt",
-  "status": "error: HTTP 404",
-  "checked_at": "2026-11-03T16:31:07+00:00"
+  "status": "error: HTTP 404"
  },
  {
   "key": "f32c55c05e642b1aa148",
@@ -3442,8 +3432,7 @@
   "funds": [],
   "method": "GET",
   "path": "ih-capital.ru/37a0043344d888c429b9.txt",
-  "status": "error: HTTP 404",
-  "checked_at": "2026-11-03T16:31:08+00:00"
+  "status": "error: HTTP 404"
  },
  {
   "key": "7e727743389fa7a72380",
@@ -4782,8 +4771,7 @@
   ],
   "method": "GET",
   "path": "mkb-am.ru/cb31abe2bb3c41df5c95.html",
-  "status": "error: сайт не отвечает (ConnectTimeout)",
-  "checked_at": "2026-11-03T16:32:37+00:00"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "b209b395c0cdd9f8761a",
@@ -4793,8 +4781,7 @@
   "funds": [],
   "method": "GET",
   "path": "mkb-am.ru/b209b395c0cdd9f8761a.txt",
-  "status": "error: сайт не отвечает (ConnectTimeout)",
-  "checked_at": "2026-11-03T16:09:31+00:00"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "5f5019dcad8e38a41ac7",
@@ -5442,7 +5429,6 @@
   "method": "GET",
   "path": "pif.am-metropol.ru/b36ec7885b3d562477ca.html",
   "status": "ok",
-  "checked_at": "2026-11-03T15:33:58+00:00",
   "fetched_at": "2026-11-03T15:34:34+00:00",
   "sha256": "900e0e8bfa67e78b8769417ae57d7c9b1d21cd2dee91b12105b47966bc3727d7",
   "bytes": 1093283,
@@ -6016,8 +6002,7 @@
   "funds": [],
   "method": "GET",
   "path": "region-am.ru/71049ea1d66133f422bc.txt",
-  "status": "error: HTTP 404",
-  "checked_at": "2026-11-03T16:31:15+00:00"
+  "status": "error: HTTP 404"
  },
  {
   "key": "1dd385939d67c2b3ba9d",
@@ -6407,8 +6392,7 @@
   "funds": [],
   "method": "GET",
   "path": "t-capital-funds.ru/0fad7f70152445bcabfd.txt",
-  "status": "error: HTTP 404",
-  "checked_at": "2026-11-03T16:31:25+00:00"
+  "status": "error: HTTP 404"
  },
  {
   "key": "01acfdd7d6a4989fcc03",
@@ -6420,8 +6404,7 @@
   ],
   "method": "GET",
   "path": "uk-du-invest.ru/01acfdd7d6a4989fcc03.html",
-  "status": "error: сайт не отвечает (ConnectTimeout)",
-  "checked_at": "2026-11-03T16:32:47+00:00"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "38a8f3a294d6d05a67e5",
@@ -6431,8 +6414,7 @@
   "funds": [],
   "method": "GET",
   "path": "uk-du-invest.ru/38a8f3a294d6d05a67e5.txt",
-  "status": "error: сайт не отвечает (ConnectTimeout)",
-  "checked_at": "2026-11-03T16:12:43+00:00"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "ff7d2246262769d1daad",
@@ -8398,8 +8380,7 @@
   ],
   "method": "GET",
   "path": "www.acapital-am.ru/b6a7aef0d07d1b788de0.html",
-  "status": "error: сайт не отвечает (ReadTimeout)",
-  "checked_at": "2026-11-03T16:31:47+00:00"
+  "status": "error: сайт не отвечает (ReadTimeout)"
  },
  {
   "key": "b7410aca6e9b50b73bbc",
@@ -8433,8 +8414,7 @@
   ],
   "method": "GET",
   "path": "www.akbars-capital.ru/391c35fa3b5cd5ae4ac7.html",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:32:47+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "473e8c2ebc011b5db491",
@@ -8444,8 +8424,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.akbars-capital.ru/473e8c2ebc011b5db491.txt",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:14:20+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "38388e5bc1f9d048d1f5",
@@ -12421,8 +12400,7 @@
   ],
   "method": "GET",
   "path": "www.am-aton.ru/240be95debe59885038f.html",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:32:49+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "7a66166b77fe8c0e1310",
@@ -12432,8 +12410,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.am-aton.ru/7a66166b77fe8c0e1310.txt",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:14:29+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "acfdab2fb3d22eff41be",
@@ -14740,8 +14717,7 @@
   ],
   "method": "GET",
   "path": "www.energy-invest.ru/d63b42e308f1a513accd.html",
-  "status": "error: сайт не отвечает (ConnectTimeout)",
-  "checked_at": "2026-11-03T16:32:59+00:00"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "2c82280107409135a70c",
@@ -14751,8 +14727,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.energy-invest.ru/2c82280107409135a70c.txt",
-  "status": "error: сайт не отвечает (ConnectTimeout)",
-  "checked_at": "2026-11-03T16:16:15+00:00"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "8b26f10a601b1d81c13b",
@@ -14767,8 +14742,7 @@
   ],
   "method": "GET",
   "path": "www.fdu.ru/8b26f10a601b1d81c13b.html",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:33:06+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "73349c6280c1cd6696d1",
@@ -14778,8 +14752,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.fdu.ru/73349c6280c1cd6696d1.txt",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:18:08+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "fbe3a1afd9afc5f16899",
@@ -16237,8 +16210,7 @@
   ],
   "method": "GET",
   "path": "www.monomah.ru/9f3caa218a83a32c62d1.html",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:33:06+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "89269b7a18f0a3dbaf31",
@@ -16248,8 +16220,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.monomah.ru/89269b7a18f0a3dbaf31.txt",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:18:25+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "f4b61cb41862feb6cd52",
@@ -16261,8 +16232,7 @@
   ],
   "method": "GET",
   "path": "www.p-fondy.ru/f4b61cb41862feb6cd52.html",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:33:06+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "3416d480756de3b856a5",
@@ -16272,8 +16242,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.p-fondy.ru/3416d480756de3b856a5.txt",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:18:39+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "0b96b996544a464242cb",
@@ -16931,8 +16900,7 @@
   ],
   "method": "GET",
   "path": "www.rshb-am.ru/e69ffd4d72bef8dd60e5.html",
-  "status": "error: сайт не отвечает (ConnectTimeout)",
-  "checked_at": "2026-11-03T16:33:16+00:00"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "02f9a141da409048c565",
@@ -16942,8 +16910,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.rshb-am.ru/02f9a141da409048c565.txt",
-  "status": "error: сайт не отвечает (ConnectTimeout)",
-  "checked_at": "2026-11-03T16:20:23+00:00"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "5f7558953fed5bb15f0a",
@@ -16955,8 +16922,7 @@
   ],
   "method": "GET",
   "path": "www.szuk.ru/5f7558953fed5bb15f0a.html",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:33:17+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "6c63bc9f322d7b35cb70",
@@ -16966,8 +16932,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.szuk.ru/6c63bc9f322d7b35cb70.txt",
-  "status": "error: сайт недоступен (ConnectError)",
-  "checked_at": "2026-11-03T16:22:10+00:00"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "215cdab45c7403a41966",
@@ -17922,8 +17887,7 @@
   ],
   "method": "GET",
   "path": "www.trinfico-am.ru/f20599b95540a68705cf.html",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:31:39+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "b34d8b86db1845c3c919",
@@ -17933,8 +17897,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.trinfico-am.ru/b34d8b86db1845c3c919.txt",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:31:37+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "20a1a396600027414149",
@@ -17946,8 +17909,7 @@
   ],
   "method": "GET",
   "path": "www.uksun.ru/20a1a396600027414149.html",
-  "status": "error: сайт не отвечает (ConnectTimeout)",
-  "checked_at": "2026-11-03T16:33:27+00:00"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "8d652fb50aae55040fa0",
@@ -17957,8 +17919,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.uksun.ru/8d652fb50aae55040fa0.txt",
-  "status": "error: сайт не отвечает (ConnectTimeout)",
-  "checked_at": "2026-11-03T16:23:58+00:00"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "48ded482a5060d866a0f",
@@ -18705,8 +18666,7 @@
   ],
   "method": "GET",
   "path": "www.wealthim.ru/4c818e1eacba2492e57a.html",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:33:27+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "338b959a7532ccf2bf1c",
@@ -18716,8 +18676,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.wealthim.ru/338b959a7532ccf2bf1c.txt",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:25:35+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "fc6122399183b96d1550",
@@ -18729,8 +18688,7 @@
   ],
   "method": "GET",
   "path": "www.wimsavings.ru/fc6122399183b96d1550.html",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:33:28+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "7287a254d0d961e88a06",
@@ -18740,7 +18698,6 @@
   "funds": [],
   "method": "GET",
   "path": "www.wimsavings.ru/7287a254d0d961e88a06.txt",
-  "status": "error: доступ закрыт сайтом (HTTP 403)",
-  "checked_at": "2026-11-03T16:25:36+00:00"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  }
 ]

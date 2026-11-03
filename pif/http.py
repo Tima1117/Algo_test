@@ -282,7 +282,8 @@ class Fetcher:
             resp = self._request(domain, method, url, params, body, req_headers, attempts)
         except FetchError as err:
             self.stats.inc("errors")
-            self.manifest.put({**base, "status": f"error: {err.reason}", "checked_at": _now().isoformat()})
+            # время неудачной попытки не пишем: иначе каждый прогон менял бы манифест без изменений на сайтах
+            self.manifest.put({**base, "status": f"error: {err.reason}"})
             if have_copy and allow_stale:
                 log.warning("%s — отдаю сохранённую копию от %s", err, entry["fetched_at"])
                 return cached(err.reason)
