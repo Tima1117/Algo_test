@@ -5,13 +5,13 @@
   window.__SERVER_STATE__ (page, disclosureFunds);
 - nav_<slug>_p<n>.json — https://www.alfacapital.ru/gate/v1/fundDisclosureRegData/v1?slug=<slug>&page=<n>
   (akmc-yuan и ipifsi_ak урезаны по числу строк), nav_empty.json — ответ за последней страницей;
-- funds_data.json — https://www.alfacapital.ru/gate/v1/fundsData/v1, оставлено 5 продуктов.
-Значения в тестах сверены с таблицей «Стоимость пая и СЧА» на /disclosure/pifs/<slug>/cost и с блоком
-«Динамика фонда» на странице фонда.
+- home.html — главная https://www.alfacapital.ru/: оставлен только поток данных React Router, значения
+  вне блока «Сведения о приросте расчетной стоимости пая» заменены пустыми строками (индексы сохранены).
+Значения в тестах сверены с таблицей «Стоимость пая и СЧА» на /disclosure/pifs/<slug>/cost и с текстом
+сведений о приросте пая внизу главной страницы.
 """
 from __future__ import annotations
 
-import copy
 import hashlib
 import json
 import logging
@@ -24,7 +24,7 @@ import pytest
 from pif.http import RawDoc
 from pif.model import Fund
 from pif.parsing import UnknownFormat
-from pif.sources.alfa import (NAV_URL, YIELDS_URL, AlfaCapitalAdapter, match_fund, parse_catalog,
+from pif.sources.alfa import (HOME_URL, NAV_URL, AlfaCapitalAdapter, match_fund, parse_catalog,
                               parse_nav_currency, parse_nav_page, parse_returns)
 from pif.sources.base import Context
 
@@ -132,7 +132,7 @@ def test_match_is_strict():
 
 def test_catalog_unknown_format():
     with pytest.raises(UnknownFormat):
-        parse_catalog(b"<html><body>Технические работы</body></html>")
+        parse_catalog("<html><body>Технические работы</body></html>".encode())
     html = load("catalog.html").decode("utf-8")
     with pytest.raises(UnknownFormat):
         parse_catalog(html.replace('"disclosureFunds"', '"disclosureFundsV2"'))
@@ -209,27 +209,32 @@ def test_nav_currency_strict():
 # ---------------- официальная доходность ----------------
 
 def test_returns_values():
-    rets = parse_returns(load("funds_data.json"), YIELDS_URL)
-    akop = {r.period: r for r in rets["opif_akop"]}
-    # на странице фонда: 1 мес −1,48%, 3 мес 0,64%, 6 мес −0,15%, 1 год 8,49%
-    assert {p: r.value_pct for p, r in akop.items()} == {"1m": -1.477, "3m": 0.637, "6m": -0.15, "1y": 8.488}
-    assert all(r.as_of == date(2026, 9, 30) and r.source_url == YIELDS_URL for r in akop.values())
-    assert [r.period for r in rets["opif-ac-longOFZ"]] == ["1m", "3m"]     # фонд моложе полугода
-    assert rets["opifa-akliq-plus"] == []
+    rets = parse_returns(load("home.html"), HOME_URL)
+    assert len(rets) == 30
+    akop = {r.period: r for r in rets["0095-59893492"]}
+    # «…№ 0095-59893492… на 30.10.2026 за 1 мес. 1,57%, за 3 мес. -0,36%, за 6 мес. 0,05%, за 1 год 8,36%»
+    assert {p: r.value_pct for p, r in akop.items()} == {"1m": 1.57, "3m": -0.36, "6m": 0.05, "1y": 8.36}
+    assert all(r.as_of == date(2026, 10, 30) and r.source_url == HOME_URL for r in akop.values())
+    # фонд моложе полугода: за 6 мес. и 1 год УК пишет «н/д»
+    assert [(r.period, r.value_pct) for r in rets["7851"]] == [("1m", 2.28), ("3m", -1.38)]
+    # с той же страницы и по ряду пая (7316,61 / 7203,41 − 1 = 1,57%) — сходится
+    pts = {p.date: p.price for p in parse_nav_page(load("nav_opif_akop_p0.json"))}
+    assert round((pts[date(2026, 10, 30)] / pts[date(2026, 9, 30)] - 1) * 100, 2) == akop["1m"].value_pct
 
 
 @pytest.mark.parametrize("breakage", [
-    lambda d: d["data"].pop("products"),
-    lambda d: d["data"]["products"][0]["share"].pop("yields"),
-    lambda d: d["data"]["products"][0]["share"]["yields"].pop("sixMonths"),
-    lambda d: d["data"]["products"][1]["share"]["yields"]["oneMonth"].pop("to"),
-    lambda d: d["data"]["products"][1]["share"]["yields"]["oneMonth"].update(value="много"),
+    lambda h: h.replace("streamController.enqueue(", "streamController.push("),
+    lambda h: h.replace("alfa-capital-product-yield-disclaimer", "alfa-capital-product-disclaimer-v2"),
+    lambda h: h.replace("за 1 мес. 1,57%", "за месяц 1,57%"),
+    lambda h: h.replace("за 1 год 8,36%", "за 1 год 8,36 п.п."),
+    lambda h: h.replace("Сведения о приросте расчетной стоимости", "Сведения о росте расчетной стоимости"),
 ])
 def test_returns_unknown_format(breakage):
-    data = load_json("funds_data.json")
-    breakage(data)
+    html = load("home.html").decode("utf-8")
+    broken = breakage(html)
+    assert broken != html
     with pytest.raises(UnknownFormat):
-        parse_returns(data, YIELDS_URL)
+        parse_returns(broken, HOME_URL)
 
 
 # ---------------- сбор целиком (без сети) ----------------
@@ -248,8 +253,8 @@ class FakeHttp:
         if url == NAV_URL:
             name = self.nav_pages.get((params["slug"], params["page"]), "nav_empty.json")
             from_cache = self.page0_from_cache or params["page"] > 0
-        elif url == YIELDS_URL:
-            name = "funds_data.json"
+        elif url == HOME_URL:
+            name = "home.html"
         else:
             name = "catalog.html"
         path = FIX / name
@@ -286,7 +291,8 @@ def test_collect_offline():
     assert {r.period for r in akop.official_returns} == {"1m", "3m", "6m", "1y"}
     # листание остановилось на странице, где ряд ушёл раньше начала периода
     nav_calls = [(p["slug"], p["page"]) for u, p, _ in http.calls if u == NAV_URL]
-    assert ("opif_akop", 2) not in nav_calls and ("opif-frelbroc", 2) in nav_calls
+    assert ("opif_akop", 1) in nav_calls and ("opif_akop", 2) not in nav_calls
+    assert ("opif-frelbroc", 2) not in nav_calls
 
     frel = res["7926"]
     assert frel.status == "ok"
@@ -295,15 +301,18 @@ def test_collect_offline():
 
     assert res["9999"].status == "not_found"
     # общий каталог и витрина скачаны по одному разу на весь прогон
-    assert sum(1 for u, _, _ in http.calls if u == YIELDS_URL) == 1
+    assert sum(1 for u, _, _ in http.calls if u == HOME_URL) == 1
     assert sum(1 for u, _, _ in http.calls if u.endswith("/disclosure/pifs")) == 1
 
 
 def test_collect_young_fund_and_yuan():
     funds = [fund("7926", "Лягушка, слон и брокколи", "open", "2026-06-29", "2026-07-24"),
              fund("7781", "Альфа-Капитал Денежный рынок Юани", "exchange", "2026-05-07", "2026-05-22")]
-    res = run(FakeHttp(PAGES), funds, date(2026, 7, 1))
+    http = FakeHttp(PAGES)
+    res = run(http, funds[:1], date(2026, 7, 1))
     frel = res["7926"]
+    # вся история фонда моложе периода: листаем до пустой страницы
+    assert [p["page"] for u, p, _ in http.calls if u == NAV_URL] == [0, 1, 2]
     assert frel.status == "ok" and "сформирован позже" in frel.reason
     assert min(p.date for s in frel.segments for p in s.points) == date(2026, 7, 24)
 
@@ -332,3 +341,12 @@ def test_collect_broken_page_is_parse_error_for_one_fund(tmp_path):
     res = run(FakeHttp(pages), funds, date(2026, 8, 1))
     assert res["0095-59893492"].status == "parse_error"
     assert res["7926"].status == "ok"
+
+
+def test_collect_empty_disclosure_table():
+    old = fund("0095-59893492", "Альфа-Капитал Облигации Плюс", "open")
+    res = run(FakeHttp({}), [old], date(2026, 8, 1))
+    assert res[old.rules].status == "no_history" and res[old.rules].segments == []
+    forming = Fund(**{**old.to_dict(), "status": "Формируется"})
+    res = run(FakeHttp({}), [forming], date(2026, 8, 1))
+    assert res[old.rules].status == "not_formed"

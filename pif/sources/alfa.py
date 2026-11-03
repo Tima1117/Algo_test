@@ -9,22 +9,28 @@
   (кнопка «Показать ещё»). 60 строк на страницу, от новых к старым. Частота — как публикует УК:
   открытые и биржевые фонды — каждый рабочий день, интервальные — конец месяца и даты интервалов.
   СЧА и цена пая — в валюте пая (поле currency), СЧА в единицах валюты с копейками.
-- официальная доходность: https://www.alfacapital.ru/gate/v1/fundsData/v1 — JSON витрины фондов,
-  share.yields.{oneMonth,threeMonths,sixMonths,oneYear} = {from, to, value в %}. Те же числа
-  показаны в блоке «Динамика фонда» на странице фонда /individual/pifs|bpifs/<slug>; подпись даты
-  там — последний рабочий день, но значения посчитаны на конец прошлого месяца (поле to) — проверено
-  по ряду пая.
+- официальная доходность: главная страница https://www.alfacapital.ru/ — обязательные «Сведения о
+  приросте расчётной стоимости инвестиционного пая на <дата> за 1 мес., 3 мес., 6 мес., 1 год…» с номером
+  правил фонда (блок alfa-capital-product-yield-disclaimer в данных React Router: аргумент
+  streamController.enqueue — плоский массив turbo-stream). Дата — последний рабочий день прошлого месяца,
+  период — от конца предыдущего месяца; у обычных фондов совпадает с рядом пая до сотых.
+  У фондов «с выплатой дохода» прирост учитывает выплаты пайщикам, у юаневого фонда — посчитан в рублях.
 
 Чего не берём и почему:
 - JSON-RPC /api (getFundNav/getFundShare — график на странице фонда): закрыт robots.txt
   (Disallow: /api); к тому же заполняет выходные копией пятницы и отдаёт 0 за ещё не рассчитанный день.
-- КИД (PDF с доходностью за 1/3/6/12 мес.) лежат под /disclosure/file/ — тоже Disallow в robots.txt.
-  Поэтому у фондов, которых нет в витрине (авторские, интервальные, часть биржевых), официальной
-  доходности нет — это видно в warnings фонда.
+- КИД (PDF с доходностью) и отчёты лежат под /disclosure/file/ — тоже Disallow в robots.txt.
+  Поэтому у фондов без сведений о приросте на сайте (авторские, интервальные, часть биржевых)
+  официальной доходности нет — это видно в warnings фонда.
+- Блок «Динамика фонда на <дата>» на странице фонда (и витрина /gate/v1/fundsData/v1): значения в нём
+  на месяц старше подписи (при подписи 30.10.2026 — прирост по 30.09.2026); для сверки не годится.
+- Суммы выплат дохода (payouts): в разделе «Сообщения» УК публикует только даты, на которые
+  выплачивается доход, без сумм на пай; суммы — в PDF-отчётах под /disclosure/file/.
 """
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from datetime import date, timedelta
 
@@ -36,16 +42,15 @@ from .base import Adapter, Context
 BASE = "https://www.alfacapital.ru"
 CATALOG_URL = f"{BASE}/disclosure/pifs"
 NAV_URL = f"{BASE}/gate/v1/fundDisclosureRegData/v1"
-YIELDS_URL = f"{BASE}/gate/v1/fundsData/v1"
+HOME_URL = f"{BASE}/"
 
 # Предохранитель листания: 60 страниц по 60 строк — больше 14 лет ежедневных публикаций.
 MAX_PAGES = 60
 
 # Тип фонда на сайте -> тип в реестре.
 SITE_TYPES = {"opened": "open", "exchangeTraded": "exchange", "interval": "interval"}
-# Раздел витрины, где у фонда есть страница для человека.
+# Раздел сайта со страницами фондов для человека (у интервальных и авторских таких страниц нет).
 PRODUCT_SECTIONS = {"open": "pifs", "exchange": "bpifs"}
-PERIODS = {"oneMonth": "1m", "threeMonths": "3m", "sixMonths": "6m", "oneYear": "1y"}
 CURRENCIES = {"RUB", "USD", "EUR", "CNY"}
 
 
@@ -184,30 +189,86 @@ def parse_nav_currency(content) -> str | None:
 
 # ---------------- официальная доходность ----------------
 
+# Специальные значения turbo-stream (react-router single fetch).
+_TS_SPECIAL = {-1: None, -2: float("nan"), -3: float("-inf"), -4: -0.0, -5: None, -6: float("inf"), -7: None}
+
+
+def _turbo_stream(content):
+    """Данные React Router со страницы: первый streamController.enqueue("<JSON-строка>") -> дерево."""
+    text = content.decode("utf-8") if isinstance(content, bytes) else str(content)
+    marker = "streamController.enqueue("
+    i = text.find(marker)
+    require(i >= 0, "на странице нет данных React Router (streamController.enqueue)")
+    try:
+        payload, _ = json.JSONDecoder().raw_decode(text[i + len(marker):])
+        flat = json.loads(payload)
+    except (json.JSONDecodeError, TypeError) as e:
+        raise UnknownFormat(f"данные React Router — не turbo-stream: {e}") from e
+    require(isinstance(flat, list) and bool(flat), "turbo-stream: ожидался непустой массив")
+    memo: dict[int, object] = {}
+
+    def val(i: int):
+        if i < 0:
+            require(i in _TS_SPECIAL, f"turbo-stream: незнакомая константа {i}")
+            return _TS_SPECIAL[i]
+        if i in memo:
+            return memo[i]
+        require(i < len(flat), f"turbo-stream: ссылка {i} за пределами массива")
+        x = flat[i]
+        if isinstance(x, dict):
+            memo[i] = obj = {}
+            for k, v in x.items():
+                require(k.startswith("_") and k[1:].isdigit(), f"turbo-stream: незнакомый ключ {k!r}")
+                obj[flat[int(k[1:])]] = val(v)
+            return obj
+        if isinstance(x, list) and x and isinstance(x[0], str):
+            memo[i] = None          # даты, промисы и прочие типы нам не нужны
+            return None
+        if isinstance(x, list):
+            memo[i] = arr = []
+            arr.extend(val(v) for v in x)
+            return arr
+        memo[i] = x
+        return x
+
+    return val(0)
+
+
+_DISCLAIMER_KEY = "alfa-capital-product-yield-disclaimer"
+_GROWTH_MARK = "Сведения о приросте расчетной стоимости инвестиционного пая"
+_PCT = r"-?\d+(?:,\d+)?%|н/д"     # «1,57%», «-0,36%», «н/д» (не опубликовано: фонд моложе периода)
+_DISCLAIMER = re.compile(
+    r"Правила доверительного управления № (?P<rules>\d[\d\-]*) зарегистрированы .*?\. "
+    + _GROWTH_MARK + r" на (?P<date>\d{2}\.\d{2}\.\d{4}) "
+    rf"за 1 мес\. (?P<m1>{_PCT}), за 3 мес\. (?P<m3>{_PCT}), за 6 мес\. (?P<m6>{_PCT}), "
+    rf"за 1 год (?P<y1>{_PCT})[,.]")
+_DISCLAIMER_PERIODS = {"m1": "1m", "m3": "3m", "m6": "6m", "y1": "1y"}
+
+
 def parse_returns(content, source_url: str) -> dict[str, list[OfficialReturn]]:
-    """Витрина фондов -> {slug: доходности пая за 1/3/6/12 мес. на конец прошлого месяца}."""
-    data = _json(content)
-    require_keys(data, ["data"], "ответ fundsData")
-    require_keys(data["data"], ["products"], "fundsData.data")
-    products = data["data"]["products"]
-    require(isinstance(products, list) and products, "fundsData.data.products пуст или не список")
+    """Сведения о приросте пая со страницы сайта -> {номер правил: доходности за 1/3/6/12 мес.}."""
+    tree = _turbo_stream(content)
+    require_keys(tree, ["loaderData"], "данные React Router")
+    blocks = [r["data"][_DISCLAIMER_KEY] for r in tree["loaderData"].values()
+              if isinstance(r, dict) and isinstance(r.get("data"), dict) and _DISCLAIMER_KEY in r["data"]]
+    require(len(blocks) == 1, f"на странице нет блока {_DISCLAIMER_KEY} (или он не один)")
+    require_keys(blocks[0], ["main"], _DISCLAIMER_KEY)
+    texts = blocks[0]["main"]
+    require(isinstance(texts, list), f"{_DISCLAIMER_KEY}.main — не список")
     out: dict[str, list[OfficialReturn]] = {}
-    for p in products:
-        require_keys(p, ["slug", "share"], "продукт витрины")
-        require_keys(p["share"], ["yields"], f"{p['slug']}: share")
-        yields = p["share"]["yields"]
-        require_keys(yields, list(PERIODS), f"{p['slug']}: share.yields")
-        rets = []
-        for key, period in PERIODS.items():
-            y = yields[key]
-            if y is None:          # фонд моложе периода — УК значение не публикует
-                continue
-            require_keys(y, ["from", "to", "value"], f"{p['slug']}: доходность {key}")
-            value = pct(y["value"])
-            if value is None:
-                continue
-            rets.append(OfficialReturn(period, value, day(y["to"]), source_url))
-        out[str(p["slug"])] = rets
+    for text in texts:
+        if not isinstance(text, str) or _GROWTH_MARK not in text:
+            continue                  # прочие оговорки (стратегии ДУ и т. п.)
+        m = _DISCLAIMER.search(" ".join(text.replace("\u2212", "-").split()))
+        require(m is not None, f"сведения о приросте пая в незнакомом виде: {text[:160]!r}")
+        as_of = day(m["date"])
+        rets = [OfficialReturn(period, pct(m[g]), as_of, source_url)
+                for g, period in _DISCLAIMER_PERIODS.items() if m[g] != "н/д"]
+        rules = m["rules"]
+        if rules in out:
+            require(out[rules] == rets, f"для правил № {rules} на странице разные сведения о приросте")
+        out[rules] = rets
+    require(bool(out), "в блоке оговорок нет ни одного сведения о приросте стоимости пая")
     return out
 
 
@@ -224,7 +285,7 @@ class AlfaCapitalAdapter(Adapter):
         return [self.guarded(ctx, f, lambda f=f: self._one(ctx, f)) for f in funds]
 
     def _once(self, key: str, load):
-        """Общий документ (каталог, витрина) качаем один раз за прогон; ошибку тоже запоминаем,
+        """Общий документ (каталог, главная) качаем один раз за прогон; ошибку тоже запоминаем,
         чтобы недоступный сайт не дёргать заново для каждого фонда."""
         if key not in self._shared:
             try:
@@ -241,7 +302,7 @@ class AlfaCapitalAdapter(Adapter):
         return parse_catalog(raw.content())
 
     def _yields(self, ctx: Context) -> dict[str, list[OfficialReturn]]:
-        raw = ctx.http.get(YIELDS_URL, fmt="json", funds=self._all_rules)
+        raw = ctx.http.get(HOME_URL, fmt="html", funds=self._all_rules)
         return parse_returns(raw.content(), raw.url)
 
     def _one(self, ctx: Context, fund: Fund) -> FundData:
@@ -298,7 +359,10 @@ class AlfaCapitalAdapter(Adapter):
         """Статус по собранному ряду: полный, короче публикуемого, пустой."""
         dates = sorted(p.date for s in fd.segments for p in s.points)
         if oldest is None:
-            fd.status, fd.reason = "no_history", "в разделе раскрытия фонда нет ни одной публикации СЧА и пая"
+            if fund.status == "Формируется":
+                fd.status, fd.reason = "not_formed", "фонд формируется, УК ещё не публикует СЧА и пай"
+            else:
+                fd.status, fd.reason = "no_history", "в разделе раскрытия фонда нет ни одной публикации СЧА и пая"
             return
         if not dates:
             fd.status = "partial"
@@ -326,21 +390,21 @@ class AlfaCapitalAdapter(Adapter):
 
     def _returns(self, ctx: Context, fund: Fund, site: SiteFund, fd: FundData) -> None:
         try:
-            by_slug = self._once("yields", lambda: self._yields(ctx))
+            by_rules = self._once("yields", lambda: self._yields(ctx))
         except FetchError as e:
             fd.warnings.append(f"официальная доходность не получена: {e.reason}")
             return
         except UnknownFormat as e:
             fd.errors.append(f"разбор официальной доходности: {e}")
             return
-        rets = by_slug.get(site.slug)
+        rets = by_rules.get(fund.rules)
         if rets is None:
-            fd.warnings.append("УК не публикует доходность за 1/3/6/12 мес. на странице фонда; она есть только "
-                               "в КИД (PDF в разделе раскрытия, путь закрыт robots.txt) — не собрана")
+            fd.warnings.append("официальная доходность не собрана: сведений о приросте пая для фонда на страницах "
+                               "сайта нет, только в КИД (PDF под /disclosure/file/, закрыт robots.txt)")
             return
         fd.page_url = product_page(site) or fd.page_url
         if not rets:
-            fd.warnings.append("УК ещё не публикует доходность за 1/3/6/12 мес.: фонд моложе месяца")
+            fd.warnings.append("УК пишет «н/д» за все периоды 1/3/6/12 мес.: фонд моложе месяца")
             return
         if fd.currency != "RUB":
             # Витрина считает доходность в рублях (пай пересчитан по курсу ЦБ) — с рядом в валюте пая
