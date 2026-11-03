@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>ПИФ «Сбалансированный» от Ренессанс Жизнь</title>
+</head>
+<body>
+<!-- фикстура: урезанная копия https://www.renlife.ru/funds/balanced/ от 2026-11-03 (скрипты, меню, мобильные карточки и часть строк удалены) -->
+<main class="index-page fund-page">
+
+<div class="index-page__container fund-tabs">
+<div class="tabs tabs--change-presentation tabs--justify-between">
+<div class="tabs__container">
+<button class="tabs__tab tabs__tab--simple" data-tab="about-fund" data-tab-group="">
+			Сведения о Фонде </button> <button class="tabs__tab tabs__tab--simple" data-tab="asset-structure" data-tab-group="">
+			Структура активов </button> <button class="tabs__tab tabs__tab--simple" data-tab="price-dynamics" data-tab-group="">
+			Динамика стоимости </button> <button class="tabs__tab tabs__tab--simple" data-tab="documents" data-tab-group="">
+			Документы и отчетность </button>
+</div>
+</div>
+<div class="fund-page__tabs-content fund-content">
+<div class="tab-content" data-tab="about-fund" data-tab-group="">
+<div class="fund-content fund-about">
+<h2 class="fund-content__title"></h2>
+<div class="table-wrapper fund-about__fund-table">
+<div class="adaptive-table adaptive-table--definition adaptive-table--change-mobile">
+<table>
+<tbody>
+<tr>
+<td>
+		 Полное наименование Фонда
+	</td>
+<td>
+		 Открытый паевой инвестиционный фонд рыночных финансовых инструментов «Ренессанс Жизнь – Сбалансированный», доверительное управление которым осуществляется в целях долевого страхования жизни<br/>
+</td>
+</tr>
+<tr>
+<td>
+		 Краткое наименование Фонда
+	</td>
+<td>
+		 ОПИФ рыночных финансовых инструментов «Ренессанс Жизнь – Сбалансированный»
+	</td>
+</tr>
+<tr>
+<td>
+		 Правила Фонда
+	</td>
+<td>
+		  Правила доверительного управления зарегистрированы Банком России 07.08.2025 г. за № 7217
+	</td>
+</tr>
+<tr>
+<td>
+		 Полное фирменное название управляющей компании
+	</td>
+<td>
+		 Общество с ограниченной ответственностью «Страховая Компания «Ренессанс Жизнь»
+	</td>
+</tr>
+<tr>
+<td>
+		 Сокращенное фирменное название управляющей компании
+	</td>
+<td>
+		 ООО «СК «Ренессанс Жизнь»
+	</td>
+</tr>
+</tbody>
+</table> </div>
+</div>
+<div class="card fund-about__contacts-card">
+<p class="fund-about__contacts-text">
+						 Получить подробную информацию
+о паевом инвестиционном фонде, ознакомиться с правилами доверительного управления и другими документами в соответствии с действующим законодательством, можно в ООО «СК «Ренессанс Жизнь»					</p>
+<ul class="list fund-about__contacts-list">
+<li class="list__item">
+<p class="list__item-text">
+							 По адресу: 121614, г. Москва, вн. тер. г. муниципальный округ Крылатское, ул. Крылатская, д. 17, к. 1						</p>
+</li>
+<li class="list__item">
+<p class="list__item-text">
+							 На сайте www.renlife.ru						</p>
+</li>
+<li class="list__item">
+<p class="list__item-text">
+							 по телефону +7 (495) 981-2-981, 8 (800) 333-29-81, +7 (495) 589-18-66						</p>
+</li>
+</ul>
+</div>
+<div class="info-text fund-about__info-text">
+<p class="info-text__text">
+						 Стоимость инвестиционных паев может увеличиваться и уменьшаться. Результаты инвестирования в прошлом не определяют доходы в будущем. Государство не гарантирует доходность инвестиций в инвестиционные фонды. Перед приобретением инвестиционных паев внимательно ознакомьтесь с правилами доверительного управления инвестиционным фондом. <br/> </p>
+<div class="info-text__icon">
+</div>
+</div>
+<h3 class="fund-content__title fund-content__title--small"><br/>
+</h3>
+<div class="table-wrapper fund-about__requisites-table">
+</div>
+</div>
+</div>
+<div class="tab-content" data-tab="asset-structure" data-tab-group="">
+</div>
+<div class="tab-content" data-tab="price-dynamics" data-tab-group="">
+<div class="fund-content fund-dynamic">
+<h2 class="fund-content__title">Динамика стоимости</h2>
+<div class="tabs">
+<div class="tabs__container">
+<button class="tabs__tab tabs__tab--simple" data-tab="pie-cost" data-tab-group="price-dynamic">
+                    Стоимость пая
+                </button>
+<button class="tabs__tab tabs__tab--simple" data-tab="asset-cost" data-tab-group="price-dynamic">
+                    Стоимость чистых активов
+                </button>
+<button class="tabs__tab tabs__tab--simple" data-tab="table-cost" data-tab-group="price-dynamic">
+                    Таблица стоимости пая и СЧА
+                </button>
+</div>
+</div>
+<div class="fund-dynamic__content">
+<div class="tab-content" data-tab="pie-cost" data-tab-group="price-dynamic">
+<h2 class="fund-content__title">Динамика стоимости пая</h2>
+<div class="chart" data-type="pie-cost">
+<div class="chart__period"><p class="chart__period-label">Период</p>
+<div class="chart__period-btns">
+<button class="chart__period-btn" data-period="1m">1 мес</button>
+<button class="chart__period-btn" data-period="6m">6 мес</button>
+<button class="chart__period-btn" data-period="1y">Год</button>
+<button class="chart__period-btn" data-period="2y">2 года</button>
+<button class="chart__period-btn active" data-period="all">Все время</button>
+</div>
+</div>
+<div class="chart__graphic"></div>
+<div class="chart__period-subtitle">Период</div>
+</div>
+</div>
+<div class="tab-content" data-tab="asset-cost" data-tab-group="price-dynamic">
+<h2 class="fund-content__title">Динамика стоимости чистых активов</h2>
+<div class="chart" data-type="asset-cost">
+<div class="chart__period">
+<p class="chart__period-label">Период</p>
+<div class="chart__period-btns">
+<button class="chart__period-btn" data-period="1m">1 мес</button>
+<button class="chart__period-btn" data-period="6m">6 мес</button>
+<button class="chart__period-btn" data-period="1y">Год</button>
+<button class="chart__period-btn" data-period="2y">2 года</button>
+<button class="chart__period-btn active" data-period="all">Все время</button>
+</div>
+</div>
+<div class="chart__graphic"></div>
+<div class="chart__period-subtitle">Период</div>
+</div>
+</div>
+<div class="tab-content" data-tab="table-cost" data-tab-group="price-dynamic">
+<div class="fund-content fund-dynamic">
+<h2 class="fund-content__title fund-dynamic__title">Стоимость пая и чистых активов</h2>
+<div class="table-wrapper fund-dynamic__table-cost">
+<table class="adaptive-table adaptive-table--scrollable">
+<thead>
+<tr>
+<th>Дата</th>
+<th>Расчетная стоимость<br/>инвестиционного пая (РСИП), руб.</th>
+<th>Изменение РСИП за день, %</th>
+<th>Стоимость чистых активов<br/>(СЧА), руб.</th>
+<th>Изменение СЧА за день, %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>02.11.2026</td>
+<td>102.9796</td>
+<td class="">-1.26</td>
+<td>51717775.26</td>
+<td class="">-1.11</td>
+</tr>
+<tr>
+<td>30.10.2026</td>
+<td>104.2963</td>
+<td class="positive">+0.58</td>
+<td>52298004.84</td>
+<td class="positive">+0.99</td>
+</tr>
+<tr>
+<td>29.10.2026</td>
+<td>103.6939</td>
+<td class="">-0.39</td>
+<td>51783148.07</td>
+<td class="">-0.65</td>
+</tr>
+<tr>
+<td>28.10.2026</td>
+<td>104.0954</td>
+<td class="positive">+0.64</td>
+<td>52121174.83</td>
+<td class="positive">+1.17</td>
+</tr>
+<tr>
+<td>27.10.2026</td>
+<td>103.4356</td>
+<td class="positive">+0.92</td>
+<td>51517212.63</td>
+<td class="positive">+0.92</td>
+</tr>
+<tr>
+<td>26.10.2026</td>
+<td>102.4938</td>
+<td class="positive">+0.43</td>
+<td>51048165.21</td>
+<td class="positive">+0.88</td>
+</tr>
+<tr>
+<td>23.10.2026</td>
+<td>102.0552</td>
+<td class="positive">+0.68</td>
+<td>50604697.84</td>
+<td class="positive">+0.68</td>
+</tr>
+<tr>
+<td>22.10.2026</td>
+<td>101.3615</td>
+<td class="">-0.23</td>
+<td>50260718.64</td>
+<td class="positive">+3.22</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+<td>26.12.2025</td>
+<td>99.7235</td>
+<td class="">-0.08</td>
+<td>155571.31</td>
+<td class="">-0.08</td>
+</tr>
+<tr>
+<td>25.12.2025</td>
+<td>99.8048</td>
+<td class="">-0.1</td>
+<td>155698.17</td>
+<td class="positive">+0.97</td>
+</tr>
+<tr>
+<td>24.12.2025</td>
+<td>99.9016</td>
+<td class="">-0.1</td>
+<td>154199.08</td>
+<td class="positive">+30.57</td>
+</tr>
+<tr>
+<td>23.12.2025</td>
+<td>99.9972</td>
+<td class="">0</td>
+<td>118096.65</td>
+<td class="">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fund-dynamic__card-tables" data-initial-count="5" data-open-count="5">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<button class="button button--border fund-dynamic__tables-btn">Показать больше</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="subscription-section">
+<div class="index-page__container">
+<div class="card subscription-card">
+<div class="subscription-card__info">
+<div class="subscription-card__image">
+
+</div>
+<h3 class="fund-content__title fund-content__title--small subscription-card__title">Подписаться на рассылку</h3>
+<div class="subscription-card__subtitle">
+                    Первыми получайте новости и аналитические материалы
+                </div>
+</div>
+<form action="/ajax/subscribe.php" class="subscription-form" id="bx_subscribe_subform_sljzMT" method="post" role="form">
+<input id="sessid" name="sessid" type="hidden" value="ef5af359ae1295f78deac1c80e3a3c53"/> <input name="sender_subscription" type="hidden" value="add"/>
+<input name="fund" type="hidden" value="BALANCED"/>
+<div class="subscription-form__input-wrapper input-wrapper">
+<input class="subscription-form__input" name="email" placeholder="Введите email" value=""/>
+<span class="input-wrapper__clear-button clear-button" style="display: none;">×</span>
+<div class="subscription-form__error-text"></div>
+</div>
+<div class="subscription-form__actions">
+<div class="subscription-form__checkboxes">
+<label class="subscription-form__label">
+<input class="subscription-form__agreement" hidden="" id="checkbox1" name="agreement" type="checkbox" value="y"/>
+<div class="subscription-form__checkbox subscription-form__checkbox--agreement">
+</div>
+<div class="subscription-form__label-text">
+                                Я предоставляю согласие на обработку  <a class="subscription-form__link" href="/upload/medialibrary/559/jdrswdbwf0crw3j9adcbv5z3mc611ll1/soglasie_pd.pdf">персональных данных</a>
+</div>
+</label>
+<label class="subscription-form__label">
+<input class="subscription-form__agreement" hidden="" id="checkbox2" name="policy" type="checkbox" value="y"/>
+<div class="subscription-form__checkbox subscription-form__checkbox--agreement">
+</div>
+<div class="subscription-form__label-text">
+                                Я присоединяюсь к  <a class="subscription-form__link" href="/upload/medialibrary/033/obrabotka_personalnyh_dannyh.pdf">пользовательскому соглашению</a>
+</div>
+</label>
+<label class="subscription-form__label">
+<input class="subscription-form__advertising" hidden="" id="checkbox3" name="advert" type="checkbox" value="y"/>
+<div class="subscription-form__checkbox subscription-form__checkbox--advertising">
+</div>
+<div class="subscription-form__label-text">
+                                Я предоставляю согласие на получение  <a class="subscription-form__link" href="/upload/medialibrary/21f/eomysb0rx1vughevsyu3a76hk3jwzwht/soglasie_reklama.pdf">рекламных и информационных материалов/рассылок</a>
+</div>
+</label>
+</div>
+<button class="button button--primary subscription-form__submit" type="submit">Подписаться</button>
+</div>
+</form>
+<div class="subscription-card__success">
+<h3 class="fund-content__title fund-content__title--small">Подписка успешно оформлена!</h3>
+</div>
+</div>
+<div class="card disclaimer-card">
+<div class="disclaimer-card__text">
+                Общество с ограниченной ответственностью «Страховая Компания «Ренессанс Жизнь»/ ООО «СК «Ренессанс Жизнь» (Лицензия управляющей компании на осуществление деятельности по управлению инвестиционными фондами, паевыми инвестиционными фондами и негосударственными пенсионными фондами № 21-000-1-01139 выдана Банком России 05.03.2025), осуществляет доверительное управление следующими паевыми инвестиционными фондами:<br/>
+<br/>
+ Открытый паевой инвестиционный фонд рыночных финансовых инструментов «Ренессанс Жизнь – Разумные инвестиции», доверительное управление которым осуществляется в целях долевого страхования жизни (Правила доверительного управления зарегистрированы Банком России 31.07.2025 г. за № 7200)<br/>
+<p>
+	 Открытый паевой инвестиционный фонд рыночных финансовых инструментов «Ренессанс Жизнь – Сбалансированный», доверительное управление которым осуществляется в целях долевого страхования жизни (Правила доверительного управления зарегистрированы Банком России 07.08.2025 г. за № 7217)
+</p>
+<p>
+	 Открытый паевой инвестиционный фонд рыночных финансовых инструментов «Ренессанс Жизнь – Накопительный», доверительное управление которым осуществляется в целях долевого страхования жизни (Правила доверительного управления зарегистрированы Банком России 05.10.2026 г. за № 8116). Указанными Правилами доверительного управления паевым инвестиционным фондом предусмотрены скидки с расчетной стоимости инвестиционных паев при их погашении. Взимание скидок уменьшит доходность инвестиций в инвестиционные паи паевого инвестиционного фонда.
+</p>
+<p>
+	 Открытый паевой инвестиционный фонд рыночных финансовых инструментов «Ренессанс Жизнь – Информационные технологии», доверительное управление которым осуществляется в целях долевого страхования жизни (Правила доверительного управления зарегистрированы Банком России 13.10.2026 г. за № 8135)
+</p>
+<p>
+	 Открытый паевой инвестиционный фонд рыночных финансовых инструментов «Ренессанс Жизнь – Финансовый сектор», доверительное управление которым осуществляется в целях долевого страхования жизни (Правила доверительного управления зарегистрированы Банком России 13.10.2026 г. за № 8136)
+</p>
+<p>
+	 Получить подробную информацию о паевых инвестиционных фондах под управлением ООО «СК «Ренессанс Жизнь» и ознакомиться с правилами доверительного управления паевыми инвестиционными фондами, а также с иными документами, подлежащими раскрытию и предоставлению в соответствии с Федеральным законом «Об инвестиционных фондах» и нормативными актами Банка России, можно по адресу: 121614, г. Москва, вн. тер. г. муниципальный округ Крылатское, ул. Крылатская, д. 17, к. 1, по телефонам: +7 (495) 981-2-981,8 (800) 333-29-81,+7 (495) 589-18-66 или в сети Интернет по адресу <a href="https://www.renlife.ru/" rel="nofollow">https://www.renlife.ru/</a>
+</p> </div>
+<hr/>
+<div class="disclaimer-card__text disclaimer-card__text--font-24">
+                Стоимость инвестиционных паев может увеличиваться и уменьшаться. Результаты инвестирования в прошлом не определяют доходов в будущем. Государство не гарантирует доходность инвестиций в паевые инвестиционные фонды. Прежде, чем приобрести инвестиционный пай, следует внимательно ознакомиться с правилами доверительного управления паевыми инвестиционными фондами.            </div>
+</div>
+</div>
+</div> </main>
+</body>
+</html>

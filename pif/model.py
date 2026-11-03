@@ -72,11 +72,20 @@ class OfficialReturn:
 
 
 @dataclass
+class Payout:
+    """Выплата дохода пайщикам: сумма на один пай в валюте пая на дату, на которую определяется доход."""
+    date: date
+    amount: float
+    source_url: str
+
+
+@dataclass
 class FundData:
     rules: str
     currency: str = "RUB"
     segments: list[Segment] = field(default_factory=list)
     official_returns: list[OfficialReturn] = field(default_factory=list)
+    payouts: list[Payout] = field(default_factory=list)   # для доходности с учётом выплат
     page_url: str | None = None
     status: str = "ok"
     reason: str = ""

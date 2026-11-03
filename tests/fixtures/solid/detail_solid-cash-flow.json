@@ -1,0 +1,989 @@
+{
+ "status": "success",
+ "data": {
+  "result": {
+   "fields": {
+    "workarea": {
+     "items": {
+      "defaultPeriod": {
+       "type": "text",
+       "value": 12,
+       "code": "1_year"
+      },
+      "items": {
+       "product": {
+        "id": {
+         "type": "text",
+         "html": "3712"
+        },
+        "title": {
+         "type": "text",
+         "html": "СОЛИД - Денежный поток"
+        },
+        "titleFull": {
+         "type": "text",
+         "html": "БПИФ СОЛИД - Денежный поток"
+        },
+        "code": {
+         "type": "text",
+         "html": "solid-cash-flow"
+        },
+        "typeCode": {
+         "type": "text",
+         "html": "bpif"
+        },
+        "type": {
+         "type": "text",
+         "html": "БПИФ РФИ"
+        },
+        "profit": {
+         "type": "text",
+         "html": "за 1 год",
+         "value": "139.24 ₽ (13.87%)",
+         "percent": "13.87%",
+         "period": {
+          "code": "1_year",
+          "label": "за 1 год"
+         }
+        },
+        "info": {
+         "title": {
+          "type": "text",
+          "html": "БПИФ СОЛИД - Денежный поток"
+         },
+         "info": {
+          "type": "text",
+          "html": "<p>\r\n\t Правила доверительного управления № 6833 зарегистрированы&nbsp;Банком России 30.01.2025&nbsp;\r\n</p>\r\n<h2>Создайте пассивный доход: консервативный подход с ежемесячной выплатой</h2>\r\n<h3>Тикер на бирже: SMCF</h3>\r\n<p style=\"text-align: justify; \">\r\n <b>Паи доступны к покупке на бирже через приложения большинства брокеров</b>\r\n</p>\r\n<p style=\"text-align: justify;\">\r\n\t Фонд обеспечивает стабильные ежемесячные выплаты благодаря грамотному подбору активов с регулярной выплатой купонов. Фонд ориентирован на облигации с плавающей ставкой, что позволяет обгонять показатели доходности денежного "
+         }
+        },
+        "paramsBlock": {
+         "type": "data",
+         "items": {
+          "isUser": false,
+          "profit": {
+           "type": "text",
+           "html": "за 1 год",
+           "value": "139.24 ₽ (13.87%)",
+           "percent": "13.87%",
+           "period": {
+            "code": "1_year",
+            "label": "за 1 год"
+           }
+          },
+          "pai": {
+           "type": "text",
+           "html": "Пай",
+           "value": 992.19
+          },
+          "sha": {
+           "type": "text",
+           "html": "СЧА",
+           "value": 271218253.7
+          },
+          "risk": {
+           "type": "text",
+           "html": "Риск",
+           "value": "Низкий"
+          },
+          "updateDate": {
+           "type": "text",
+           "html": "Обновлено",
+           "value": "02.11.2026"
+          }
+         }
+        },
+        "profitPeriods": {
+         "type": "text",
+         "html": "Доходность ",
+         "list": {
+          "1_day": {
+           "id": "1_day",
+           "code": "1_day",
+           "name": "1 день",
+           "label": "за 1 день",
+           "placeholder": "за 1 день",
+           "duration": 1,
+           "unit": "day",
+           "value": "0.01%",
+           "percent": 0.01,
+           "amount": "0.05",
+           "amountFormatted": "0.05 ₽",
+           "months": 0,
+           "sort": 100
+          },
+          "1_month": {
+           "id": "1_month",
+           "code": "1_month",
+           "name": "1 месяц",
+           "label": "за 1 месяц",
+           "placeholder": "за 1 месяц",
+           "duration": 1,
+           "unit": "month",
+           "value": "1%",
+           "percent": 1,
+           "amount": "9.97",
+           "amountFormatted": "9.97 ₽",
+           "months": 1,
+           "sort": 200
+          },
+          "3_month": {
+           "id": "3_month",
+           "code": "3_month",
+           "name": "3 месяца",
+           "label": "за 3 месяца",
+           "placeholder": "за 3 месяца",
+           "duration": 3,
+           "unit": "month",
+           "value": "2.53%",
+           "percent": 2.53,
+           "amount": "25.32",
+           "amountFormatted": "25.32 ₽",
+           "months": 3,
+           "sort": 300
+          },
+          "6_month": {
+           "id": "6_month",
+           "code": "6_month",
+           "name": "6 месяцев",
+           "label": "за 6 месяцев",
+           "placeholder": "за 6 месяцев",
+           "duration": 6,
+           "unit": "month",
+           "value": "6.62%",
+           "percent": 6.62,
+           "amount": "66.01",
+           "amountFormatted": "66.01 ₽",
+           "months": 6,
+           "sort": 400
+          },
+          "1_year": {
+           "id": "1_year",
+           "code": "1_year",
+           "name": "1 год",
+           "label": "за 1 год",
+           "placeholder": "за 1 год",
+           "duration": 1,
+           "unit": "year",
+           "value": "13.87%",
+           "percent": 13.87,
+           "amount": "139.24",
+           "amountFormatted": "139.24 ₽",
+           "months": 12,
+           "sort": 500
+          }
+         }
+        },
+        "paiPrice": {
+         "title": {
+          "type": "text",
+          "html": "Цена пая"
+         },
+         "data": {
+          "type": "data",
+          "items": {
+           "pai": [
+            {
+             "OperDate": "27.08.2025",
+             "FundID": 6833,
+             "Price": "1018.8800000",
+             "PriceDiff": ".0500000",
+             "Value": "88083303.08",
+             "ValueDiff": ".0500000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "27 августа 2025"
+            },
+            {
+             "OperDate": "28.08.2025",
+             "FundID": 6833,
+             "Price": "1019.0500000",
+             "PriceDiff": ".0200000",
+             "Value": "88097384.07",
+             "ValueDiff": ".0200000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "28 августа 2025"
+            },
+            {
+             "OperDate": "29.08.2025",
+             "FundID": 6833,
+             "Price": "1009.6200000",
+             "PriceDiff": "-.9300000",
+             "Value": "87282168.58",
+             "ValueDiff": "-.9300000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "29 августа 2025"
+            },
+            {
+             "OperDate": "01.09.2025",
+             "FundID": 6833,
+             "Price": "1011.8100000",
+             "PriceDiff": ".2200000",
+             "Value": "87471594.54",
+             "ValueDiff": ".2200000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "1 сентября 2025"
+            },
+            {
+             "OperDate": "02.09.2025",
+             "FundID": 6833,
+             "Price": "1012.2700000",
+             "PriceDiff": ".0500000",
+             "Value": "87511149.68",
+             "ValueDiff": ".0500000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "2 сентября 2025"
+            },
+            {
+             "OperDate": "03.09.2025",
+             "FundID": 6833,
+             "Price": "1012.7300000",
+             "PriceDiff": ".0500000",
+             "Value": "87551310.00",
+             "ValueDiff": ".0500000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "3 сентября 2025"
+            },
+            {
+             "OperDate": "07.10.2026",
+             "FundID": 6833,
+             "Price": "995.0500000",
+             "PriceDiff": "-.0100000",
+             "Value": "271999842.57",
+             "ValueDiff": "-.0100000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "7 октября 2026"
+            },
+            {
+             "OperDate": "08.10.2026",
+             "FundID": 6833,
+             "Price": "995.4400000",
+             "PriceDiff": ".0400000",
+             "Value": "272105059.43",
+             "ValueDiff": ".0400000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "8 октября 2026"
+            },
+            {
+             "OperDate": "16.10.2026",
+             "FundID": 6833,
+             "Price": "998.3900000",
+             "PriceDiff": ".3000000",
+             "Value": "272911684.94",
+             "ValueDiff": ".3000000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "16 октября 2026"
+            },
+            {
+             "OperDate": "19.10.2026",
+             "FundID": 6833,
+             "Price": "999.8100000",
+             "PriceDiff": ".1400000",
+             "Value": "273300669.75",
+             "ValueDiff": ".1400000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "19 октября 2026"
+            },
+            {
+             "OperDate": "20.10.2026",
+             "FundID": 6833,
+             "Price": "1000.0200000",
+             "PriceDiff": ".0200000",
+             "Value": "273356909.70",
+             "ValueDiff": ".0200000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "20 октября 2026"
+            },
+            {
+             "OperDate": "21.10.2026",
+             "FundID": 6833,
+             "Price": "1000.8000000",
+             "PriceDiff": ".0800000",
+             "Value": "273571636.68",
+             "ValueDiff": ".0800000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "21 октября 2026"
+            },
+            {
+             "OperDate": "22.10.2026",
+             "FundID": 6833,
+             "Price": "1001.1900000",
+             "PriceDiff": ".0400000",
+             "Value": "273676456.38",
+             "ValueDiff": ".0400000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "22 октября 2026"
+            },
+            {
+             "OperDate": "23.10.2026",
+             "FundID": 6833,
+             "Price": "1001.9000000",
+             "PriceDiff": ".0700000",
+             "Value": "273870290.17",
+             "ValueDiff": ".0700000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "23 октября 2026"
+            },
+            {
+             "OperDate": "26.10.2026",
+             "FundID": 6833,
+             "Price": "1002.7600000",
+             "PriceDiff": ".0900000",
+             "Value": "274106456.66",
+             "ValueDiff": ".0900000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "26 октября 2026"
+            },
+            {
+             "OperDate": "27.10.2026",
+             "FundID": 6833,
+             "Price": "1003.5600000",
+             "PriceDiff": ".0800000",
+             "Value": "274325300.24",
+             "ValueDiff": ".0800000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "27 октября 2026"
+            },
+            {
+             "OperDate": "28.10.2026",
+             "FundID": 6833,
+             "Price": "1004.4200000",
+             "PriceDiff": ".0900000",
+             "Value": "274560233.67",
+             "ValueDiff": ".0900000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "28 октября 2026"
+            },
+            {
+             "OperDate": "29.10.2026",
+             "FundID": 6833,
+             "Price": "1004.7100000",
+             "PriceDiff": ".0300000",
+             "Value": "274640640.84",
+             "ValueDiff": ".0300000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "29 октября 2026"
+            },
+            {
+             "OperDate": "30.10.2026",
+             "FundID": 6833,
+             "Price": "992.1400000",
+             "PriceDiff": "-1.2500000",
+             "Value": "271204052.07",
+             "ValueDiff": "-1.2500000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "30 октября 2026"
+            },
+            {
+             "OperDate": "02.11.2026",
+             "FundID": 6833,
+             "Price": "992.1900000",
+             "PriceDiff": ".0100000",
+             "Value": "271218253.70",
+             "ValueDiff": ".0100000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "2 ноября 2026"
+            }
+           ],
+           "sha": [
+            {
+             "OperDate": "27.08.2025",
+             "FundID": 6833,
+             "Price": "1018.8800000",
+             "PriceDiff": ".0500000",
+             "Value": "88083303.08",
+             "ValueDiff": ".0500000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "27 августа 2025"
+            },
+            {
+             "OperDate": "28.08.2025",
+             "FundID": 6833,
+             "Price": "1019.0500000",
+             "PriceDiff": ".0200000",
+             "Value": "88097384.07",
+             "ValueDiff": ".0200000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "28 августа 2025"
+            },
+            {
+             "OperDate": "29.08.2025",
+             "FundID": 6833,
+             "Price": "1009.6200000",
+             "PriceDiff": "-.9300000",
+             "Value": "87282168.58",
+             "ValueDiff": "-.9300000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "29 августа 2025"
+            },
+            {
+             "OperDate": "01.09.2025",
+             "FundID": 6833,
+             "Price": "1011.8100000",
+             "PriceDiff": ".2200000",
+             "Value": "87471594.54",
+             "ValueDiff": ".2200000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "1 сентября 2025"
+            },
+            {
+             "OperDate": "02.09.2025",
+             "FundID": 6833,
+             "Price": "1012.2700000",
+             "PriceDiff": ".0500000",
+             "Value": "87511149.68",
+             "ValueDiff": ".0500000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "2 сентября 2025"
+            },
+            {
+             "OperDate": "03.09.2025",
+             "FundID": 6833,
+             "Price": "1012.7300000",
+             "PriceDiff": ".0500000",
+             "Value": "87551310.00",
+             "ValueDiff": ".0500000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "3 сентября 2025"
+            },
+            {
+             "OperDate": "07.10.2026",
+             "FundID": 6833,
+             "Price": "995.0500000",
+             "PriceDiff": "-.0100000",
+             "Value": "271999842.57",
+             "ValueDiff": "-.0100000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "7 октября 2026"
+            },
+            {
+             "OperDate": "08.10.2026",
+             "FundID": 6833,
+             "Price": "995.4400000",
+             "PriceDiff": ".0400000",
+             "Value": "272105059.43",
+             "ValueDiff": ".0400000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "8 октября 2026"
+            },
+            {
+             "OperDate": "16.10.2026",
+             "FundID": 6833,
+             "Price": "998.3900000",
+             "PriceDiff": ".3000000",
+             "Value": "272911684.94",
+             "ValueDiff": ".3000000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "16 октября 2026"
+            },
+            {
+             "OperDate": "19.10.2026",
+             "FundID": 6833,
+             "Price": "999.8100000",
+             "PriceDiff": ".1400000",
+             "Value": "273300669.75",
+             "ValueDiff": ".1400000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "19 октября 2026"
+            },
+            {
+             "OperDate": "20.10.2026",
+             "FundID": 6833,
+             "Price": "1000.0200000",
+             "PriceDiff": ".0200000",
+             "Value": "273356909.70",
+             "ValueDiff": ".0200000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "20 октября 2026"
+            },
+            {
+             "OperDate": "21.10.2026",
+             "FundID": 6833,
+             "Price": "1000.8000000",
+             "PriceDiff": ".0800000",
+             "Value": "273571636.68",
+             "ValueDiff": ".0800000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "21 октября 2026"
+            },
+            {
+             "OperDate": "22.10.2026",
+             "FundID": 6833,
+             "Price": "1001.1900000",
+             "PriceDiff": ".0400000",
+             "Value": "273676456.38",
+             "ValueDiff": ".0400000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "22 октября 2026"
+            },
+            {
+             "OperDate": "23.10.2026",
+             "FundID": 6833,
+             "Price": "1001.9000000",
+             "PriceDiff": ".0700000",
+             "Value": "273870290.17",
+             "ValueDiff": ".0700000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "23 октября 2026"
+            },
+            {
+             "OperDate": "26.10.2026",
+             "FundID": 6833,
+             "Price": "1002.7600000",
+             "PriceDiff": ".0900000",
+             "Value": "274106456.66",
+             "ValueDiff": ".0900000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "26 октября 2026"
+            },
+            {
+             "OperDate": "27.10.2026",
+             "FundID": 6833,
+             "Price": "1003.5600000",
+             "PriceDiff": ".0800000",
+             "Value": "274325300.24",
+             "ValueDiff": ".0800000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "27 октября 2026"
+            },
+            {
+             "OperDate": "28.10.2026",
+             "FundID": 6833,
+             "Price": "1004.4200000",
+             "PriceDiff": ".0900000",
+             "Value": "274560233.67",
+             "ValueDiff": ".0900000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "28 октября 2026"
+            },
+            {
+             "OperDate": "29.10.2026",
+             "FundID": 6833,
+             "Price": "1004.7100000",
+             "PriceDiff": ".0300000",
+             "Value": "274640640.84",
+             "ValueDiff": ".0300000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "29 октября 2026"
+            },
+            {
+             "OperDate": "30.10.2026",
+             "FundID": 6833,
+             "Price": "992.1400000",
+             "PriceDiff": "-1.2500000",
+             "Value": "271204052.07",
+             "ValueDiff": "-1.2500000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "30 октября 2026"
+            },
+            {
+             "OperDate": "02.11.2026",
+             "FundID": 6833,
+             "Price": "992.1900000",
+             "PriceDiff": ".0100000",
+             "Value": "271218253.70",
+             "ValueDiff": ".0100000",
+             "FundName": "БПИФ рыночных финансовых инструментов «СОЛИД – Денежный поток»",
+             "OperDateFormat": "2 ноября 2026"
+            }
+           ],
+           "profit": [
+            {
+             "FundID": 6833,
+             "OperDate": "27.08.2025",
+             "OperDateFormat": "27 августа 2025",
+             "Profit": "1132.8200000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "28.08.2025",
+             "OperDateFormat": "28 августа 2025",
+             "Profit": "1132.9900000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "29.08.2025",
+             "OperDateFormat": "29 августа 2025",
+             "Profit": "1133.6800000",
+             "Payment": "10.1200000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "01.09.2025",
+             "OperDateFormat": "1 сентября 2025",
+             "Profit": "1135.8700000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "02.09.2025",
+             "OperDateFormat": "2 сентября 2025",
+             "Profit": "1136.3300000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "03.09.2025",
+             "OperDateFormat": "3 сентября 2025",
+             "Profit": "1136.7900000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "07.10.2026",
+             "OperDateFormat": "7 октября 2026",
+             "Profit": "1291.9500000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "08.10.2026",
+             "OperDateFormat": "8 октября 2026",
+             "Profit": "1292.3400000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "09.10.2026",
+             "OperDateFormat": "9 октября 2026",
+             "Profit": "1293.9100000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "12.10.2026",
+             "OperDateFormat": "12 октября 2026",
+             "Profit": "1294.7500000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "13.10.2026",
+             "OperDateFormat": "13 октября 2026",
+             "Profit": "1295.2700000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "14.10.2026",
+             "OperDateFormat": "14 октября 2026",
+             "Profit": "1295.2800000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "15.10.2026",
+             "OperDateFormat": "15 октября 2026",
+             "Profit": "1295.0000000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "16.10.2026",
+             "OperDateFormat": "16 октября 2026",
+             "Profit": "1295.2900000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "19.10.2026",
+             "OperDateFormat": "19 октября 2026",
+             "Profit": "1296.7100000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "20.10.2026",
+             "OperDateFormat": "20 октября 2026",
+             "Profit": "1296.9200000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "21.10.2026",
+             "OperDateFormat": "21 октября 2026",
+             "Profit": "1297.7000000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "22.10.2026",
+             "OperDateFormat": "22 октября 2026",
+             "Profit": "1298.0900000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "23.10.2026",
+             "OperDateFormat": "23 октября 2026",
+             "Profit": "1298.8000000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "26.10.2026",
+             "OperDateFormat": "26 октября 2026",
+             "Profit": "1299.6600000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "27.10.2026",
+             "OperDateFormat": "27 октября 2026",
+             "Profit": "1300.4600000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "28.10.2026",
+             "OperDateFormat": "28 октября 2026",
+             "Profit": "1301.3200000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "29.10.2026",
+             "OperDateFormat": "29 октября 2026",
+             "Profit": "1301.6100000",
+             "Payment": "0.0000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "30.10.2026",
+             "OperDateFormat": "30 октября 2026",
+             "Profit": "1301.2900000",
+             "Payment": "12.2400000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "02.11.2026",
+             "OperDateFormat": "2 ноября 2026",
+             "Profit": "1301.3400000",
+             "Payment": "0.0000000"
+            }
+           ],
+           "payouts": [
+            {
+             "FundID": 6833,
+             "OperDate": "29.08.2025",
+             "OperDateFormat": "29 августа 2025",
+             "Profit": "1133.6800000",
+             "Payment": "10.1200000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "30.09.2025",
+             "OperDateFormat": "30 сентября 2025",
+             "Profit": "1148.1600000",
+             "Payment": "18.6400000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "31.10.2025",
+             "OperDateFormat": "31 октября 2025",
+             "Profit": "1161.1200000",
+             "Payment": "15.3100000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "28.11.2025",
+             "OperDateFormat": "28 ноября 2025",
+             "Profit": "1172.6500000",
+             "Payment": "10.8000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "30.12.2025",
+             "OperDateFormat": "30 декабря 2025",
+             "Profit": "1184.4000000",
+             "Payment": "13.2400000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "30.01.2026",
+             "OperDateFormat": "30 января 2026",
+             "Profit": "1198.2100000",
+             "Payment": "13.4700000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "27.02.2026",
+             "OperDateFormat": "27 февраля 2026",
+             "Profit": "1209.1600000",
+             "Payment": "10.4000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "31.03.2026",
+             "OperDateFormat": "31 марта 2026",
+             "Profit": "1223.2400000",
+             "Payment": "18.8300000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "30.04.2026",
+             "OperDateFormat": "30 апреля 2026",
+             "Profit": "1235.3300000",
+             "Payment": "13.4000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "29.05.2026",
+             "OperDateFormat": "29 мая 2026",
+             "Profit": "1247.9600000",
+             "Payment": "9.7300000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "30.06.2026",
+             "OperDateFormat": "30 июня 2026",
+             "Profit": "1260.2400000",
+             "Payment": "13.7400000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "31.07.2026",
+             "OperDateFormat": "31 июля 2026",
+             "Profit": "1276.0200000",
+             "Payment": "12.4900000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "31.08.2026",
+             "OperDateFormat": "31 августа 2026",
+             "Profit": "1288.1700000",
+             "Payment": "9.1000000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "30.09.2026",
+             "OperDateFormat": "30 сентября 2026",
+             "Profit": "1289.7300000",
+             "Payment": "13.6900000"
+            },
+            {
+             "FundID": 6833,
+             "OperDate": "30.10.2026",
+             "OperDateFormat": "30 октября 2026",
+             "Profit": "1301.2900000",
+             "Payment": "12.2400000"
+            }
+           ]
+          }
+         },
+         "allowedPeriods": {
+          "type": "data",
+          "items": [
+           "1_day",
+           "1_month",
+           "3_month",
+           "6_month",
+           "1_year",
+           "all"
+          ],
+          "periods": {
+           "1_day": {
+            "id": "1_day",
+            "code": "1_day",
+            "name": "1 день",
+            "label": "за 1 день",
+            "placeholder": "за 1 день",
+            "duration": 1,
+            "unit": "day",
+            "value": "0.01%",
+            "percent": 0.01,
+            "amount": "0.05",
+            "amountFormatted": "0.05 ₽",
+            "months": 0,
+            "sort": 100
+           },
+           "1_month": {
+            "id": "1_month",
+            "code": "1_month",
+            "name": "1 месяц",
+            "label": "за 1 месяц",
+            "placeholder": "за 1 месяц",
+            "duration": 1,
+            "unit": "month",
+            "value": "1%",
+            "percent": 1,
+            "amount": "9.97",
+            "amountFormatted": "9.97 ₽",
+            "months": 1,
+            "sort": 200
+           },
+           "3_month": {
+            "id": "3_month",
+            "code": "3_month",
+            "name": "3 месяца",
+            "label": "за 3 месяца",
+            "placeholder": "за 3 месяца",
+            "duration": 3,
+            "unit": "month",
+            "value": "2.53%",
+            "percent": 2.53,
+            "amount": "25.32",
+            "amountFormatted": "25.32 ₽",
+            "months": 3,
+            "sort": 300
+           },
+           "6_month": {
+            "id": "6_month",
+            "code": "6_month",
+            "name": "6 месяцев",
+            "label": "за 6 месяцев",
+            "placeholder": "за 6 месяцев",
+            "duration": 6,
+            "unit": "month",
+            "value": "6.62%",
+            "percent": 6.62,
+            "amount": "66.01",
+            "amountFormatted": "66.01 ₽",
+            "months": 6,
+            "sort": 400
+           },
+           "1_year": {
+            "id": "1_year",
+            "code": "1_year",
+            "name": "1 год",
+            "label": "за 1 год",
+            "placeholder": "за 1 год",
+            "duration": 1,
+            "unit": "year",
+            "value": "13.87%",
+            "percent": 13.87,
+            "amount": "139.24",
+            "amountFormatted": "139.24 ₽",
+            "months": 12,
+            "sort": 500
+           },
+           "all": {
+            "id": "all",
+            "code": "all",
+            "name": "Весь период",
+            "label": "за весь период",
+            "placeholder": "за весь период",
+            "duration": 0,
+            "unit": "all",
+            "value": "-0.78%",
+            "percent": -0.78,
+            "amount": "-7.77",
+            "amountFormatted": "-7.77 ₽",
+            "months": 0,
+            "sort": 800
+           }
+          },
+          "selected": "1_year"
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "errors": false,
+  "code": 200
+ },
+ "errors": []
+}

@@ -1,0 +1,787 @@
+{
+ "status": "success",
+ "data": {
+  "result": {
+   "fields": {
+    "workarea": {
+     "items": {
+      "defaultPeriod": {
+       "type": "text",
+       "value": 60,
+       "code": "5_year"
+      },
+      "items": {
+       "product": {
+        "id": {
+         "type": "text",
+         "html": "3700"
+        },
+        "title": {
+         "type": "text",
+         "html": "СОЛИД-Инвест"
+        },
+        "titleFull": {
+         "type": "text",
+         "html": "ОПИФ СОЛИД-Инвест"
+        },
+        "code": {
+         "type": "text",
+         "html": "solid-invest"
+        },
+        "typeCode": {
+         "type": "text",
+         "html": "open"
+        },
+        "type": {
+         "type": "text",
+         "html": "ОПИФ РФИ"
+        },
+        "profit": {
+         "type": "text",
+         "html": "за 5 лет",
+         "value": "-200.03 ₽ (-21.71%)",
+         "percent": "-21.71%",
+         "period": {
+          "code": "5_year",
+          "label": "за 5 лет"
+         }
+        },
+        "info": {
+         "title": {
+          "type": "text",
+          "html": "ОПИФ СОЛИД-Инвест"
+         },
+         "info": {
+          "type": "text",
+          "html": "<p>\r\n\t Правила доверительного управления №&nbsp;0040-52697973 зарегистрированы Банком России&nbsp;20.03.2000\r\n</p>\r\n<h2>\r\nИнвестируй в рост своих вложений: Акции РФ с высоким потенциалом </h2>\r\n<p>\r\n\t Фонд ориентирован на долгосрочное вложение в акции крупнейших российских эмитентов со стабильным бизнесом, а также недооцененные компании с перспективой роста выше рынка. Флагманский фонд нашей компании, который сочетает в себе инвестиции в разные сектора экономики и ориентирован как на получение дохода от дивидендного потока, так и на рост рыночной стоимости ценных бумаг в портфеле. Стратегия фо"
+         }
+        },
+        "paramsBlock": {
+         "type": "data",
+         "items": {
+          "isUser": false,
+          "profit": {
+           "type": "text",
+           "html": "за 5 лет",
+           "value": "-200.03 ₽ (-21.71%)",
+           "percent": "-21.71%",
+           "period": {
+            "code": "5_year",
+            "label": "за 5 лет"
+           }
+          },
+          "pai": {
+           "type": "text",
+           "html": "Пай",
+           "value": 721.29
+          },
+          "sha": {
+           "type": "text",
+           "html": "СЧА",
+           "value": 146531514.42
+          },
+          "risk": {
+           "type": "text",
+           "html": "Риск",
+           "value": "Выше среднего"
+          },
+          "updateDate": {
+           "type": "text",
+           "html": "Обновлено",
+           "value": "02.11.2026"
+          }
+         }
+        },
+        "profitPeriods": {
+         "type": "text",
+         "html": "Доходность ",
+         "list": {
+          "1_day": {
+           "id": "1_day",
+           "code": "1_day",
+           "name": "1 день",
+           "label": "за 1 день",
+           "placeholder": "за 1 день",
+           "duration": 1,
+           "unit": "day",
+           "value": "-1.91%",
+           "percent": -1.91,
+           "amount": "-14.08",
+           "amountFormatted": "-14.08 ₽",
+           "months": 0,
+           "sort": 100
+          },
+          "1_month": {
+           "id": "1_month",
+           "code": "1_month",
+           "name": "1 месяц",
+           "label": "за 1 месяц",
+           "placeholder": "за 1 месяц",
+           "duration": 1,
+           "unit": "month",
+           "value": "6.08%",
+           "percent": 6.08,
+           "amount": "41.36",
+           "amountFormatted": "41.36 ₽",
+           "months": 1,
+           "sort": 200
+          },
+          "3_month": {
+           "id": "3_month",
+           "code": "3_month",
+           "name": "3 месяца",
+           "label": "за 3 месяца",
+           "placeholder": "за 3 месяца",
+           "duration": 3,
+           "unit": "month",
+           "value": "7.39%",
+           "percent": 7.39,
+           "amount": "49.63",
+           "amountFormatted": "49.63 ₽",
+           "months": 3,
+           "sort": 300
+          },
+          "6_month": {
+           "id": "6_month",
+           "code": "6_month",
+           "name": "6 месяцев",
+           "label": "за 6 месяцев",
+           "placeholder": "за 6 месяцев",
+           "duration": 6,
+           "unit": "month",
+           "value": "-4.39%",
+           "percent": -4.39,
+           "amount": "-33.13",
+           "amountFormatted": "-33.13 ₽",
+           "months": 6,
+           "sort": 400
+          },
+          "1_year": {
+           "id": "1_year",
+           "code": "1_year",
+           "name": "1 год",
+           "label": "за 1 год",
+           "placeholder": "за 1 год",
+           "duration": 1,
+           "unit": "year",
+           "value": "1.06%",
+           "percent": 1.06,
+           "amount": "7.56",
+           "amountFormatted": "7.56 ₽",
+           "months": 12,
+           "sort": 500
+          },
+          "3_year": {
+           "id": "3_year",
+           "code": "3_year",
+           "name": "3 года",
+           "label": "за 3 года",
+           "placeholder": "за 3 года",
+           "duration": 3,
+           "unit": "year",
+           "value": "-21.32%",
+           "percent": -21.32,
+           "amount": "-195.47",
+           "amountFormatted": "-195.47 ₽",
+           "months": 36,
+           "sort": 600
+          },
+          "5_year": {
+           "id": "5_year",
+           "code": "5_year",
+           "name": "5 лет",
+           "label": "за 5 лет",
+           "placeholder": "за 5 лет",
+           "duration": 5,
+           "unit": "year",
+           "value": "-21.71%",
+           "percent": -21.71,
+           "amount": "-200.03",
+           "amountFormatted": "-200.03 ₽",
+           "months": 60,
+           "sort": 700
+          }
+         }
+        },
+        "paiPrice": {
+         "title": {
+          "type": "text",
+          "html": "Цена пая"
+         },
+         "data": {
+          "type": "data",
+          "items": {
+           "pai": [
+            {
+             "OperDate": "17.04.2000",
+             "FundID": 40,
+             "Price": "10.0000000",
+             "PriceDiff": ".0000000",
+             "Value": ".00",
+             "ValueDiff": ".0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "17 апреля 2000"
+            },
+            {
+             "OperDate": "11.05.2000",
+             "FundID": 40,
+             "Price": "91.4500000",
+             "PriceDiff": "814.5000000",
+             "Value": ".00",
+             "ValueDiff": ".0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "11 мая 2000"
+            },
+            {
+             "OperDate": "22.05.2000",
+             "FundID": 40,
+             "Price": "75.3100000",
+             "PriceDiff": "-17.6500000",
+             "Value": ".00",
+             "ValueDiff": ".0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "22 мая 2000"
+            },
+            {
+             "OperDate": "27.08.2025",
+             "FundID": 40,
+             "Price": "826.7900000",
+             "PriceDiff": ".9500000",
+             "Value": "166984396.01",
+             "ValueDiff": ".9500000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "27 августа 2025"
+            },
+            {
+             "OperDate": "28.08.2025",
+             "FundID": 40,
+             "Price": "827.3800000",
+             "PriceDiff": ".0700000",
+             "Value": "167104045.42",
+             "ValueDiff": ".0700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "28 августа 2025"
+            },
+            {
+             "OperDate": "29.08.2025",
+             "FundID": 40,
+             "Price": "821.2300000",
+             "PriceDiff": "-.7400000",
+             "Value": "165861391.77",
+             "ValueDiff": "-.7400000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "29 августа 2025"
+            },
+            {
+             "OperDate": "01.09.2025",
+             "FundID": 40,
+             "Price": "816.6400000",
+             "PriceDiff": "-.5600000",
+             "Value": "164934404.98",
+             "ValueDiff": "-.5600000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "1 сентября 2025"
+            },
+            {
+             "OperDate": "02.09.2025",
+             "FundID": 40,
+             "Price": "803.0700000",
+             "PriceDiff": "-1.6600000",
+             "Value": "162193292.23",
+             "ValueDiff": "-1.6600000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "2 сентября 2025"
+            },
+            {
+             "OperDate": "03.09.2025",
+             "FundID": 40,
+             "Price": "808.7600000",
+             "PriceDiff": ".7100000",
+             "Value": "163443894.02",
+             "ValueDiff": ".7700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "3 сентября 2025"
+            },
+            {
+             "OperDate": "07.10.2026",
+             "FundID": 40,
+             "Price": "698.1100000",
+             "PriceDiff": ".1500000",
+             "Value": "141877750.00",
+             "ValueDiff": ".1500000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "7 октября 2026"
+            },
+            {
+             "OperDate": "08.10.2026",
+             "FundID": 40,
+             "Price": "690.3100000",
+             "PriceDiff": "-1.1200000",
+             "Value": "140308069.74",
+             "ValueDiff": "-1.1100000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "8 октября 2026"
+            },
+            {
+             "OperDate": "16.10.2026",
+             "FundID": 40,
+             "Price": "722.8200000",
+             "PriceDiff": "4.7100000",
+             "Value": "146865114.43",
+             "ValueDiff": "4.6700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "16 октября 2026"
+            },
+            {
+             "OperDate": "19.10.2026",
+             "FundID": 40,
+             "Price": "724.9200000",
+             "PriceDiff": ".2900000",
+             "Value": "147291061.87",
+             "ValueDiff": ".2900000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "19 октября 2026"
+            },
+            {
+             "OperDate": "22.10.2026",
+             "FundID": 40,
+             "Price": "720.6900000",
+             "PriceDiff": "-.5800000",
+             "Value": "146410138.80",
+             "ValueDiff": "-.6000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "22 октября 2026"
+            },
+            {
+             "OperDate": "23.10.2026",
+             "FundID": 40,
+             "Price": "730.5500000",
+             "PriceDiff": "1.3700000",
+             "Value": "148412580.54",
+             "ValueDiff": "1.3700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "23 октября 2026"
+            },
+            {
+             "OperDate": "26.10.2026",
+             "FundID": 40,
+             "Price": "737.8300000",
+             "PriceDiff": "1.0000000",
+             "Value": "149892301.53",
+             "ValueDiff": "1.0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "26 октября 2026"
+            },
+            {
+             "OperDate": "27.10.2026",
+             "FundID": 40,
+             "Price": "738.6500000",
+             "PriceDiff": ".1100000",
+             "Value": "150058022.97",
+             "ValueDiff": ".1100000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "27 октября 2026"
+            },
+            {
+             "OperDate": "28.10.2026",
+             "FundID": 40,
+             "Price": "742.1500000",
+             "PriceDiff": ".4700000",
+             "Value": "150769941.81",
+             "ValueDiff": ".4700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "28 октября 2026"
+            },
+            {
+             "OperDate": "29.10.2026",
+             "FundID": 40,
+             "Price": "730.0300000",
+             "PriceDiff": "-1.6300000",
+             "Value": "148306686.55",
+             "ValueDiff": "-1.6300000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "29 октября 2026"
+            },
+            {
+             "OperDate": "30.10.2026",
+             "FundID": 40,
+             "Price": "735.3700000",
+             "PriceDiff": ".7300000",
+             "Value": "149392433.69",
+             "ValueDiff": ".7300000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "30 октября 2026"
+            },
+            {
+             "OperDate": "02.11.2026",
+             "FundID": 40,
+             "Price": "721.2900000",
+             "PriceDiff": "-1.9100000",
+             "Value": "146531514.42",
+             "ValueDiff": "-1.9200000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "2 ноября 2026"
+            }
+           ],
+           "sha": [
+            {
+             "OperDate": "17.04.2000",
+             "FundID": 40,
+             "Price": "10.0000000",
+             "PriceDiff": ".0000000",
+             "Value": ".00",
+             "ValueDiff": ".0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "17 апреля 2000"
+            },
+            {
+             "OperDate": "11.05.2000",
+             "FundID": 40,
+             "Price": "91.4500000",
+             "PriceDiff": "814.5000000",
+             "Value": ".00",
+             "ValueDiff": ".0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "11 мая 2000"
+            },
+            {
+             "OperDate": "22.05.2000",
+             "FundID": 40,
+             "Price": "75.3100000",
+             "PriceDiff": "-17.6500000",
+             "Value": ".00",
+             "ValueDiff": ".0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "22 мая 2000"
+            },
+            {
+             "OperDate": "27.08.2025",
+             "FundID": 40,
+             "Price": "826.7900000",
+             "PriceDiff": ".9500000",
+             "Value": "166984396.01",
+             "ValueDiff": ".9500000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "27 августа 2025"
+            },
+            {
+             "OperDate": "28.08.2025",
+             "FundID": 40,
+             "Price": "827.3800000",
+             "PriceDiff": ".0700000",
+             "Value": "167104045.42",
+             "ValueDiff": ".0700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "28 августа 2025"
+            },
+            {
+             "OperDate": "29.08.2025",
+             "FundID": 40,
+             "Price": "821.2300000",
+             "PriceDiff": "-.7400000",
+             "Value": "165861391.77",
+             "ValueDiff": "-.7400000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "29 августа 2025"
+            },
+            {
+             "OperDate": "01.09.2025",
+             "FundID": 40,
+             "Price": "816.6400000",
+             "PriceDiff": "-.5600000",
+             "Value": "164934404.98",
+             "ValueDiff": "-.5600000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "1 сентября 2025"
+            },
+            {
+             "OperDate": "02.09.2025",
+             "FundID": 40,
+             "Price": "803.0700000",
+             "PriceDiff": "-1.6600000",
+             "Value": "162193292.23",
+             "ValueDiff": "-1.6600000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "2 сентября 2025"
+            },
+            {
+             "OperDate": "03.09.2025",
+             "FundID": 40,
+             "Price": "808.7600000",
+             "PriceDiff": ".7100000",
+             "Value": "163443894.02",
+             "ValueDiff": ".7700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "3 сентября 2025"
+            },
+            {
+             "OperDate": "07.10.2026",
+             "FundID": 40,
+             "Price": "698.1100000",
+             "PriceDiff": ".1500000",
+             "Value": "141877750.00",
+             "ValueDiff": ".1500000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "7 октября 2026"
+            },
+            {
+             "OperDate": "08.10.2026",
+             "FundID": 40,
+             "Price": "690.3100000",
+             "PriceDiff": "-1.1200000",
+             "Value": "140308069.74",
+             "ValueDiff": "-1.1100000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "8 октября 2026"
+            },
+            {
+             "OperDate": "16.10.2026",
+             "FundID": 40,
+             "Price": "722.8200000",
+             "PriceDiff": "4.7100000",
+             "Value": "146865114.43",
+             "ValueDiff": "4.6700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "16 октября 2026"
+            },
+            {
+             "OperDate": "19.10.2026",
+             "FundID": 40,
+             "Price": "724.9200000",
+             "PriceDiff": ".2900000",
+             "Value": "147291061.87",
+             "ValueDiff": ".2900000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "19 октября 2026"
+            },
+            {
+             "OperDate": "22.10.2026",
+             "FundID": 40,
+             "Price": "720.6900000",
+             "PriceDiff": "-.5800000",
+             "Value": "146410138.80",
+             "ValueDiff": "-.6000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "22 октября 2026"
+            },
+            {
+             "OperDate": "23.10.2026",
+             "FundID": 40,
+             "Price": "730.5500000",
+             "PriceDiff": "1.3700000",
+             "Value": "148412580.54",
+             "ValueDiff": "1.3700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "23 октября 2026"
+            },
+            {
+             "OperDate": "26.10.2026",
+             "FundID": 40,
+             "Price": "737.8300000",
+             "PriceDiff": "1.0000000",
+             "Value": "149892301.53",
+             "ValueDiff": "1.0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "26 октября 2026"
+            },
+            {
+             "OperDate": "27.10.2026",
+             "FundID": 40,
+             "Price": "738.6500000",
+             "PriceDiff": ".1100000",
+             "Value": "150058022.97",
+             "ValueDiff": ".1100000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "27 октября 2026"
+            },
+            {
+             "OperDate": "28.10.2026",
+             "FundID": 40,
+             "Price": "742.1500000",
+             "PriceDiff": ".4700000",
+             "Value": "150769941.81",
+             "ValueDiff": ".4700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "28 октября 2026"
+            },
+            {
+             "OperDate": "29.10.2026",
+             "FundID": 40,
+             "Price": "730.0300000",
+             "PriceDiff": "-1.6300000",
+             "Value": "148306686.55",
+             "ValueDiff": "-1.6300000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "29 октября 2026"
+            },
+            {
+             "OperDate": "30.10.2026",
+             "FundID": 40,
+             "Price": "735.3700000",
+             "PriceDiff": ".7300000",
+             "Value": "149392433.69",
+             "ValueDiff": ".7300000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "30 октября 2026"
+            },
+            {
+             "OperDate": "02.11.2026",
+             "FundID": 40,
+             "Price": "721.2900000",
+             "PriceDiff": "-1.9100000",
+             "Value": "146531514.42",
+             "ValueDiff": "-1.9200000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Солид-Инвест\"",
+             "OperDateFormat": "2 ноября 2026"
+            }
+           ]
+          }
+         },
+         "allowedPeriods": {
+          "type": "data",
+          "items": [
+           "1_day",
+           "1_month",
+           "3_month",
+           "6_month",
+           "1_year",
+           "3_year",
+           "5_year",
+           "all"
+          ],
+          "periods": {
+           "1_day": {
+            "id": "1_day",
+            "code": "1_day",
+            "name": "1 день",
+            "label": "за 1 день",
+            "placeholder": "за 1 день",
+            "duration": 1,
+            "unit": "day",
+            "value": "-1.91%",
+            "percent": -1.91,
+            "amount": "-14.08",
+            "amountFormatted": "-14.08 ₽",
+            "months": 0,
+            "sort": 100
+           },
+           "1_month": {
+            "id": "1_month",
+            "code": "1_month",
+            "name": "1 месяц",
+            "label": "за 1 месяц",
+            "placeholder": "за 1 месяц",
+            "duration": 1,
+            "unit": "month",
+            "value": "6.08%",
+            "percent": 6.08,
+            "amount": "41.36",
+            "amountFormatted": "41.36 ₽",
+            "months": 1,
+            "sort": 200
+           },
+           "3_month": {
+            "id": "3_month",
+            "code": "3_month",
+            "name": "3 месяца",
+            "label": "за 3 месяца",
+            "placeholder": "за 3 месяца",
+            "duration": 3,
+            "unit": "month",
+            "value": "7.39%",
+            "percent": 7.39,
+            "amount": "49.63",
+            "amountFormatted": "49.63 ₽",
+            "months": 3,
+            "sort": 300
+           },
+           "6_month": {
+            "id": "6_month",
+            "code": "6_month",
+            "name": "6 месяцев",
+            "label": "за 6 месяцев",
+            "placeholder": "за 6 месяцев",
+            "duration": 6,
+            "unit": "month",
+            "value": "-4.39%",
+            "percent": -4.39,
+            "amount": "-33.13",
+            "amountFormatted": "-33.13 ₽",
+            "months": 6,
+            "sort": 400
+           },
+           "1_year": {
+            "id": "1_year",
+            "code": "1_year",
+            "name": "1 год",
+            "label": "за 1 год",
+            "placeholder": "за 1 год",
+            "duration": 1,
+            "unit": "year",
+            "value": "1.06%",
+            "percent": 1.06,
+            "amount": "7.56",
+            "amountFormatted": "7.56 ₽",
+            "months": 12,
+            "sort": 500
+           },
+           "3_year": {
+            "id": "3_year",
+            "code": "3_year",
+            "name": "3 года",
+            "label": "за 3 года",
+            "placeholder": "за 3 года",
+            "duration": 3,
+            "unit": "year",
+            "value": "-21.32%",
+            "percent": -21.32,
+            "amount": "-195.47",
+            "amountFormatted": "-195.47 ₽",
+            "months": 36,
+            "sort": 600
+           },
+           "5_year": {
+            "id": "5_year",
+            "code": "5_year",
+            "name": "5 лет",
+            "label": "за 5 лет",
+            "placeholder": "за 5 лет",
+            "duration": 5,
+            "unit": "year",
+            "value": "-21.71%",
+            "percent": -21.71,
+            "amount": "-200.03",
+            "amountFormatted": "-200.03 ₽",
+            "months": 60,
+            "sort": 700
+           },
+           "all": {
+            "id": "all",
+            "code": "all",
+            "name": "Весь период",
+            "label": "за весь период",
+            "placeholder": "за весь период",
+            "duration": 0,
+            "unit": "all",
+            "value": "7112.9%",
+            "percent": 7112.9,
+            "amount": "711.29",
+            "amountFormatted": "711.29 ₽",
+            "months": 0,
+            "sort": 800
+           }
+          },
+          "selected": "5_year"
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "errors": false,
+  "code": 200
+ },
+ "errors": []
+}

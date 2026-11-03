@@ -79,6 +79,10 @@ def merge_with_previous(new: dict, prev: dict | None) -> dict:
     """
     if not prev or not prev.get("segments"):
         return new
+    # выплаты дохода: при докачке хвоста старые выплаты не теряются (новые по той же дате важнее)
+    pays = {str(p["date"])[:10]: p for p in prev.get("payouts", [])}
+    pays.update({str(p["date"])[:10]: p for p in new.get("payouts", [])})
+    new["payouts"] = [pays[d] for d in sorted(pays)]
     new_urls = {s["raw_url"] for s in new["segments"]}
     kept = [s for s in prev["segments"] if s["raw_url"] not in new_urls]
     if new["segments"]:

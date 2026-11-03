@@ -1,0 +1,108 @@
+<style>
+.title-h2[data-sign="+"] { color: #008900 !important; }
+.title-h2[data-sign="-"] { color: #D11818 !important; }
+</style>
+<div class="priceScheduleBody">
+        <div class="priceScheduleRow">
+        <div class="priceScheduleBodyBlock">
+            <div class="priceScheduleBodyBlockHeader">
+                <h2 class="title-h2">1,2055&nbsp;$</h2>
+            </div>
+            <div class="description">
+                <p class="text-large">Стоимость</p>
+            </div>
+        </div>
+        <div class="priceScheduleBodyBlock">
+            <div class="priceScheduleBodyBlockHeader">
+                                    <h2 class="title-h2" data-sign="+">+5,66%</h2>
+                    <h2 class="title-h2" data-sign="+">за 1 год</h2>
+                            </div>
+            <div class="description">
+                <p class="text-large">Изменение</p>
+            </div>
+        </div>
+        <div class="priceScheduleBodyBlock">
+            <div class="priceScheduleBodyBlockHeader">
+                <h2 class="title-h2">11115309.06&nbsp;$</h2>
+            </div>
+            <div class="description">
+                <p class="text-large">СЧА</p>
+                <div class="tooltip-wrapper">
+                    <img class="tooltip-icon" src="" alt="Вопрос">
+                    <div class="tooltip-content text-medium tooltip-top">Стоимость чистых активов</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="priceScheduleMainBlock">
+        <div class="priceSchedule">
+            <div class="chipsWrapper">
+                <div class="chip js-chip" data-period="1 мес." data-type="share" data-currency="usd" data-format="sistema">
+                    <p class="text-large-desktop text-large-tablet text-medium-mobile">1 мес.</p>
+                </div>
+                <div class="chip js-chip" data-period="3 мес." data-type="share" data-currency="usd" data-format="sistema">
+                    <p class="text-large-desktop text-large-tablet text-medium-mobile">3 мес.</p>
+                </div>
+                <div class="chip js-chip" data-period="6 мес." data-type="share" data-currency="usd" data-format="sistema">
+                    <p class="text-large-desktop text-large-tablet text-medium-mobile">6 мес.</p>
+                </div>
+                <div class="chip js-chip active" data-period="1 год" data-type="share" data-currency="usd" data-format="sistema">
+                    <p class="text-large-desktop text-large-tablet text-medium-mobile">1 год</p>
+                </div>
+                <div class="chip js-chip" data-period="3 года" data-type="share" data-currency="usd" data-format="sistema">
+                    <p class="text-large-desktop text-large-tablet text-medium-mobile">3 года</p>
+                </div>
+                <div class="chip js-chip" data-period="Все время" data-type="share" data-currency="usd" data-format="sistema">
+                    <p class="text-large-desktop text-large-tablet text-medium-mobile">Все время</p>
+                </div>
+            </div>
+                            <div class="currencyWrapper">
+                    <button class="currencyItem price-share-currency__btn price-share-currency__btn-rub js-period "                   
+                            data-currency="rub"
+                            data-format="sistema"
+                            data-icon="₽"
+                    >
+                        <p>RUB</p>
+                    </button>
+                    <button class="currencyItem  price-share-currency__btn price-share-currency__btn-usd js-period  active "
+                            data-currency="usd"
+                            data-format="sistema"
+                            data-icon="$"
+                    >
+                        <p>USD</p>
+                    </button>
+                </div>
+                        <canvas id="priceSchedule" data-array-price='[[1792962000000,1.20259],[1793048400000,1.20492],[1793134800000,1.20471],[1793221200000,1.20845],[1793307600000,1.20554]]' data-count-days='1095' data-currency="usd"></canvas>
+        </div>
+        <div class="priceScheduleRange" style="margin-top: 98px !important;">
+            <div class="rangeSliderContainer">
+                <div class="rangeGraphContainer">
+                    <div class="rangeChartCanvasWrap">
+                    <div class="rangeChartTrack" id="rangeChartTrack">
+                        <div class="rangeSelection" id="rangeSelection"></div>
+                    </div>
+                    <canvas id="rangeSliderChart"></canvas>
+                    <div class="rangeChartHandles">
+                        <div class="rangeHandle leftHandle" id="leftHandle"></div>
+                        <div class="rangeHandle rightHandle" id="rightHandle"></div>
+                    </div>
+                    </div>
+                    <div class="rangeChartAxisLabels" id="rangeChartAxisLabels"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="chart-data" 
+     data-array-price='[[1792962000000,1.20259],[1793048400000,1.20492],[1793134800000,1.20471],[1793221200000,1.20845],[1793307600000,1.20554]]'
+     data-days='1095'
+     data-period='3year'
+     data-currency="usd"
+     data-currency-print="$"
+     data-type="index_inv"
+     data-period-percents='{"index":{"month":"+1,54","3month":"+1,56","6month":"+0,40","year":"+5,66","3year":"","all":"+55,11"},"scha":{"month":"-2,46","3month":"-1,02","6month":"-0,47","year":"+6,94","3year":"","all":"+601,06"},"labels":{"month":"1 \u043c\u0435\u0441.","3month":"3 \u043c\u0435\u0441.","6month":"6 \u043c\u0435\u0441.","year":"1 \u0433\u043e\u0434","3year":"3 \u0433\u043e\u0434\u0430","all":"\u0412\u0441\u0435 \u0432\u0440\u0435\u043c\u044f"}}'
+     style="display: none;">
+</div>
+
+

@@ -1,0 +1,514 @@
+{
+ "status": "success",
+ "data": {
+  "result": {
+   "fields": {
+    "workarea": {
+     "items": {
+      "title": {
+       "type": "text",
+       "html": "Все продукты"
+      },
+      "items": {
+       "type": "data",
+       "items": [
+        {
+         "id": "3712",
+         "headTitle": "БПИФ РФИ",
+         "title": "СОЛИД - Денежный поток",
+         "info": "",
+         "info_preview": "",
+         "code": "solid-cash-flow",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "<p>\r\n\t Правила доверительного управления № 6833 зарегистрированы&nbsp;Банком России 30.01.2025&nbsp;\r\n</p>\r\n<h2>Создайте пассивный доход: консервативный подход с ежемесячной выплатой</h2>\r\n<h3>Тикер на бирже: SMCF</h3>\r\n<p style=\"text-align: justify; \">\r\n <b>Паи доступны к покупке на бирже через приложения большинства брокеров</b>\r\n</p>\r\n<p style=\"text-align: justify;\">\r\n\t Фонд обеспечивает стабил",
+         "profitDate": "на 2 ноября 2026",
+         "profitPeriod": "за 1 год",
+         "profit": "13.87%",
+         "size": "big",
+         "color": "dark",
+         "risk": "Низкий",
+         "height": null,
+         "type": "investors",
+         "isBestseller": true,
+         "endpoints": {
+          "getConsultation": {
+           "type": "submit",
+           "placeholder": "Получить консультацию",
+           "endpoint": "api/v1/forms/ascQuestionForm/product/3712/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/solid-cash-flow/"
+          }
+         },
+         "sha": "271218253.7₽",
+         "pai": "992.19₽"
+        },
+        {
+         "id": "3715",
+         "headTitle": "ОПИФ РФИ",
+         "title": "ФИНГОЛД",
+         "info": "",
+         "info_preview": "",
+         "code": "fingold",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "Правила доверительного управления № 7286 зарегистрированы Банком России&nbsp;15.09.2025<br>\r\n <br>\r\n<p>\r\n\t Это надёжное решение для тех, кто ищет возможность сохранить и приумножить капитал за счёт активного управления вложениями в драгоценные металлы и ценные бумаги российских эмитентов. Стратегия фонда сочетает долгосрочные и краткосрочные инвестиции, что позволяет эффективно использовать рыночные колебания и обеспечивать устойчивый рост стоимости пая.\r\n</p>",
+         "profitDate": "на 30 октября 2026",
+         "profitPeriod": "за 1 год",
+         "profit": "-9.91%",
+         "size": "small",
+         "color": null,
+         "risk": "Низкий",
+         "height": "high",
+         "type": "investors",
+         "isBestseller": false,
+         "endpoints": {
+          "buy": {
+           "type": "submit",
+           "placeholder": "Купить",
+           "endpoint": "api/v1/operation/buyFundForm/3715/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/fingold/"
+          }
+         },
+         "sha": "50833279.29₽",
+         "pai": "900.94₽"
+        },
+        {
+         "id": "3700",
+         "headTitle": "ОПИФ РФИ",
+         "title": "СОЛИД-Инвест",
+         "info": "",
+         "info_preview": "",
+         "code": "solid-invest",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "<p>\r\n\t Правила доверительного управления №&nbsp;0040-52697973 зарегистрированы Банком России&nbsp;20.03.2000\r\n</p>\r\n<h2>\r\nИнвестируй в рост своих вложений: Акции РФ с высоким потенциалом </h2>\r\n<p>\r\n\t Фонд ориентирован на долгосрочное вложение в акции крупнейших российских эмитентов со стабильным бизнесом, а также недооцененные компании с перспективой роста выше рынка. Флагманский фонд нашей компа",
+         "profitDate": "на 30 октября 2026",
+         "profitPeriod": "за 5 лет",
+         "profit": "-19.11%",
+         "size": "big",
+         "color": null,
+         "risk": "Выше среднего",
+         "height": null,
+         "type": "investors",
+         "isBestseller": true,
+         "endpoints": {
+          "buy": {
+           "type": "submit",
+           "placeholder": "Купить",
+           "endpoint": "api/v1/operation/buyFundForm/3700/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/solid-invest/"
+          }
+         },
+         "sha": "149392433.69₽",
+         "pai": "735.37₽"
+        },
+        {
+         "id": "3707",
+         "headTitle": "ОПИФ РФИ",
+         "title": "СОЛИД - пенсионный капитал",
+         "info": "",
+         "info_preview": "",
+         "code": "solid-pensionnyy-kapital",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "<p>\r\n\t Правила доверительного управления № 0045-54859434 зарегистрированы Банком России&nbsp;20.09.2000&nbsp;\r\n</p>\r\n<h2>\r\nОбеспечьте будущее: приумножайте свои сбережения. </h2>\r\n<p>\r\n\t Фонд смешанных инвестиций, ориентированный на инвестиции в акции и облигации российских компаний. В зависимости от ситуации на рынке наращивается доля либо акций, либо облигаций. В период стагнации и высокой ставк",
+         "profitDate": "на 30 октября 2026",
+         "profitPeriod": "за 1 год",
+         "profit": "8.4%",
+         "size": "small",
+         "color": null,
+         "risk": "Низкий",
+         "height": null,
+         "type": "investors",
+         "isBestseller": false,
+         "endpoints": {
+          "buy": {
+           "type": "submit",
+           "placeholder": "Купить",
+           "endpoint": "api/v1/operation/buyFundForm/3707/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/solid-pensionnyy-kapital/"
+          }
+         },
+         "sha": "50530728.75₽",
+         "pai": "99.26₽"
+        },
+        {
+         "id": "7161",
+         "headTitle": "",
+         "title": "Квалификация инвесторов",
+         "info": "",
+         "info_preview": "",
+         "code": "kvalifikatsiya-investorov",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "<h2>Квалифицированный инвестор!</h2>\r\n<p style=\"text-align: justify;\">\r\n\t &nbsp;—&nbsp;инвестор, который ознакомился с Уведомлениями о последствиях признания физического лица квалифицированным инвестором и о повышенных рисках, а также подтвердил, что он понимает, как работает финансовый рынок и умее",
+         "profitDate": "",
+         "profitPeriod": "",
+         "profit": "",
+         "size": "small",
+         "color": "light",
+         "risk": null,
+         "height": "high",
+         "type": "investors",
+         "isBestseller": false,
+         "endpoints": {
+          "getConsultation": {
+           "type": "submit",
+           "placeholder": "Получить консультацию",
+           "endpoint": "api/v1/forms/ascQuestionForm/product/7161/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/kvalifikatsiya-investorov/"
+          }
+         }
+        },
+        {
+         "id": "3714",
+         "headTitle": "",
+         "title": "ЗПИФ для квалифицированных инвесторов",
+         "info": "",
+         "info_preview": "Тестовое описание для услуги в списке",
+         "code": "zpif-dlya-kvalifitsirovannykh-investorov",
+         "groupId": "101",
+         "typeColor": "#BC71C9",
+         "description": "",
+         "profitDate": "",
+         "profitPeriod": "",
+         "profit": "",
+         "size": "small",
+         "color": null,
+         "risk": null,
+         "height": "high",
+         "type": "business",
+         "isBestseller": false,
+         "endpoints": {
+          "getConsultation": {
+           "type": "submit",
+           "placeholder": "Получить консультацию",
+           "endpoint": "api/v1/forms/ascQuestionForm/product/3714/"
+          },
+          "link": {
+           "placeholder": "Подробнее",
+           "endpoint": "/zpif-dlya-kvalifitsirovannykh-investorov/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/zpif-dlya-kvalifitsirovannykh-investorov/"
+          }
+         }
+        },
+        {
+         "id": "3713",
+         "headTitle": "",
+         "title": "СФО и секьюритизация активов",
+         "info": "",
+         "info_preview": "",
+         "code": "sfo-i-sekyuritizatsiya-aktivov",
+         "groupId": "101",
+         "typeColor": "#BC71C9",
+         "description": "",
+         "profitDate": "",
+         "profitPeriod": "",
+         "profit": "",
+         "size": "small",
+         "color": "light",
+         "risk": null,
+         "height": "high",
+         "type": "business",
+         "isBestseller": false,
+         "endpoints": {
+          "getConsultation": {
+           "type": "submit",
+           "placeholder": "Получить консультацию",
+           "endpoint": "api/v1/forms/ascQuestionForm/product/3713/"
+          },
+          "link": {
+           "placeholder": "Подробнее",
+           "endpoint": "/sekyuritizatsiya-aktivov-i-vypusk-strukturnykh-obligatsiy/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/sfo-i-sekyuritizatsiya-aktivov/"
+          }
+         }
+        },
+        {
+         "id": "3710",
+         "headTitle": "ЗПИФ РФИ",
+         "title": "СОЛИД РЕНТНЫЙ-2",
+         "info": "",
+         "info_preview": "",
+         "code": "solid-rentnyy-2",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "Правила доверительного управления № 3444&nbsp;зарегистрированы Банком России 26.12.2017<br>\r\n <br>\r\n Средства фонда инвестируются в конкретное офисное здание согласно инвестиционной декларации<br>\r\n <br>\r\n Индикатор (индекс) используемый в Фонде: <b>MCFTRR</b>. Сведения о порядке расчета индикатора (индекса) (формула, методика) и о лице осуществляющим такой расчет доступны по ссылке: <a href=\"http",
+         "profitDate": "на 30 октября 2026",
+         "profitPeriod": "за 5 лет",
+         "profit": "19.76%",
+         "size": "big",
+         "color": null,
+         "risk": null,
+         "height": "low",
+         "type": "investors",
+         "isBestseller": false,
+         "endpoints": {
+          "buy": {
+           "type": "submit",
+           "placeholder": "Купить",
+           "endpoint": "api/v1/operation/buyFundForm/3710/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/solid-rentnyy-2/"
+          }
+         },
+         "sha": "1128854114.15₽",
+         "pai": "5289450.35₽"
+        },
+        {
+         "id": "3706",
+         "headTitle": "ОПИФ РФИ",
+         "title": "СОЛИД - российские облигации",
+         "info": "",
+         "info_preview": "",
+         "code": "solid-rossiyskie-obligatsii",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "<p>\r\n\t Правила доверительного управления №&nbsp;0065-58549452 зарегистрированы Банком России&nbsp;27.04.2002&nbsp;\r\n</p>\r\n<h2>\r\nЗащитите капитал облигациями: Стабильный доход от стабильных компаний </h2>\r\n<p>\r\n</p>\r\n<p style=\"text-align: justify;\">\r\n\t Фонд инвестирует средства в долговые бумаги российских эмитентов, а также государственные долговые бумаги. Выбираются облигации с высоким рейтингом ",
+         "profitDate": "на 30 октября 2026",
+         "profitPeriod": "за 5 лет",
+         "profit": "62.65%",
+         "size": "small",
+         "color": "dark",
+         "risk": "Низкий",
+         "height": null,
+         "type": "investors",
+         "isBestseller": false,
+         "endpoints": {
+          "buy": {
+           "type": "submit",
+           "placeholder": "Купить",
+           "endpoint": "api/v1/operation/buyFundForm/3706/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/solid-rossiyskie-obligatsii/"
+          }
+         },
+         "sha": "63202366.05₽",
+         "pai": "4138.66₽"
+        },
+        {
+         "id": "3708",
+         "headTitle": "ОПИФ РФИ",
+         "title": "СОЛИД - Индекс МосБиржи",
+         "info": "",
+         "info_preview": "",
+         "code": "solid-indeks-mosbirzhi",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "Правила доверительного управления № 0351-76578546 зарегистрированы Банком России&nbsp;20.04.2005&nbsp;\r\n<h2>\r\nСледуйте за индексом: Стабильный рост на МосБирже </h2>\r\n<p style=\"text-align: justify;\">\r\n\t Фонд в своей стратегии повторяет вес акций, входящих в индекс МосБиржи, каждый квартал проводится ребалансировка портфеля, исключаются и добавляются новые активы. Динамика фонда максимально приближена к движению индекса.\r\n</p>",
+         "profitDate": "на 2 ноября 2026",
+         "profitPeriod": "за 5 лет",
+         "profit": "-27.48%",
+         "size": "small",
+         "color": null,
+         "risk": "Средний",
+         "height": null,
+         "type": "investors",
+         "isBestseller": false,
+         "endpoints": {
+          "buy": {
+           "type": "submit",
+           "placeholder": "Купить",
+           "endpoint": "api/v1/operation/buyFundForm/3708/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/solid-indeks-mosbirzhi/"
+          }
+         },
+         "sha": "79329662.47₽",
+         "pai": "366885.46₽"
+        },
+        {
+         "id": "3705",
+         "headTitle": "ОПИФ РФИ",
+         "title": "СОЛИД - Глобус",
+         "info": "",
+         "info_preview": "",
+         "code": "solid-globus",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "Правила доверительного управления №&nbsp;1903-94169099 зарегистрированы Банком России&nbsp;09.09.2010&nbsp;<br>\r\n <br>\r\n<p>\r\n\t Индикатор (индекс) используемый в Фонде: <b>MCFTRR</b>. Сведения о порядке расчета индикатора (индекса) (формула, методика) и о лице осуществляющим такой расчет доступны по ссылке:&nbsp;<a href=\"https://www.moex.com/ru/index/totalreturn/MCFTR/lastvalues\">https://www.moex.com/ru/index/totalreturn/MCFTR/lastvalues</a>\r\n</p>",
+         "profitDate": "на 2 ноября 2026",
+         "profitPeriod": "за 5 лет",
+         "profit": "-68.96%",
+         "size": "small",
+         "color": null,
+         "risk": "Выше среднего",
+         "height": "low",
+         "type": "investors",
+         "isBestseller": false,
+         "endpoints": {
+          "buy": {
+           "type": "submit",
+           "placeholder": "Купить",
+           "endpoint": "api/v1/operation/buyFundForm/3705/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/solid-globus/"
+          }
+         },
+         "sha": "17864365.39₽",
+         "pai": "1685.14₽"
+        },
+        {
+         "id": "3711",
+         "headTitle": "",
+         "title": "Заблокированные активы СОЛИД - Глобус",
+         "info": "",
+         "info_preview": "",
+         "code": "zablokirovannye-aktivy-pif-solid-globus",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "<p>\r\n\t Правила доверительного управления №&nbsp;5954&nbsp;зарегистрированы Банком России 26.12.2023&nbsp;\r\n</p>\r\n<h3>Преимущества</h3>\r\n <br>\r\n<ul>\r\n\t<li>Стратегия активного управления заключается преимущественно в реализации финансовых инструментов, фактическая возможность распоряжаться которыми ограничена вследствие недружественных действий иностранных государств, международных организаций, инос",
+         "profitDate": "",
+         "profitPeriod": "за 1 год",
+         "profit": "0%",
+         "size": "small",
+         "color": null,
+         "risk": null,
+         "height": null,
+         "type": "investors",
+         "isBestseller": false,
+         "endpoints": {
+          "getConsultation": {
+           "type": "submit",
+           "placeholder": "Получить консультацию",
+           "endpoint": "api/v1/forms/ascQuestionForm/product/3711/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/zablokirovannye-aktivy-pif-solid-globus/"
+          }
+         }
+        },
+        {
+         "id": "7040",
+         "headTitle": "",
+         "title": "Доверительное управление",
+         "info": "",
+         "info_preview": "",
+         "code": "doveritelnoe-upravlenie",
+         "groupId": "101",
+         "typeColor": "#BC71C9",
+         "description": "<span style=\"font-size: 16pt;\">\r\n<h2>Особенности фирменного подхода к ДУ:</h2>\r\n </span><br>\r\n <br>\r\n<ul style=\"height: revert; width: revert;\">\r\n\t<li>Индивидуальный подход в выборе стратегии управления, основанный на инвестиционных целях клиента, инвестиционном горизонте и отношения к риску клиента",
+         "profitDate": "",
+         "profitPeriod": "",
+         "profit": "",
+         "size": "big",
+         "color": "light",
+         "risk": null,
+         "height": "low",
+         "type": "business",
+         "isBestseller": false,
+         "endpoints": {
+          "getConsultation": {
+           "type": "submit",
+           "placeholder": "Получить консультацию",
+           "endpoint": "api/v1/forms/ascQuestionForm/product/7040/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/doveritelnoe-upravlenie/"
+          }
+         }
+        },
+        {
+         "id": "7160",
+         "headTitle": "",
+         "title": "Личные фонды",
+         "info": "",
+         "info_preview": "",
+         "code": "lichnye-fondy",
+         "groupId": "103",
+         "typeColor": "#341B3C",
+         "description": "<h2>\r\nСмотрим в будущее - делаем сейчас </h2>\r\n<p>\r\n\t Личные фонды (ЛФ) – это унитарная некоммерческая организация, которую создает гражданин для управления своим имуществом. Условия управления имуществом учредитель выбирает сам, но свои активы передает в фонд на праве собственности.\r\n</p>\r\n<h2>\r\nОс",
+         "profitDate": "",
+         "profitPeriod": "",
+         "profit": "",
+         "size": "small",
+         "color": "light",
+         "risk": null,
+         "height": "high",
+         "type": "investors",
+         "isBestseller": false,
+         "endpoints": {
+          "getConsultation": {
+           "type": "submit",
+           "placeholder": "Получить консультацию",
+           "endpoint": "api/v1/forms/ascQuestionForm/product/7160/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/lichnye-fondy/"
+          }
+         }
+        },
+        {
+         "id": "7163",
+         "headTitle": "",
+         "title": "Фонды целевого капитала",
+         "info": "",
+         "info_preview": "",
+         "code": "fondy-tselevogo-kapitala",
+         "groupId": "101",
+         "typeColor": "#BC71C9",
+         "description": "<p>\r\n\t Управляющая компания «СОЛИД Менеджмент» является членом Национальной Ассоциации Эндаументов&nbsp;<a href=\"https://ruea.ru/\">https://ruea.ru/</a>&nbsp;.\r\n</p>\r\n<p>\r\n\t Сегодня управление фондами целевого капитала (эндаументами) задача социально-ответственная и непростая с точки зрения соблюдени",
+         "profitDate": "",
+         "profitPeriod": "",
+         "profit": "",
+         "size": "small",
+         "color": "light",
+         "risk": null,
+         "height": "high",
+         "type": "business",
+         "isBestseller": false,
+         "endpoints": {
+          "getConsultation": {
+           "type": "submit",
+           "placeholder": "Получить консультацию",
+           "endpoint": "api/v1/forms/ascQuestionForm/product/7163/"
+          },
+          "detail": {
+           "placeholder": "Подробнее",
+           "endpoint": "api/v1/public/productDetail/fondy-tselevogo-kapitala/"
+          }
+         }
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  "errors": false,
+  "code": 200
+ },
+ "errors": []
+}

@@ -1,0 +1,465 @@
+{
+ "status": "success",
+ "data": {
+  "result": {
+   "fields": {
+    "workarea": {
+     "items": {
+      "defaultPeriod": {
+       "type": "text",
+       "value": 12,
+       "code": "1_year"
+      },
+      "items": {
+       "product": {
+        "id": {
+         "type": "text",
+         "html": "3715"
+        },
+        "title": {
+         "type": "text",
+         "html": "ФИНГОЛД"
+        },
+        "titleFull": {
+         "type": "text",
+         "html": "ОПИФ ФИНГОЛД"
+        },
+        "code": {
+         "type": "text",
+         "html": "fingold"
+        },
+        "typeCode": {
+         "type": "text",
+         "html": "open"
+        },
+        "type": {
+         "type": "text",
+         "html": "ОПИФ РФИ"
+        },
+        "profit": {
+         "type": "text",
+         "html": "за 1 год",
+         "value": "-73.02 ₽ (-7.3%)",
+         "percent": "-7.3%",
+         "period": {
+          "code": "1_year",
+          "label": "за 1 год"
+         }
+        },
+        "info": {
+         "title": {
+          "type": "text",
+          "html": "ОПИФ ФИНГОЛД"
+         },
+         "info": {
+          "type": "text",
+          "html": "Правила доверительного управления № 7286 зарегистрированы Банком России&nbsp;15.09.2025<br>\r\n <br>\r\n<p>\r\n\t Это надёжное решение для тех, кто ищет возможность сохранить и приумножить капитал за счёт активного управления вложениями в драгоценные металлы и ценные бумаги российских эмитентов. Стратегия фонда сочетает долгосрочные и краткосрочные инвестиции, что позволяет эффективно использовать рыночные колебания и обеспечивать устойчивый рост стоимости пая.\r\n</p>\r\n<p>\r\n\t Инвестиционный портфель фонда формируется из высоколиквидных активов, отличающихся надёжностью и стабильностью. Управляющая ком"
+         }
+        },
+        "paramsBlock": {
+         "type": "data",
+         "items": {
+          "isUser": false,
+          "profit": {
+           "type": "text",
+           "html": "за 1 год",
+           "value": "-73.02 ₽ (-7.3%)",
+           "percent": "-7.3%",
+           "period": {
+            "code": "1_year",
+            "label": "за 1 год"
+           }
+          },
+          "pai": {
+           "type": "text",
+           "html": "Пай",
+           "value": 926.98
+          },
+          "sha": {
+           "type": "text",
+           "html": "СЧА",
+           "value": 52302425.02
+          },
+          "risk": {
+           "type": "text",
+           "html": "Риск",
+           "value": "Низкий"
+          },
+          "updateDate": {
+           "type": "text",
+           "html": "Обновлено",
+           "value": "02.11.2026"
+          }
+         }
+        },
+        "profitPeriods": {
+         "type": "text",
+         "html": "Доходность ",
+         "list": {
+          "1_day": {
+           "id": "1_day",
+           "code": "1_day",
+           "name": "1 день",
+           "label": "за 1 день",
+           "placeholder": "за 1 день",
+           "duration": 1,
+           "unit": "day",
+           "value": "2.89%",
+           "percent": 2.89,
+           "amount": "26.04",
+           "amountFormatted": "26.04 ₽",
+           "months": 0,
+           "sort": 100
+          },
+          "1_month": {
+           "id": "1_month",
+           "code": "1_month",
+           "name": "1 месяц",
+           "label": "за 1 месяц",
+           "placeholder": "за 1 месяц",
+           "duration": 1,
+           "unit": "month",
+           "value": "-6.38%",
+           "percent": -6.38,
+           "amount": "-63.16",
+           "amountFormatted": "-63.16 ₽",
+           "months": 1,
+           "sort": 200
+          },
+          "3_month": {
+           "id": "3_month",
+           "code": "3_month",
+           "name": "3 месяца",
+           "label": "за 3 месяца",
+           "placeholder": "за 3 месяца",
+           "duration": 3,
+           "unit": "month",
+           "value": "0.23%",
+           "percent": 0.23,
+           "amount": "2.14",
+           "amountFormatted": "2.14 ₽",
+           "months": 3,
+           "sort": 300
+          },
+          "6_month": {
+           "id": "6_month",
+           "code": "6_month",
+           "name": "6 месяцев",
+           "label": "за 6 месяцев",
+           "placeholder": "за 6 месяцев",
+           "duration": 6,
+           "unit": "month",
+           "value": "-7.6%",
+           "percent": -7.6,
+           "amount": "-76.28",
+           "amountFormatted": "-76.28 ₽",
+           "months": 6,
+           "sort": 400
+          },
+          "1_year": {
+           "id": "1_year",
+           "code": "1_year",
+           "name": "1 год",
+           "label": "за 1 год",
+           "placeholder": "за 1 год",
+           "duration": 1,
+           "unit": "year",
+           "value": "-7.3%",
+           "percent": -7.3,
+           "amount": "-73.02",
+           "amountFormatted": "-73.02 ₽",
+           "months": 12,
+           "sort": 500
+          }
+         }
+        },
+        "paiPrice": {
+         "title": {
+          "type": "text",
+          "html": "Цена пая"
+         },
+         "data": {
+          "type": "data",
+          "items": {
+           "pai": [
+            {
+             "OperDate": "23.09.2025",
+             "FundID": 7286,
+             "Price": "1000.0000000",
+             "PriceDiff": ".0000000",
+             "Value": ".00",
+             "ValueDiff": ".0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "23 сентября 2025"
+            },
+            {
+             "OperDate": "21.11.2025",
+             "FundID": 7286,
+             "Price": "999.8700000",
+             "PriceDiff": "-.0100000",
+             "Value": "20210464.47",
+             "ValueDiff": ".0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "21 ноября 2025"
+            },
+            {
+             "OperDate": "24.11.2025",
+             "FundID": 7286,
+             "Price": "999.7500000",
+             "PriceDiff": "-.0100000",
+             "Value": "20207928.24",
+             "ValueDiff": "-.0100000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "24 ноября 2025"
+            },
+            {
+             "OperDate": "25.11.2025",
+             "FundID": 7286,
+             "Price": "999.6200000",
+             "PriceDiff": "-.0100000",
+             "Value": "20205392.35",
+             "ValueDiff": "-.0100000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "25 ноября 2025"
+            },
+            {
+             "OperDate": "28.10.2026",
+             "FundID": 7286,
+             "Price": "926.5300000",
+             "PriceDiff": "-.9900000",
+             "Value": "52277058.79",
+             "ValueDiff": "-.9900000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "28 октября 2026"
+            },
+            {
+             "OperDate": "29.10.2026",
+             "FundID": 7286,
+             "Price": "935.5000000",
+             "PriceDiff": ".9700000",
+             "Value": "52783212.17",
+             "ValueDiff": ".9700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "29 октября 2026"
+            },
+            {
+             "OperDate": "30.10.2026",
+             "FundID": 7286,
+             "Price": "900.9400000",
+             "PriceDiff": "-3.6900000",
+             "Value": "50833279.29",
+             "ValueDiff": "-3.6900000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "30 октября 2026"
+            },
+            {
+             "OperDate": "02.11.2026",
+             "FundID": 7286,
+             "Price": "926.9800000",
+             "PriceDiff": "2.8900000",
+             "Value": "52302425.02",
+             "ValueDiff": "2.8900000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "2 ноября 2026"
+            }
+           ],
+           "sha": [
+            {
+             "OperDate": "23.09.2025",
+             "FundID": 7286,
+             "Price": "1000.0000000",
+             "PriceDiff": ".0000000",
+             "Value": ".00",
+             "ValueDiff": ".0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "23 сентября 2025"
+            },
+            {
+             "OperDate": "21.11.2025",
+             "FundID": 7286,
+             "Price": "999.8700000",
+             "PriceDiff": "-.0100000",
+             "Value": "20210464.47",
+             "ValueDiff": ".0000000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "21 ноября 2025"
+            },
+            {
+             "OperDate": "24.11.2025",
+             "FundID": 7286,
+             "Price": "999.7500000",
+             "PriceDiff": "-.0100000",
+             "Value": "20207928.24",
+             "ValueDiff": "-.0100000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "24 ноября 2025"
+            },
+            {
+             "OperDate": "25.11.2025",
+             "FundID": 7286,
+             "Price": "999.6200000",
+             "PriceDiff": "-.0100000",
+             "Value": "20205392.35",
+             "ValueDiff": "-.0100000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "25 ноября 2025"
+            },
+            {
+             "OperDate": "28.10.2026",
+             "FundID": 7286,
+             "Price": "926.5300000",
+             "PriceDiff": "-.9900000",
+             "Value": "52277058.79",
+             "ValueDiff": "-.9900000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "28 октября 2026"
+            },
+            {
+             "OperDate": "29.10.2026",
+             "FundID": 7286,
+             "Price": "935.5000000",
+             "PriceDiff": ".9700000",
+             "Value": "52783212.17",
+             "ValueDiff": ".9700000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "29 октября 2026"
+            },
+            {
+             "OperDate": "30.10.2026",
+             "FundID": 7286,
+             "Price": "900.9400000",
+             "PriceDiff": "-3.6900000",
+             "Value": "50833279.29",
+             "ValueDiff": "-3.6900000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "30 октября 2026"
+            },
+            {
+             "OperDate": "02.11.2026",
+             "FundID": 7286,
+             "Price": "926.9800000",
+             "PriceDiff": "2.8900000",
+             "Value": "52302425.02",
+             "ValueDiff": "2.8900000",
+             "FundName": "ОПИФ рыночных финансовых инструментов \"Финголд\"",
+             "OperDateFormat": "2 ноября 2026"
+            }
+           ]
+          }
+         },
+         "allowedPeriods": {
+          "type": "data",
+          "items": [
+           "1_day",
+           "1_month",
+           "3_month",
+           "6_month",
+           "1_year",
+           "all"
+          ],
+          "periods": {
+           "1_day": {
+            "id": "1_day",
+            "code": "1_day",
+            "name": "1 день",
+            "label": "за 1 день",
+            "placeholder": "за 1 день",
+            "duration": 1,
+            "unit": "day",
+            "value": "2.89%",
+            "percent": 2.89,
+            "amount": "26.04",
+            "amountFormatted": "26.04 ₽",
+            "months": 0,
+            "sort": 100
+           },
+           "1_month": {
+            "id": "1_month",
+            "code": "1_month",
+            "name": "1 месяц",
+            "label": "за 1 месяц",
+            "placeholder": "за 1 месяц",
+            "duration": 1,
+            "unit": "month",
+            "value": "-6.38%",
+            "percent": -6.38,
+            "amount": "-63.16",
+            "amountFormatted": "-63.16 ₽",
+            "months": 1,
+            "sort": 200
+           },
+           "3_month": {
+            "id": "3_month",
+            "code": "3_month",
+            "name": "3 месяца",
+            "label": "за 3 месяца",
+            "placeholder": "за 3 месяца",
+            "duration": 3,
+            "unit": "month",
+            "value": "0.23%",
+            "percent": 0.23,
+            "amount": "2.14",
+            "amountFormatted": "2.14 ₽",
+            "months": 3,
+            "sort": 300
+           },
+           "6_month": {
+            "id": "6_month",
+            "code": "6_month",
+            "name": "6 месяцев",
+            "label": "за 6 месяцев",
+            "placeholder": "за 6 месяцев",
+            "duration": 6,
+            "unit": "month",
+            "value": "-7.6%",
+            "percent": -7.6,
+            "amount": "-76.28",
+            "amountFormatted": "-76.28 ₽",
+            "months": 6,
+            "sort": 400
+           },
+           "1_year": {
+            "id": "1_year",
+            "code": "1_year",
+            "name": "1 год",
+            "label": "за 1 год",
+            "placeholder": "за 1 год",
+            "duration": 1,
+            "unit": "year",
+            "value": "-7.3%",
+            "percent": -7.3,
+            "amount": "-73.02",
+            "amountFormatted": "-73.02 ₽",
+            "months": 12,
+            "sort": 500
+           },
+           "all": {
+            "id": "all",
+            "code": "all",
+            "name": "Весь период",
+            "label": "за весь период",
+            "placeholder": "за весь период",
+            "duration": 0,
+            "unit": "all",
+            "value": "-7.3%",
+            "percent": -7.3,
+            "amount": "-73.02",
+            "amountFormatted": "-73.02 ₽",
+            "months": 0,
+            "sort": 800
+           }
+          },
+          "selected": "1_year"
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "errors": false,
+  "code": 200
+ },
+ "errors": []
+}

@@ -119,8 +119,9 @@ def build_all() -> bool:
             last = next((p for p in reversed(pts) if p.nav is not None), None)
             lastp = next((p for p in reversed(pts) if p.price is not None), None)
             rate = rates.on(currency, last.date) if last else None
-            ret_as_of, own = own_returns(pts)
-            checks, bad = compare_official(f.rules, pts, c.get("official_returns", []))
+            payouts = c.get("payouts", [])
+            ret_as_of, own = own_returns(pts, payouts)
+            checks, bad = compare_official(f.rules, pts, c.get("official_returns", []), payouts)
             for ch in checks:
                 ch.update(fund=f.name, uk=f.uk_short)
             all_checks += checks
@@ -148,6 +149,7 @@ def build_all() -> bool:
                 "sources": n.sources, "monthly": [{**r, "nav": _r(r["nav"]), "nav_rub": _r(r["nav_rub"]),
                                                    "flow": _r(r["flow"]), "flow_rub": _r(r["flow_rub"])} for r in rows],
                 "corrections": n.corrections, "anomalies": n.anomalies, "gaps": n.gaps, "checks": checks,
+                "payouts": payouts,
             }
         elif status == "ok":
             status, reason = "no_history", reason or "УК не публикует историю"
