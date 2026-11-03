@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>ПИФ - Астра</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta name="google-site-verification" content="dbdrxnQSNbkrGW73-b2XHQREjdEw4nebrf9hAgPl_qI" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/site/templates/assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/site/templates/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/site/templates/assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#354784">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/site/templates/assets/img/favicon/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Помогаем состоятельным клиентам грамотно воспользоваться возможностями финансовых рынков за счет активного управления, профессионального анализа и поиска рыночных неэффективностей.">
+    <meta name="keywords" content="Долгосрочные инвестиционные стратегии">
+    <link rel="stylesheet" href="/site/templates/assets/css/styles.min.css">
+	<!-- OPEN GRAPH BLOCK -->
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="Астра">
+		<meta property="og:url" content="/compliance/pif/">
+		<meta property="og:locale" content="ru">
+		<meta property="og:title" content="ПИФ">
+		<meta property="og:description" content="Помогаем состоятельным клиентам грамотно воспользоваться возможностями финансовых рынков за счет активного управления, профессионального анализа и поиска рыночных неэффективностей.">
+				<!-- END BLOCK -->
+</head>
+
+
+
+<body class="mx-auto"><div class="bg-white overflow-x-hidden">
+
+            <header class="  headershadow ">
+    <div class="xl:container bg-white w-full sm:mb-0 sm:px-6 md:px-12 xl:px-28 xl:mx-auto">
+        <nav class="flex sm:h-[66px] md:h-[40px] items-center justify-between w-full relative px-4 sm:px-0">
+            <div class="flex items-center justify-start space-x-8">
+                <a href="/">
+                    <img src="/site/templates/assets/img/mainlogo.svg" alt="" class="w-[40px] sm:w-[60px] md:mr-28 xl:mr-32">
+                </a>
+                <div class="items-center justify-left space-x-8 hidden md:flex">
+                                            <a data-id="attention"  href="/strategy/" class="modal__show">Инвестиции</a>
+                        <a href="/team/">Команда</a>
+                        <a href="/analytics/">Аналитика</a>
+                        <a href="/compliance/">Раскрытие информации</a>
+                    					<!--<a href="http://lockoinvest.ru/raskrytie.html" target="_blank">Раскрытие информации</a>-->
+                </div>
+            </div>
+            <div class="flex items-center justify-end space-x-[16px] sm:relative">
+                                    <button class="bg-malin text-white btn btn-lk w-auto hidden md:block"><a href="https://cabinet.astra-am.ru/" class=>Вход</a></button>
+                                <button onclick="switchLangEng()" class="bg-blue text-white btn btn-lk w-auto hidden md:block">ENG</button>
+                <button onclick="switchLangEng()" class="bg-blue text-white btn w-auto md:hidden p-3 h-6">ENG</button>
+                 <img data-id="search" onclick="focusSearch()" class="cursor-pointer modal__show hidden md:block" src="/site/templates/assets/img/icons/search.svg" />
+                <button class="md:hidden mobileMenu__show"><img src="/site/templates/assets/img/icons/menu.svg"/></button>
+                <button class="hidden md:hidden mobileMenu__close"><img width="22px" height="15px" src="/site/templates/assets/img/icons/close.svg"/></button>
+
+                <div class="mobileMenu__container hidden absolute top-[87px] right-0 w-full sm:shadow-xl sm:w-[320px] h-[calc(100vh-87px)] sm:h-[354px] sm:top-[24px] md:hidden bg-white z-100 flex flex-col">
+                    <div class="flex flex-col flex-grow pt-8 gap-y-6  p-4 ">
+                        <form class="flex items-center justify-between" action="/search/" method="get">
+                            <input type="text" name="q" class="outline-none flex-grow p-3 border-b border-gray1 text-gray2 text-p2" placeholder="Поиск по сайту">
+                            <div class="w-1/6 flex items-center justify-center">
+                                <button type="submit"><img src="/site/templates/assets/img/icons/search.svg"></button>
+                            </div>
+                        </form>
+                        <a data-id="attention" href="/strategy/" class="modal__show text-p2 text-black">Инвестиции</a>
+                        <a href="/team/" class="text-p2 text-black">Команда</a>
+                        <a href="/analytics/" class="text-p2 text-black">Аналитика</a>
+                        <a href="/compliance/" class="text-p2 text-black">Раскрытие информации</a>
+                        <a href="https://cabinet.astra-am.ru/" class="text-p2 text-black">Вход</a>
+						<!--<a href="http://lockoinvest.ru/raskrytie.html" target="_blank">Раскрытие информации</a>-->
+                        <a href="#" class="hidden text-p2 flex items-center gap-x-2 text-black"><img src="/site/templates/assets/img/icons/login.svg"><span>Вход</span></a>
+                    </div>
+                    <div class="bg-blue h-[170px] p-4 flex flex-col gap-y-2 sm:hidden">
+                        <h5 class="text-lavand text-[18px]">Контакты</h5>
+                        <p class="text-white text-[14px]">125167 Москва, Ленинградский проспект, 39, стр. 80, пом. 1.1, этаж 14</p>
+                        <a class="text-white text-[14px]" href="tel:+7 (495) 739-55-44">+7 (495) 739-55-44</a>
+                        <a class="text-white text-[14px]" href="mailto:info@astra-am.ru">info@astra-am.ru</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <script>
+        function switchLangRus()  {
+            document.cookie = `lang=ru; path=/; max-age=31536000`;
+            window.location.reload();
+        }
+        function switchLangEng()  {
+            document.cookie = `lang=en; path=/; max-age=31536000`;
+            window.location.reload();
+        }
+    </script>
+</header>        <main>
+        <div class="px-4 sm:px-6 lg:px-12 xl:px-28 xl:mx-auto mb-6 sm:mb-12 xl:mb-16 sm:my-12 xl:container mx-auto">
+    <h2 class="mt-6 lg:mt-12 text-[32px] leading-[32px] sm:text-[56px] sm:leading-[56px] lg:text-[48px] lg:leading-[48px] text-bluedark font-semibold">
+         ПИФ
+    </h2>
+        
+
+
+<div class="flex mt-4 sm:mt-6 gap-x-5 flex-wrap sm:flex-nowrap">
+    <div class="text-[16px] sm:text-p2 w-full sm:w-[244px]  flex flex-nowrap  overflow-x-scroll hide-scrollbar sm:flex-col space-x-8 sm:space-x-0  items-start justify-start">
+         
+            <a href="/compliance/informatciia-o-kompanii/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:pb-4 ">Информация о компании</a>  
+         
+            <a href="/compliance/litcenzii/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Лицензии</a>  
+         
+            <a href="/compliance/rekvizit/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Реквизиты</a>  
+         
+            <a href="/compliance/finansovaia-otchetnost/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Годовая бухгалтерская отчетность</a>  
+         
+            <a href="/compliance/promezhutochnaia-bukhgalterskaia-finansovaia-otchetnost/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Промежуточная бухгалтерская отчетность</a>  
+         
+            <a href="/compliance/raschet-sobstvennykh-sredsv/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Расчет размера собственных средств</a>  
+         
+            <a href="/compliance/elektronnyi-dokumentooborot/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Электронный документооборот</a>  
+         
+            <a href="/compliance/perechen-informatcii-otnosiashcheisia-k-insaiderskoi-informatcii/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Инсайдерская информация</a>  
+         
+            <a href="/compliance/kriterii-otneseniia-fizicheskogo-litca-k-kategorii-inostrannogo-nalogoplatel-shchika/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Иностранные налогоплательщики</a>  
+         
+            <a href="/compliance/dokumenty-o-priznanii-litc-kvalifitcirovannymi-investorami/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Квалифицированные инвесторы</a>  
+         
+            <a href="/compliance/soobshcheniia-o-deiatel-nosti-organizatcii/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Сообщения о деятельности организации</a>  
+         
+            <a href="/compliance/pif/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-black    sm:border-b border-bggray 
+             sm:py-4">ПИФ</a>  
+         
+            <a href="/compliance/doveritel-noe-upravlenie/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Доверительное управление</a>  
+         
+            <a href="/compliance/doveritel-noe-upravlenie-1/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Управляющая компания</a>  
+         
+            <a href="/compliance/doveritel-noe-upravlenie-2/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Инвестиционный советник</a>  
+         
+            <a href="/compliance/informatcionnaia-bezopasnost-i-personal-nye-dannye/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Информационная безопасность и персональные данные</a>  
+         
+            <a href="/compliance/soobshcheniia-o-tekhnicheskikh-sboiakh/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Сообщения о технических сбоях</a>  
+         
+            <a href="/compliance/arkhiv/" class="sm:w-full whitespace-nowrap sm:whitespace-normal  text-blue font-semibold    sm:border-b border-bggray 
+             sm:py-4">Архив</a>  
+          
+    </div>
+    <div class="w-full flex flex-col mt-4 sm:mt-0 content">
+                                            <a href="https://astra-am.ru/compliance/astra-likvidnost/" style="margin-bottom: 24px; font-size: 32px;" class="text-[32px] leading-[23px] mb-[24px] sm:text-p1 font-semibold"><mark>Астра - Ликвидность</mark></a>
+                                <a href="#" data-id="subscribe" class="modal__show ml-1 text-lavand">Подписаться на рассылку</a>
+    </div>
+</div>
+
+<div data-id="subscribe" class="overflow-hidden hidden modal bg-black bg-opacity-50  flex modal items-start  justify-center left-0 top-0   md:py-4 w-screen h-screen z-100">
+    <div class="modal__container opacity-1 bg-white w-full md:w-[798px] r shadow-xl p-6 relative">
+        <div class="z-100 absolute right-4 top-4">
+            <span class="modal__hide cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 stroke-gray2 hover:stroke-black" viewbox="0 0 72 72">
+                    <line x1="17.5" x2="54.5" y1="17.5" y2="54.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                    <line x1="54.5" x2="17.5" y1="17.5" y2="54.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                </svg>
+            </span>
+        </div>
+        <div class="overflow-y-auto modal__body relative">
+            <form class="r_formValidate" id="formSubscribe" style="line-height: 0.7;">
+                <div class="sm:space-y-6 sm:mx-auto form ">
+                    <span class="block text-[24px] sm:text-[28px] md:text-[46px] lg:text-h3 mb-6 text-bluedark font-semibold">Подписка на рассылку</span>
+                    <div class="relative inputWithLabel">
+                        <div class="absolute hidden  left-0 top-0 text-gray2 text-[12px]">Имя</div>
+                        <input type="text" required placeholder="Имя" name="firstname" class="text-p2   mt-2 text-gray2 placeholder-gray2 p-3 outline-none border-b border-gray1 w-full bg-transparent" />
+                    </div>
+                    <div class="relative inputWithLabel">
+                        <div class="absolute hidden  left-0 top-0 text-gray2 text-[12px]">Фамилия</div>
+                        <input type="text" required placeholder="Фамилия" name="lastname" class="text-p2   mt-2 text-gray2 placeholder-gray2 p-3 outline-none border-b border-gray1 w-full bg-transparent" />
+                    </div>
+                    <div class="relative inputWithLabel">
+                        <div class="absolute  hidden left-0 top-0 text-gray2 text-[12px]">Email</div>
+                        <input type="text" placeholder="Email"  name="email" class="text-p2  mt-2 text-gray2 placeholder-gray2 p-3 outline-none border-b border-gray1 w-full bg-transparent" />
+                    </div>
+                    <div class="relative inputWithLabel">
+                        <div class="absolute  hidden left-0 top-0 text-gray2 text-[12px]">Номер телефона</div>
+                        <input type="text" required placeholder="Номер телефона" name="phone" class="text-p2  mt-2 text-gray2 placeholder-gray2 p-3 outline-none border-b border-gray1 w-full bg-transparent" />
+                    </div>
+                    <div class="mt-4 sm:mt-0 sm:flex sm:items-center sm:justify-start sm:space-x-[18p
