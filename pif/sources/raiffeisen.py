@@ -10,13 +10,25 @@
   - apiFundsFiltered[] — те же фонды с датой последней опубликованной стоимости пая;
   - menuItems — ссылки на страницы фондов для человека;
   - disclaimer.disclaimer — «Номера и даты регистрации правил»: название фонда -> номер правил.
-* https://my.raiffeisen-capital.ru/api/v1/external/funds/<uuid>/chart?fromDate=&toDate= — ряд графика
-  на странице фонда: scha.items[] (СЧА, руб.) и shares.items[] (стоимость пая, руб.), по рабочим дням,
-  createAt — дата расчёта в виде полуночи UTC. toDate обязателен.
-Внимание: в apiFundsFiltered[].profitabilityExpanded лежит «динамическая» доходность «от той же
-календарной даты» — она отличается от официальной таблицы (1 год по «Акциям» 0,68 % против 2,01 %).
-Берём таблицу «Результаты работы ПИФов».
-Валюта: все ОПИФ УК номинированы в рублях — суммы на сайте в ₽, в данных графика валюты нет.
+* https://my.raiffeisen-capital.ru/api/v1/external/funds/<uuid>/chart?fromDate=&toDate= — ряд графика:
+  scha.items[] (СЧА, руб.) и shares.items[] (стоимость пая, руб.) по рабочим дням; createAt — дата
+  расчёта как полночь UTC; payout — выплата дохода на пай (не ноль только у фондов «с выплатой
+  дохода» в дату, на которую определяется доход). toDate обязателен — подставляем дату последней
+  опубликованной стоимости пая (так делает сам сайт), адрес меняется только с новыми данными.
+  Человеку тот же график виден на публичной витрине УК
+  https://my.raiffeisen-capital.ru/client/catalogue/funds/<uuid> («Динамика стоимости пая», без входа).
+
+Ловушки:
+* В apiFundsFiltered[].profitabilityExpanded лежит «динамическая» доходность «от той же
+  календарной даты» — она отличается от официальной таблицы (1 год по «Акциям» на 30.10.2026:
+  0,68 % против 2,01 %). Официальная — таблица «Результаты работы ПИФов»: начало периода —
+  последний рабочий день месяца N месяцев назад; пересчёт по ряду графика сходится до 0,01 п. п.
+* У фондов с выплатами официальная доходность — без реинвестирования: (пай на конец + выплаты
+  с датой в (начало, конец]) / пай на начало − 1 («Облигации с выплатой дохода», 1 год: 13,83 %
+  так и получается; с реинвестированием было бы 14,66 %). Стоимость пая в дату выплаты уже без неё.
+* «Компании роста» 21–26.01.2026 стоимость пая не публиковалась (в те дни к фонду присоединяли
+  «Акции роста») — пропуск в ряду настоящий, а не ошибка разбора.
+* Валюта: все ОПИФ УК — в рублях (суммы на сайте в ₽), в данных графика валюты нет.
 """
 from __future__ import annotations
 
@@ -27,13 +39,14 @@ from datetime import date
 
 from bs4 import BeautifulSoup
 
-from ..model import Fund, FundData, OfficialReturn, SeriesPoint
+from ..model import Fund, FundData, OfficialReturn, Payout, SeriesPoint
 from ..parsing import UnknownFormat, day, norm_text, num, require, require_keys
 from .base import Adapter, Context
 
 BASE = "https://www.raiffeisen-capital.ru"
 TABLE_URL = f"{BASE}/pifs-table-last-month/"
 CHART_URL = "https://my.raiffeisen-capital.ru/api/v1/external/funds/{nid}/chart"
+SHOWCASE_URL = "https://my.raiffeisen-capital.ru/client/catalogue/funds/{nid}"
 CURRENCY = "RUB"
 
 RETURN_KEYS = {"oneMonth": "1m", "threeMonths": "3m", "sixMonths": "6m", "oneYear": "1y"}
@@ -128,31 +141,36 @@ def parse_returns_raif(page_props: dict, source_url: str) -> dict[str, list[Offi
     return out
 
 
-def _chart_items(block, where: str) -> dict[date, float | None]:
-    require_keys(block, ["items"], where)
-    items = block["items"]
-    require(isinstance(items, list), f"{where}.items: ожидался список")
-    out: dict[date, float | None] = {}
-    for it in items:
-        require_keys(it, ["value", "createAt"], f"{where}.items[]")
-        ts = str(it["createAt"])
-        # Дата расчёта отдаётся полуночью UTC; другое время — значит, сменили часовой пояс и даты съедут.
-        require(bool(re.fullmatch(r"\d{4}-\d{2}-\d{2}(T00:00:00(\.0+)?Z)?", ts)),
-                f"{where}: неожиданная метка даты {ts!r}")
-        d = day(ts)
-        require(d not in out, f"{where}: дата {d} повторяется")
-        out[d] = num(it["value"])
-    return out
-
-
-def parse_chart_raif(content: bytes | str | dict) -> list[SeriesPoint]:
-    """Ответ /external/funds/<uuid>/chart -> ряд (дата, СЧА, стоимость пая) по возрастанию дат."""
+def _load_chart(content: bytes | str | dict) -> dict:
     if isinstance(content, (bytes, str)):
         try:
             content = json.loads(content)
         except json.JSONDecodeError as e:
             raise UnknownFormat(f"ответ графика не JSON: {e}") from e
     require_keys(content, ["scha", "shares"], "chart")
+    return content
+
+
+def _chart_items(block, where: str, field: str = "value") -> dict[date, float | None]:
+    require_keys(block, ["items"], where)
+    items = block["items"]
+    require(isinstance(items, list), f"{where}.items: ожидался список")
+    out: dict[date, float | None] = {}
+    for it in items:
+        require_keys(it, [field, "createAt"], f"{where}.items[]")
+        ts = str(it["createAt"])
+        # Дата расчёта отдаётся полуночью UTC; другое время — значит, сменили часовой пояс и даты съедут.
+        require(bool(re.fullmatch(r"\d{4}-\d{2}-\d{2}(T00:00:00(\.0+)?Z)?", ts)),
+                f"{where}: неожиданная метка даты {ts!r}")
+        d = day(ts)
+        require(d not in out, f"{where}: дата {d} повторяется")
+        out[d] = num(it[field])
+    return out
+
+
+def parse_chart_raif(content: bytes | str | dict) -> list[SeriesPoint]:
+    """Ответ /external/funds/<uuid>/chart -> ряд (дата, СЧА, стоимость пая) по возрастанию дат."""
+    content = _load_chart(content)
     navs = _chart_items(content["scha"], "scha")
     prices = _chart_items(content["shares"], "shares")
     points = []
@@ -164,6 +182,18 @@ def parse_chart_raif(content: bytes | str | dict) -> list[SeriesPoint]:
             require(nav >= price, f"{d}: СЧА {nav} меньше стоимости пая {price} — перепутаны ряды?")
         points.append(SeriesPoint(d, nav, price))
     return points
+
+
+def parse_payouts_raif(content: bytes | str | dict, source_url: str) -> list[Payout]:
+    """Выплаты дохода на пай из того же ответа графика (поле payout у shares.items[])."""
+    pays = _chart_items(_load_chart(content)["shares"], "shares", field="payout")
+    out = []
+    for d in sorted(pays):
+        amount = pays[d]
+        require(amount is None or amount >= 0, f"выплата на {d} отрицательная: {amount}")
+        if amount:
+            out.append(Payout(d, amount, source_url))
+    return out
 
 
 def _months_back(d: date, months: int) -> date:
@@ -214,8 +244,9 @@ class RaiffeisenAdapter(Adapter):
         doc = ctx.http.get(CHART_URL.format(nid=sf.nid), fmt="json", funds=[fund.rules],
                            params={"fromDate": start.isoformat(), "toDate": sf.last_date.isoformat()})
         points = parse_chart_raif(doc.content())
-        fd = FundData(fund.rules, currency=CURRENCY, page_url=sf.page_url)
-        seg = self.segment(doc, points, page_url=sf.page_url, since=ctx.since)
+        fd = FundData(fund.rules, currency=CURRENCY, page_url=sf.page_url or SHOWCASE_URL.format(nid=sf.nid),
+                      payouts=parse_payouts_raif(doc.content(), doc.url))
+        seg = self.segment(doc, points, page_url=SHOWCASE_URL.format(nid=sf.nid), since=ctx.since)
         if seg.points:
             fd.segments.append(seg)
 
