@@ -1,5 +1,502 @@
 [
  {
+  "key": "c0da51dd3ed857caa33f",
+  "url": "https://april-capital.ru/api/v01_fund_details_list",
+  "domain": "april-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "0060-56716383",
+   "0118-14241730",
+   "0424-79363131",
+   "0846-94127344",
+   "0847-94127333",
+   "6778"
+  ],
+  "method": "POST",
+  "path": "april-capital.ru/c0da51dd3ed857caa33f.json",
+  "fetched_at": "2026-11-03T15:09:00+00:00",
+  "sha256": "8ecb26db48de7ef08ccaafe753d6ac67886423278c2611ed3f1b8076ac222337",
+  "bytes": 120443,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json",
+  "status": "ok"
+ },
+ {
+  "key": "936196f37f6bc7de3ea6",
+  "url": "https://april-capital.ru/funds/",
+  "domain": "april-capital.ru",
+  "fmt": "html",
+  "funds": [
+   "0060-56716383",
+   "0118-14241730",
+   "0424-79363131",
+   "0846-94127344",
+   "0847-94127333",
+   "6778"
+  ],
+  "method": "GET",
+  "path": "april-capital.ru/936196f37f6bc7de3ea6.html",
+  "fetched_at": "2026-11-03T15:09:01+00:00",
+  "sha256": "260e83b96603cc3cfb58e0a8c2155e47d3ebedfba957c9371638f5ce4f846b06",
+  "bytes": 243400,
+  "http_status": 200,
+  "etag": "\"3b6c8-65de12b14f4e4-gzip\"",
+  "last_modified": "Thu, 15 Oct 2026 13:38:52 GMT",
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "6c0dfa486e648b51efe7",
+  "url": "https://entrustment.ru/catalog/",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2204-94177868",
+   "2671",
+   "2744",
+   "3193",
+   "3194",
+   "4692",
+   "6268"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/6c0dfa486e648b51efe7.html",
+  "fetched_at": "2026-11-03T15:08:37+00:00",
+  "sha256": "f72e758dbcd07fa0d58bbd2bfa87db4bbf1002e0aa51bff0fd091f26c7e76a57",
+  "bytes": 106340,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "d3077434ae7a2dfb5a14",
+  "url": "https://entrustment.ru/catalog/globalnye-dokhodnye-obligatsii/?AJAX=Y&period=3year&type=index_inv&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "4692"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/d3077434ae7a2dfb5a14.html",
+  "fetched_at": "2026-11-03T15:08:41+00:00",
+  "sha256": "e74b1ec66fca566724d3758c020ea48636534225f6d942af27b6d15451d9f315",
+  "bytes": 38319,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "98f7db61e259bb27b9e0",
+  "url": "https://entrustment.ru/catalog/globalnye-dokhodnye-obligatsii/?AJAX=Y&period=3year&type=scha&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "4692"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/98f7db61e259bb27b9e0.html",
+  "fetched_at": "2026-11-03T15:08:42+00:00",
+  "sha256": "0a1b75a0e42525a8f553db79213df94593beca5298677e7640f0f6eaf7401e5b",
+  "bytes": 48704,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "cd7956b93f838b6362b0",
+  "url": "https://entrustment.ru/catalog/likvidnyy/?AJAX=Y&period=3year&type=index_inv&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "6268"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/cd7956b93f838b6362b0.html",
+  "fetched_at": "2026-11-03T15:08:57+00:00",
+  "sha256": "90fb43ea4824a83b385c84eba9213ef8169b47247cbb0a51cc1ddd0cdff8f995",
+  "bytes": 34558,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "5201575cbcb294714a0f",
+  "url": "https://entrustment.ru/catalog/likvidnyy/?AJAX=Y&period=3year&type=scha&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "6268"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/5201575cbcb294714a0f.html",
+  "fetched_at": "2026-11-03T15:08:58+00:00",
+  "sha256": "f09b71168487a83e87cf04e1dbfc5aa661af75018d1ef8ecc6d5011393a93292",
+  "bytes": 39063,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "6bb68cbdd7e371c4e5d4",
+  "url": "https://entrustment.ru/catalog/sistema-investitsii-2/?AJAX=Y&period=3year&type=index_inv&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "3194"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/6bb68cbdd7e371c4e5d4.html",
+  "fetched_at": "2026-11-03T15:08:54+00:00",
+  "sha256": "0870bad492518c58e314d1b2fe1f4c370a9ff810fce47767f8feba7850d68dd1",
+  "bytes": 39195,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "9bdce5b864094416c5db",
+  "url": "https://entrustment.ru/catalog/sistema-investitsii-2/?AJAX=Y&period=3year&type=scha&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "3194"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/9bdce5b864094416c5db.html",
+  "fetched_at": "2026-11-03T15:08:55+00:00",
+  "sha256": "3e9f64add2aa8ad66316e4ba8b8150b85009fbc6036a5b5de13b17e9ecab5ff5",
+  "bytes": 48732,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "c0b3ffbce8dc14e9766c",
+  "url": "https://entrustment.ru/catalog/sistema-investitsii-3/?AJAX=Y&period=3year&type=index_inv&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2744"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/c0b3ffbce8dc14e9766c.html",
+  "fetched_at": "2026-11-03T15:08:51+00:00",
+  "sha256": "4434b57c96d179116cff78f2f2757e36e87a9ef2f9d66026160b7d6b80fd92e7",
+  "bytes": 39515,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "33d68a94da1dea49329f",
+  "url": "https://entrustment.ru/catalog/sistema-investitsii-3/?AJAX=Y&period=3year&type=scha&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2744"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/33d68a94da1dea49329f.html",
+  "fetched_at": "2026-11-03T15:08:52+00:00",
+  "sha256": "4ef8712a3abf1aaffa62e0e628765a784160bed3695d9ef217e05e179759d5c7",
+  "bytes": 48606,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "3287f228676ce481c47c",
+  "url": "https://entrustment.ru/catalog/sistema-investitsii-4/?AJAX=Y&period=3year&type=index_inv&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2671"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/3287f228676ce481c47c.html",
+  "fetched_at": "2026-11-03T15:08:48+00:00",
+  "sha256": "b2b6a1a18080e564645316b0887e2b374b865d7a1267d607020d3852027eab0b",
+  "bytes": 40590,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "206ed9987dace951c94f",
+  "url": "https://entrustment.ru/catalog/sistema-investitsii-4/?AJAX=Y&period=3year&type=scha&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2671"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/206ed9987dace951c94f.html",
+  "fetched_at": "2026-11-03T15:08:49+00:00",
+  "sha256": "a8da358a19169ef50f278d97003bec375dfcd5e0daf6b6c719d1820f2d51cd74",
+  "bytes": 50989,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "2abbe7ff594e98667b7c",
+  "url": "https://entrustment.ru/catalog/sistema-investitsii-5/?AJAX=Y&period=3year&type=index_inv&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2204-94177868"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/2abbe7ff594e98667b7c.html",
+  "fetched_at": "2026-11-03T15:08:45+00:00",
+  "sha256": "6dd4a36a475ed400b272f02f05d74a3355eb711216065d0873134add52d57b8e",
+  "bytes": 39851,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "fd81cd1e456496c4f64f",
+  "url": "https://entrustment.ru/catalog/sistema-investitsii-5/?AJAX=Y&period=3year&type=scha&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2204-94177868"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/fd81cd1e456496c4f64f.html",
+  "fetched_at": "2026-11-03T15:08:46+00:00",
+  "sha256": "dc4eaaa5566967fa6e39a35554103c09192d53f3291dea8f974e276351535831",
+  "bytes": 51662,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "afd39710c194c4b1f1c1",
+  "url": "https://entrustment.ru/catalog/sistema-investitsii/?AJAX=Y&period=3year&type=index_inv&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "3193"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/afd39710c194c4b1f1c1.html",
+  "fetched_at": "2026-11-03T15:08:37+00:00",
+  "sha256": "8ed2ea049a125e1cbe52b3c97a9d15a0747cc4808ac20eee5ab7e55371362354",
+  "bytes": 39226,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "ff172a1f47cf60dd9ee9",
+  "url": "https://entrustment.ru/catalog/sistema-investitsii/?AJAX=Y&period=3year&type=scha&valute=rub&format=sistema",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "3193"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/ff172a1f47cf60dd9ee9.html",
+  "fetched_at": "2026-11-03T15:08:38+00:00",
+  "sha256": "3ec1bd48467708c2440168c938ec570301273e8f5f190be85d61f456d0d85785",
+  "bytes": 49491,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "d58505609f41b612ba81",
+  "url": "https://entrustment.ru/disclosure_old/bpif-rynochnykh-finansovykh-instrumentov-likvidnyy/",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "6268"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/d58505609f41b612ba81.html",
+  "fetched_at": "2026-11-03T15:08:59+00:00",
+  "sha256": "7902956815ae04b8967b860dae87b193963c2fd0e8ad27c6bdb8ce6ea8c6c6c2",
+  "bytes": 77020,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "7f18c89c3f39e89d65ca",
+  "url": "https://entrustment.ru/disclosure_old/global-profitable-bonds/",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "4692"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/7f18c89c3f39e89d65ca.html",
+  "fetched_at": "2026-11-03T15:08:43+00:00",
+  "sha256": "474ae7de6c359fe316c4d68b97fc483b2ef7d76930dea01401b43510c08d46c3",
+  "bytes": 76121,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "c2a3c070024bedb9e35e",
+  "url": "https://entrustment.ru/disclosure_old/opif-aktsiy-sistema-investitsii-fond-aktsiy/",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2744"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/c2a3c070024bedb9e35e.html",
+  "fetched_at": "2026-11-03T15:08:53+00:00",
+  "sha256": "00efb7790c68b156b751b4d12eae12301c8d1e103d8f3c18c6134865d8547a3d",
+  "bytes": 81668,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "4f193efd4a7859a324c6",
+  "url": "https://entrustment.ru/disclosure_old/opif-obligatsiy-rezervnyy-valyutnye-investitsii/",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2671"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/4f193efd4a7859a324c6.html",
+  "fetched_at": "2026-11-03T15:08:50+00:00",
+  "sha256": "ab05cb9b5a7f997c96dad51977e72fa55d89e5e8c89fd3d72f338e5777484045",
+  "bytes": 75700,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "a247d7dc4b704e4843c9",
+  "url": "https://entrustment.ru/disclosure_old/opif-obligatsiy-rezervnyy/",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2204-94177868"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/a247d7dc4b704e4843c9.html",
+  "fetched_at": "2026-11-03T15:08:46+00:00",
+  "sha256": "25c4e196bafee4ecccbf566cdc4472f836a029d4c6d7fc8b6d3be5a29069f8a7",
+  "bytes": 74487,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "a5d94eff43c0b1c029d8",
+  "url": "https://entrustment.ru/disclosure_old/opif-obligatsiy-sistema-kapital-mobilnyy-valyutnyy/",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "3193"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/a5d94eff43c0b1c029d8.html",
+  "fetched_at": "2026-11-03T15:08:40+00:00",
+  "sha256": "43a2390fe9c5cc9adbcf2a863982a4527cbe4ae785e24218dab9b73872ea51df",
+  "bytes": 77677,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "75e39949f166b435f317",
+  "url": "https://entrustment.ru/disclosure_old/opif-obligatsiy-sistema-kapital-mobilnyy/",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "3194"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/75e39949f166b435f317.html",
+  "fetched_at": "2026-11-03T15:08:56+00:00",
+  "sha256": "a9cb30ae9baf913b1a475c5a6cc9d6d7c7ce4616db2bc4c68c3e340e54abc0fd",
+  "bytes": 75528,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "b35dfb82d8994e862cf7",
+  "url": "https://entrustment.ru/disclosure_old/otchetnost/",
+  "domain": "entrustment.ru",
+  "fmt": "html",
+  "funds": [
+   "2204-94177868",
+   "2671",
+   "2744",
+   "3193",
+   "3194",
+   "4692",
+   "6268"
+  ],
+  "method": "GET",
+  "path": "entrustment.ru/b35dfb82d8994e862cf7.html",
+  "fetched_at": "2026-11-03T15:08:39+00:00",
+  "sha256": "33167cf3c4f04e8c5b1783660a8fb9000d3288b7e476b1f86af8a18cc20a2f53",
+  "bytes": 60915,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "7e727743389fa7a72380",
   "url": "https://iss.moex.com/iss/securities.json?iss.meta=off&engine=stock&market=shares&group_by=group&group_by_filter=stock_ppif&limit=100&start=0",
   "domain": "iss.moex.com",
@@ -170,6 +667,601 @@
   "status": "ok"
  },
  {
+  "key": "e97ca4ca4f7cb00a6b4d",
+  "url": "https://ozon-am.ru/api/deviation",
+  "domain": "ozon-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7797",
+   "7798",
+   "7799",
+   "7800",
+   "7801"
+  ],
+  "method": "GET",
+  "path": "ozon-am.ru/e97ca4ca4f7cb00a6b4d.json",
+  "fetched_at": "2026-11-03T15:10:18+00:00",
+  "sha256": "099480e8608c8727211427ab89b27cd4f7fd24f09e7d0e9fe398e6268fc14b2f",
+  "bytes": 1910,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json",
+  "status": "ok"
+ },
+ {
+  "key": "4d83271fb03dc1113a05",
+  "url": "https://ozon-am.ru/api/documents?ticker=CORPA",
+  "domain": "ozon-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7799"
+  ],
+  "method": "GET",
+  "path": "ozon-am.ru/4d83271fb03dc1113a05.json",
+  "fetched_at": "2026-11-03T15:10:20+00:00",
+  "sha256": "95400b85f5d3f67dd4b686581d0434e72b506feb7a3542bf4ac6f5d821ca676e",
+  "bytes": 10102,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json",
+  "status": "ok"
+ },
+ {
+  "key": "e50ddeb30024a453e1a1",
+  "url": "https://ozon-am.ru/api/documents?ticker=OFZSA",
+  "domain": "ozon-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7801"
+  ],
+  "method": "GET",
+  "path": "ozon-am.ru/e50ddeb30024a453e1a1.json",
+  "fetched_at": "2026-11-03T15:10:22+00:00",
+  "sha256": "45973f33d05cb152d1e244ee9b269de64506f45039d9a3867f25b3f01662f20e",
+  "bytes": 10977,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json",
+  "status": "ok"
+ },
+ {
+  "key": "0821697ae2be5da9420e",
+  "url": "https://ozon-am.ru/api/documents?ticker=OLIQA",
+  "domain": "ozon-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7797"
+  ],
+  "method": "GET",
+  "path": "ozon-am.ru/0821697ae2be5da9420e.json",
+  "fetched_at": "2026-11-03T15:10:21+00:00",
+  "sha256": "bf303fef69b1395d2c0c989d6a69234ab08950d278e28acb174f92e0bc5ad80e",
+  "bytes": 11027,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json",
+  "status": "ok"
+ },
+ {
+  "key": "a69c6c311c2cfa08cae6",
+  "url": "https://ozon-am.ru/api/documents?ticker=RUFOA",
+  "domain": "ozon-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7800"
+  ],
+  "method": "GET",
+  "path": "ozon-am.ru/a69c6c311c2cfa08cae6.json",
+  "fetched_at": "2026-11-03T15:10:19+00:00",
+  "sha256": "162e8662a7914067908ed87f7a9b08b8527b1137ed35b2d694cb123e4e70ad94",
+  "bytes": 10106,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json",
+  "status": "ok"
+ },
+ {
+  "key": "8c5b34feccfdacfae030",
+  "url": "https://ozon-am.ru/api/documents?ticker=TOPSA",
+  "domain": "ozon-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7798"
+  ],
+  "method": "GET",
+  "path": "ozon-am.ru/8c5b34feccfdacfae030.json",
+  "fetched_at": "2026-11-03T15:10:16+00:00",
+  "sha256": "ee91b3e8163e6f2fe25b2241d61456e20bce5d17fd209194d461ae04a7f4a665",
+  "bytes": 9987,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json",
+  "status": "ok"
+ },
+ {
+  "key": "bee32e80b47b06a44d3a",
+  "url": "https://ozon-am.ru/api/mutual-funds",
+  "domain": "ozon-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7797",
+   "7798",
+   "7799",
+   "7800",
+   "7801"
+  ],
+  "method": "GET",
+  "path": "ozon-am.ru/bee32e80b47b06a44d3a.json",
+  "fetched_at": "2026-11-03T15:10:15+00:00",
+  "sha256": "3c70afe3cbccad754103489b1fbf5f213d6053bc6a2831920bf355019e47ea03",
+  "bytes": 1039,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json",
+  "status": "ok"
+ },
+ {
+  "key": "08f91184812a13a6de25",
+  "url": "https://ozon-am.ru/api/statistics",
+  "domain": "ozon-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7797",
+   "7798",
+   "7799",
+   "7800",
+   "7801"
+  ],
+  "method": "GET",
+  "path": "ozon-am.ru/08f91184812a13a6de25.json",
+  "fetched_at": "2026-11-03T15:10:17+00:00",
+  "sha256": "da726321a6206df8924d3a0ac9b8458a376cd16d55af8282d617ab853b6b8f42",
+  "bytes": 1995,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json",
+  "status": "ok"
+ },
+ {
+  "key": "51708c7654e9073f9902",
+  "url": "https://recordcap.ru/documents/funds",
+  "domain": "recordcap.ru",
+  "fmt": "html",
+  "funds": [
+   "3343",
+   "7565",
+   "7663"
+  ],
+  "method": "GET",
+  "path": "recordcap.ru/51708c7654e9073f9902.html",
+  "fetched_at": "2026-11-03T15:10:56+00:00",
+  "sha256": "4dba773aad271fb3385712c32e045e9087351b2e19f5e2a10c31a5b2770c9b4a",
+  "bytes": 88167,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "d007862acb21ef4e0c2b",
+  "url": "https://recordcap.ru/documents/funds/03",
+  "domain": "recordcap.ru",
+  "fmt": "html",
+  "funds": [
+   "7663"
+  ],
+  "method": "GET",
+  "path": "recordcap.ru/d007862acb21ef4e0c2b.html",
+  "fetched_at": "2026-11-03T15:11:02+00:00",
+  "sha256": "8b670dac1a9f6dac8faf249a0778473fd2922b40d11c968f11ff3c74cc7c0d49",
+  "bytes": 104576,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "1ad82b3b8ebd4482bc1a",
+  "url": "https://recordcap.ru/documents/funds/alenka",
+  "domain": "recordcap.ru",
+  "fmt": "html",
+  "funds": [
+   "3343"
+  ],
+  "method": "GET",
+  "path": "recordcap.ru/1ad82b3b8ebd4482bc1a.html",
+  "fetched_at": "2026-11-03T15:10:57+00:00",
+  "sha256": "1efdbdf16f5703cc0981c6c24bbf7b186826754c0cc9420b92796b8d3eb6950c",
+  "bytes": 310499,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "d5326dbb3f8136229531",
+  "url": "https://recordcap.ru/documents/funds/alenka/values?offset=250&limit=200",
+  "domain": "recordcap.ru",
+  "fmt": "html",
+  "funds": [
+   "3343"
+  ],
+  "method": "GET",
+  "path": "recordcap.ru/d5326dbb3f8136229531.html",
+  "fetched_at": "2026-11-03T15:10:59+00:00",
+  "sha256": "cfb5b585d3cdadeea231e0832a6e1f2c85c97795da056d7106b63185090bde4e",
+  "bytes": 72815,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "777a2a07f9b381f53299",
+  "url": "https://recordcap.ru/documents/funds/alenka/values?offset=50&limit=200",
+  "domain": "recordcap.ru",
+  "fmt": "html",
+  "funds": [
+   "3343"
+  ],
+  "method": "GET",
+  "path": "recordcap.ru/777a2a07f9b381f53299.html",
+  "fetched_at": "2026-11-03T15:10:58+00:00",
+  "sha256": "a06958578cccb6c07d1dab3f65c4cd9feffb7b2f82d28bdc3a953c88f2c450e9",
+  "bytes": 72796,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "a3cd31d2d80c98ccb7f1",
+  "url": "https://recordcap.ru/documents/funds/levchenko",
+  "domain": "recordcap.ru",
+  "fmt": "html",
+  "funds": [
+   "7565"
+  ],
+  "method": "GET",
+  "path": "recordcap.ru/a3cd31d2d80c98ccb7f1.html",
+  "fetched_at": "2026-11-03T15:11:00+00:00",
+  "sha256": "25253d9e10acfd4bc3c97ccf342a46eb185b81e2be8635d1607114013ba840d8",
+  "bytes": 125192,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "ffa07bc208e65c1bcc89",
+  "url": "https://recordcap.ru/documents/funds/levchenko/values?offset=50&limit=200",
+  "domain": "recordcap.ru",
+  "fmt": "html",
+  "funds": [
+   "7565"
+  ],
+  "method": "GET",
+  "path": "recordcap.ru/ffa07bc208e65c1bcc89.html",
+  "fetched_at": "2026-11-03T15:11:01+00:00",
+  "sha256": "9896b6fe56b33caf922dd487a7b8935137f9db37568539feafadfd38a4dd261d",
+  "bytes": 40454,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "c903f85c1e117581b6a9",
+  "url": "https://solid-mn.ru/api/v1/public/productDetail/fingold/",
+  "domain": "solid-mn.ru",
+  "fmt": "json",
+  "funds": [
+   "7286"
+  ],
+  "method": "POST",
+  "path": "solid-mn.ru/c903f85c1e117581b6a9.json",
+  "fetched_at": "2026-11-03T15:08:16+00:00",
+  "sha256": "d413395a56087505b7128ef1c19a64fc1386ee21ba88183121ab523dc1601651",
+  "bytes": 519654,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "ff40e0486ffb9c8df947",
+  "url": "https://solid-mn.ru/api/v1/public/productDetail/solid-cash-flow/",
+  "domain": "solid-mn.ru",
+  "fmt": "json",
+  "funds": [
+   "6833"
+  ],
+  "method": "POST",
+  "path": "solid-mn.ru/ff40e0486ffb9c8df947.json",
+  "fetched_at": "2026-11-03T15:07:36+00:00",
+  "sha256": "9715cfd52bd82a34ab1d88d11eda7f91e3d1530de4ac68dabdcb020ff51abfdd",
+  "bytes": 1053058,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "c5c1ecd9386db9d0bb2d",
+  "url": "https://solid-mn.ru/api/v1/public/productDetail/solid-globus/",
+  "domain": "solid-mn.ru",
+  "fmt": "json",
+  "funds": [
+   "1903-94169099"
+  ],
+  "method": "POST",
+  "path": "solid-mn.ru/c5c1ecd9386db9d0bb2d.json",
+  "fetched_at": "2026-11-03T15:07:58+00:00",
+  "sha256": "c1963dfd63661067d9e2ec84de8fec6fa9376b2e4cc89404737b082541600f1c",
+  "bytes": 3080301,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "334c27b52f5b4a94fea4",
+  "url": "https://solid-mn.ru/api/v1/public/productDetail/solid-indeks-mosbirzhi/",
+  "domain": "solid-mn.ru",
+  "fmt": "json",
+  "funds": [
+   "0351-76578546"
+  ],
+  "method": "POST",
+  "path": "solid-mn.ru/334c27b52f5b4a94fea4.json",
+  "fetched_at": "2026-11-03T15:08:06+00:00",
+  "sha256": "5bb19b6089f9fffe7f30e643b82281121a602220343b9cb7c6a2069f128a259d",
+  "bytes": 6348024,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "22cbfcdbed040bc0f581",
+  "url": "https://solid-mn.ru/api/v1/public/productDetail/solid-invest/",
+  "domain": "solid-mn.ru",
+  "fmt": "json",
+  "funds": [
+   "0040-52697973"
+  ],
+  "method": "POST",
+  "path": "solid-mn.ru/22cbfcdbed040bc0f581.json",
+  "fetched_at": "2026-11-03T15:07:52+00:00",
+  "sha256": "a3fa55211552823121f5d9f15f25af037ee3b6393b8632b70a384de249f7ba28",
+  "bytes": 6661565,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "4453fe2cb4aac2a91d30",
+  "url": "https://solid-mn.ru/api/v1/public/productDetail/solid-pensionnyy-kapital/",
+  "domain": "solid-mn.ru",
+  "fmt": "json",
+  "funds": [
+   "0045-54859434"
+  ],
+  "method": "POST",
+  "path": "solid-mn.ru/4453fe2cb4aac2a91d30.json",
+  "fetched_at": "2026-11-03T15:08:12+00:00",
+  "sha256": "0b3af3b2b2693ac0ec7bbc0c1a697210e229a7221dcda779c5b2e3bc21146646",
+  "bytes": 3815313,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "a21de0f29550aff33998",
+  "url": "https://solid-mn.ru/api/v1/public/productDetail/solid-rossiyskie-obligatsii/",
+  "domain": "solid-mn.ru",
+  "fmt": "json",
+  "funds": [
+   "0065-58549452"
+  ],
+  "method": "POST",
+  "path": "solid-mn.ru/a21de0f29550aff33998.json",
+  "fetched_at": "2026-11-03T15:07:44+00:00",
+  "sha256": "d3bb72a0dd1e7d1da7f8017f82f5d0fb961fc0d8103ec716dba563cba4b508d7",
+  "bytes": 7548757,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "7cbc001f1f6974cccefc",
+  "url": "https://solid-mn.ru/api/v1/public/products/",
+  "domain": "solid-mn.ru",
+  "fmt": "json",
+  "funds": [
+   "0040-52697973",
+   "0045-54859434",
+   "0065-58549452",
+   "0351-76578546",
+   "1903-94169099",
+   "6833",
+   "7286"
+  ],
+  "method": "POST",
+  "path": "solid-mn.ru/7cbc001f1f6974cccefc.json",
+  "fetched_at": "2026-11-03T15:07:32+00:00",
+  "sha256": "87fcb0a98bd6f0de510bc52e6693fb2d491797617304f586589613b27f244834",
+  "bytes": 225906,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "acfdab2fb3d22eff41be",
+  "url": "https://www.aricapital.ru/funds/fund-cm",
+  "domain": "www.aricapital.ru",
+  "fmt": "html",
+  "funds": [
+   "2565"
+  ],
+  "method": "GET",
+  "path": "www.aricapital.ru/acfdab2fb3d22eff41be.html",
+  "fetched_at": "2026-11-03T15:07:56+00:00",
+  "sha256": "94689166a24406a643c7e33863a08d0d9a242d77188921e3ff5443b4460a9ab1",
+  "bytes": 1167656,
+  "http_status": 200,
+  "etag": "W/\"11d128-7D9XqIcOJrLQJ0u5kvITUA2u+yU\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "da10b9302a1672d2d94e",
+  "url": "https://www.aricapital.ru/funds/fund-gi",
+  "domain": "www.aricapital.ru",
+  "fmt": "html",
+  "funds": [
+   "3208"
+  ],
+  "method": "GET",
+  "path": "www.aricapital.ru/da10b9302a1672d2d94e.html",
+  "fetched_at": "2026-11-03T15:07:59+00:00",
+  "sha256": "ca9492d59f02cc33c57f6ec910de38c584d457dffcbd942d28c987ff6fdfdef8",
+  "bytes": 886928,
+  "http_status": 200,
+  "etag": "W/\"d8890-AkdmIlzQ/6nQrCi4eVOIHXyzCgo\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "67cf1cc99512ebfbff93",
+  "url": "https://www.aricapital.ru/funds/fund-ha",
+  "domain": "www.aricapital.ru",
+  "fmt": "html",
+  "funds": [
+   "3606"
+  ],
+  "method": "GET",
+  "path": "www.aricapital.ru/67cf1cc99512ebfbff93.html",
+  "fetched_at": "2026-11-03T15:08:01+00:00",
+  "sha256": "c2245f6a466e2bd4f3c5ab3efa18ce1bc85e763dfb06437685921bad2043a4cf",
+  "bytes": 1216226,
+  "http_status": 200,
+  "etag": "W/\"128ee2-NfD7z8ByslzU/sWGbNvyOJ0sLjs\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "d80ac0f7de1dcf31fd43",
+  "url": "https://www.aricapital.ru/funds/fund-mr",
+  "domain": "www.aricapital.ru",
+  "fmt": "html",
+  "funds": [
+   "4445"
+  ],
+  "method": "GET",
+  "path": "www.aricapital.ru/d80ac0f7de1dcf31fd43.html",
+  "fetched_at": "2026-11-03T15:07:57+00:00",
+  "sha256": "d9ac9c8b5b1264cf339a3565774e7d1b25f1fa65ba4646b3ad66ebd1e572d472",
+  "bytes": 1004321,
+  "http_status": 200,
+  "etag": "W/\"f5321-XZFEbZJJaAziQz2yZGMkv2FwALk\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "21393aa04998a1da2b79",
+  "url": "https://www.aricapital.ru/funds/fund-ri",
+  "domain": "www.aricapital.ru",
+  "fmt": "html",
+  "funds": [
+   "6022"
+  ],
+  "method": "GET",
+  "path": "www.aricapital.ru/21393aa04998a1da2b79.html",
+  "fetched_at": "2026-11-03T15:08:00+00:00",
+  "sha256": "e3d659329c6a09c76e4372ca1733fce32a296ecb74fb59b6bad26e39bf5a3c91",
+  "bytes": 505286,
+  "http_status": 200,
+  "etag": "W/\"7b5c6-cR+sYARiTIGqfP9GaHlsjiBV8s4\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "a1082049c326c831b49c",
+  "url": "https://www.aricapital.ru/funds/fund-rs",
+  "domain": "www.aricapital.ru",
+  "fmt": "html",
+  "funds": [
+   "3542"
+  ],
+  "method": "GET",
+  "path": "www.aricapital.ru/a1082049c326c831b49c.html",
+  "fetched_at": "2026-11-03T15:07:58+00:00",
+  "sha256": "88cf571b8349354eacf871380dbcea826ffde66a72f239debe566ce4fae3a54d",
+  "bytes": 1330611,
+  "http_status": 200,
+  "etag": "W/\"144db3-wbqacu6a5QBB5g/Mh5Zb9GugtGw\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "2ff86d3af85b90307c90",
+  "url": "https://www.aricapital.ru/funds/index.html",
+  "domain": "www.aricapital.ru",
+  "fmt": "html",
+  "funds": [
+   "2565",
+   "3208",
+   "3542",
+   "3606",
+   "4445",
+   "6022"
+  ],
+  "method": "GET",
+  "path": "www.aricapital.ru/2ff86d3af85b90307c90.html",
+  "fetched_at": "2026-11-03T15:07:54+00:00",
+  "sha256": "f7aa5a27a8ecfb12d36a3f6721f47664957ef196f4f1f6e5cc97dd4679a0be00",
+  "bytes": 63350,
+  "http_status": 200,
+  "etag": "W/\"f776-cH9dpO8vPZja92UCG6xe1FKKvAc\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "99afefa62fb1532edd74",
   "url": "https://www.cbr.ru/vfs/finmarkets/files/supervision/list_managementcompanies.xlsx",
   "domain": "www.cbr.ru",
@@ -202,5 +1294,1080 @@
   "last_modified": "Tue, 03 Nov 2026 02:09:16 GMT",
   "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   "status": "ok"
+ },
+ {
+  "key": "2e0bab827b3760278dbb",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundProfitabilityRegular",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4483"
+  ],
+  "method": "POST",
+  "path": "www.ingosinvest-am.ru/2e0bab827b3760278dbb.json",
+  "fetched_at": "2026-11-03T15:10:41+00:00",
+  "sha256": "16d8c2e7838d194e2d7f239311a1c1260ff4f07d193847eea01abc20196d76a3",
+  "bytes": 706,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "762c67ba3c880459e2ef",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundProfitabilityRegular",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2622"
+  ],
+  "method": "POST",
+  "path": "www.ingosinvest-am.ru/762c67ba3c880459e2ef.json",
+  "fetched_at": "2026-11-03T15:10:43+00:00",
+  "sha256": "dc130ab80d066886ea9917a7a2fc0f67c24f9395b8d88644e9cad512bc877b09",
+  "bytes": 705,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "94823f34c812bf29ca7f",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundProfitabilityRegular",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "1148-94139715"
+  ],
+  "method": "POST",
+  "path": "www.ingosinvest-am.ru/94823f34c812bf29ca7f.json",
+  "fetched_at": "2026-11-03T15:10:47+00:00",
+  "sha256": "e17559936472b67a0c3044ff705460ce298eddc1bc501743154c59dfa1222bd4",
+  "bytes": 706,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "9e272d45dde57bfdc865",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundProfitabilityRegular",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "5248"
+  ],
+  "method": "POST",
+  "path": "www.ingosinvest-am.ru/9e272d45dde57bfdc865.json",
+  "fetched_at": "2026-11-03T15:10:52+00:00",
+  "sha256": "370d0cbc0bf51130ff970c8b4046409d12cdcedd9cf7f8f81bec8d7ccd7f84ea",
+  "bytes": 697,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "9f2baa1b2bf9b4cef6f4",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundProfitabilityRegular",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "1149-94139555"
+  ],
+  "method": "POST",
+  "path": "www.ingosinvest-am.ru/9f2baa1b2bf9b4cef6f4.json",
+  "fetched_at": "2026-11-03T15:10:45+00:00",
+  "sha256": "3e1409adfb2fdd8c39eb12addbce4b6b54fc5b0fb8542ed06d54352f08b78d2b",
+  "bytes": 706,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "dd0cc216c10b649847b4",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundProfitabilityRegular",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4742"
+  ],
+  "method": "POST",
+  "path": "www.ingosinvest-am.ru/dd0cc216c10b649847b4.json",
+  "fetched_at": "2026-11-03T15:10:39+00:00",
+  "sha256": "903ee849ba2809a39709067376b2ab2fea647e284494eefaf88ce2e1f33948a2",
+  "bytes": 693,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "e9b1003fb89fac16732d",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundProfitabilityRegular",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "0050-54904637"
+  ],
+  "method": "POST",
+  "path": "www.ingosinvest-am.ru/e9b1003fb89fac16732d.json",
+  "fetched_at": "2026-11-03T15:10:49+00:00",
+  "sha256": "05d8b55f24de669b2c5ff658f612c860c8d75aa729c67c7b9ff90f36dfe80335",
+  "bytes": 702,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "672f889c0048e094595b",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/17587?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "0050-54904637"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/672f889c0048e094595b.json",
+  "fetched_at": "2026-11-03T15:10:48+00:00",
+  "sha256": "35d3db024a6d081437d3c1d313d63ed67510e1e23cefe94c0bd0c64c425f1509",
+  "bytes": 37872,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "e2e75eb43b8dfce657a7",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/17587?startDate=2026-10-23&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "0050-54904637"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/e2e75eb43b8dfce657a7.json",
+  "fetched_at": "2026-11-03T15:11:08+00:00",
+  "sha256": "d5fd82a5537db437bcd68e243de5cee70831824ee1b737a842317b66f8985458",
+  "bytes": 909,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "8798b489816be6adcbda",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/36081295?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4483"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/8798b489816be6adcbda.json",
+  "fetched_at": "2026-11-03T15:10:40+00:00",
+  "sha256": "33fb0dfd94a6ce21bb9aa87f1b24cf69040e1f322f6b346c3e375d96c8659a5c",
+  "bytes": 38545,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "ab9469d02a8ef6787668",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/36081295?startDate=2026-10-23&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4483"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/ab9469d02a8ef6787668.json",
+  "fetched_at": "2026-11-03T15:11:04+00:00",
+  "sha256": "49c684b95f0121cc43989e3b95b8b0f0f84858b45904b2e8bcea1c27455b8472",
+  "bytes": 925,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "be80e150b681ac3d4bf0",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/39270561?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4742"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/be80e150b681ac3d4bf0.json",
+  "fetched_at": "2026-11-03T15:10:38+00:00",
+  "sha256": "9affabf603f5ac7665851d68975ee357019bcc05ffd990e785c20b8ad84dd1b0",
+  "bytes": 38253,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "61df1c862acd4f104ceb",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/39270561?startDate=2026-10-23&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4742"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/61df1c862acd4f104ceb.json",
+  "fetched_at": "2026-11-03T15:11:03+00:00",
+  "sha256": "e5cbbff7df7f355e722d19fca0f68e06428a844dbe17d6c86beaedac27db1fe9",
+  "bytes": 918,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "7c4ce569eacb7d0b2385",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/48141850?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "5248"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/7c4ce569eacb7d0b2385.json",
+  "fetched_at": "2026-11-03T15:10:51+00:00",
+  "sha256": "76582bf966a5d817008733bd3c67e2764a9d9761108037c2566ab6d9e522b2a1",
+  "bytes": 38253,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "c5eceb4ebec81bfb590c",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/48141850?startDate=2026-10-23&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "5248"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/c5eceb4ebec81bfb590c.json",
+  "fetched_at": "2026-11-03T15:11:09+00:00",
+  "sha256": "8bfe397c957bb256985c99d37d826e516faf01705bc712fd48f518859af85459",
+  "bytes": 918,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "dd63ea3b869b57b217ff",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/541872?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "1149-94139555"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/dd63ea3b869b57b217ff.json",
+  "fetched_at": "2026-11-03T15:10:44+00:00",
+  "sha256": "e742b748f08c9ceb3ac03db9b5319d2ab2cf1912c83630b4ec2a0909ae485950",
+  "bytes": 37762,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "4b679e5051fb90d83f4f",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/541872?startDate=2026-10-23&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "1149-94139555"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/4b679e5051fb90d83f4f.json",
+  "fetched_at": "2026-11-03T15:11:06+00:00",
+  "sha256": "3aba5904528c09a0c0f815bde1d1a69bf34a69851de0e6dba8f4096dd99cdfb3",
+  "bytes": 904,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "681747304c0beff62bd4",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/639383?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "1148-94139715"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/681747304c0beff62bd4.json",
+  "fetched_at": "2026-11-03T15:10:46+00:00",
+  "sha256": "71df68233ff2307db15bf348a6b6507b6af41c49b5145899f1ede58ee65f6bde",
+  "bytes": 38567,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "30d6d7abe665bceaef18",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/639383?startDate=2026-10-23&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "1148-94139715"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/30d6d7abe665bceaef18.json",
+  "fetched_at": "2026-11-03T15:11:07+00:00",
+  "sha256": "b3f542bc4122e2472658926cecae7eaf6511d33c2c35d5ec5e10c880e41426c7",
+  "bytes": 932,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "07e955578267f3b4152a",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/7596108?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2622"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/07e955578267f3b4152a.json",
+  "fetched_at": "2026-11-03T15:10:42+00:00",
+  "sha256": "d320400364d7da92317044294d125de165536ef7b29b8138d7cc77c90495291f",
+  "bytes": 38253,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "e8021d2ffcf49538d4ea",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/7596108?startDate=2026-10-23&endDate=2026-11-03&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2622"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/e8021d2ffcf49538d4ea.json",
+  "fetched_at": "2026-11-03T15:11:05+00:00",
+  "sha256": "478a2226e0688dab81e5c7f7f2eada9f3ff11aa56c496c648b8743b8755a8de9",
+  "bytes": 918,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "7a4296af6d77b826e2c7",
+  "url": "https://www.ingosinvest-am.ru/api/content/open-mutual-funds?pagination%5BpageSize%5D=100",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "0050-54904637",
+   "1148-94139715",
+   "1149-94139555",
+   "2622",
+   "4483",
+   "4742",
+   "5248"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/7a4296af6d77b826e2c7.json",
+  "fetched_at": "2026-11-03T15:10:36+00:00",
+  "sha256": "a103b16cefbadcdb81b2d1b4bcac1bfb34d3c1d21936315a97146ae8346a0799",
+  "bytes": 56735,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "b5b0b9093a73739d9d4f",
+  "url": "https://www.ingosinvest-am.ru/bpif",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "html",
+  "funds": [
+   "0050-54904637",
+   "1148-94139715",
+   "1149-94139555",
+   "2622",
+   "4483",
+   "4742",
+   "5248"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/b5b0b9093a73739d9d4f.html",
+  "fetched_at": "2026-11-03T15:10:37+00:00",
+  "sha256": "306087330cdd1d8faa5956629f859ccaee22c0a36941292a68dd36530d9c9b04",
+  "bytes": 86277,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "2a9529079c3142efa785",
+  "url": "https://www.ingosinvest-am.ru/pif",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "html",
+  "funds": [
+   "0050-54904637",
+   "1148-94139715",
+   "1149-94139555",
+   "2622",
+   "4483",
+   "4742",
+   "5248"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/2a9529079c3142efa785.html",
+  "fetched_at": "2026-11-03T15:10:36+00:00",
+  "sha256": "52678f003ada2bdcd58d290c0809180060a99ba6e5e7c4f654d08a67d2fbfea5",
+  "bytes": 83049,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "30e79d61b0185ef5d13e",
+  "url": "https://www.renlife.ru/company/info_disclosure/raskrytie-informatsii-ob-upravlyayushchey-kompanii/",
+  "domain": "www.renlife.ru",
+  "fmt": "html",
+  "funds": [
+   "7200",
+   "7217",
+   "8116",
+   "8135",
+   "8136"
+  ],
+  "method": "GET",
+  "path": "www.renlife.ru/30e79d61b0185ef5d13e.html",
+  "fetched_at": "2026-11-03T15:07:09+00:00",
+  "sha256": "c29eb19a2675b9d0fe2dc16257ff36a0e929ec914f95543746ec238f2959d798",
+  "bytes": 231899,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "64337b45025c99786b55",
+  "url": "https://www.renlife.ru/funds/balanced/",
+  "domain": "www.renlife.ru",
+  "fmt": "html",
+  "funds": [
+   "7217"
+  ],
+  "method": "GET",
+  "path": "www.renlife.ru/64337b45025c99786b55.html",
+  "fetched_at": "2026-11-03T15:07:13+00:00",
+  "sha256": "73b3b90d3363f90ab606f92522a869d42a34eff973f31cd0a43c36f79c8d697b",
+  "bytes": 814869,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "4f9554c49cc4fe96ad3f",
+  "url": "https://www.renlife.ru/funds/cumulative/",
+  "domain": "www.renlife.ru",
+  "fmt": "html",
+  "funds": [
+   "8116"
+  ],
+  "method": "GET",
+  "path": "www.renlife.ru/4f9554c49cc4fe96ad3f.html",
+  "fetched_at": "2026-11-03T15:07:11+00:00",
+  "sha256": "1761431735c977c89516f0e516a9900aa82b347c1536b730c6899dd4a0de7f6f",
+  "bytes": 242567,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "76f0e0b97a0e3ea9f457",
+  "url": "https://www.renlife.ru/funds/finance/",
+  "domain": "www.renlife.ru",
+  "fmt": "html",
+  "funds": [
+   "8136"
+  ],
+  "method": "GET",
+  "path": "www.renlife.ru/76f0e0b97a0e3ea9f457.html",
+  "fetched_at": "2026-11-03T15:07:14+00:00",
+  "sha256": "5d225ab97be62482733001192f679c9fcd0337ef43358a601d880f759849f211",
+  "bytes": 243063,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "b4195b7194a06554b487",
+  "url": "https://www.renlife.ru/funds/grow_your_capital/",
+  "domain": "www.renlife.ru",
+  "fmt": "html",
+  "funds": [
+   "7200"
+  ],
+  "method": "GET",
+  "path": "www.renlife.ru/b4195b7194a06554b487.html",
+  "fetched_at": "2026-11-03T15:07:12+00:00",
+  "sha256": "6afec129e58068d01bff172e11bcf21f19dee9d811b96c4e020b4fc46939e317",
+  "bytes": 1016281,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "aa11ec98ce28989e2f7e",
+  "url": "https://www.renlife.ru/funds/technologies/",
+  "domain": "www.renlife.ru",
+  "fmt": "html",
+  "funds": [
+   "8135"
+  ],
+  "method": "GET",
+  "path": "www.renlife.ru/aa11ec98ce28989e2f7e.html",
+  "fetched_at": "2026-11-03T15:07:10+00:00",
+  "sha256": "6710de928f27e89f291f0b72d361ab65384788d33492b30fb5516b9cb1b88d03",
+  "bytes": 244218,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "ebdf4bed92b0d7384993",
+  "url": "https://www.tkbip.ru/funds/",
+  "domain": "www.tkbip.ru",
+  "fmt": "html",
+  "funds": [
+   "0078-58234010",
+   "0081-58233855",
+   "0096-58227323",
+   "0219-14281681",
+   "0478-75408434",
+   "0991-94131990",
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/ebdf4bed92b0d7384993.html",
+  "fetched_at": "2026-11-03T15:06:04+00:00",
+  "sha256": "04ac298740a9367075bc62bf689c45f61acdb998fae758f71e04c10e611c8dc2",
+  "bytes": 170114,
+  "http_status": 200,
+  "etag": "W/\"29882-dU7JIIvYpBz54fvCUUukoM9wwBQ\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "a8d57f5d127bc1955006",
+  "url": "https://www.tkbip.ru/funds/opif-aktsiy-agana-ekstrim/export/?dateFrom=01.09.2025&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0219-14281681"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/a8d57f5d127bc1955006.csv",
+  "fetched_at": "2026-11-03T15:06:14+00:00",
+  "sha256": "d7e86325e1fec016e624a9fa94a7e3f22a89d175f9de320f12f624c707048347",
+  "bytes": 10949,
+  "http_status": 200,
+  "etag": "W/\"2ac5-ywNolrgSiU5HvYl63cIgLQvIyiw\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "2204a2aa8bc04e60e730",
+  "url": "https://www.tkbip.ru/funds/opif-aktsiy-agana-ekstrim/export/?dateFrom=23.10.2026&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0219-14281681"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/2204a2aa8bc04e60e730.csv",
+  "fetched_at": "2026-11-03T15:06:39+00:00",
+  "sha256": "ae795e49b7ea419eaa0ab17e0c05b6d3e2d3c244e0d509c5d7511c384f669362",
+  "bytes": 404,
+  "http_status": 200,
+  "etag": "W/\"194-4h8RQv+JzS2qputOxfugyZbBnU0\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "a7b055b851bdadc40200",
+  "url": "https://www.tkbip.ru/funds/opif-aktsiy-agana-ekstrim/information/",
+  "domain": "www.tkbip.ru",
+  "fmt": "html",
+  "funds": [
+   "0078-58234010",
+   "0081-58233855",
+   "0096-58227323",
+   "0219-14281681",
+   "0478-75408434",
+   "0991-94131990",
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/a7b055b851bdadc40200.html",
+  "fetched_at": "2026-11-03T15:06:08+00:00",
+  "sha256": "acbd38e85084e238bf885f42018b0f7580380d7b9fbf5288f2c792ae12f60acb",
+  "bytes": 179144,
+  "http_status": 200,
+  "etag": "W/\"2bbc8-FQ3DuVnQSZPNhxUjgZbhWvKgGKI\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "28449e21f61f7b225ec3",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-obligatsiy/export/?dateFrom=01.09.2025&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0081-58233855"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/28449e21f61f7b225ec3.csv",
+  "fetched_at": "2026-11-03T15:06:17+00:00",
+  "sha256": "c9415aadc2c8e9ca1e827703a55c54fd8ead0f753dc1bccde0d5872c8baf1161",
+  "bytes": 11571,
+  "http_status": 200,
+  "etag": "W/\"2d33-qItxmz/8XBVy0+Vo1YYmBiiUbu4\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "e2a56e521e3aaadeda3a",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-obligatsiy/export/?dateFrom=23.10.2026&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0081-58233855"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/e2a56e521e3aaadeda3a.csv",
+  "fetched_at": "2026-11-03T15:06:42+00:00",
+  "sha256": "42b9c804e29cfeefed17dc1ffa67b811ca4f2f845352a83efe5d8b32c3a40c72",
+  "bytes": 418,
+  "http_status": 200,
+  "etag": "W/\"1a2-btfTJhZ6zzm3s1xAztXlS9CFVok\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "6220a97d13b427dde806",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-obligatsiy/information/",
+  "domain": "www.tkbip.ru",
+  "fmt": "html",
+  "funds": [
+   "0078-58234010",
+   "0081-58233855",
+   "0096-58227323",
+   "0219-14281681",
+   "0478-75408434",
+   "0991-94131990",
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/6220a97d13b427dde806.html",
+  "fetched_at": "2026-11-03T15:06:05+00:00",
+  "sha256": "e79491a26b82c7726ff3071ad58fe56f1f65ad121eb1616ef561622fc400cf1d",
+  "bytes": 179431,
+  "http_status": 200,
+  "etag": "W/\"2bce7-jWgNPaJ/bY0Z5ykebv/S5vabhzg\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "46a38d61f767b25a2737",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-sbalansirovannyy-konservativnyy/export/?dateFrom=01.09.2025&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0078-58234010"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/46a38d61f767b25a2737.csv",
+  "fetched_at": "2026-11-03T15:06:18+00:00",
+  "sha256": "3f40b37b7d42a221ec753adb8cd87dde09a3f9f8120164c0c1b167f07bae828c",
+  "bytes": 11611,
+  "http_status": 200,
+  "etag": "W/\"2d5b-DZ/y7r3qdarAbMGQ2K6k0/2G+kE\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "dec3b4f5026031fe7547",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-sbalansirovannyy-konservativnyy/export/?dateFrom=23.10.2026&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0078-58234010"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/dec3b4f5026031fe7547.csv",
+  "fetched_at": "2026-11-03T15:06:42+00:00",
+  "sha256": "03692436b0047cd20232d273372b1a78d6dd75d7b2f9631fb4f2e08420897919",
+  "bytes": 418,
+  "http_status": 200,
+  "etag": "W/\"1a2-tZbT/WutCKAARCKBQHr/aMh/WvQ\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "75056e9bf5a5582acca4",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-sbalansirovannyy-konservativnyy/information/",
+  "domain": "www.tkbip.ru",
+  "fmt": "html",
+  "funds": [
+   "0078-58234010",
+   "0081-58233855",
+   "0096-58227323",
+   "0219-14281681",
+   "0478-75408434",
+   "0991-94131990",
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/75056e9bf5a5582acca4.html",
+  "fetched_at": "2026-11-03T15:06:09+00:00",
+  "sha256": "4244412d9f8e2f31615c168056614dcd3e21d0ee4bbe2195f9573f237bde3e53",
+  "bytes": 180222,
+  "http_status": 200,
+  "etag": "W/\"2bffe-Bhksa3ZMgQRK76iwdyGancP/NdM\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "0f6e0852b161d0fbbc6d",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-valyutnykh-obligatsiy/export/?dateFrom=01.09.2025&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0991-94131990"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/0f6e0852b161d0fbbc6d.csv",
+  "fetched_at": "2026-11-03T15:06:15+00:00",
+  "sha256": "a139b134a61871f953f4c8cdeff3a0c3694ff9e9c353e4de27a8322c6863476c",
+  "bytes": 11854,
+  "http_status": 200,
+  "etag": "W/\"2e4e-XNHiZEl8D6KqqCekMf3SKxyC/U4\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "816af2b36701729ef3b7",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-valyutnykh-obligatsiy/export/?dateFrom=23.10.2026&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0991-94131990"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/816af2b36701729ef3b7.csv",
+  "fetched_at": "2026-11-03T15:06:40+00:00",
+  "sha256": "b8b78e6be46f0d459dd4ddddf68b28ce0cca2898832fa202c97d6fb4e9f35f87",
+  "bytes": 425,
+  "http_status": 200,
+  "etag": "W/\"1a9-vqUE4RA25D3g8ZWdtjVXQNKw47g\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "e74e9b04942851e2426a",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-valyutnykh-obligatsiy/information/",
+  "domain": "www.tkbip.ru",
+  "fmt": "html",
+  "funds": [
+   "0078-58234010",
+   "0081-58233855",
+   "0096-58227323",
+   "0219-14281681",
+   "0478-75408434",
+   "0991-94131990",
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/e74e9b04942851e2426a.html",
+  "fetched_at": "2026-11-03T15:06:11+00:00",
+  "sha256": "918652c15e714b72f100c389810bf5f879b68dac44c5047c1b7e4827cf32dd3d",
+  "bytes": 179309,
+  "http_status": 200,
+  "etag": "W/\"2bc6d-nnUvFdOFe6YtyhIGG17nohCa5Zg\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "68f7c5b8273cca4c6e41",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-globalnye-investitsii/export/?dateFrom=01.09.2025&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0096-58227323"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/68f7c5b8273cca4c6e41.csv",
+  "fetched_at": "2026-11-03T15:06:19+00:00",
+  "sha256": "c3e1e83a6bc20c6181975cc68bb41c331dfc42fba59c5dd5bf016c5fd1549829",
+  "bytes": 11241,
+  "http_status": 200,
+  "etag": "W/\"2be9-IoiNFSVHh1WecZVkqHWSbAQJ0ro\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "f12529953a682c4ec779",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-globalnye-investitsii/export/?dateFrom=23.10.2026&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0096-58227323"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/f12529953a682c4ec779.csv",
+  "fetched_at": "2026-11-03T15:06:43+00:00",
+  "sha256": "b63db90d15dc43ae3f67a038400f8edc81723b2c05de6390aab17a24e7634b04",
+  "bytes": 411,
+  "http_status": 200,
+  "etag": "W/\"19b-jzdgwfMjuBXlKsd2/stWZpWrZYM\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "150fb2d98ba5d4c7d707",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-globalnye-investitsii/information/",
+  "domain": "www.tkbip.ru",
+  "fmt": "html",
+  "funds": [
+   "0078-58234010",
+   "0081-58233855",
+   "0096-58227323",
+   "0219-14281681",
+   "0478-75408434",
+   "0991-94131990",
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/150fb2d98ba5d4c7d707.html",
+  "fetched_at": "2026-11-03T15:06:06+00:00",
+  "sha256": "beda2cb2b089014a777c59e1a67e2c2534e52428611285dd3055900f06556420",
+  "bytes": 183416,
+  "http_status": 200,
+  "etag": "W/\"2cc78-lBuU5tn8qowHlkzUU1uIho3OFS0\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "34fe81c8d1d610c0458f",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-premium-fond-aktsiy/export/?dateFrom=01.09.2025&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0478-75408434"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/34fe81c8d1d610c0458f.csv",
+  "fetched_at": "2026-11-03T15:06:12+00:00",
+  "sha256": "8d94a5895638d4739ee613ca5f520343c88f7d4ac34ddbe32baede4d005e9a81",
+  "bytes": 11558,
+  "http_status": 200,
+  "etag": "W/\"2d26-g/e0hj2RpqVIE+66ywFt8JdZ7vo\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "c448f656139ae88b5695",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-premium-fond-aktsiy/export/?dateFrom=23.10.2026&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0478-75408434"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/c448f656139ae88b5695.csv",
+  "fetched_at": "2026-11-03T15:06:37+00:00",
+  "sha256": "3e73ce8616fa215bdd0557a6673cca1a9c3ed5109edc2accd11f40e123239be4",
+  "bytes": 418,
+  "http_status": 200,
+  "etag": "W/\"1a2-BZrMqCxZQSygWG15YiGs8w9zSR4\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "e204d1db45bb4b3d29e4",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-premium-fond-aktsiy/information/",
+  "domain": "www.tkbip.ru",
+  "fmt": "html",
+  "funds": [
+   "0078-58234010",
+   "0081-58233855",
+   "0096-58227323",
+   "0219-14281681",
+   "0478-75408434",
+   "0991-94131990",
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/e204d1db45bb4b3d29e4.html",
+  "fetched_at": "2026-11-03T15:06:07+00:00",
+  "sha256": "4213a0994e584864a3748497f01622e49f53076b0d4ef0ceef5def83d2befe71",
+  "bytes": 179688,
+  "http_status": 200,
+  "etag": "W/\"2bde8-UZ/LKNGeMjT3n6CycpYaO3xLkHU\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "349d1b46889c01883a1d",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-zoloto/export/?dateFrom=01.09.2025&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/349d1b46889c01883a1d.csv",
+  "fetched_at": "2026-11-03T15:06:13+00:00",
+  "sha256": "df2297bf356644f99a8563c4e67d536287f6f38f6fafbf734764639e93010220",
+  "bytes": 11567,
+  "http_status": 200,
+  "etag": "W/\"2d2f-SjPAEQ7bibJfZUmOYrgWpFhBHVQ\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "0a3dd652041a57db6a0e",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-zoloto/export/?dateFrom=23.10.2026&dateTo=03.11.2026&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/0a3dd652041a57db6a0e.csv",
+  "fetched_at": "2026-11-03T15:06:38+00:00",
+  "sha256": "ad1751fcbc0ff971031cce33420c453d262d0e984205bb0227fbb4a128c3f4fe",
+  "bytes": 418,
+  "http_status": 200,
+  "etag": "W/\"1a2-khnzvSG3ljZ+BWelkFSM7VmSogQ\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "6a184b8940f1424ba64d",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-zoloto/information/",
+  "domain": "www.tkbip.ru",
+  "fmt": "html",
+  "funds": [
+   "0078-58234010",
+   "0081-58233855",
+   "0096-58227323",
+   "0219-14281681",
+   "0478-75408434",
+   "0991-94131990",
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/6a184b8940f1424ba64d.html",
+  "fetched_at": "2026-11-03T15:06:12+00:00",
+  "sha256": "6b9aa6316d673c1b5503e617e944b558f2fc516a19070379fcc8b93c2aee8391",
+  "bytes": 178042,
+  "http_status": 200,
+  "etag": "W/\"2b77a-77ot/GehjpDCxJrDK081MXl1ebE\"",
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "f20599b95540a68705cf",
+  "url": "https://www.trinfico-am.ru/opif/",
+  "domain": "www.trinfico-am.ru",
+  "fmt": "html",
+  "funds": [
+   "2984",
+   "3264",
+   "3863",
+   "4275",
+   "4344"
+  ],
+  "method": "GET",
+  "path": "www.trinfico-am.ru/f20599b95540a68705cf.html",
+  "status": "error: доступ закрыт сайтом (HTTP 403)",
+  "checked_at": "2026-11-03T15:02:16+00:00"
  }
 ]
