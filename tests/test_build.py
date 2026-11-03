@@ -74,3 +74,18 @@ def test_parse_error_blocks_publication(data_dir):
     assert build.build_all() is False
     q = json.loads((data_dir / "site" / "quality.json").read_text("utf-8"))
     assert q["publish_allowed"] is False and q["errors"][0]["rules"] == "B"
+
+
+def test_merge_keeps_history_of_rolling_source():
+    from pif.cli import merge_with_previous
+    seg = lambda dates, key="k": {"raw_url": "u", "source_key": key, "sha256": "s", "fetched_at": "t",
+                                  "points": [{"date": d, "nav": 1.0, "price": 1.0} for d in dates]}
+    prev = {"segments": [seg(["2026-10-01", "2026-10-02"])], "payouts": []}
+    new = {"segments": [seg(["2026-10-02", "2026-10-03"])], "payouts": [], "status": "ok"}
+    merged = merge_with_previous(new, prev)
+    dates = sorted(p["date"] for s in merged["segments"] for p in s["points"])
+    assert dates == ["2026-10-01", "2026-10-02", "2026-10-03"]
+    # POST с другим телом на тот же адрес — другой источник, старый ряд не затирается
+    other = {"segments": [seg(["2026-10-03"], key="tail")], "payouts": [], "status": "ok"}
+    merged = merge_with_previous(other, prev)
+    assert sorted(p["date"] for s in merged["segments"] for p in s["points"]) == ["2026-10-01", "2026-10-02", "2026-10-03"]

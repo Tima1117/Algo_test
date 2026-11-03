@@ -86,8 +86,23 @@ def merge_with_previous(new: dict, prev: dict | None) -> dict:
     pays = {str(p["date"])[:10]: p for p in prev.get("payouts", []) if str(p["date"])[:10] < since}
     pays.update({str(p["date"])[:10]: p for p in new.get("payouts", [])})
     new["payouts"] = [pays[d] for d in sorted(pays)]
-    new_urls = {s["raw_url"] for s in new["segments"]}
-    kept = [s for s in prev["segments"] if s["raw_url"] not in new_urls]
+    def seg_id(seg: dict) -> str:
+        return seg.get("source_key") or seg["raw_url"]
+
+    # тот же источник скачан заново: из старой копии остаются только даты, которых в новой нет
+    # (источники «последние N дней» так накапливают историю, полные выгрузки просто заменяются)
+    fresh_dates: dict[str, set] = {}
+    for seg in new["segments"]:
+        fresh_dates.setdefault(seg_id(seg), set()).update(str(p["date"])[:10] for p in seg["points"])
+    kept = []
+    for seg in prev["segments"]:
+        sid = seg_id(seg)
+        if sid in fresh_dates:
+            rest = [p for p in seg["points"] if str(p["date"])[:10] not in fresh_dates[sid]]
+            if not rest:
+                continue
+            seg = {**seg, "points": rest}
+        kept.append(seg)
     if new["segments"]:
         new["segments"] = kept + new["segments"]
         return new
@@ -119,7 +134,9 @@ def probe_uncovered(http: Fetcher, funds: list[Fund]) -> list[FundData]:
             status, reason = "unavailable", "в реестре лицензий ЦБ не указан сайт УК"
         else:
             try:
-                http.get(site, fmt="html", funds=[f.rules for f in group], allow_stale=False)
+                # одна попытка: здесь нужно только понять, отвечает ли сайт
+                http.get(site, fmt="html", funds=[f.rules for f in group], allow_stale=False,
+                         check_robots=False, attempts=1)
             except Blocked as e:
                 status, reason = "blocked", f"{e.reason}; капчи и закрытые разделы не обходим"
             except FetchError as e:

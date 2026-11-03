@@ -25,6 +25,7 @@ from urllib.parse import urlencode, urlsplit
 import httpx
 
 from . import config
+from .robots import Robots
 
 log = logging.getLogger("pif.http")
 
@@ -62,6 +63,7 @@ class RawDoc:
     from_cache: bool = False
     stale: bool = False
     stale_reason: str = ""
+    key: str = ""          # ключ записи в манифесте: адрес + параметры + тело запроса
 
     def content(self) -> bytes:
         return self.path.read_bytes()
@@ -163,6 +165,7 @@ class Fetcher:
         self._clients: dict[tuple, httpx.Client] = {}
         self._transport = transport   # для тестов: httpx.MockTransport
         self._extra_ca: dict[str, str] = {}   # домен -> дополнительный корневой сертификат (PEM)
+        self._robots: dict[str, Robots] = {}
 
     # ---------- внутреннее ----------
     def trust_extra_ca(self, domain: str, pem: str) -> None:
@@ -209,11 +212,27 @@ class Fetcher:
             h.update(body)
         return h.hexdigest()[:20]
 
+    def _robots_for(self, scheme: str, domain: str) -> Robots:
+        with self._guard:
+            robots = self._robots.get(domain)
+        if robots is None:
+            try:
+                text = self.get(f"{scheme}://{domain}/robots.txt", fmt="txt", check_robots=False).text()
+                if "<html" in text[:500].lower():   # вместо robots.txt отдали страницу — правил нет
+                    text = ""
+            except FetchError:
+                text = ""                            # robots.txt нет или сайт недоступен — правил нет
+            robots = Robots(text, config.USER_AGENT.split("/")[0])
+            with self._guard:
+                self._robots[domain] = robots
+        return robots
+
     # ---------- API ----------
     def get(self, url: str, *, params: dict | None = None, fmt: str = "html",
             funds: list[str] | None = None, method: str = "GET", json_body=None,
             data: dict | None = None, headers: dict | None = None,
-            fresh_hours: float | None = None, allow_stale: bool = True) -> RawDoc:
+            fresh_hours: float | None = None, allow_stale: bool = True,
+            check_robots: bool = True, attempts: int = 3) -> RawDoc:
         """Скачать (или взять из кэша) документ. Возвращает RawDoc с путём к сырому файлу."""
         body = None
         if json_body is not None:
@@ -226,12 +245,16 @@ class Fetcher:
         entry = self.manifest.get(key)
         fresh = self.fresh if fresh_hours is None else timedelta(hours=fresh_hours)
         full_url = url + ("?" + urlencode(params, doseq=True) if params else "")
+        if check_robots and domain not in config.ROBOTS_EXCEPTIONS:
+            scheme = urlsplit(url).scheme or "https"
+            if not self._robots_for(scheme, domain).allowed(full_url):
+                raise Blocked(full_url, "robots.txt сайта запрещает автоматический доступ к этому адресу")
 
         def cached(stale_reason: str = "") -> RawDoc:
             if funds:
                 self.manifest.add_funds(key, funds)
             return RawDoc(full_url, path, entry["sha256"], entry["fetched_at"], fmt,
-                          from_cache=True, stale=bool(stale_reason), stale_reason=stale_reason)
+                          from_cache=True, stale=bool(stale_reason), stale_reason=stale_reason, key=key)
 
         have_copy = entry is not None and path.exists() and entry.get("sha256")
         if have_copy:
@@ -256,7 +279,7 @@ class Fetcher:
         base = {"key": key, "url": full_url, "domain": domain, "fmt": fmt, "funds": funds or [],
                 "method": method, "path": str(path.relative_to(self.raw_dir))}
         try:
-            resp = self._request(domain, method, url, params, body, req_headers)
+            resp = self._request(domain, method, url, params, body, req_headers, attempts)
         except FetchError as err:
             self.stats.inc("errors")
             self.manifest.put({**base, "status": f"error: {err.reason}", "checked_at": _now().isoformat()})
@@ -284,10 +307,9 @@ class Fetcher:
                            "last_modified": resp.headers.get("last-modified"),
                            "content_type": resp.headers.get("content-type"),
                            "status": "ok (не изменился)" if unchanged else "ok"})
-        return RawDoc(full_url, path, sha, now, fmt)
+        return RawDoc(full_url, path, sha, now, fmt, key=key)
 
-    def _request(self, domain, method, url, params, body, headers) -> httpx.Response:
-        attempts = 3
+    def _request(self, domain, method, url, params, body, headers, attempts: int = 3) -> httpx.Response:
         for attempt in range(1, attempts + 1):
             with self._domain_lock(domain):
                 self._wait_turn(domain)

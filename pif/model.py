@@ -61,6 +61,7 @@ class Segment:
     points: list[SeriesPoint]
     page_url: str | None = None   # страница фонда на сайте УК, где это видно человеку
     stale: bool = False
+    source_key: str = ""          # ключ манифеста: различает POST-запросы с разным телом на один адрес
 
 
 @dataclass

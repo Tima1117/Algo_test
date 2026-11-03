@@ -81,3 +81,20 @@ def test_antibot_stub_with_200_is_blocked(tmp_path, monkeypatch):
     f, _ = make(tmp_path, lambda req: httpx.Response(200, content=stub, headers={"content-type": "text/html"}))
     with pytest.raises(Blocked):
         f.get("https://example.ru/am")
+
+
+def test_robots_txt_is_respected(tmp_path, monkeypatch):
+    monkeypatch.setattr("pif.config.MIN_INTERVAL_SEC", 0)
+    seen = []
+
+    def handler(req):
+        seen.append(req.url.path)
+        if req.url.path == "/robots.txt":
+            return httpx.Response(200, content=b"User-agent: *\nDisallow: /api/\n")
+        return httpx.Response(200, content=b"ok")
+
+    f, _ = make(tmp_path, handler)
+    assert f.get("https://example.ru/funds/", fmt="txt").content() == b"ok"
+    with pytest.raises(Blocked, match="robots.txt"):
+        f.get("https://example.ru/api/nav", fmt="json")
+    assert seen == ["/robots.txt", "/funds/"]     # robots.txt читается один раз, запрещённый адрес не запрашивается

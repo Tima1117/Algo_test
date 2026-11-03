@@ -12,7 +12,7 @@ import openpyxl
 warnings.filterwarnings("ignore", message="Workbook contains no default style")
 
 from . import config
-from .http import Fetcher, RawDoc
+from .http import FetchError, Fetcher, RawDoc
 from .model import FUND_TYPES, Fund
 from .parsing import UnknownFormat, day
 
@@ -177,12 +177,26 @@ def fetch_moex(http: Fetcher) -> dict[str, dict]:
     return out
 
 
+def previous_isins() -> dict[str, dict]:
+    path = config.DATA_DIR / "registry.json"
+    if not path.exists():
+        return {}
+    import json
+
+    funds = json.loads(path.read_text("utf-8"))["funds"]
+    return {f["rules"]: {"isin": f["isin"], "ticker": f["ticker"]} for f in funds if f.get("isin")}
+
+
 def build_registry(http: Fetcher) -> tuple[list[Fund], dict]:
     uk_doc = http.get(config.CBR_UK_URL, fmt="xlsx")
     uks = parse_uk_registry(uk_doc.content())
     fund_doc = http.get(config.CBR_FUNDS_URL, fmt="xlsx")
     funds, skipped = parse_fund_registry(fund_doc.content(), uks)
-    moex = fetch_moex(http)
+    try:
+        moex = fetch_moex(http)
+    except FetchError as e:   # без ISIN реестр всё равно полезен — берём их из прошлого сбора
+        log.warning("Мосбиржа недоступна (%s): ISIN и тикеры — из прошлого реестра", e.reason)
+        moex = previous_isins()
     for f in funds:
         m = moex.get(f.rules)
         if m:

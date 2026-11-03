@@ -56,7 +56,7 @@ class Adapter:
         if since:
             points = [p for p in points if p.date >= since]
         return Segment(raw_url=raw.url, sha256=raw.sha256, fetched_at=raw.fetched_at,
-                       points=points, page_url=page_url, stale=raw.stale)
+                       points=points, page_url=page_url, stale=raw.stale, source_key=raw.key)
 
     @staticmethod
     def guarded(ctx: Context, fund: Fund, fn: Callable[[], FundData]) -> FundData:
