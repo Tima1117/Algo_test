@@ -13,8 +13,19 @@
   (action=costdynamics/bpif), но тот же costdynamics/opif отдаёт и для БПИФ ряды СЧА и пая;
   значения совпадают с таблицей 5609-У на сайте (GROD: 30.10.2026 — 747,06 / 193 552 721,89).
   Диапазон дат источник не принимает — всегда отдаёт всю историю (60–90 КБ на ряд).
-* <код>/unit-value — «Прирост расчетной стоимости пая согласно 5609-У». Для БПИФ это единственная
-  доходность по расчётной стоимости: на странице БПИФ таблица «Прирост биржевой стоимости пая» — по цене биржи.
+
+Официальная доходность. У ОПИФ — таблица «Прирост расчетной стоимости пая на <дата>» со страницы фонда:
+окна календарные (1 мес. назад от даты таблицы и т. д.), значения совпадают с рядом пая до 0,01 п. п.
+(«Дивидендные акции. Россия» на 02.11.2026: 7,93 / 7,08 / −1,34 / 5,29). Знак — только в классе
+стрелки (arrow profit/loss), само число без минуса.
+У БПИФ сопоставимой цифры нет: на странице фонда «Прирост биржевой стоимости пая» (по цене биржи),
+а раздел <код>/unit-value «Прирост расчетной стоимости пая согласно 5609-У» считает доходность от
+последнего рабочего дня месяца, отстоящего на n месяцев от текущего, до текущей даты (GROD на 02.11.2026:
+«1 мес.» = −1,46 % — это изменение за один день с 30.10, «3 мес.» — с 31.08 и т. д.; проверено по ряду).
+Такие числа не являются доходностью за 1/3/6/12 мес., поэтому для БПИФ official_returns пустые,
+а в warnings — объяснение и ссылка.
+
+Выплат дохода пайщикам у фондов УК нет (БПИФ реинвестируют дивиденды) — payouts пустые.
 """
 from __future__ import annotations
 
@@ -38,8 +49,9 @@ LIST_PAGES = (
 CHART_URL = "https://www.dohod.ru/assets/components/dohod/connectorweb.php"
 DISCLOSURE_URL = "https://www.dohod.ru/information-disclosure/mutual-fund-reports/{code}/{page}"
 
-# Метки времени в JSON графика: у ОПИФ — полночь UTC, у БПИФ — полночь по Москве (21:00 UTC
-# предыдущего дня). Дату берём по московскому времени: так оба варианта дают правильный день.
+# Метки времени в JSON графика: в costdynamics/opif — полночь UTC, в costdynamics/bpif (график цен БПИФ) —
+# полночь по Москве, то есть 21:00 UTC предыдущего дня. Дату берём по московскому времени: так оба
+# варианта дают правильный день (utcfromtimestamp сдвинул бы ряды БПИФ на день назад).
 MSK = timezone(timedelta(hours=3))
 
 _FUND_HREF = re.compile(r"^/?individuals/mutual-funds/(open-funds|bpif)/[a-z0-9-]+/?$")
@@ -47,14 +59,15 @@ _DISCLOSURE_HREF = re.compile(r"information-disclosure/mutual-fund-reports/([A-Z
                               r"(?:official-information|unit-value)")
 _MONTHS = {"января": 1, "февраля": 2, "марта": 3, "апреля": 4, "мая": 5, "июня": 6, "июля": 7,
            "августа": 8, "сентября": 9, "октября": 10, "ноября": 11, "декабря": 12}
-# заголовок колонки таблицы доходности -> период OfficialReturn и его длина в месяцах
-_PERIODS = {"1 мес.": ("1m", 1), "3 мес.": ("3m", 3), "6 мес.": ("6m", 6), "1 год": ("1y", 12)}
+# заголовок колонки таблицы доходности -> период OfficialReturn
+_PERIODS = {"1 мес.": "1m", "3 мес.": "3m", "6 мес.": "6m", "1 год": "1y"}
 _CURRENCY_SIGNS = {"₽": "RUB", "$": "USD", "€": "EUR", "¥": "CNY"}
 
-WARN_5609 = ("официальная доходность взята из раздела «Прирост расчетной стоимости пая согласно 5609-У»: "
-             "сайт считает её от последнего рабочего дня месяца, отстоящего на n месяцев от текущего, "
-             "до даты «информация актуальна на», а не за n полных месяцев на конец прошлого месяца "
-             "(сверено с рядом пая; в начале месяца «1 мес.» почти равен изменению за последние дни)")
+WARN_BPIF = ("официальная доходность по расчётной стоимости пая не взята: на странице БПИФ УК публикует "
+             "прирост биржевой цены, а в разделе «Прирост расчетной стоимости пая согласно 5609-У» ({url}) "
+             "значения посчитаны от конца месяца, отстоящего на n месяцев, до текущей даты, а не за полные "
+             "1/3/6/12 мес. (сверено с рядом пая); доходность за период на конец месяца есть в КИД (PDF, "
+             "вкладка «Документация по фонду»), PDF не разбираем")
 
 
 # ---------------------------------------------------------------- разбор
@@ -142,38 +155,41 @@ def parse_rules_number(content: bytes | str) -> str:
     return m.group(1)
 
 
-def parse_chart(content: bytes | str | dict, what: str = "ряд") -> list[tuple[date, float]]:
-    """JSON графика {"items": [[epoch_ms, value], ...]} -> [(дата, значение)] по возрастанию даты.
+def parse_chart(content: bytes | str | dict, what: str = "ряд") -> tuple[list[tuple[date, float]], list[date]]:
+    """JSON графика {"items": [[epoch_ms, value], ...]} -> ([(дата, значение)] по возрастанию, спорные даты).
 
-    Ноль на графике — это «нет значения» (расчётная стоимость и СЧА фонда не бывают нулевыми):
-    такую точку пропускаем, а не записываем 0. Отрицательное значение — незнакомые данные.
+    В выгрузке бывают повторы одной даты (одинаковые строки — склеиваем). Если за дату пришли
+    разные значения (у «Первого эшелона» 04.09.2023: 3179,12 и 3191,83 — видимо, пересчёт), какое из них
+    верное, из выгрузки не понять: дату исключаем и возвращаем во втором списке.
+    Ноль — это «нет значения» (расчётная стоимость и СЧА не бывают нулевыми): точку пропускаем,
+    а не записываем 0. Отрицательное значение — незнакомые данные.
     """
     data = content if isinstance(content, dict) else json.loads(content)
     require_keys(data, ["items"], f"{what}: JSON графика")
     items = data["items"]
     require(isinstance(items, list), f"{what}: items — не список (а {type(items).__name__}); "
                                      "для БПИФ нужен action=costdynamics/opif, а не bpif")
-    out: dict[date, float] = {}
+    values: dict[date, set[float]] = {}
     for it in items:
         require(isinstance(it, list) and len(it) == 2, f"{what}: элемент не [время, значение]: {it!r}")
         d, v = _msk_day(it[0]), num(it[1])
         if v is None or v == 0:
             continue
         require(v > 0, f"{what}: отрицательное значение {v} на {d}")
-        require(out.get(d, v) == v, f"{what}: два разных значения на {d}")
-        out[d] = v
-    return sorted(out.items())
+        values.setdefault(d, set()).add(v)
+    points = [(d, next(iter(vs))) for d, vs in sorted(values.items()) if len(vs) == 1]
+    return points, sorted(d for d, vs in values.items() if len(vs) > 1)
 
 
 def parse_series(pai: bytes | str | dict, cha: bytes | str | dict) -> list[SeriesPoint]:
     """Два ряда графика (пай и СЧА) -> точки по датам; чего нет в одном из рядов — None."""
-    prices = dict(parse_chart(pai, "стоимость пая"))
-    navs = dict(parse_chart(cha, "СЧА"))
+    prices = dict(parse_chart(pai, "стоимость пая")[0])
+    navs = dict(parse_chart(cha, "СЧА")[0])
     return [SeriesPoint(d, navs.get(d), prices.get(d)) for d in sorted(set(prices) | set(navs))]
 
 
 def _signed(cell) -> float | None:
-    """Ячейка таблицы доходности: модуль числа + знак по классу (стрелка loss/profit или --loss)."""
+    """Ячейка таблицы доходности: число без знака + стрелка arrow profit/loss -> число со знаком."""
     value = cell.select_one(".value")
     text = value.get_text(strip=True) if value is not None else ""
     if not text:
@@ -181,21 +197,16 @@ def _signed(cell) -> float | None:
     v = num(text)
     if v is None:
         return None
-    classes = set(cell.get("class", []))
     arrow = cell.select_one(".arrow")
-    if arrow is not None:
-        classes |= {f"arrow-{c}" for c in arrow.get("class", [])}
-    if "arrow-loss" in classes or "charts__table-cell--loss" in classes:
-        return -abs(v)
-    return v
+    require(arrow is not None, f"у значения доходности {text!r} нет стрелки со знаком")
+    kind = set(arrow.get("class", [])) & {"profit", "loss"}
+    require(len(kind) == 1, f"стрелка доходности без класса profit/loss: {arrow.get('class')}")
+    return -abs(v) if kind == {"loss"} else abs(v)
 
 
 def _growth_table(table) -> dict[str, float | None]:
     heads = [c.get_text(" ", strip=True) for c in table.select(".charts__table-cell--head")]
     cells = [c for c in table.select(".charts__table-cell") if "charts__table-cell--head" not in c.get("class", [])]
-    # в таблице 5609-У перед значениями есть подпись строки «Прирост стоимости пая, %»
-    if heads and heads[0] == "Показатель":
-        heads, cells = heads[1:], cells[1:]
     require(len(heads) == len(cells), f"в таблице доходности {len(heads)} заголовков и {len(cells)} значений")
     missing = [h for h in _PERIODS if h not in heads]
     require(not missing, f"в таблице доходности нет колонок {missing}; есть {heads}")
@@ -203,8 +214,9 @@ def _growth_table(table) -> dict[str, float | None]:
 
 
 def _to_returns(values: dict[str, float | None], as_of: date, url: str) -> list[OfficialReturn]:
+    # «-» в ячейке (фонд моложе периода) -> None -> периода нет
     return [OfficialReturn(period, values[head], as_of, url)
-            for head, (period, _) in _PERIODS.items() if values.get(head) is not None]
+            for head, period in _PERIODS.items() if values.get(head) is not None]
 
 
 def parse_returns_fund_page(content: bytes | str, url: str = "") -> list[OfficialReturn] | None:
@@ -226,38 +238,6 @@ def parse_returns_fund_page(content: bytes | str, url: str = "") -> list[Officia
     table = block.select_one('[class^="charts__table-growth"]')
     require(table is not None, "в блоке доходности нет таблицы")
     return _to_returns(_growth_table(table), _ru_date(when), url)
-
-
-def parse_returns_5609(content: bytes | str, url: str = "") -> list[OfficialReturn]:
-    """Раздел раскрытия unit-value: «Прирост расчетной стоимости инвестиционного пая согласно 5609-У»."""
-    soup = _soup(content)
-    when = soup.find(string=re.compile(r"информация актуальна на"))
-    require(when is not None, "нет строки «информация актуальна на»")
-    as_of = _ru_date(when.find_next(string=re.compile(r"\d{2}\.\d{2}\.\d{4}")) or "")
-    head = soup.find(string=re.compile(r"Прирост расчетной стоимости инвестиционного пая"))
-    require(head is not None, "нет заголовка «Прирост расчетной стоимости инвестиционного пая»")
-    table = head.find_next(class_="charts__table-growth")
-    require(table is not None, "нет таблицы прироста 5609-У")
-    return _to_returns(_growth_table(table), as_of, url)
-
-
-def drop_too_young(returns: list[OfficialReturn], first_day: date) -> tuple[list[OfficialReturn], list[str]]:
-    """Убрать периоды длиннее истории фонда: таблица 5609-У ставит там 0, это не доходность."""
-    months = {p: n for p, n in _PERIODS.values()}
-    kept, dropped = [], []
-    for r in returns:
-        if r.as_of is not None and _months_back(r.as_of, months[r.period]) < first_day:
-            dropped.append(r.period)
-        else:
-            kept.append(r)
-    return kept, dropped
-
-
-def _months_back(d: date, n: int) -> date:
-    y, m = divmod(d.year * 12 + d.month - 1 - n, 12)
-    m += 1
-    last = (date(y + (m == 12), m % 12 + 1, 1) - timedelta(days=1)).day
-    return date(y, m, min(d.day, last))
 
 
 # ---------------------------------------------------------------- сбор
@@ -326,33 +306,30 @@ class DohodAdapter(Adapter):
         params = {"type": "", "action": "costdynamics/opif", "resId": page.res_id}
         raw_pai = ctx.http.get(CHART_URL, params={**params, "tab": "pai"}, fmt="json", funds=rules)
         raw_cha = ctx.http.get(CHART_URL, params={**params, "tab": "cha"}, fmt="json", funds=rules)
-        prices = parse_chart(raw_pai.content(), "стоимость пая")
-        navs = parse_chart(raw_cha.content(), "СЧА")
-        first_day = min([d for d, _ in prices + navs], default=None)
+        prices, bad_p = parse_chart(raw_pai.content(), "стоимость пая")
+        navs, bad_n = parse_chart(raw_cha.content(), "СЧА")
+        for what, bad in (("стоимости пая", bad_p), ("СЧА", bad_n)):
+            bad = [d for d in bad if d >= ctx.since]
+            if bad:
+                fd.warnings.append(f"на графике УК за {', '.join(f'{d:%d.%m.%Y}' for d in bad)} два разных значения "
+                                   f"{what} — эти даты исключены")
         fd.segments = [
             self.segment(raw_pai, [SeriesPoint(d, None, v) for d, v in prices], page.url, ctx.since),
             self.segment(raw_cha, [SeriesPoint(d, v, None) for d, v in navs], page.url, ctx.since),
         ]
         n_price, n_nav = (len(s.points) for s in fd.segments)
 
-        # официальная доходность: у ОПИФ — таблица на странице фонда, у БПИФ — раздел 5609-У
+        # официальная доходность: у ОПИФ — таблица на странице фонда; у БПИФ сопоставимой нет
         returns = parse_returns_fund_page(raw_page.content(), page.url)
         if returns is None:
-            uv_url = DISCLOSURE_URL.format(code=page.code, page="unit-value")
-            returns = parse_returns_5609(ctx.http.get(uv_url, fmt="html", funds=rules).content(), uv_url)
-            if returns:
-                fd.warnings.append(WARN_5609)
-        if first_day is not None:
-            returns, dropped = drop_too_young(returns, first_day)
-            if dropped:
-                fd.warnings.append(f"доходность за {', '.join(dropped)} не взята: фонд моложе периода "
-                                   f"(история с {first_day:%d.%m.%Y})")
-        fd.official_returns = returns
+            fd.warnings.append(WARN_BPIF.format(url=DISCLOSURE_URL.format(code=page.code, page="unit-value")))
+        fd.official_returns = returns or []
 
         if not n_price and not n_nav:
+            last = max((d for d, _ in prices + navs), default=None)
             fd.status = "not_formed" if fund.status == "Формируется" else "no_history"
             fd.reason = (f"график на сайте УК не содержит точек с {ctx.since:%d.%m.%Y}"
-                         + (f" (последняя: {max(d for d, _ in prices + navs):%d.%m.%Y})" if prices or navs else ""))
+                         + (f" (последняя: {last:%d.%m.%Y})" if last else ""))
         elif not n_nav or not n_price:
             fd.status = "partial"
             fd.reason = "на сайте УК есть только " + ("стоимость пая, без СЧА" if not n_nav else "СЧА, без стоимости пая")
