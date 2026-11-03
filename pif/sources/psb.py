@@ -10,26 +10,50 @@
 * графики на странице берут те же ряды из /ajax/data.php?fund=<id>&type=price|cost (умеет
   date_from), но цена и СЧА там в разных ответах, а даты — epoch-ms московской полуночи
   с летним временем до 2011 г. Берём CSV: один документ — и дата, и цена, и СЧА.
-Номер правил ДУ на страницах фонда не публикуется (только внутри PDF правил), поэтому фонд
-реестра сопоставляется с сайтом по названию; у БПИФ на сайте к названию добавлен тикер.
+* выплаты дохода (сейчас у «Дивидендных акций» и «Финансового потока»): у графика стоимости пая
+  атрибут data-json-payment="/ajax/datav.php?fund=<id>&…" -> [{"x": epoch-ms полуночи МСК,
+  "y": стоимость пая на эту дату, "ap": выплата на пай, ₽}, …] — вся история, параметры дат
+  сервер игнорирует, поэтому запрашиваем стабильный адрес ?fund=<id>&type=price.
+
+Ловушки:
+* Номер правил ДУ на страницах фонда не публикуется (только внутри PDF правил), поэтому фонд
+  реестра сопоставляется с сайтом по названию; у БПИФ на сайте к названию добавлен тикер
+  («ПСБ – Денежный рынок - PSMM»).
+* Дата выплаты — день, когда доход уже исключён из стоимости пая (у «Дивидендных акций»
+  30.09.2026: пай 767,49 ₽, выплата 71,54 ₽). Официальную доходность УК считает без
+  реинвестирования: (пай на конец + выплаты с датой в (начало, конец]) / пай на начало − 1,
+  где начало — последний рабочий день месяца N месяцев назад. Так воспроизводятся все 8 цифр
+  обоих фондов с выплатами на 30.10.2026 до 0,01 п. п.
+* Эпохи в /ajax/*.php — полночь по Москве с учётом исторического летнего времени (до 2011 г.
+  это 20:00 UTC), поэтому дата берётся через zoneinfo Europe/Moscow, а не «UTC+3».
+* «Курс на Восток» на графике переключается и в юани (data-json_new=…&currency=ch) — это пересчёт
+  для наглядности; таблица и выгрузка — «Стоимость пая, руб.», валюта пая — рубли.
 """
 from __future__ import annotations
 
 import csv
 import io
+import json
 import re
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from ..model import Fund, FundData, OfficialReturn, SeriesPoint
-from ..parsing import UnknownFormat, day, norm_text, num, pct, require
+from ..model import Fund, FundData, OfficialReturn, Payout, SeriesPoint
+from ..parsing import UnknownFormat, day, norm_text, num, pct, require, require_keys
 from .base import Adapter, Context
 
 BASE = "https://www.upravlyaem.ru"
 CATALOG_URL = f"{BASE}/funds/mutual_funds/"
+PAYOUTS_URL = f"{BASE}/ajax/datav.php"
+
+try:  # даты в epoch-ms — московская полночь с историческим летним временем
+    from zoneinfo import ZoneInfo
+    MSK = ZoneInfo("Europe/Moscow")
+except Exception:  # noqa: BLE001 — нет базы часовых поясов: с 2014 г. Москва всегда UTC+3
+    MSK = timezone(timedelta(hours=3))
 
 # Заголовки колонок таблицы «Динамика фонда» -> период OfficialReturn.
 RETURN_COLUMNS = {"за 1 мес.": "1m", "за 3 мес.": "3m", "за 6 мес.": "6m", "за 1 год": "1y"}
@@ -45,6 +69,7 @@ class PsbFundPage:
     as_of: date | None               # «Стоимость пая, руб. на 30.10.2026»
     price_as_of: float | None        # стоимость пая на эту дату (для сверки с CSV)
     returns: dict[str, float | None] = field(default_factory=dict)
+    payout_fund: str | None = None   # id фонда для /ajax/datav.php, если УК показывает выплаты
 
 
 def _clean(s: str) -> str:
@@ -94,20 +119,28 @@ def parse_fund_page(html: str) -> PsbFundPage:
     require(len(heads) == len(cells), f"в «Динамике фонда» {len(heads)} заголовков и {len(cells)} ячеек")
     require(len(heads) >= 2 and heads[1].lower().startswith("стоимость пая"),
             f"вторая колонка «Динамики фонда» — не стоимость пая: {heads[:3]}")
-    m = re.search(r"на (\d{2}\.\d{2}\.\d{4})", heads[1])
-    require(m is not None, f"нет даты в заголовке {heads[1]!r}")
+    as_of = re.search(r"на (\d{2}\.\d{2}\.\d{4})", heads[1])
+    require(as_of is not None, f"нет даты в заголовке {heads[1]!r}")
 
     lower = [h.lower() for h in heads]
     missing = [h for h in RETURN_COLUMNS if h not in lower]
     require(not missing, f"в «Динамике фонда» нет колонок {missing}; есть {heads}")
     returns = {period: pct(cells[lower.index(h)]) for h, period in RETURN_COLUMNS.items()}
+
+    payout_fund = None
+    pay_attrs = {d["data-json-payment"] for d in soup.find_all(attrs={"data-json-payment": True})}
+    if pay_attrs:
+        ids = set().union(*(re.findall(r"[?&]fund=(\d+)", a) for a in pay_attrs))
+        require(len(ids) == 1, f"не понял id фонда в data-json-payment: {sorted(pay_attrs)}")
+        payout_fund = ids.pop()
     return PsbFundPage(
         title=_clean(h1.get_text(" ")),
         csv_url=urljoin(BASE, links[0]),
         currency=currency_from_label(heads[1]),
-        as_of=day(m.group(1)),
+        as_of=day(as_of.group(1)),
         price_as_of=num(cells[1]),
         returns=returns,
+        payout_fund=payout_fund,
     )
 
 
@@ -138,6 +171,31 @@ def parse_costs_csv(content: bytes | str) -> list[SeriesPoint]:
         points[d] = SeriesPoint(d, nav, price)
     require(bool(points), "в выгрузке нет ни одной строки с данными")
     return [points[d] for d in sorted(points)]
+
+
+def _msk_day(ts) -> date:
+    require(isinstance(ts, (int, float)) and not isinstance(ts, bool), f"метка времени не число: {ts!r}")
+    dt = datetime.fromtimestamp(ts / 1000, MSK)
+    require((dt.hour, dt.minute, dt.second) == (0, 0, 0), f"метка {ts} — не полночь по Москве ({dt})")
+    return dt.date()
+
+
+def parse_payouts_psb(content: bytes | str | list, source_url: str) -> list[Payout]:
+    """/ajax/datav.php: [{"x": epoch-ms, "y": пай, "ap": выплата на пай}] -> выплаты по возрастанию дат."""
+    if isinstance(content, (bytes, str)):
+        try:
+            content = json.loads(content)
+        except json.JSONDecodeError as e:
+            raise UnknownFormat(f"выплаты: ответ не JSON: {e}") from e
+    require(isinstance(content, list), f"выплаты: ожидался список, получено {type(content).__name__}")
+    out: dict[date, Payout] = {}
+    for item in content:
+        require_keys(item, ["x", "ap"], "выплата")
+        d, amount = _msk_day(item["x"]), num(item["ap"])
+        require(amount is not None and amount > 0, f"выплата на {d}: сумма {item['ap']!r}")
+        require(d not in out, f"выплата на {d} повторяется")
+        out[d] = Payout(d, amount, source_url)
+    return [out[d] for d in sorted(out)]
 
 
 class PsbAdapter(Adapter):
@@ -193,6 +251,11 @@ class PsbAdapter(Adapter):
         seg = self.segment(csv_doc, points, page_url=page_url, since=ctx.since)
         if seg.points:
             fd.segments.append(seg)
+
+        if page.payout_fund:
+            pay_doc = ctx.http.get(PAYOUTS_URL, params={"fund": page.payout_fund, "type": "price"},
+                                   fmt="json", funds=[fund.rules])
+            fd.payouts = [p for p in parse_payouts_psb(pay_doc.content(), pay_doc.url) if p.date >= ctx.since]
 
         # Сверка выгрузки с таблицей на странице: та же цена пая на ту же дату.
         by_date = {p.date: p for p in points}
