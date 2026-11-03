@@ -8,6 +8,7 @@ const byRules = new Map(funds.map((f) => [f.rules, f]));
 const fundLink = (r: string) => byRules.get(r)?.name ?? r;
 const statuses = Object.entries(quality.totals.by_status as Record<string, number>).sort((a, b) => b[1] - a[1]);
 const checked = manualCheck.filter((r) => r.value_on_site);
+const PERIOD: Record<string, string> = { '1m': '1 мес', '3m': '3 мес', '6m': '6 мес', '1y': '1 год' };
 ---
 <Base title="Качество данных" active="quality">
   <h1>Качество данных</h1>
@@ -37,7 +38,7 @@ const checked = manualCheck.filter((r) => r.value_on_site);
     <div class="table-wrap"><table>
       <thead><tr><th>Фонд</th><th>Период</th><th>На дату</th><th class="num">По ряду</th><th class="num">Официальная</th><th class="num">Разница, п. п.</th><th>Источник</th></tr></thead>
       <tbody>{quality.discrepancies.map((d: any) => (
-        <tr><td><a href={`${base}fund/${d.rules}/`}>{fundLink(d.rules)}</a><div class="sub muted">{d.uk}</div></td><td>{d.period}</td><td class="mono">{date(d.as_of)}</td>
+        <tr><td><a href={`${base}fund/${d.rules}/`}>{fundLink(d.rules)}</a><div class="sub muted">{d.uk}</div></td><td>{PERIOD[d.period] ?? d.period}</td><td class="mono">{date(d.as_of)}</td>
           <td class="num">{pct(d.ours)}</td><td class="num">{pct(d.official)}</td><td class="num neg">{num(d.diff_pp, 2)}</td>
           <td>{d.source_url && <a href={d.source_url} rel="nofollow noopener" target="_blank">открыть</a>}</td></tr>
       ))}</tbody>
