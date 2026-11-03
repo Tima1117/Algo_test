@@ -297,8 +297,10 @@ class Fetcher:
             return resp
         if resp.status_code >= 400:
             raise FetchError(url, f"HTTP {resp.status_code}", resp.status_code)
-        if "text/html" in resp.headers.get("content-type", "") and any(
-                m in head for m in ("smartcaptcha", "ddos-guard", "qrator", "__cf_chl")):
+        # антибот может отдать заглушку и с кодом 200 (например, ServicePipe на bcs.ru)
+        if "text/html" in resp.headers.get("content-type", "") and (
+                any(m in head for m in ("smartcaptcha", "ddos-guard", "qrator", "__cf_chl", "servicepipe"))
+                or (len(resp.content) < 20000 and "captcha" in head)):
             raise Blocked(url, "антибот-проверка вместо данных", resp.status_code)
         return resp
 

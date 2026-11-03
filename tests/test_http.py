@@ -73,3 +73,11 @@ def test_down_site_returns_stale_copy(tmp_path, monkeypatch):
     assert doc.stale and doc.content() == b"old"
     with pytest.raises(FetchError):
         f.get("https://example.ru/b", fmt="txt")
+
+
+def test_antibot_stub_with_200_is_blocked(tmp_path, monkeypatch):
+    monkeypatch.setattr("pif.config.MIN_INTERVAL_SEC", 0)
+    stub = b"<html><head><script src='/servicepipe.js'></script></head><body>captcha</body></html>"
+    f, _ = make(tmp_path, lambda req: httpx.Response(200, content=stub, headers={"content-type": "text/html"}))
+    with pytest.raises(Blocked):
+        f.get("https://example.ru/am")
