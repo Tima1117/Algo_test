@@ -1,0 +1,12 @@
+raw/
+logs/
+.tmp/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+node_modules/
+site/dist/
+site/.astro/
+.vercel/
+.env

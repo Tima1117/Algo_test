@@ -1,0 +1,142 @@
+"""Одна команда на весь путь: python -m pif all
+
+Шаги:
+  registry  — реестр фондов (ЦБ + Мосбиржа)
+  collect   — сбор рядов и официальной доходности с сайтов УК
+  build     — нормализация, притоки, самопроверка, выгрузка данных для сайта
+  all       — всё подряд
+Флаги: --offline (только сохранённые копии), --only <ключ адаптера>, --strict (код 1, если
+отчёт качества запрещает публикацию).
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import logging
+import sys
+import time
+from concurrent.futures import ThreadPoolExecutor
+from dataclasses import asdict
+from pathlib import Path
+
+from . import config
+from .http import Fetcher, Manifest
+from .model import Fund, FundData
+from .sources import Context, load_adapters
+
+log = logging.getLogger("pif")
+
+
+def setup_logging() -> Path:
+    config.LOG_DIR.mkdir(exist_ok=True)
+    path = config.LOG_DIR / f"run-{time.strftime('%Y%m%d-%H%M%S')}.log"
+    fmt = logging.Formatter("%(asctime)s %(levelname)-7s %(name)s: %(message)s", "%H:%M:%S")
+    root = logging.getLogger()
+    root.setLevel(logging.INFO)
+    for h in (logging.StreamHandler(sys.stdout), logging.FileHandler(path, encoding="utf-8")):
+        h.setFormatter(fmt)
+        root.addHandler(h)
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    return path
+
+
+def load_registry() -> list[Fund]:
+    data = json.loads((config.DATA_DIR / "registry.json").read_text("utf-8"))
+    return [Fund(**f) for f in data["funds"]]
+
+
+def step_registry(http: Fetcher) -> None:
+    from .registry import build_registry
+
+    funds, meta = build_registry(http)
+    out = {"meta": meta, "funds": [f.to_dict() for f in funds]}
+    (config.DATA_DIR / "registry.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", "utf-8")
+
+
+def _collect_one(adapter, ctx: Context, funds: list[Fund]) -> list[FundData]:
+    t0 = time.monotonic()
+    try:
+        result = adapter.collect(ctx, funds)
+    except Exception as e:  # noqa: BLE001 — сломанный сайт не роняет весь сбор
+        log.exception("Адаптер %s упал целиком", adapter.key)
+        result = [FundData(f.rules, status="parse_error", reason=f"сбой сборщика УК: {type(e).__name__}",
+                           errors=[f"{adapter.key}: {type(e).__name__}: {e}"]) for f in funds]
+    got = {fd.rules for fd in result}
+    for f in funds:
+        if f.rules not in got:
+            result.append(FundData(f.rules, status="not_found", reason="фонд не найден на сайте УК"))
+    ok = sum(1 for fd in result if fd.segments)
+    log.info("[%s] %d/%d фондов с рядом за %.0f с", adapter.key, ok, len(funds), time.monotonic() - t0)
+    return result
+
+
+def step_collect(http: Fetcher, only: str | None = None) -> None:
+    funds = load_registry()
+    adapters = load_adapters()
+    by_inn: dict[str, list[Fund]] = {}
+    for f in funds:
+        by_inn.setdefault(f.uk_inn, []).append(f)
+    ctx = Context(http=http, since=config.HISTORY_START, log=logging.getLogger("pif.collect"))
+    jobs = []
+    covered: set[str] = set()
+    for a in adapters:
+        if only and a.key != only:
+            continue
+        group = [f for inn in a.uk_inns for f in by_inn.get(inn, [])]
+        covered.update(a.uk_inns)
+        if group:
+            jobs.append((a, group))
+    results: list[FundData] = []
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        for res in pool.map(lambda job: _collect_one(job[0], ctx, job[1]), jobs):
+            results.extend(res)
+    if not only:
+        for f in funds:
+            if f.uk_inn not in covered:
+                results.append(FundData(f.rules, status="no_adapter",
+                                        reason="сбор с сайта этой УК ещё не реализован"))
+    out_dir = config.DATA_DIR / "collected"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for fd in results:
+        (out_dir / f"{fd.rules}.json").write_text(
+            json.dumps(asdict(fd), ensure_ascii=False, default=str, indent=None) + "\n", "utf-8")
+    s = http.stats
+    log.info("Сбор: скачано %d, не изменилось %d, из кэша %d, ошибок сети %d",
+             s.downloaded, s.unchanged, s.cached, s.errors)
+
+
+def step_build(strict: bool = False) -> int:
+    from .build import build_all
+
+    ok = build_all()
+    if not ok:
+        log.error("Отчёт качества запрещает публикацию (есть ошибки сбора/разбора)")
+        return 1 if strict else 0
+    return 0
+
+
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(prog="python -m pif", description=__doc__,
+                                formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("step", choices=["registry", "collect", "build", "all"])
+    p.add_argument("--offline", action="store_true")
+    p.add_argument("--only")
+    p.add_argument("--strict", action="store_true")
+    args = p.parse_args(argv)
+    log_path = setup_logging()
+    log.info("Старт: %s (лог: %s)", args.step, log_path.name)
+    manifest = Manifest(config.DATA_DIR / "manifest.json")
+    http = Fetcher(manifest, offline=args.offline)
+    code = 0
+    try:
+        if args.step in ("registry", "all"):
+            step_registry(http)
+        if args.step in ("collect", "all"):
+            step_collect(http, args.only)
+    finally:
+        manifest.save()
+        http.close()
+    if args.step in ("build", "all"):
+        code = step_build(args.strict)
+    log.info("Готово")
+    return code
