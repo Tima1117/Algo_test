@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"></head><body>
+<!-- урезано: https://www.bcswm.ru/funds/drs/values/ (2026-11-03), оставлена section.fund-dynamics -->
+<section class="fund-dynamics">
+<div class="table__wrap">
+<table class="table_simple">
+<thead>
+<tr>
+<th></th>
+<th>30.10.2026</th>
+<th>02.11.2026</th>
+<th class="t-right">Изменение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Расчетная стоимость пая, руб.</td>
+<td class="t-center">214.36</td>
+<td class="t-center">217.24</td>
+<td class="t-right"><span class="w1">1.33 % / 2.88 руб.</span>
+</td>
+</tr>
+<tr>
+<td>Стоимость чистых активов, руб.</td>
+<td class="t-center">79 720 917.31</td>
+<td class="t-center">80 790 734.21</td>
+<td class="t-right"><span class="w1">1.32 % / 1 069 816.90 руб.</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fund-detail-years">
+<form class="fund-form fund-form_type_shares" id="dateFromToDocs">
+<input id="fund_id" name="fund_id" type="hidden" value="58"/>
+<div class="fund-form__radio-group radio__group" id="periodRadioWrap">
+<div class="radio_btn">
+<input id="period_1m" name="period" type="radio" value="1m"/>
+<label for="period_1m">1 мес</label>
+</div>
+<div class="radio_btn">
+<input id="period_3m" name="period" type="radio" value="3m"/>
+<label for="period_3m">3 мес</label>
+</div>
+<div class="radio_btn">
+<input id="period_6m" name="period" type="radio" value="6m"/>
+<label for="period_6m">6 мес</label>
+</div>
+<div class="radio_btn">
+<input id="period_cur" name="period" type="radio" value="cur"/>
+<label for="period_cur">Этот год</label>
+</div>
+<div class="radio_btn">
+<input id="period_1y" name="period" type="radio" value="1y"/>
+<label for="period_1y">1 год</label>
+</div>
+<div class="radio_btn">
+<input id="period_3y" name="period" type="radio" value="3y"/>
+<label for="period_3y">3 года</label>
+</div>
+<div class="radio_btn">
+<input id="period_5y" name="period" type="radio" value="5y"/>
+<label for="period_5y">5 лет</label>
+</div>
+<div class="radio_btn">
+<input id="period_all" name="period" type="radio" value="all"/>
+<label for="period_all">Все</label>
+</div>
+</div>
+<div class="phone-visible years_list">
+<div class="lbl">По годам</div>
+<div class="select_custom">
+<select id="years_select" name="years_select">
+</select>
+</div>
+</div>
+<div class="fund-form__datepickers datepickers">
+<span>От</span>
+<div class="input-wrap">
+<input class="datepicker_from_val small" data-date-from="-4891" data-year-from="2013" name="from" readonly="" type="text"/>
+</div>
+<span>До</span>
+<div class="input-wrap">
+<input class="datepicker_to_val small" data-date-from="-4891" data-year-from="2013" name="to" readonly="" type="text"/>
+</div>
+<span class="button btn-point btn-remove levo_prelevo" id="cleanDocDatesWrap">
+<i class="icn-cancel" id="cleanDocDates"></i>
+</span>
+<input name="type" type="hidden" value="doc"/>
+<input id="globalMax" type="hidden"/>
+<input name="fund_id" type="hidden" value=""/>
+<input name="current_year" type="hidden" value="2026"/>
+<div class="form-notice levo_prelevo error"><i class="icn-error"></i>Укажите диапазон дат.</div>
+</div>
+<div class="fund-form__footer">
+<div class="fund-form__toggler">
+<div class="form-group">
+<div class="radio_group">
+<div class="elem">
+<input class="checkbox-circle2 js_radio" id="show_idx_graph" name="show_idx" type="checkbox" value="1"/>
+<label class="checkbox-label checkbox-label-right" for="show_idx_graph">Показать
+                                        индикатор</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<div class="">
+<p>Динамика стоимости пая 31.10.2026</p>
+<table class="table_simple">
+<thead>
+<tr>
+<th>1 месяц</th>
+<th>3 месяца</th>
+<th>6 месяцев*</th>
+<th>1 год*</th>
+<th>3 года</th>
+<th>5 лет</th>
+<th>С момента формирования</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class=""><span class="w1">-1.4 %</span></td>
+<td class=""><span class="w1">2.36 %</span></td>
+<td class=""><span class="w1">7.04 %</span></td>
+<td class=""><span class="w1">6.06 %</span></td>
+<td class=""><span class="w1"> %</span></td>
+<td class=""><span class="w1">-19.16 %</span></td>
+<td class=""><span class="w1">114.36 %</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<br/>
+<br/>
+<div class="">
+<p>Величина отклонения прироста стоимости пая от прироста значения индикатора</p>
+<table class="table_simple">
+<thead>
+<tr>
+<th>за 20 рабочих дней</th>
+<th>за 250 рабочих дней</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class=""><span class="w1">-3.39 %</span></td>
+<td class=""><span class="w1">1.97 %</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<br/>
+<br/>
+<div id="js_navigation_graph" style="height: 100px;"></div>
+<div class="fund-dynamics-main my-clearfix">
+<div class="col-sm-12" style="position: relative;">
+<h2>Динамика стоимости пая фонда</h2>
+<div class="fund-dynamics-box loading" id="js_dynamyc_graph"></div>
+<div class="funds-dynamics-description">
+<div class="funds-dynamics-description__block">
+<div class="funds-dynamics-description__line" style="background-color: #0196c1;"></div>
+<div class="funds-dynamics-description__text">Глобальный рынок облигаций </div>
+</div>
+<div class="funds-dynamics-description__block">
+<div class="funds-dynamics-description__line" style="background-color: #696969;"></div>
+<div class="funds-dynamics-description__text">Индикатор <span class="asterisk"></span></div>
+</div>
+<div class="funds-dynamics-description__block funds-dynamics-description__block_grey">
+                        *  Cbonds Индекс замещающих облигаций - индекс полной доходности портфеля, состоящего из замещающих облигаций российских эмитентов (применяется с 08.05.2024)<br/>
+<br/>
+* Bloomberg Global High Yield Index - индекс высокодоходных корпоративных облигаций США (применяется до 01.03.2022)                    </div>
+</div>
+</div>
+<div class="col-sm-12" style="position: relative;">
+<h2>Динамика СЧА фонда</h2>
+<div class="fund-dynamics-box loading" id="js_scha_graph" style="margin-top: 20px;">
+</div>
+</div>
+<div class="oftop-1">
+<span class="button btn-yellow btn-small" id="getCSVByDate">Экспорт в excel</span>
+</div>
+<div class="fund_rules_bottom">
+                Открытый паевой инвестиционный фонд рыночных финансовых инструментов «Глобальный рынок облигаций» (Правила зарегистрированы ФСФР России, № 2608 от 28.05.2013 г.)             </div>
+</div>
+<div class="fund-footnote">
+<!-- -->
+</div>
+</section>
+</body></html>

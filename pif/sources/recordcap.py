@@ -159,8 +159,9 @@ def parse_returns(content: bytes | str, source_url: str) -> dict[str, list[Offic
         require(m_rules is not None and m_asof is not None,
                 f"доходность в подвале: нет номера правил или даты «Данные на» в {text[:120]!r}")
         as_of = day(m_asof.group(1))
-        values = re.findall(r"Доходность за ([^;.]+?)\s*([+\-−]?\d+[.,]\d+)\s*%", text)
-        require(bool(values), f"доходность в подвале: не разобрал значения в {text[:160]!r}")
+        values = re.findall(r"Доходность за ([^;.%]+?)\s*([+\-−]?\d+(?:[.,]\d+)?)\s*%", text)
+        require(len(values) == text.count("Доходность за"),
+                f"доходность в подвале: не все значения разобраны в {text[:200]!r}")
         rets = [OfficialReturn(period=RETURN_PERIODS[label], value_pct=pct(value.replace("−", "-")),
                                as_of=as_of, source_url=source_url)
                 for label, value in values if label in RETURN_PERIODS]

@@ -13,7 +13,10 @@
     (до ~7,5 МБ на фонд) и отрезаем по ctx.since;
   * product.profitPeriods.list — доходность «за 1 месяц / 3 / 6 месяцев / 1 год», которую УК
     показывает на странице фонда; дата — paramsBlock.updateDate («Обновлено», = дата последней цены).
-    У БПИФ с выплатами дохода УК считает её с учётом выплат (сверено с рядом выплат payouts).
+    У БПИФ с выплатами дохода УК считает её с учётом выплат простым сложением, без реинвестирования:
+    (пай в конце + сумма выплат за период) / пай в начале − 1 — так воспроизводятся все 4 значения;
+  * product.paiPrice.data.items.payouts — выплаты дохода (есть у БПИФ «Денежный поток»): OperDate —
+    дата, на которую определяется доход (пай в этот день уже без выплаты), Payment — руб. на пай.
     Берём значения сервера (они же в каталоге и меню сайта); заголовок графика на странице БПИФ
     браузер пересчитывает сам от соседней базовой даты, там бывает расхождение ~0,1 п.п.
 
@@ -27,7 +30,7 @@ import json
 import re
 from datetime import date
 
-from ..model import Fund, FundData, OfficialReturn, SeriesPoint
+from ..model import Fund, FundData, OfficialReturn, Payout, SeriesPoint
 from ..parsing import UnknownFormat, day, norm_text, num, pct, require, require_keys
 from .base import Adapter, Context
 
@@ -163,17 +166,24 @@ def parse_history(content) -> list[SeriesPoint]:
     return [p for p in points if p.nav is not None or p.price is not None]
 
 
-def parse_payouts(content) -> list[date]:
-    """Даты выплат дохода пайщикам (есть только у БПИФ «Денежный поток»), иначе []."""
+def parse_payouts(content, source_url: str) -> list[Payout]:
+    """Выплаты дохода пайщикам (есть только у БПИФ «Денежный поток»): дата, руб. на пай; иначе [].
+
+    Строки с Payment = 0 — дни без выплаты (API отдаёт их вперемешку), их пропускаем.
+    """
     items = _dig(_product(content), ("paiPrice", "data", "items"), "productDetail.product")
     rows = items.get("payouts") or []
     require(isinstance(rows, list), "paiPrice.payouts: ожидался список")
-    out = []
+    out: dict[date, Payout] = {}
     for i, r in enumerate(rows):
         require_keys(r, ["OperDate", "Payment"], f"paiPrice.payouts[{i}]")
-        if (num(r["Payment"]) or 0) > 0:
-            out.append(day(r["OperDate"]))
-    return out
+        amount = num(r["Payment"])
+        require(amount is not None and amount >= 0, f"paiPrice.payouts[{i}]: сумма выплаты {r['Payment']!r}")
+        if amount > 0:
+            d = day(r["OperDate"])
+            require(d not in out, f"paiPrice.payouts: две выплаты на {d}")
+            out[d] = Payout(d, amount, source_url)
+    return [out[d] for d in sorted(out)]
 
 
 def parse_returns(content, source_url: str) -> list[OfficialReturn]:
@@ -274,7 +284,8 @@ class SolidAdapter(Adapter):
                                + " (цена пая есть; у нового фонда — период формирования)")
         if (date.today() - last).days > STALE_DAYS:
             fd.warnings.append(f"последнее значение на сайте УК — {last:%d.%m.%Y}")
-        if parse_payouts(content):
-            fd.warnings.append("официальная доходность УК — с учётом выплат дохода пайщикам; "
-                               "расчётная стоимость пая в ряду — без выплат")
+        fd.payouts = [p for p in parse_payouts(content, page) if p.date >= ctx.since]
+        if fd.payouts:
+            fd.warnings.append("официальная доходность УК — с учётом выплат дохода пайщикам, сложенных "
+                               "без реинвестирования: (пай в конце + выплаты) / пай в начале − 1")
         return fd

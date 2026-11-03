@@ -140,6 +140,12 @@ def test_returns_without_date_is_unknown_format():
         parse_returns(html, ALENKA)
 
 
+def test_returns_value_without_number_is_unknown_format():
+    html = _read("doc_alenka.html").replace("Доходность за 6 месяцев -7.05%", "Доходность за 6 месяцев н/д")
+    with pytest.raises(UnknownFormat):
+        parse_returns(html, ALENKA)
+
+
 def test_no_returns_block_is_empty():
     html = _read("doc_alenka.html").replace("Доходность за", "Прирост за")
     assert parse_returns(html, ALENKA) == {}

@@ -17,11 +17,21 @@
   3 месяца, 6 месяцев, 1 год — на последнюю дату прошлого месяца. Читается через pypdf
   (необязательная зависимость, импорт внутри функции); без pypdf остаётся 1 год из виджета.
 
+Выплаты дохода (из фондов УК платит только «Сила Дохода», 5712, раз в квартал):
+- витрина фонда, график «Отображать динамику доходности фонда»: точки графика с
+  payout=true и payoutValue — доход на 1 пай (руб.) на дату, на которую определяется доход;
+- «Сообщение о выплате дохода за N-й квартал ГГГГ» (PDF в блоке «Сообщения фонда» страницы
+  раскрытия): «…приходящегося на один инвестиционный пай … равна 3,3194188717472 руб.» и
+  дата. График обновляют с опозданием, поэтому кварталы, которых в нём ещё нет, берём из
+  сообщения (нужен pypdf; без него — warning).
+Доходность с учётом выплат (КИД) воспроизводится формулой сборки pif/returns.py до 0,01 п. п.
+
 Валюта: все фонды УК, включая «Силу Валюты» (облигации в иностранной валюте), считают СЧА и
 пай в рублях (КИД: «Расчетная стоимость инвестиционного пая: … руб.», таблица «(руб.)»).
 """
 from __future__ import annotations
 
+import calendar
 import importlib.util
 import json
 import re
@@ -31,7 +41,7 @@ from datetime import date
 from bs4 import BeautifulSoup
 
 from ..http import FetchError
-from ..model import Fund, FundData, OfficialReturn, SeriesPoint
+from ..model import Fund, FundData, OfficialReturn, Payout, SeriesPoint
 from ..parsing import UnknownFormat, day, norm_text, num, pct, require, require_keys
 from .base import Adapter, Context
 
@@ -188,6 +198,94 @@ def latest_kid(content) -> KidDoc | None:
     return max(docs, key=lambda k: k.date) if docs else None
 
 
+def _price_graphs(page: dict) -> list[dict]:
+    return [g for g in page["graphs"] or [] if isinstance((g or {}).get("primary"), dict)]
+
+
+def parse_payouts(content, source_url: str) -> list[Payout]:
+    """Выплаты дохода из графика витрины: точки {"date": "30.06.2026", "payout": true,
+    "payoutValue": 4.5291892165, …} — доход на 1 пай в рублях на дату, на которую он определяется.
+    У фондов без выплат payout=false и payoutValue=0 во всех точках -> [].
+    """
+    page = page_data(content)
+    out: dict[date, Payout] = {}
+    for g in _price_graphs(page):
+        require_keys(g["primary"], ["points"], "график витрины")
+        for pt in g["primary"]["points"] or []:
+            require_keys(pt, ["date", "payout", "payoutValue"], "точка графика витрины")
+            amount = num(pt["payoutValue"])
+            if not pt["payout"]:
+                require(not amount, f"точка графика {pt['date']}: payout=false, но payoutValue={pt['payoutValue']!r}")
+                continue
+            require(amount is not None and amount > 0,
+                    f"точка графика {pt['date']}: выплата без суммы (payoutValue={pt['payoutValue']!r})")
+            d = day(pt["date"])
+            require(d not in out or out[d].amount == amount, f"график витрины: две разные выплаты на {pt['date']}")
+            out[d] = Payout(d, amount, source_url)
+    return [out[d] for d in sorted(out)]
+
+
+def pays_income_graph(content) -> bool:
+    """На витрине включён график «с выплатами» (graph_type with_payouts)."""
+    return any(g.get("graph_type") == "with_payouts" for g in _price_graphs(page_data(content)))
+
+
+@dataclass
+class PayoutMessage:
+    url: str
+    quarter_start: date
+    quarter_end: date
+    title: str
+
+
+_PAYOUT_MSG = re.compile(r"выплате\s+дохода\s+за\s+(\d)\s*-?\s*й\s+квартал\s+(\d{4})", re.I)
+
+
+def payout_messages(content) -> list[PayoutMessage]:
+    """«Сообщение о выплате дохода за N-й квартал ГГГГ» со страницы раскрытия.
+
+    На квартал берём последнее по дате размещения (скорректированное заменяет исходное).
+    """
+    page = page_data(content)
+    found: dict[tuple[int, int], tuple[str, PayoutMessage]] = {}
+    for block in page["doc_blocks"] or []:
+        for doc in block.get("documents") or []:
+            title = " ".join(str(doc.get("title") or "").split())
+            m = _PAYOUT_MSG.search(title)
+            if not m or not doc.get("is_active") or not str(doc.get("file", "")).lower().endswith(".pdf"):
+                continue
+            q, y = int(m.group(1)), int(m.group(2))
+            require(1 <= q <= 4, f"сообщение о выплате: квартал {q} в «{title}»")
+            start = date(y, 3 * q - 2, 1)
+            end = date(y, 3 * q, calendar.monthrange(y, 3 * q)[1])
+            stamp = str(doc.get("start_active") or "")
+            if (q, y) not in found or stamp >= found[(q, y)][0]:
+                found[(q, y)] = (stamp, PayoutMessage(doc["file"], start, end, title))
+    return sorted((m for _, m in found.values()), key=lambda m: m.quarter_end)
+
+
+def parse_payout_message_text(text: str, rules: str, source_url: str) -> Payout:
+    """Текст «Сообщения о выплате дохода»: доход на 1 пай и дата, на которую он определяется.
+
+    Две редакции шаблона: «Сумма дохода по одному инвестиционному паю … равна 2,8903765526 руб.» +
+    «Дата составления списка владельцев … : 30.09.2025» и «Размер дохода … приходящегося на один
+    инвестиционный пай … равна 3,3194188717472 руб.» + «Дата, на которую … выплачивается доход … : 30.09.2026».
+    """
+    t = re.sub(r"\s+", " ", text.replace("\xa0", " "))
+    m = re.search(r"Правила доверительного управления Фондом зарегистрированы[^№]{0,60}№\s*(\d+)", t)
+    require(m is not None, "сообщение о выплате: нет номера правил")
+    require(m.group(1) == norm_rules(rules), f"сообщение о выплате относится к правилам № {m.group(1)}, а не {rules}")
+    amount = re.search(r"(?:по одному инвестиционному паю|приходящегося на один инвестиционный пай)"
+                       r"[^:]{0,160}?равна\s*(\d[\d ]*,\d+)\s*руб", t)
+    require(amount is not None, "сообщение о выплате: нет суммы дохода на один пай")
+    when = (re.search(r"Дата составления списка владельцев[^:]{0,200}:\s*(\d{2}\.\d{2}\.\d{4})", t)
+            or re.search(r"Дата, на которую[^:]{0,250}выплачивается доход[^:]{0,120}:\s*(\d{2}\.\d{2}\.\d{4})", t))
+    require(when is not None, "сообщение о выплате: нет даты, на которую определяется доход")
+    value = num(amount.group(1))
+    require(value is not None and value > 0, f"сообщение о выплате: сумма {amount.group(1)!r}")
+    return Payout(day(when.group(1)), value, source_url)
+
+
 # ---------------------------------------------------------------- КИД (PDF)
 
 @dataclass
@@ -231,8 +329,8 @@ def parse_kid_text(text: str) -> KidInfo:
                    pays_income="распределяется среди владельцев" in text)
 
 
-def kid_pdf_text(pdf: bytes) -> str:
-    """Текст КИД из PDF. pypdf — необязательная зависимость: импорт здесь."""
+def pdf_text(pdf: bytes) -> str:
+    """Текст PDF (КИД, сообщения о выплате). pypdf — необязательная зависимость: импорт здесь."""
     import io
 
     from pypdf import PdfReader  # noqa: PLC0415
@@ -328,14 +426,65 @@ class ContradaAdapter(Adapter):
         else:
             fd.status = "no_history"
             fd.reason = f"в таблице СЧА на сайте УК нет точек с {ctx.since:%d.%m.%Y} (последняя — {points[-1].date:%d.%m.%Y})"
-        fd.official_returns = self._returns(ctx, fund, cat, url, content, points, fd.warnings)
+        product = self._product(ctx, fund, cat, url, fd.warnings)       # (url витрины, JSON) | None
+        pays_income, payouts = self._payouts(ctx, fund, product, content, fd.warnings)
+        fd.payouts = [p for p in payouts if p.date >= ctx.since]
+        fd.official_returns = self._returns(ctx, fund, product, content, points, pays_income, fd.warnings)
         return fd
 
+    def _product(self, ctx: Context, fund: Fund, cat: dict, inform_url: str, warnings: list[str]):
+        """JSON витрины /products/<тип>/<slug> (тот же slug, что у страницы раскрытия)."""
+        m = _INFORM_URL.match(inform_url)
+        product = cat["products"].get(m.group(2).lower()) if m else None
+        if product is None:
+            warnings.append("на сайте нет витрины фонда (/products/…) — нет графика с выплатами и доходности за 1 год")
+            return None
+        purl, pid = product
+        try:
+            raw = ctx.http.get(PAGE_URL.format(id=pid), fmt="json", funds=[fund.rules])
+            content = raw.content()
+            page_data(content)
+        except (FetchError, UnknownFormat) as e:
+            warnings.append(f"витрина {BASE}{purl} не получена: {e}")
+            return None
+        return BASE + purl, content
+
+    # ---- выплаты дохода: график витрины + сообщения о выплате (кварталы, которых нет в графике)
+    def _payouts(self, ctx: Context, fund: Fund, product, inform_content,
+                 warnings: list[str]) -> tuple[bool, list[Payout]]:
+        payouts: list[Payout] = []
+        pays_income = False
+        if product is not None:
+            purl, pcontent = product
+            try:
+                payouts = parse_payouts(pcontent, purl)
+                pays_income = bool(payouts) or pays_income_graph(pcontent)
+            except UnknownFormat as e:
+                warnings.append(f"выплаты дохода с графика витрины не разобраны: {e}")
+        messages = [m for m in payout_messages(inform_content) if m.quarter_end >= ctx.since]
+        pays_income = pays_income or bool(messages)
+        for msg in messages:
+            if any(msg.quarter_start <= p.date <= msg.quarter_end for p in payouts):
+                continue            # квартал уже есть в графике
+            if not has_pypdf():
+                warnings.append(f"«{msg.title}» есть только в PDF, а pypdf не установлен — выплата за квартал "
+                                f"(до {msg.quarter_end:%d.%m.%Y}) не учтена, доходность с выплатами занижена")
+                continue
+            try:
+                raw = ctx.http.get(msg.url, fmt="pdf", funds=[fund.rules])
+                pay = parse_payout_message_text(pdf_text(raw.content()), fund.rules, msg.url)
+                require(msg.quarter_start <= pay.date <= msg.quarter_end,
+                        f"дата {pay.date:%d.%m.%Y} вне квартала из заголовка «{msg.title}»")
+                payouts.append(pay)
+            except (FetchError, UnknownFormat, ImportError) as e:
+                warnings.append(f"«{msg.title}» ({msg.url}) не разобрано: {e}")
+        return pays_income, sorted(payouts, key=lambda p: p.date)
+
     # ---- официальная доходность: КИД (1/3/6/12 мес) + виджет витрины (12 мес)
-    def _returns(self, ctx: Context, fund: Fund, cat: dict, inform_url: str, page_content,
-                 points: list[SeriesPoint], warnings: list[str]) -> list[OfficialReturn]:
+    def _returns(self, ctx: Context, fund: Fund, product, inform_content, points: list[SeriesPoint],
+                 pays_income: bool, warnings: list[str]) -> list[OfficialReturn]:
         out: dict[str, OfficialReturn] = {}
-        kid = latest_kid(page_content)
+        kid = latest_kid(inform_content)
         if kid is None:
             warnings.append("на странице раскрытия нет КИД — доходность за 1/3/6 мес не опубликована")
         elif not has_pypdf():
@@ -344,28 +493,49 @@ class ContradaAdapter(Adapter):
         else:
             try:
                 raw = ctx.http.get(kid.url, fmt="pdf", funds=[fund.rules])
-                info = parse_kid_text(kid_pdf_text(raw.content()))
+                info = parse_kid_text(pdf_text(raw.content()))
                 as_of = kid_as_of(info, points)
                 if as_of is None:
                     warnings.append(f"КИД на {info.date:%d.%m.%Y}: дата расчёта доходности не найдена в таблице СЧА")
                 for period, value in info.returns.items():
                     if value is not None:
                         out[period] = OfficialReturn(period, value, as_of, kid.url)
-                if info.pays_income and out:
-                    warnings.append("доходность в КИД учитывает выплаченный пайщикам доход, ряд — только стоимость пая")
             except (FetchError, UnknownFormat, ImportError) as e:
                 warnings.append(f"КИД {kid.url} не разобран: {e}")
-        if "1y" not in out:
-            m = _INFORM_URL.match(inform_url)
-            product = cat["products"].get(m.group(2).lower()) if m else None
-            if product is None:
-                warnings.append("на сайте нет витрины фонда (/products/…) — доходность за 1 год не взята")
-            else:
-                purl, pid = product
-                try:
-                    raw = ctx.http.get(PAGE_URL.format(id=pid), fmt="json", funds=[fund.rules])
-                    for r in parse_widget_returns(raw.content(), BASE + purl):
-                        out.setdefault(r.period, r)
-                except (FetchError, UnknownFormat) as e:
-                    warnings.append(f"доходность за 1 год с витрины {BASE}{purl} не взята: {e}")
+        if "1y" in out or product is None:
+            return [out[p] for p in PERIODS if p in out]
+        purl, pcontent = product
+        if pays_income:
+            # виджет «Пай … За 1 год» — изменение цены пая без выплат, а доходность фонда с выплатами
+            warnings.append("виджет витрины «За 1 год» не учитывает выплаченный доход — как доходность за 1 год "
+                            "не берём (официальная доходность с выплатами — только в КИД)")
+            return [out[p] for p in PERIODS if p in out]
+        try:
+            for r in parse_widget_returns(pcontent, purl):
+                out.setdefault(r.period, r)
+                note = widget_base_note(r, points)
+                if note:
+                    warnings.append(note)
+        except UnknownFormat as e:
+            warnings.append(f"доходность за 1 год с витрины {purl} не взята: {e}")
         return [out[p] for p in PERIODS if p in out]
+
+
+def widget_base_note(r: OfficialReturn, points: list[SeriesPoint]) -> str | None:
+    """Пояснение к виджету «За 1 год», если его база — не цена годом ранее.
+
+    Виджет берёт последнюю цену не позже той же даты год назад. У интервальных фондов цена
+    публикуется раз в месяц, и на 30.10.2026 база — 30.09.2025 (31.10.2025 позже 30.10.2025):
+    фактически 13 месяцев. Сами ничего не пересчитываем, только предупреждаем о расхождении.
+    """
+    if r.as_of is None:
+        return None
+    y, m = r.as_of.year - 1, r.as_of.month
+    target = date(y, m, min(r.as_of.day, calendar.monthrange(y, m)[1]))
+    before = [p.date for p in points if p.price is not None and p.date <= target]
+    if not before or (target - max(before)).days <= 7:
+        return None
+    base = max(before)
+    return (f"виджет УК «За 1 год» на {r.as_of:%d.%m.%Y} считает от последней цены не позже {target:%d.%m.%Y}, "
+            f"то есть от {base:%d.%m.%Y} (цена публикуется раз в месяц) — период длиннее года, "
+            f"сверка с рядом за 12 мес покажет расхождение")

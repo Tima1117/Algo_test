@@ -109,8 +109,11 @@ def test_returns_and_payouts_cash_flow():
     raw = (FIX / "detail_solid-cash-flow.json").read_bytes()
     rets = solid.parse_returns(raw, "u")
     assert {r.period: r.value_pct for r in rets} == {"1m": 1.0, "3m": 2.53, "6m": 6.62, "1y": 13.87}
-    assert solid.parse_payouts(raw)[-2:] == [date(2026, 9, 30), date(2026, 10, 30)]
-    assert solid.parse_payouts((FIX / "detail_solid-invest.json").read_bytes()) == []
+    pays = solid.parse_payouts(raw, "u")
+    assert len(pays) == 15 and pays[0].date == date(2025, 8, 29)
+    assert [(p.date, p.amount) for p in pays[-2:]] == [(date(2026, 9, 30), 13.69), (date(2026, 10, 30), 12.24)]
+    assert all(p.source_url == "u" for p in pays)
+    assert solid.parse_payouts((FIX / "detail_solid-invest.json").read_bytes(), "u") == []
     assert solid.detail_rules(raw) == "6833"
 
 
@@ -147,6 +150,19 @@ def test_history_broken_structure_raises(mutate):
 def test_returns_broken_structure_raises(mutate):
     with pytest.raises(UnknownFormat):
         solid.parse_returns(_broken(mutate), "u")
+
+
+@pytest.mark.parametrize("mutate", [
+    lambda rows: rows[-1].pop("Payment"),
+    lambda rows: rows[-1].pop("OperDate"),
+    lambda rows: rows[-1].update(Payment="-5.00"),
+    lambda rows: rows.append(dict(rows[-1], Payment="1.00")),     # две выплаты на одну дату
+])
+def test_payouts_broken_structure_raises(mutate):
+    doc = copy.deepcopy(_json("detail_solid-cash-flow.json"))
+    mutate(_product(doc)["paiPrice"]["data"]["items"]["payouts"])
+    with pytest.raises(UnknownFormat):
+        solid.parse_payouts(doc, "u")
 
 
 def test_catalog_broken_raises():
@@ -210,6 +226,10 @@ def test_collect_end_to_end(tmp_path, monkeypatch):
 
     cf = res["6833"]
     assert cf.status == "ok" and any("с учётом выплат" in w for w in cf.warnings)
+    # выплаты до начала истории (29.08.2025) отрезаны, остальные — с суммой на пай и страницей фонда
+    assert [p.date for p in cf.payouts][:2] == [date(2025, 9, 30), date(2025, 10, 31)]
+    assert cf.payouts[-1].amount == 12.24 and cf.payouts[-1].source_url == cf.page_url
+    assert res["0040-52697973"].payouts == []
 
     fg = res["7286"]
     assert fg.status == "ok" and fg.segments[0].points[0].nav is None

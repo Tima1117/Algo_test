@@ -1,10 +1,13 @@
 """УК «Финстар Капитал»: разбор настоящих страниц finstar-capital.ru (урезанные копии от 2026-11-03;
-массивы графиков оставлены с 25.09.2026) и текста КИД, извлечённого pypdf из PDF сайта.
+массивы графиков оставлены с 25.09.2026, у «Рантье» — с 25.06.2026) и текста КИД, извлечённого pypdf
+из PDF сайта.
 
 Значения сверены со страницами фондов (таблица «Стоимость пая и СЧА» и подсказки графика) и с КИД:
 «Облигации роста - Рантье» (№ 7276) на 02.11.2026 — пай 977.42 RUR, СЧА 51 174 202.85 RUR;
     на 30.09.2026 — пай 1 011,12 руб., СЧА 52 691 664,04 руб. (так же в КИД на 30.09.2026);
     КИД на 30.09.2026: 1 месяц 0,69 %, 3 месяца 2,72 %, 6 месяцев 5,81 %, год — пусто;
+    выплаты дохода (отметки на графике и «Сообщения о выплате дохода»): 42,44 руб./пай за II кв.
+    (пай 30.06 — 1 025,66, 01.07 — 983,65) и 41,93 руб./пай за III кв. (30.09 — 1 011,12, 01.10 — 970,19);
 «ФИНСТАР - Денежный рынок ПЛЮС» (№ 6396) на 02.11.2026 — пай 1 448.67 RUR, СЧА 46 716 135.59 RUR;
     КИД на 30.09.2026: 1,14 / 3,55 / 7,24 / 15,92 %;
 «Купонный доход - ВДО» (№ 7976): ряд с 23.10.2026 (пай 999.82, СЧА 9 999 178.28), в КИД на 30.09.2026
@@ -25,7 +28,7 @@ from pif.parsing import UnknownFormat
 from pif.sources import finstar
 from pif.sources.base import Context
 from pif.sources.finstar import (LIST_URL, FinstarAdapter, parse_fund_list, parse_kid_links, parse_kid_returns,
-                                 parse_rules, parse_series, parse_table)
+                                 parse_payout_marks, parse_rules, parse_series, parse_table, payout_ex_dates)
 
 FIX = Path(__file__).parent / "fixtures" / "finstar"
 BASE = "https://finstar-capital.ru"
@@ -112,6 +115,33 @@ def test_table_unknown_currency_or_columns_is_unknown_format():
         parse_table(html.replace("Стоимость пая, RUR", "Стоимость пая, XYZ"))
     with pytest.raises(UnknownFormat):
         parse_table(html.replace("СЧА, RUR", "Активы"))
+
+
+# ---------- выплаты дохода ----------
+
+def test_payout_marks_and_ex_dates():
+    html = _read("fund_7276.html")
+    marks = parse_payout_marks(html)
+    assert marks == [(date(2026, 6, 30), 42.44), (date(2026, 10, 1), 41.93)]
+    # 30.06 — последний день «с доходом» (пай упал 01.07), 01.10 — уже первый день «без»
+    assert payout_ex_dates(parse_series(html), marks) == [(date(2026, 7, 1), 42.44), (date(2026, 10, 1), 41.93)]
+
+
+def test_no_payouts_at_bpif():
+    assert parse_payout_marks(_read("fund_6396.html")) == []
+
+
+def test_unknown_chart_mark_is_unknown_format():
+    html = _read("fund_7276.html").replace("Ежеквартальная выплата инвестиционного дохода в размере 41,93 руб./ пай",
+                                           "Дробление паёв 1:10")
+    with pytest.raises(UnknownFormat):
+        parse_payout_marks(html)
+
+
+def test_payout_without_price_drop_is_unknown_format():
+    html = _read("fund_7276.html")
+    with pytest.raises(UnknownFormat):
+        payout_ex_dates(parse_series(html), [(date(2026, 8, 31), 42.44)])
 
 
 # ---------- КИД ----------
@@ -214,10 +244,12 @@ def test_collect_all_three(tmp_path, monkeypatch):
     assert len(fd.segments) == 1 and fd.segments[0].raw_url == RANTE
     assert fd.segments[0].points[-1].nav == 51174202.85
     assert {r.period: r.value_pct for r in fd.official_returns} == {"1m": 0.69, "3m": 2.72, "6m": 5.81}
+    assert [(p.date, p.amount, p.source_url) for p in fd.payouts] == [
+        (date(2026, 7, 1), 42.44, RANTE), (date(2026, 10, 1), 41.93, RANTE)]
     assert fd.warnings == []                  # таблица на странице совпала с графиком
 
     fd = by["6396"]
-    assert fd.status == "ok" and len(fd.official_returns) == 4
+    assert fd.status == "ok" and len(fd.official_returns) == 4 and fd.payouts == []
 
     fd = by["7976"]
     assert fd.status == "ok"                  # молодой фонд: ряд «с даты начала» — не partial
@@ -243,6 +275,14 @@ def test_collect_broken_kid_is_warning_not_error(tmp_path, monkeypatch):
     [fd] = FinstarAdapter().collect(ctx, [FUNDS[1]])
     assert fd.status == "ok" and fd.segments and fd.errors == []
     assert "не разобрана" in fd.warnings[0]
+
+
+def test_collect_kid_404_is_warning_not_error(tmp_path, monkeypatch):
+    ctx, _ = _ctx(tmp_path, monkeypatch)
+    monkeypatch.delitem(PAGES, KID_RANTE)
+    [fd] = FinstarAdapter().collect(ctx, [FUNDS[1]])
+    assert fd.status == "ok" and fd.segments and fd.errors == []
+    assert "не скачан" in fd.warnings[0]
 
 
 def test_collect_rules_mismatch_is_not_found(tmp_path, monkeypatch):

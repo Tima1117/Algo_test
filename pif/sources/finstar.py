@@ -19,11 +19,23 @@
 СЧА — в рублях, пай — в рублях, числа как есть (без множителей). БПИФ «ФИНСТАР - Денежный рынок ПЛЮС»
 берём так же, со страницы фонда на сайте УК (не с биржи).
 
+Выплаты дохода: «Облигации роста - Рантье» платит доход ежеквартально. На графике пая такие точки
+помечены annotation «Ежеквартальная выплата инвестиционного дохода в размере 41,93 руб./ пай» (суммы —
+как в «Сообщениях о выплате дохода» в PDF, с точностью до копейки: 11,92 против 11,93 за IV кв. 2025,
+42,44 против 42,43 за II кв. 2026; дата в сообщении — последний день квартала, а СЧА в этот день
+ещё с доходом). В FundData.payouts дата — первый день, когда пай уже без дохода (как
+у остальных адаптеров): отметка стоит то в последний день «с доходом», то в первый «без», поэтому
+из двух соседних дат берём ту, где пай падает на сумму выплаты. Так же ступенькой на эти даты
+(27.01, 01.04, 01.07, 01.10.2026) идёт и линия УК «стоимость пая с учётом выплаченного дохода»,
+а пересчёт доходности по ряду с этими выплатами сходится со всеми 12 цифрами КИД на 30.04, 30.06,
+31.08 и 30.09.2026 до 0,005 п. п. (без выплат расхождение до 9 п. п.). БПИФ доход не выплачивает.
+
 Официальная доходность за 1/3/6/12 мес на HTML-страницах не публикуется — только в КИД, раздел 5
 «Основные результаты инвестирования» (строки «1 месяц / 3 месяца / 6 месяцев / Год»: доходность,
 отклонение от инфляции, от индикатора). Берём самый свежий КИД. Текст из PDF достаём библиотекой
 pypdf, если она установлена (в зависимостях проекта её нет: без неё доходность не заполняется,
-а в warnings фонда пишется причина и адрес КИД). Сломанный КИД не роняет ряд фонда — тоже warning.
+а в warnings фонда пишется причина и адрес КИД). Сломанный или недоступный КИД не роняет ряд
+фонда — тоже warning.
 
 Сопоставление: кандидаты из списка — сначала совпавшие по названию (norm_text), затем остальные фонды
 того же типа (ОПИФ/ИПИФ/БПИФ); номер правил на странице фонда обязан совпасть с rules.
@@ -39,7 +51,8 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from ..model import Fund, FundData, OfficialReturn, SeriesPoint
+from ..http import FetchError
+from ..model import Fund, FundData, OfficialReturn, Payout, SeriesPoint
 from ..parsing import UnknownFormat, day, norm_text, num, pct, require
 from .base import Adapter, Context
 
@@ -77,7 +90,7 @@ def _soup(content: bytes | str) -> BeautifulSoup:
 
 
 def _text(tag) -> str:
-    return re.sub(r"\s+", " ", tag.get_text(" ", strip=True).replace("\xa0", " ").replace("﻿", "")).strip()
+    return re.sub(r"\s+", " ", tag.get_text(" ", strip=True).replace("\xa0", " ").replace("\ufeff", "")).strip()
 
 
 # ---------- чистые разборщики (на них тесты с настоящими фикстурами) ----------
@@ -144,6 +157,47 @@ def parse_series(content: bytes | str) -> list[SeriesPoint]:
     price = _chart_values(html, "chart1Data")
     nav = _chart_values(html, "chart2Data")
     return [SeriesPoint(date=d, nav=nav.get(d), price=price.get(d)) for d in sorted(set(price) | set(nav))]
+
+
+_PAYOUT_RE = re.compile(r"выплата\b.*?дохода в размере\s*(\d+(?:[.,]\d+)?)\s*руб", re.I)
+
+
+def parse_payout_marks(content: bytes | str) -> list[tuple[date, float]]:
+    """Отметки выплат на графике пая (точки chart1Data с annotation) -> [(дата отметки, сумма на пай)].
+
+    Отметка с другим текстом — UnknownFormat: незнакомое событие (дробление и т. п.) исказит доходность.
+    """
+    html = content.decode("utf-8") if isinstance(content, bytes) else content
+    out = []
+    for p in _js_array(html, "chart1Data"):
+        note = p.get("annotation") if isinstance(p, dict) else None
+        if not note:
+            continue
+        m = _PAYOUT_RE.search(str(note))
+        require(m is not None, f"график: незнакомая отметка {note!r}")
+        out.append((datetime.fromtimestamp(p["x"] / 1000, timezone.utc).date(), num(m.group(1))))
+    return out
+
+
+def payout_ex_dates(points: list[SeriesPoint], marks: list[tuple[date, float]]) -> list[tuple[date, float]]:
+    """Дата выплаты для ряда — первый день, когда пай уже без дохода (пай падает на сумму выплаты).
+
+    Отметка на графике стоит то в последний день «с доходом» (31.03, 30.06), то в первый «без»
+    (01.10.2026); из двух соседних дат берём ту, где падение пая больше. Не нашли падения хотя бы
+    на половину выплаты — UnknownFormat.
+    """
+    priced = [p for p in points if p.price is not None]
+    idx = {p.date: i for i, p in enumerate(priced)}
+    out = []
+    for d, amount in marks:
+        i = idx.get(d)
+        require(i is not None and i > 0, f"выплата {amount} на {d}: нет этой даты в ряду пая")
+        drops = {priced[j].date: priced[j - 1].price - priced[j].price
+                 for j in (i, i + 1) if j < len(priced)}
+        ex, drop = max(drops.items(), key=lambda kv: kv[1])
+        require(drop >= amount / 2, f"выплата {amount} на {d}: пай рядом не снизился на сумму выплаты")
+        out.append((ex, amount))
+    return out
 
 
 def parse_table(content: bytes | str) -> tuple[str, list[SeriesPoint]]:
@@ -268,6 +322,14 @@ class FinstarAdapter(Adapter):
                 fd.warnings.append(f"таблица на странице на {row.date:%d.%m.%Y} ({row.price}; {row.nav}) "
                                    f"не совпала с графиком ({p and p.price}; {p and p.nav})")
 
+        # Выплаты дохода (у «Рантье» ежеквартально): для доходности с учётом выплат.
+        try:
+            fd.payouts = [Payout(date=d, amount=a, source_url=page_url)
+                          for d, a in payout_ex_dates(points, parse_payout_marks(html)) if d >= ctx.since]
+        except UnknownFormat as e:
+            ctx.log.error("[finstar] %s: выплаты не разобраны: %s", fund.rules, e)
+            fd.warnings.append(f"выплаты дохода с графика не разобраны: {e}")
+
         self._returns(ctx, fund, fd, html)
 
         if not fd.segments:
@@ -291,9 +353,12 @@ class FinstarAdapter(Adapter):
             fd.warnings.append(f"доходность за 1/3/6/12 мес публикуется только в КИД (PDF) {kid.url}; "
                                "pypdf не установлен — не разобрана")
             return
-        raw = ctx.http.get(kid.url, fmt="pdf", funds=[fund.rules])
         try:
+            raw = ctx.http.get(kid.url, fmt="pdf", funds=[fund.rules])
             fd.official_returns = parse_kid_returns(kid_text(raw.content()), kid.url)
+        except FetchError as e:
+            fd.warnings.append(f"КИД {kid.url} не скачан ({e.reason}) — доходность не заполнена")
+            return
         except UnknownFormat as e:
             ctx.log.error("[finstar] %s: КИД %s не разобран: %s", fund.rules, kid.url, e)
             fd.warnings.append(f"доходность из КИД {kid.url} не разобрана: {e}")
