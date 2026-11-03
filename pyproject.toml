@@ -8,6 +8,7 @@ dependencies = [
   "openpyxl>=3.1",        # MIT
   "beautifulsoup4>=4.12", # MIT
   "lxml>=5",              # BSD-3-Clause
+  "pypdf>=4",             # BSD-3-Clause — доходность из КИД (PDF)
 ]
 
 [project.optional-dependencies]
