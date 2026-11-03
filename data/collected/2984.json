@@ -1,1 +1,1 @@
-{"rules": "2984", "currency": "RUB", "segments": [], "official_returns": [], "page_url": "https://www.trinfico-am.ru/opif/", "status": "blocked", "reason": "доступ закрыт сайтом (HTTP 403); сайт фильтрует наш честный User-Agent, подмену UA не делаем", "errors": [], "warnings": []}
+{"rules": "2984", "currency": "RUB", "segments": [], "official_returns": [], "payouts": [], "page_url": "https://www.trinfico-am.ru/opif/", "status": "blocked", "reason": "доступ закрыт сайтом (HTTP 403); сайт фильтрует наш честный User-Agent, подмену UA не делаем", "errors": [], "warnings": []}
