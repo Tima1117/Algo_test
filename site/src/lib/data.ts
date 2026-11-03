@@ -36,6 +36,7 @@ export interface Series {
   rules: string; currency: string; frequency: string;
   points: { date: string; nav: number | null; price: number | null; nav_rub: number | null; src: number }[];
   sources: Source[]; monthly: MonthRow[]; corrections: any[]; anomalies: any[]; gaps: any[]; checks: any[];
+  payouts?: { date: string; amount: number; source_url: string }[];
 }
 
 export const meta = read<any>('site/meta.json');

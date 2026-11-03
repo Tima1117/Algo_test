@@ -150,6 +150,19 @@ const flowChart = s && {
         </table>
       </div>
 
+      {s.payouts && s.payouts.length > 0 && (
+        <>
+          <h2>Выплаты дохода пайщикам</h2>
+          <p class="muted">Доходность выше считается с учётом выплат: каждая выплата реинвестируется по стоимости пая на дату выплаты.
+            На притоки выплаты не влияют: СЧА и стоимость пая уменьшаются на одну и ту же сумму в расчёте на пай.</p>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Дата</th><th class="num">На пай, {cur}</th><th>Источник</th></tr></thead>
+            <tbody>{[...s.payouts].reverse().map((p) => <tr><td class="mono">{date(p.date)}</td><td class="num">{num(p.amount, 4)}</td>
+              <td><a href={p.source_url} rel="nofollow noopener" target="_blank">{host(p.source_url)}</a></td></tr>)}</tbody>
+          </table></div>
+        </>
+      )}
+
       {(s.corrections.length > 0 || s.anomalies.length > 0 || s.gaps.length > 0) && (
         <>
           <h2>Исправления и особенности ряда</h2>
