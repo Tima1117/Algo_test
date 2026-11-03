@@ -77,22 +77,22 @@ const flowChart = s && {
       <h3>Доходность пая</h3>
       <div class="table-wrap" style="border:0">
         <table>
-          <thead><tr><th>Период</th><th class="num">По ряду</th><th class="num">Официальная</th><th>Сверка</th></tr></thead>
+          <thead><tr><th>Период</th><th class="num">По ряду на {date(f.ret_as_of)}</th><th class="num">Официальная</th><th class="num">По ряду на ту же дату</th><th>Сверка</th></tr></thead>
           <tbody>
             {(['1m', '3m', '6m', '1y'] as const).map((k) => {
               const o = f.official[k];
               return <tr>
                 <td>{PERIOD_LABEL[k]}</td>
                 <td class={`num ${sign(f[`ret_${k}`])}`}>{pct(f[`ret_${k}`])}</td>
-                <td class="num">{o ? <a href={o.url ?? '#'} rel="nofollow noopener" target="_blank">{pct(o.value)}</a> : '—'}</td>
-                <td>{o ? <span class={`badge ${o.status === 'сходится' ? 'ok' : o.status.startsWith('расхождение') ? 'warn' : ''}`}
-                  title={o.ours !== null ? `по ряду на ${date(o.as_of)}: ${pct(o.ours)}` : ''}>{o.status}{o.as_of ? `, ${date(o.as_of)}` : ''}</span> : <span class="muted">УК не публикует / не найдено</span>}</td>
+                <td class="num">{o ? <a href={o.url ?? '#'} rel="nofollow noopener" target="_blank" title={`на ${date(o.as_of)}`}>{pct(o.value)}</a> : '—'}</td>
+                <td class={`num ${sign(o?.ours)}`}>{o ? pct(o.ours) : '—'}</td>
+                <td>{o ? <span class={`badge ${o.status === 'сходится' ? 'ok' : o.status.startsWith('расхождение') ? 'warn' : ''}`}>{o.status}{o.as_of ? `, ${date(o.as_of)}` : ''}</span> : <span class="muted">не опубликована / не найдена</span>}</td>
               </tr>;
             })}
           </tbody>
         </table>
       </div>
-      <p class="disclaimer">«По ряду» — на {date(f.ret_as_of)}; сверка с официальной — на дату, указанную УК. Не является
+      <p class="disclaimer">Официальная доходность — как её публикует УК, на указанную ею дату; сверка — с нашим расчётом по ряду на ту же дату. Не является
         инвестиционной рекомендацией. Доходность в прошлом не гарантирует доходности в будущем.</p>
     </div>
   </div>

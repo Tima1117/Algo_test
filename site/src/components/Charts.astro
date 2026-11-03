@@ -48,7 +48,7 @@
       axes: [
         { stroke: '#9298ba', grid: { stroke: 'rgba(146,152,186,.10)' }, ticks: { stroke: 'rgba(146,152,186,.2)' } },
         { stroke: '#9298ba', grid: { stroke: 'rgba(146,152,186,.10)' }, ticks: { stroke: 'rgba(146,152,186,.2)' },
-          size: 70, values: (_u, vals) => vals.map((v) => short(v)) },
+          size: 86, values: (_u, vals) => vals.map((v) => short(v)) },
       ],
       series: [
         { label: monthly ? 'Месяц' : 'Дата', value: (_u, v) => (v == null ? '—' : monthly ? monthLabel(v) : day(v)) },
