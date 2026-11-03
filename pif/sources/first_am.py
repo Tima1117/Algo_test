@@ -26,10 +26,14 @@
   доверительного управления … за № 0011-46360962»; название, стоящее в справке при номере правил
   фонда, должно совпасть с названием фонда на его странице (norm_text). Для БПИФ достаточно
   совпадения биржевого тикера в заголовке страницы. Не совпало — 'not_found' с причиной.
-* Фонды «с выплатой дохода» и FLOW платят доход пайщикам (pay_profit в той же точке ряда).
-  Официальная доходность УК выплаты учитывает, поэтому отношением цен пая её не пересчитать
-  (у остальных фондов пересчёт по ряду совпадает с таблицей УК до сотых). Выплат в модели нет —
-  пишем их в warnings.
+* Фонды «с выплатой дохода» и FLOW платят доход пайщикам: pay_profit — сумма на пай в той же
+  точке ряда. Дата точки — день, когда доход исключён из СЧА: расчётная стоимость пая в эту дату
+  уже без выплаты (4978: 29.06.2026 — 49 838,98 ₽, 30.06.2026 — 47 992,05 ₽ при выплате
+  1 918,53 ₽). Эти выплаты отдаём в FundData.payouts. Официальную доходность УК считает БЕЗ
+  реинвестирования: (пай на конец + сумма выплат на пай с датой в (начало, конец]) / пай на
+  начало − 1, где начало — последний рабочий день месяца N месяцев назад (а не тот же день
+  месяца). Так воспроизводятся все 28 цифр семи фондов с выплатами на 30.10.2026 до 0,01 п. п.;
+  у фондов без выплат та же база даёт точное совпадение.
 * Часть фондов (ИПИФ «Валютные облигации», «Рублевые облигации», «Устойчивый портфель
   Зима/Лето/Осень») не входит в меню сайта: их страницы есть только в sitemap.xml, в упрощённом
   шаблоне (только график). Доходность за периоды в HTML есть лишь у «Валютных облигаций»
@@ -48,7 +52,7 @@ from datetime import date, timedelta
 from bs4 import BeautifulSoup
 
 from ..http import FetchError
-from ..model import Fund, FundData, OfficialReturn, SeriesPoint
+from ..model import Fund, FundData, OfficialReturn, Payout, SeriesPoint
 from ..parsing import UnknownFormat, day, norm_text, num, pct, require, require_keys
 from .base import Adapter, Context
 
@@ -144,7 +148,7 @@ class Chart:
     title: str                 # подпись ряда на графике (_title)
     currency: str              # валюта пая
     points: list[SeriesPoint]
-    payouts: dict[date, float] = field(default_factory=dict)   # выплата дохода на пай (pay_profit)
+    payouts: dict[date, float] = field(default_factory=dict)   # дата -> выплата дохода на пай
 
 
 @dataclass
@@ -406,13 +410,9 @@ class FirstAmAdapter(Adapter):
         fd = FundData(fund.rules, currency=chart.currency, page_url=page_url,
                       segments=[self.segment(raw, chart.points, page_url=page_url, since=ctx.since)])
         self._status(ctx, fund, fd, chart.points)
-        paid = sorted((d, v) for d, v in chart.payouts.items() if d >= ctx.since)
-        if paid:
-            last = ", ".join(f"{d:%d.%m.%Y} — {v:g}" for d, v in paid[-3:])
-            fd.warnings.append(
-                f"фонд выплачивает доход пайщикам (выплат с {ctx.since:%d.%m.%Y}: {len(paid)}; последние: "
-                f"{last} {chart.currency} на пай); расчётная стоимость пая после выплаты падает, официальная "
-                "доходность УК выплаты учитывает — по одной цене пая её не пересчитать")
+        # выплаты дохода — для доходности с реинвестированием (сумма на пай в валюте пая)
+        fd.payouts = [Payout(date=d, amount=v, source_url=page_url)
+                      for d, v in sorted(chart.payouts.items()) if d >= ctx.since]
 
         # Официальная доходность: раздел раскрытия, запасной вариант — таблица на странице фонда
         # (например, «Инструменты в рублях» есть только там).

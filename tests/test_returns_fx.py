@@ -41,8 +41,8 @@ def test_cbr_rates_fixture():
         parse_cbr_dynamic(b"<html>error</html>")
 
 
-def test_return_with_payout_reinvested():
-    # пай 100 → выплата 5 ₽ на 15.02 (цена падает до 95) → к 31.03 снова 100
+def test_return_with_payout_added():
+    # пай 100 → выплата 5 ₽ на 15.02 (цена падает до 95) → к 31.03 снова 100: (100 + 5) / 100 − 1 = 5%
     pts = [Point(date(2026, 1, 31), 1.0, 100.0, 0), Point(date(2026, 2, 14), 1.0, 100.0, 0),
            Point(date(2026, 2, 15), 1.0, 100.0, 0), Point(date(2026, 2, 16), 1.0, 95.0, 0),
            Point(date(2026, 3, 31), 1.0, 100.0, 0)]
@@ -58,3 +58,9 @@ def test_period_start_month_end_convention():
     assert period_start(date(2026, 10, 30), 12) == date(2025, 10, 31)
     # 02.11.2026 — обычный день: тот же день N месяцев назад
     assert period_start(date(2026, 11, 2), 1) == date(2026, 10, 2)
+
+
+def test_payout_on_period_start_not_counted():
+    pts = [Point(date(2026, 1, 30), 1.0, 95.0, 0), Point(date(2026, 2, 27), 1.0, 96.0, 0)]
+    pay = [{"date": "2026-01-30", "amount": 5.0, "source_url": "s"}]   # цена на эту дату уже без выплаты
+    assert period_return(pts, date(2026, 2, 27), 1, pay) == pytest.approx((96 / 95 - 1) * 100)

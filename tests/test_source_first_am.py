@@ -66,6 +66,8 @@ def test_open_fund_series_values_match_site():
 def test_income_fund_payouts_are_kept_apart_from_price():
     chart = fa.parse_chart(_read("fund_valyutnykh_obligatsiy_s_vyplatoy.html"))
     assert chart.payouts == {date(2026, 9, 30): 889.88}
+    # в дату выплаты пай уже без дохода: 29.09 — 51 704,75 ₽, 30.09 — 50 353,21 ₽
+    assert _point(chart.points, date(2026, 9, 29)).price == 51704.75
     p = _point(chart.points, date(2026, 9, 30))
     assert p.price == 50353.21 and p.nav == 651843265.99
     with pytest.raises(UnknownFormat, match="выплата"):
@@ -111,6 +113,33 @@ def test_broken_chart_raises():
     assert '"price":1765,"originalPrice":17.65' in split
     with pytest.raises(UnknownFormat, match="crushingRatio"):
         fa.parse_chart(split.replace('"price":1765,"originalPrice":17.65', '"price":17.65,"originalPrice":17.65'))
+
+
+def _uk_return(chart, base: date, end: date) -> float:
+    """Как считает УК «Первая»: (пай в конце + сумма выплат на пай за (base, end]) / пай в начале − 1."""
+    px = {p.date: p.price for p in chart.points}
+    paid = sum(v for d, v in chart.payouts.items() if base < d <= end)
+    return round(((px[end] + paid) / px[base] - 1) * 100, 2)
+
+
+def test_monthly_payouts_reproduce_official_return():
+    # FLOW платит доход каждый месяц; дата выплаты — день, когда пай уже без дохода
+    chart = fa.parse_chart(_read("etf_flow.html"))
+    assert chart.payouts == {date(2026, 7, 31): 11.12, date(2026, 8, 31): 10.02,
+                             date(2026, 9, 30): 10.94, date(2026, 10, 30): 13.31}
+    px = {p.date: p.price for p in chart.points}
+    assert px[date(2026, 7, 30)] == 1023.37 and px[date(2026, 7, 31)] == 1012.6     # падение на 11,12 в день выплаты
+    official = fa.parse_returns_page(_read("etf_flow.html"))
+    assert official.as_of == date(2026, 10, 30)
+    # база — последний рабочий день месяца N месяцев назад; выплаты просто прибавляются к паю
+    assert _uk_return(chart, date(2026, 9, 30), date(2026, 10, 30)) == official.values["1m"] == 1.07
+    assert _uk_return(chart, date(2026, 7, 31), date(2026, 10, 30)) == official.values["3m"] == 3.19
+    # реинвестирование по паю на дату выплаты даёт другое число (3,22%) — УК так не считает
+    reinvest = px[date(2026, 10, 30)] / px[date(2026, 7, 31)]
+    for d, v in chart.payouts.items():
+        if date(2026, 7, 31) < d:
+            reinvest *= 1 + v / px[d]
+    assert round((reinvest - 1) * 100, 2) == 3.22
 
 
 # ---------- сопоставление ----------
@@ -191,6 +220,7 @@ PAGE_FIXTURES = {
     "/individuals/etf/etf-sipo": "etf_sipo.html",
     "/individuals/fund/fond-rublevye-sberezheniia-2": "fund_instrumenty_v_rublyakh.html",
     "/individuals/fund/fond-valiutnykh-obligatsii-s-vyplatoi-dokhoda": "fund_valyutnykh_obligatsiy_s_vyplatoy.html",
+    "/individuals/etf/fond-ezhemesiachnyi-dokhod": "etf_flow.html",
     "/disclosure/fund": "disclosure_fund.html",
 }
 
@@ -251,8 +281,9 @@ def test_collect_end_to_end(tmp_path, monkeypatch):
     assert res["9999"].status == "not_found"
     inc = res["7160"]
     assert inc.status == "ok" and {r.period: r.value_pct for r in inc.official_returns}["1y"] == 4.18
-    assert any("выплачивает доход" in w and "30.09.2026 — 889.88" in w for w in inc.warnings)
-    assert not any("выплачивает" in w for w in ros.warnings)
+    assert [(p.date, p.amount, p.source_url) for p in inc.payouts] == \
+        [(date(2026, 9, 30), 889.88, inc.page_url)]
+    assert ros.payouts == []
     # раздел раскрытия запрошен один раз на всю УК
     assert seen.count("/disclosure/fund/") == 1
 
@@ -280,3 +311,15 @@ def test_collect_without_disclosure_falls_back_to_fund_page(tmp_path, monkeypatc
     assert usd.status == "ok" and usd.official_returns == [] and usd.segments
     assert any("ключевом информационном документе" in w and usd.page_url + "/documents" in w
                for w in usd.warnings)
+
+
+def test_collect_payouts_only_since(tmp_path, monkeypatch):
+    ctx, _ = _ctx(tmp_path, monkeypatch)
+    ctx.since = date(2026, 9, 15)
+    [fd] = fa.FirstAmAdapter().collect(
+        ctx, [_fund("7137", "Первая – Фонд Ежемесячный доход", ticker="FLOW", ftype="exchange",
+                    formation_end="2025-07-07")])
+    assert fd.status == "ok"
+    assert [(p.date, p.amount) for p in fd.payouts] == [(date(2026, 9, 30), 10.94), (date(2026, 10, 30), 13.31)]
+    assert all(p.source_url == "https://www.first-am.ru/individuals/etf/fond-ezhemesiachnyi-dokhod" for p in fd.payouts)
+    assert not any("выплат" in w for w in fd.warnings)

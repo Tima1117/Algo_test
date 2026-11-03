@@ -1,8 +1,12 @@
 """Доходность пая по собранному ряду и сверка с официально опубликованной УК.
 
-Для фондов с выплатой дохода доходность считается с учётом выплат, как её публикуют УК:
-каждая выплата D на дату t как бы реинвестируется по стоимости пая на эту дату —
-множитель (1 + D / пай_t). Без этого цена пая после выплаты падает, и доходность занижается.
+Для фондов с выплатой дохода доходность считается с учётом выплат так, как её публикуют УК:
+
+    доходность = (пай_конец + Σ выплат на пай за (начало; конец]) / пай_начало − 1
+
+Выплаты просто прибавляются, без реинвестирования. Формула подобрана не «на глаз»: ею до 0,01 п. п.
+воспроизводятся все официальные цифры УК «Первая» по фондам с выплатами, а вариант с реинвестированием
+по цене на дату выплаты систематически завышал доходность.
 """
 from __future__ import annotations
 
@@ -58,15 +62,9 @@ def period_return(points: list[Point], end: date, months: int, payouts: list[dic
     p0 = price_at(points, period_start(end, months))
     if p0 is None or p1 is None:
         return None
-    factor = 1.0
-    for pay in payouts or []:
-        d = date.fromisoformat(str(pay["date"])[:10])
-        if p0.date < d <= p1.date:
-            pt = price_at(points, d)
-            if pt is None:
-                return None          # выплата есть, а цены на её дату нет — честно не считаем
-            factor *= 1 + pay["amount"] / pt.price
-    return (p1.price * factor / p0.price - 1) * 100
+    paid = sum(pay["amount"] for pay in payouts or []
+               if p0.date < date.fromisoformat(str(pay["date"])[:10]) <= p1.date)
+    return ((p1.price + paid) / p0.price - 1) * 100
 
 
 def own_returns(points: list[Point], payouts: list[dict] | None = None) -> tuple[str | None, dict[str, float | None]]:
