@@ -1,7 +1,7 @@
 funds,url,format,fetched_at,sha256,bytes,status
 0619-94123737 0622-94123683 1014-94132162 2547 5095 5096 5203 5555 6589 6736 7209 7486 7487,https://aaacapital.ru,html,,,,error: доступ закрыт сайтом (HTTP 403)
 ,https://aaacapital.ru/robots.txt,txt,,,,error: доступ закрыт сайтом (HTTP 403)
-7156,https://amgeneralinvest.ru/,html,,,,error: сайт недоступен (ConnectError)
+7156,https://amgeneralinvest.ru/,html,,,,error: сайт не отвечает (ConnectTimeout)
 ,https://amgeneralinvest.ru/robots.txt,txt,,,,error: сайт недоступен (ConnectError)
 3898 3899 3900 4098 4100 4212 4458 4618 4677 4998 5229 5707 5728 5991 6126 6287 6635 6876 7909 7939 8150,https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/dynamic,json,2026-11-03T15:37:24+00:00,6d0e530287d865aacab306cf3c67bf4482bf6a3899ded1e0bcc2b6560196876c,28364,ok
 4998,https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=RU000A109K57&from=2025-09-01&considerSplits=true,json,2026-11-03T15:26:32+00:00,c046a6447c2c2f6a767b8c7ef4c4b518e34b69d5461cc717812e0ea4c36c75d1,11179,ok

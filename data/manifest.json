@@ -43,7 +43,7 @@
   ],
   "method": "GET",
   "path": "amgeneralinvest.ru/f64ff7b910b20fdbdfd3.html",
-  "status": "error: сайт недоступен (ConnectError)"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "ba711e9132f92f2ae24b",
