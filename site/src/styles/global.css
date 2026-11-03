@@ -123,7 +123,10 @@ footer.bottom { border-top: 1px solid var(--line); padding: 24px 0 40px; color: 
   .brand span { display: none; }
   th, td { padding: 8px 8px; font-size: 13px; }
   .filters select { flex: 1 1 45%; }
-  .kpi .value { font-size: 18px; }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 14px 0; }
+  .kpi { padding: 12px; }
+  .kpi .value { font-size: 16px; }
+  .lead { font-size: 15px; }
   .hide-sm { display: none; }
   dl.props { grid-template-columns: 1fr; gap: 2px; }
   dl.props dd { margin-bottom: 8px; }
