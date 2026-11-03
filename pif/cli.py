@@ -97,6 +97,45 @@ def merge_with_previous(new: dict, prev: dict | None) -> dict:
     return new
 
 
+def probe_uncovered(http: Fetcher, funds: list[Fund]) -> list[FundData]:
+    """УК без адаптера: один запрос к главной странице, чтобы честно отличить
+    «сайт недоступен / закрыт» от «сбор ещё не реализован»."""
+    from .http import Blocked, FetchError
+
+    out = []
+    by_site: dict[str, list[Fund]] = {}
+    for f in funds:
+        by_site.setdefault(f.uk_site, []).append(f)
+    for site, group in sorted(by_site.items()):
+        status, reason = "no_adapter", "сбор с сайта этой УК ещё не реализован"
+        if not site:
+            status, reason = "unavailable", "в реестре лицензий ЦБ не указан сайт УК"
+        else:
+            try:
+                http.get(site, fmt="html", funds=[f.rules for f in group], allow_stale=False)
+            except Blocked as e:
+                status, reason = "blocked", f"{e.reason}; капчи и закрытые разделы не обходим"
+            except FetchError as e:
+                status, reason = "unavailable", f"сайт УК {site} из сети сборщика: {e.reason}"
+        log.info("[без адаптера] %s: %s (%d фондов)", site, reason, len(group))
+        out += [FundData(f.rules, status=status, reason=reason) for f in group]
+    return out
+
+
+def fetch_fx(http: Fetcher, results: list[FundData]) -> None:
+    from .fx import fetch_rates
+
+    currencies = {fd.currency for fd in results if fd.segments} - {"RUB"}
+    path = config.DATA_DIR / "fx.json"
+    if not currencies:
+        if not path.exists():
+            path.write_text("{}\n", "utf-8")
+        return
+    rates = fetch_rates(http, currencies, config.HISTORY_START, date.today())
+    path.write_text(json.dumps(rates, ensure_ascii=False) + "\n", "utf-8")
+    log.info("Курсы ЦБ: %s", {c: len(v) for c, v in rates.items()})
+
+
 def step_collect(http: Fetcher, only: str | None = None) -> None:
     funds = load_registry()
     adapters = load_adapters()
@@ -126,10 +165,8 @@ def step_collect(http: Fetcher, only: str | None = None) -> None:
         for res in pool.map(lambda job: _collect_one(job[0], ctx, job[1]), jobs):
             results.extend(res)
     if not only:
-        for f in funds:
-            if f.uk_inn not in covered:
-                results.append(FundData(f.rules, status="no_adapter",
-                                        reason="сбор с сайта этой УК ещё не реализован"))
+        results += probe_uncovered(http, [f for f in funds if f.uk_inn not in covered])
+        fetch_fx(http, results)
     out_dir.mkdir(parents=True, exist_ok=True)
     for fd in results:
         record = merge_with_previous(asdict(fd), previous.get(fd.rules))

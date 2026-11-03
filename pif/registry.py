@@ -74,7 +74,7 @@ def fund_title(short: str, full: str) -> str:
     return (short or full).strip()
 
 
-def parse_uk_registry(content: bytes) -> dict[str, dict]:
+def parse_uk_registry(content: bytes, min_rows: int = 50) -> dict[str, dict]:
     rows = _xlsx_rows(content)
     h, idx = _header_index(rows, UK_COLUMNS, "реестр лицензий УК")
     out: dict[str, dict] = {}
@@ -87,7 +87,7 @@ def parse_uk_registry(content: bytes) -> dict[str, dict]:
             site = "https://" + site
         out[ogrn] = {"inn": str(r[idx["inn"]]).strip(), "full": str(r[idx["full"]]).strip(),
                      "short": str(r[idx["short"]] or r[idx["full"]]).strip(), "site": site}
-    if len(out) < 50:
+    if len(out) < min_rows:
         raise UnknownFormat(f"реестр лицензий УК: подозрительно мало строк ({len(out)})")
     return out
 
@@ -101,7 +101,7 @@ def as_of_from_uk_registry(content: bytes) -> str | None:
     return None
 
 
-def parse_fund_registry(content: bytes, uks: dict[str, dict]) -> tuple[list[Fund], dict]:
+def parse_fund_registry(content: bytes, uks: dict[str, dict], min_funds: int = 100) -> tuple[list[Fund], dict]:
     """Действующие розничные открытые, интервальные и биржевые фонды + счётчики того, что отброшено."""
     rows = _xlsx_rows(content)
     h, idx = _header_index(rows, FUND_COLUMNS, "реестр ПИФ")
@@ -137,7 +137,7 @@ def parse_fund_registry(content: bytes, uks: dict[str, dict]) -> tuple[list[Fund
             uk_name=uk["full"], uk_short=uk["short"], uk_ogrn=ogrn, uk_inn=uk["inn"], uk_site=uk["site"],
             exchange_tradable=str(r[idx["tradable"]] or "").strip().lower() == "да",
         ))
-    if len(funds) < 100:
+    if len(funds) < min_funds:
         raise UnknownFormat(f"реестр ПИФ: подозрительно мало действующих фондов ({len(funds)})")
     funds.sort(key=lambda f: (f.uk_short, f.name))
     return funds, skipped

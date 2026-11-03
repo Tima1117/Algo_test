@@ -148,7 +148,8 @@ class Stats:
 
 class Fetcher:
     def __init__(self, manifest: Manifest, raw_dir: Path = config.RAW_DIR, offline: bool = False,
-                 fresh_hours: float = config.FRESH_HOURS, proxies: dict[str, str] | None = None):
+                 fresh_hours: float = config.FRESH_HOURS, proxies: dict[str, str] | None = None,
+                 transport: httpx.BaseTransport | None = None):
         self.manifest = manifest
         self.raw_dir = raw_dir
         self.offline = offline
@@ -159,6 +160,7 @@ class Fetcher:
         self._guard = threading.Lock()
         self.proxies = proxies or {}
         self._clients: dict[str | None, httpx.Client] = {}
+        self._transport = transport   # для тестов: httpx.MockTransport
 
     # ---------- внутреннее ----------
     def _client(self, domain: str) -> httpx.Client:
@@ -167,7 +169,8 @@ class Fetcher:
             if proxy not in self._clients:
                 self._clients[proxy] = httpx.Client(
                     headers={"User-Agent": config.USER_AGENT, "Accept-Language": "ru,en;q=0.8"},
-                    timeout=config.TIMEOUT_SEC, follow_redirects=True, proxy=proxy,
+                    timeout=config.TIMEOUT_SEC, follow_redirects=True,
+                    **({"transport": self._transport} if self._transport else {"proxy": proxy}),
                 )
             return self._clients[proxy]
 
