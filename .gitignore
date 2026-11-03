@@ -10,3 +10,5 @@ site/dist/
 site/.astro/
 .vercel/
 .env
+data/manifest.lock
+data/manifest.tmp

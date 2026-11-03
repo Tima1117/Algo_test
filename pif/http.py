@@ -9,6 +9,8 @@
 """
 from __future__ import annotations
 
+import csv
+import fcntl
 import hashlib
 import json
 import logging
@@ -107,12 +109,22 @@ class Manifest:
                 e["funds"] = sorted(set(e.get("funds", [])) | set(funds))
 
     def save(self) -> None:
-        with self.lock:
-            rows = sorted(self.entries.values(), key=lambda e: (e["domain"], e["url"], e["key"]))
+        """Сохранить, слив с тем, что на диске (параллельные прогоны по разным УК не затирают друг друга)."""
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(json.dumps(rows, ensure_ascii=False, indent=1) + "\n", "utf-8")
-        import csv
+        with open(self.path.with_suffix(".lock"), "w") as lockf:
+            fcntl.flock(lockf, fcntl.LOCK_EX)
+            on_disk = {}
+            if self.path.exists():
+                on_disk = {e["key"]: e for e in json.loads(self.path.read_text("utf-8"))}
+            with self.lock:
+                merged = {**on_disk, **self.entries}
+                rows = sorted(merged.values(), key=lambda e: (e["domain"], e["url"], e["key"]))
+            tmp = self.path.with_suffix(".tmp")
+            tmp.write_text(json.dumps(rows, ensure_ascii=False, indent=1) + "\n", "utf-8")
+            tmp.replace(self.path)
+            self._write_csv(rows)
 
+    def _write_csv(self, rows: list[dict]) -> None:
         with open(self.path.with_suffix(".csv"), "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
             w.writerow(["funds", "url", "format", "fetched_at", "sha256", "bytes", "status"])

@@ -13,8 +13,8 @@
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
-from datetime import date
+from dataclasses import dataclass, field
+from datetime import date, timedelta
 from typing import Callable
 
 from ..http import Blocked, FetchError, Fetcher, RawDoc
@@ -25,8 +25,20 @@ from ..parsing import UnknownFormat
 @dataclass
 class Context:
     http: Fetcher
-    since: date
+    since: date                      # начало истории (config.HISTORY_START)
     log: logging.Logger
+    last_dates: dict[str, date] = field(default_factory=dict)   # последняя уже собранная точка фонда
+
+    def start_for(self, rules: str, overlap_days: int = 10) -> date:
+        """С какой даты запрашивать ряд, если источник умеет отдавать диапазон.
+
+        Первый сбор — с начала истории; повторный — только хвост с небольшим нахлёстом.
+        Старые точки не теряются: сборщик сливает их с предыдущим результатом.
+        """
+        last = self.last_dates.get(rules)
+        if last is None:
+            return self.since
+        return max(self.since, last - timedelta(days=overlap_days))
 
 
 class Adapter:

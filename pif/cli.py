@@ -17,6 +17,7 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
+from datetime import date
 from pathlib import Path
 
 from . import config
@@ -70,13 +71,47 @@ def _collect_one(adapter, ctx: Context, funds: list[Fund]) -> list[FundData]:
     return result
 
 
+def merge_with_previous(new: dict, prev: dict | None) -> dict:
+    """Докачка: новые сегменты добавляются к уже собранным, а не заменяют их.
+
+    Сегмент с тем же адресом источника заменяется свежим. Если в этот раз сайт не отдал
+    ничего, остаются прошлые точки, а статус показывает, что они не обновились.
+    """
+    if not prev or not prev.get("segments"):
+        return new
+    new_urls = {s["raw_url"] for s in new["segments"]}
+    kept = [s for s in prev["segments"] if s["raw_url"] not in new_urls]
+    if new["segments"]:
+        new["segments"] = kept + new["segments"]
+        return new
+    if new["status"] in ("unavailable", "blocked", "parse_error"):
+        for s in kept:
+            s["stale"] = True
+        new["segments"] = kept
+        new["reason"] = f"не обновилось: {new['reason']}; показаны данные прошлого сбора"
+        new["status"] = "stale" if new["status"] != "parse_error" else "parse_error"
+        if not new.get("official_returns"):
+            new["official_returns"] = prev.get("official_returns", [])
+        new["page_url"] = new.get("page_url") or prev.get("page_url")
+        new["currency"] = prev.get("currency", new.get("currency"))
+    return new
+
+
 def step_collect(http: Fetcher, only: str | None = None) -> None:
     funds = load_registry()
     adapters = load_adapters()
     by_inn: dict[str, list[Fund]] = {}
     for f in funds:
         by_inn.setdefault(f.uk_inn, []).append(f)
-    ctx = Context(http=http, since=config.HISTORY_START, log=logging.getLogger("pif.collect"))
+    out_dir = config.DATA_DIR / "collected"
+    previous = {p.stem: json.loads(p.read_text("utf-8")) for p in out_dir.glob("*.json")} if out_dir.exists() else {}
+    last_dates = {}
+    for rules, prev in previous.items():
+        dates = [pt["date"] for seg in prev.get("segments", []) for pt in seg["points"]]
+        if dates:
+            last_dates[rules] = date.fromisoformat(max(dates))
+    ctx = Context(http=http, since=config.HISTORY_START, log=logging.getLogger("pif.collect"),
+                  last_dates=last_dates)
     jobs = []
     covered: set[str] = set()
     for a in adapters:
@@ -95,11 +130,11 @@ def step_collect(http: Fetcher, only: str | None = None) -> None:
             if f.uk_inn not in covered:
                 results.append(FundData(f.rules, status="no_adapter",
                                         reason="сбор с сайта этой УК ещё не реализован"))
-    out_dir = config.DATA_DIR / "collected"
     out_dir.mkdir(parents=True, exist_ok=True)
     for fd in results:
+        record = merge_with_previous(asdict(fd), previous.get(fd.rules))
         (out_dir / f"{fd.rules}.json").write_text(
-            json.dumps(asdict(fd), ensure_ascii=False, default=str, indent=None) + "\n", "utf-8")
+            json.dumps(record, ensure_ascii=False, default=str, indent=None) + "\n", "utf-8")
     s = http.stats
     log.info("Сбор: скачано %d, не изменилось %d, из кэша %d, ошибок сети %d",
              s.downloaded, s.unchanged, s.cached, s.errors)
