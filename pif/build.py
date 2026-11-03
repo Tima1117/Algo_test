@@ -241,6 +241,12 @@ def build_all() -> bool:
     _dump(SITE_DIR / "corrections.json", all_corrections)
     _dump(SITE_DIR / "manual_check.json", manual)
     write_quality_md(quality, all_corrections)
+    with open(config.DATA_DIR / "corrections.csv", "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["rules", "fund", "date", "date_to", "points", "field", "action", "factor", "old", "new", "reason"])
+        for c in all_corrections:
+            w.writerow([c["rules"], funds_by[c["rules"]].name, c["date"], c.get("date_to", ""), c.get("points", ""),
+                        c["field"], c["action"], c.get("factor", ""), c.get("old", ""), c.get("new", ""), c["reason"]])
     log.info("Сборка: %d фондов с рядом из %d; статусы: %s; сверок доходности %d, расхождений %d; "
              "исправлений рядов %d; ошибок %d → публикация %s",
              len(normalized), len(funds), dict(status_counts), len(all_checks), len(discrepancies),
@@ -265,7 +271,7 @@ def write_quality_md(q: dict, corrections: list[dict]) -> None:
     L += [f"- {e['uk'] or ''} {e['rules'] or ''}: {e['message']}" for e in q["errors"]] or ["Нет."]
     L += ["", "## Предупреждения (сайт недоступен, данные не обновились)", ""]
     L += [f"- {w['uk']} {w['rules']}: {w['message']}" for w in q["warnings"][:200]] or ["Нет."]
-    L += ["", f"## Исправления рядов: {len(corrections)} (полный журнал — data/site/corrections.json)", ""]
+    L += ["", f"## Исправления рядов: {len(corrections)} (полный журнал — data/corrections.csv)", ""]
     L += [f"- {c['rules']} {c['date']} {c['field']}: {c['action']} — {c['reason']}" for c in corrections[:100]]
     L += ["", f"## Аномалии без исправления: {len(q['anomalies'])}", ""]
     L += [f"- {a['rules']} {a['date']}: цена {a['change_pct']}%, СЧА {a['nav_change_pct']}%" for a in q["anomalies"][:100]]

@@ -36,10 +36,26 @@ def price_at(points: list[Point], d: date) -> Point | None:
     return p if (d - p.date) <= timedelta(days=MAX_LAG_DAYS) else None
 
 
+def is_month_end(d: date) -> bool:
+    """Последний рабочий день месяца (до конца месяца остались только выходные)."""
+    last = calendar.monthrange(d.year, d.month)[1]
+    return all(date(d.year, d.month, k).weekday() >= 5 for k in range(d.day + 1, last + 1))
+
+
+def period_start(end: date, months: int) -> date:
+    """Начало периода. УК считают доходность на конец месяца «от конца месяца до конца месяца»:
+    за 3 месяца на 30.10.2026 (пятница, последний рабочий день) — от 31.07.2026, а не от 30.07.
+    Для прочих дат — тот же день N месяцев назад."""
+    if is_month_end(end):
+        start = minus_months(date(end.year, end.month, 1), months)
+        return date(start.year, start.month, calendar.monthrange(start.year, start.month)[1])
+    return minus_months(end, months)
+
+
 def period_return(points: list[Point], end: date, months: int, payouts: list[dict] | None = None) -> float | None:
     """Доходность пая в % за months месяцев, заканчивая датой end (с учётом выплат дохода, если они есть)."""
     p1 = price_at(points, end)
-    p0 = price_at(points, minus_months(end, months))
+    p0 = price_at(points, period_start(end, months))
     if p0 is None or p1 is None:
         return None
     factor = 1.0

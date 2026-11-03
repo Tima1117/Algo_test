@@ -49,3 +49,12 @@ def test_return_with_payout_reinvested():
     pay = [{"date": "2026-02-15", "amount": 5.0, "source_url": "s"}]
     assert period_return(pts, date(2026, 3, 31), 2) == pytest.approx(0.0)              # только цена
     assert period_return(pts, date(2026, 3, 31), 2, pay) == pytest.approx(5.0)          # с выплатой
+
+
+def test_period_start_month_end_convention():
+    from pif.returns import period_start
+    # 30.10.2026 — пятница, последний рабочий день октября: период от конца месяца
+    assert period_start(date(2026, 10, 30), 3) == date(2026, 7, 31)
+    assert period_start(date(2026, 10, 30), 12) == date(2025, 10, 31)
+    # 02.11.2026 — обычный день: тот же день N месяцев назад
+    assert period_start(date(2026, 11, 2), 1) == date(2026, 10, 2)
