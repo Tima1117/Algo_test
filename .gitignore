@@ -12,3 +12,4 @@ site/.astro/
 .env
 data/manifest.lock
 data/manifest.tmp
+pif_registry.egg-info/
