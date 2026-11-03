@@ -340,7 +340,11 @@ def parse_disclosure_docs(content, rules: str) -> list[DisclosedDoc]:
             if a is None:
                 continue
             m = _DATE.search(_text(tds[0]))
-            require(m is not None, f"у документа нет даты публикации: {_text(tr)[:120]!r}")
+            if m is None and "выплат" not in _text(tr).lower():
+                # опечатка УК в дате постороннего документа («24.06.024 … Отчёт об оценке») —
+                # на выплаты не влияет, пропускаем строку
+                continue
+            require(m is not None, f"у сообщения о выплате нет даты публикации: {_text(tr)[:120]!r}")
             docs.append(DisclosedDoc(day(m.group(0)), _text(a), _abs_url(a["href"])))
     return docs
 
