@@ -1,1 +1,1 @@
-{"rules": "2567", "currency": "RUB", "segments": [], "official_returns": [], "payouts": [], "page_url": null, "status": "unavailable", "reason": "сайт УК https://www.rshb-am.ru/ из сети сборщика: сайт не отвечает (ConnectTimeout)", "errors": [], "warnings": []}
+{"rules": "2567", "currency": "RUB", "segments": [], "official_returns": [], "payouts": [], "page_url": null, "status": "no_adapter", "reason": "сбор с сайта этой УК ещё не реализован", "errors": [], "warnings": []}
