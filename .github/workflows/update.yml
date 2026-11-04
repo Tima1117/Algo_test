@@ -38,6 +38,13 @@ jobs:
           path: |
             data/quality_report.md
             logs/
+      - name: Сырые ответы при ошибке — для разбора причины
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-${{ github.run_id }}
+          path: raw/
+          retention-days: 3
       - name: Публикация (коммит данных)
         run: |
           git config user.name "github-actions[bot]"
