@@ -1,0 +1,24 @@
+# Разведка сайтов УК, которые не открываются из сети разработчика, но открываются из GitHub Actions.
+# Запускается вручную со списком адресов; ответы — в артефакте. Тот же вежливый клиент, что и у сборщика.
+name: Recon
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Адреса через пробел (POST:<url> — POST-запрос)'
+        required: true
+
+jobs:
+  recon:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12', cache: pip, cache-dependency-path: pyproject.toml }
+      - run: pip install -e .
+      - run: python scripts/recon.py ${{ inputs.urls }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recon-${{ github.run_id }}
+          path: recon/
+          retention-days: 3
