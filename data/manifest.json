@@ -16754,7 +16754,7 @@
   ],
   "method": "GET",
   "path": "www.p-fondy.ru/f4b61cb41862feb6cd52.html",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "3416d480756de3b856a5",
@@ -19952,7 +19952,7 @@
   ],
   "method": "GET",
   "path": "www.uksun.ru/20a1a396600027414149.html",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: антибот-проверка вместо данных"
  },
  {
   "key": "8d652fb50aae55040fa0",

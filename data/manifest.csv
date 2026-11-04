@@ -875,7 +875,7 @@ funds,url,format,fetched_at,sha256,bytes,status
 4121 4474,https://www.mkb-am.ru/,html,,,,error: сайт не отвечает (ConnectTimeout)
 0035-18983813,https://www.monomah.ru,html,,,,error: сайт недоступен (ConnectError)
 ,https://www.monomah.ru/robots.txt,txt,,,,error: сайт недоступен (ConnectError)
-0097-14126383,https://www.p-fondy.ru,html,,,,error: сайт не отвечает (ConnectTimeout)
+0097-14126383,https://www.p-fondy.ru,html,,,,error: сайт недоступен (ConnectError)
 ,https://www.p-fondy.ru/robots.txt,txt,,,,error: сайт недоступен (ConnectError)
 2006-94172747,https://www.peramo.ru/pif/,html,2026-11-04T11:32:28+00:00,34d9385267b69241de367498c9349ec3a707160abe5ee58dc8777654085ad521,51833,ok
 2006-94172747,https://www.peramo.ru/pif/conservatoriya/,html,2026-11-04T11:32:29+00:00,4ccdc24e5b5904bba771e5dbd2e75244991c41034b908175e318adeec1d4beff,76707,ok
@@ -1042,7 +1042,7 @@ funds,url,format,fetched_at,sha256,bytes,status
 ,https://www.tkbip.ru/robots.txt,txt,2026-11-04T11:33:12+00:00,0c4b960c728d158155949932f6cc3f40a3c30f9a7fa1a0dfb1c1d5eafce0323b,26,ok
 2984 3264 3863 4275 4344,https://www.trinfico-am.ru/opif/,html,,,,error: доступ закрыт сайтом (HTTP 403)
 ,https://www.trinfico-am.ru/robots.txt,txt,,,,error: доступ закрыт сайтом (HTTP 403)
-1970-94172090,https://www.uksun.ru,html,,,,error: сайт не отвечает (ConnectTimeout)
+1970-94172090,https://www.uksun.ru,html,,,,error: антибот-проверка вместо данных
 ,https://www.uksun.ru/robots.txt,txt,,,,error: сайт не отвечает (ConnectTimeout)
 5007,https://www.upravlyaem.ru/ajax/datav.php?fund=25&type=price,json,2026-11-04T11:34:00+00:00,c1130c93ddfd65eddf53220fb555b8d7e32b4e863d446ffbcdbf160ec97ed29b,827,ok
 5210,https://www.upravlyaem.ru/ajax/datav.php?fund=27&type=price,json,2026-11-04T11:32:41+00:00,36781900c9123388fcdee5e7b7c989528e578f81704021932d7a6a496934244c,716,ok
