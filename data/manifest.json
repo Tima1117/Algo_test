@@ -4892,7 +4892,14 @@
   ],
   "method": "GET",
   "path": "mkb-am.ru/cb31abe2bb3c41df5c95.html",
-  "status": "error: сайт не отвечает (ReadTimeout)"
+  "status": "ok",
+  "fetched_at": "2026-11-04T12:18:40+00:00",
+  "sha256": "60822fa542cf7bcf63c693a5d2844feb8c729c7dc8eb539988ae152f421078c5",
+  "bytes": 68332,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8"
  },
  {
   "key": "b209b395c0cdd9f8761a",
@@ -5133,6 +5140,25 @@
   "status": "ok"
  },
  {
+  "key": "a6bd12ac70056fb50c54",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/a4baea01-7af9-11db-a626-0040ca6957f7/chart?fromDate=2026-10-23&toDate=2026-11-02",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "0243-74050367"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/a6bd12ac70056fb50c54.json",
+  "fetched_at": "2026-11-04T12:17:00+00:00",
+  "sha256": "8afc52925e91e5e14a070e0da7b27488af1ef01d2ba40cb5284407572cbbd889",
+  "bytes": 1718,
+  "http_status": 200,
+  "etag": "W/\"6b6-AmEpUAliGr6MXvHP3Ppyututvpg\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "bd6a90de5f3f9493d817",
   "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/a4baea02-7af9-11db-a626-0040ca6957f7/chart?fromDate=2025-09-01&toDate=2026-11-02",
   "domain": "my.raiffeisen-capital.ru",
@@ -5166,6 +5192,25 @@
   "bytes": 2438,
   "http_status": 200,
   "etag": "W/\"986-lvjzEJ5uz7pZJorv5Ie1jFt7v9I\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "e09f118e17b6ce31fa23",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/a4baea02-7af9-11db-a626-0040ca6957f7/chart?fromDate=2026-10-23&toDate=2026-11-02",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "0242-74050284"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/e09f118e17b6ce31fa23.json",
+  "fetched_at": "2026-11-04T12:17:02+00:00",
+  "sha256": "580f2972e2f7d1ff65806b37d9d02b7052e41f7d6241c7e18680f5e5fdb71bb8",
+  "bytes": 1726,
+  "http_status": 200,
+  "etag": "W/\"6be-WknsWMDfhLZ8DqJZQuTbM1XwDCA\"",
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
   "status": "ok"
@@ -5247,6 +5292,25 @@
   "status": "ok"
  },
  {
+  "key": "b037e11c694e15b85eab",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/dea2d441-1fcf-11e1-ac85-0019bb24abc4/chart?fromDate=2026-10-23&toDate=2026-11-02",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "2260"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/b037e11c694e15b85eab.json",
+  "fetched_at": "2026-11-04T12:17:01+00:00",
+  "sha256": "9c971549fff8647fcf309bcb3fc4b386d9fddccb97b2cf0b072a573ffcb457ce",
+  "bytes": 1724,
+  "http_status": 200,
+  "etag": "W/\"6bc-8GsqED2sm1MurDxbnZCuw75FxY8\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "9b2b7e17e8a850848d81",
   "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/fb00b672-8550-11ee-acf7-005056b9fcae/chart?fromDate=2025-09-01&toDate=2026-11-02",
   "domain": "my.raiffeisen-capital.ru",
@@ -5280,6 +5344,25 @@
   "bytes": 2403,
   "http_status": 200,
   "etag": "W/\"963-FEECy073ViDEWZFKixt9fUkGQLQ\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "26f2d8bcb882f73797bc",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/fb00b672-8550-11ee-acf7-005056b9fcae/chart?fromDate=2026-10-23&toDate=2026-11-02",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "5778"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/26f2d8bcb882f73797bc.json",
+  "fetched_at": "2026-11-04T12:17:03+00:00",
+  "sha256": "a75d977fa159ff4157b59fc43d98168263510a96977a1395295b8c9d9b550256",
+  "bytes": 1701,
+  "http_status": 200,
+  "etag": "W/\"6a5-Tb9K3vOKsUgMdpHkSZBzJM/vi4c\"",
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
   "status": "ok"
@@ -17334,6 +17417,855 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8"
+ },
+ {
+  "key": "0069ce0d618fdbaf87c1",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=1&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "0959-94131180"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/0069ce0d618fdbaf87c1.json",
+  "fetched_at": "2026-11-04T12:18:30+00:00",
+  "sha256": "d3a6826986b701358f3345f6520559a7a6a309f03f12c6da877f07c0ff65ca23",
+  "bytes": 8431,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "8ea87833cfe80724de69",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=10&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "5585"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/8ea87833cfe80724de69.json",
+  "fetched_at": "2026-11-04T12:17:36+00:00",
+  "sha256": "4601fb7c304b569a9e6397b1f1c08368cfbc117baa2f20fafe4cc86a476894c5",
+  "bytes": 8727,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "d74478fb5d8fc20729e0",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=2&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2568"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/d74478fb5d8fc20729e0.json",
+  "fetched_at": "2026-11-04T12:18:25+00:00",
+  "sha256": "e7ee98b4dd584963a05ec35a851c10f844a4d1ff3b8b79ac774a47d282fd3768",
+  "bytes": 8723,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "64065619885c3804d43a",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=22&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4057"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/64065619885c3804d43a.json",
+  "fetched_at": "2026-11-04T12:17:15+00:00",
+  "sha256": "45204d83a5c5f7c0c7870aff7e5670a6ad9acc4d509ff7f4624f84901408095e",
+  "bytes": 8133,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "98b8b701c7ecd7a895fa",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=23&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "3906"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/98b8b701c7ecd7a895fa.json",
+  "fetched_at": "2026-11-04T12:17:55+00:00",
+  "sha256": "9ef32b97b6233fb3d7b5f1abb2277013ef27984c3a844bb1461718661a125d68",
+  "bytes": 8440,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "e5d2256ac70edb7290f5",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=3&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2800"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/e5d2256ac70edb7290f5.json",
+  "fetched_at": "2026-11-04T12:18:01+00:00",
+  "sha256": "312c03ec83290bbc13fd173d668dd8ddf960943e64df4d58a65a25902c18f14a",
+  "bytes": 8431,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "ee999b10ed7d949fcaa5",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=35&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "6673"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/ee999b10ed7d949fcaa5.json",
+  "fetched_at": "2026-11-04T12:18:08+00:00",
+  "sha256": "4f457ea5071546a728655411a3018d02901f78e796ea4645df49c277b9b43a6c",
+  "bytes": 7887,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "e94d2f2d15a5f5a07620",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=36&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4362"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/e94d2f2d15a5f5a07620.json",
+  "fetched_at": "2026-11-04T12:18:13+00:00",
+  "sha256": "f8ff240aa45e655e0cd8f4b99d6a5d05413402b6bc2fcbaf2b1b8ac7efb2cdfe",
+  "bytes": 8144,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "fe5b1ca4cebd5e4097e0",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=4&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2566"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/fe5b1ca4cebd5e4097e0.json",
+  "fetched_at": "2026-11-04T12:17:23+00:00",
+  "sha256": "4475bd42a6b726bc70b6adf9c7000912c562021aa6767dea62801fe27376ebf9",
+  "bytes": 8736,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "a1f139ff946744faad00",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=5&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2797"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/a1f139ff946744faad00.json",
+  "fetched_at": "2026-11-04T12:17:50+00:00",
+  "sha256": "ee1780772a38beab8e92c3fdee77718ccaac31f08020e5e6ad3a4be62122e472",
+  "bytes": 8284,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "d3dce8182089b3fa607b",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=51&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7837"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/d3dce8182089b3fa607b.json",
+  "fetched_at": "2026-11-04T12:18:19+00:00",
+  "sha256": "052e15358da3074f25f6d07f87b79d48b38bcb6e7c4cd39b09d96b6a687a175b",
+  "bytes": 3088,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "f9b0de3da90d5cbc0e86",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=6&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2567"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/f9b0de3da90d5cbc0e86.json",
+  "fetched_at": "2026-11-04T12:18:35+00:00",
+  "sha256": "529cdcfdfb25a5bd66007e5ca3f2cc3aeffbf1f0cd22ad58fd5dd91c128606d6",
+  "bytes": 9019,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "7b5d705727f4ebb2d4c8",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=7&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2795"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/7b5d705727f4ebb2d4c8.json",
+  "fetched_at": "2026-11-04T12:17:30+00:00",
+  "sha256": "1fce85ccc1d12d9cb43ef0bc823c11df70865d020eccaead41a00e3fd3dad889",
+  "bytes": 8701,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "24ba89056fd8d6a96c49",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=9&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4140"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/24ba89056fd8d6a96c49.json",
+  "fetched_at": "2026-11-04T12:17:44+00:00",
+  "sha256": "126b50a23040a1db1700ecc42880c81682d452924bb24fdfa1cfa1a557642443",
+  "bytes": 8449,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "92efcd172b474eb6677e",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=1&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "0959-94131180"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/92efcd172b474eb6677e.json",
+  "fetched_at": "2026-11-04T12:18:29+00:00",
+  "sha256": "56ece1c5333447760369323e5a54ae369300a2dfc88f47d5b1598f02f111ac0b",
+  "bytes": 6393,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "e31c0a10f8e1951ce9f6",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=10&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "5585"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/e31c0a10f8e1951ce9f6.json",
+  "fetched_at": "2026-11-04T12:17:35+00:00",
+  "sha256": "3fa08ada16ddf97e6e0c1237ee5233a76d2156f9cd5da58c368632505cb74ae9",
+  "bytes": 6680,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "900e334a30de3eca4e6c",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=2&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2568"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/900e334a30de3eca4e6c.json",
+  "fetched_at": "2026-11-04T12:18:24+00:00",
+  "sha256": "641a31e7d21214e180bd5d07bd32c09203b07b08e091ac88471de648d2d4db1d",
+  "bytes": 6972,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "e8ac184997394e2622f2",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=22&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4057"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/e8ac184997394e2622f2.json",
+  "fetched_at": "2026-11-04T12:17:14+00:00",
+  "sha256": "e5dda02924df18038a3d4f3243bec67a193d1b3c967de8f1ddee8b11fa59eede",
+  "bytes": 6919,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "1190ab330ba6f6b87a95",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=23&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "3906"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/1190ab330ba6f6b87a95.json",
+  "fetched_at": "2026-11-04T12:17:54+00:00",
+  "sha256": "479aad891344ff65ef8597aedbc37061fed417c2a37348202e6686e4fc74cd41",
+  "bytes": 6679,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "caddb8d945d4a08a7887",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=3&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2800"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/caddb8d945d4a08a7887.json",
+  "fetched_at": "2026-11-04T12:18:00+00:00",
+  "sha256": "87b7f0f105af9390f34396eebb3bd6e48db49729e93ef15160850edb19aac32e",
+  "bytes": 6968,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "fc37132bc071df659762",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=35&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "6673"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/fc37132bc071df659762.json",
+  "fetched_at": "2026-11-04T12:18:06+00:00",
+  "sha256": "ad14a36531cf22a00febc7aac3caf82722cf7d16d8958d4ce5dde64a9cb7f3b3",
+  "bytes": 6686,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "635ae1d900b6636238fe",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=36&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4362"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/635ae1d900b6636238fe.json",
+  "fetched_at": "2026-11-04T12:18:12+00:00",
+  "sha256": "d42c056288f3e7661ab7d4199c3d6ae289d4a5f40e41d2f8fcbe08e914259ea2",
+  "bytes": 6687,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "69c215be6e7ee1981061",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=4&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2566"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/69c215be6e7ee1981061.json",
+  "fetched_at": "2026-11-04T12:17:21+00:00",
+  "sha256": "81ff84a1072221df3104290183419f1f0e84bec7595bd39fd64a93d129998f9e",
+  "bytes": 6974,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "f4208ec365ccdae286d8",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=5&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2797"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/f4208ec365ccdae286d8.json",
+  "fetched_at": "2026-11-04T12:17:49+00:00",
+  "sha256": "ed556023af660b75321f0c9fc0a7df48bc7e1e43854f286af3450d968c029849",
+  "bytes": 6972,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "1885b74796460e4b4373",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=51&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7837"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/1885b74796460e4b4373.json",
+  "fetched_at": "2026-11-04T12:18:18+00:00",
+  "sha256": "a2722ca85bc05dd325379f977f0251e2c4ee3f9596429f4092c6d6f9d034fca1",
+  "bytes": 2534,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "63d17742bc0ad2391c1f",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=6&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2567"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/63d17742bc0ad2391c1f.json",
+  "fetched_at": "2026-11-04T12:18:34+00:00",
+  "sha256": "cdf4c09d36338b821dbf957652e7184c0f51c17b9769b9d18d634003e06f60f5",
+  "bytes": 6972,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "32de9ed49cc80057aaf0",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=7&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2795"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/32de9ed49cc80057aaf0.json",
+  "fetched_at": "2026-11-04T12:17:28+00:00",
+  "sha256": "9645f3fd0486963132dc01a5228724cecd27563361def8311416f873d9c4b378",
+  "bytes": 6975,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "c01390f73046bc29347b",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=9&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4140"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/c01390f73046bc29347b.json",
+  "fetched_at": "2026-11-04T12:17:43+00:00",
+  "sha256": "2f90376d2bf24488acc5189118aa2abfe117f3595b4d06fe73c7940c5a14f021",
+  "bytes": 6974,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "57d60f8fad3ab3affcf9",
+  "url": "https://www.rshb-am.ru/ajax/datapotok.php?fund=10&type=pro&period=begin&date_from=&date_to=2026-11-04",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "5585"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/57d60f8fad3ab3affcf9.json",
+  "fetched_at": "2026-11-04T12:17:38+00:00",
+  "sha256": "214f4ed5ce051b023b88015396bdb3ce4d7349b2e520c80e8be5dcd03ceccd40",
+  "bytes": 57556,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "b8e2122bdda2fbb95c97",
+  "url": "https://www.rshb-am.ru/birzhevye-paevye-investicionnye-fondy-bpif/bpif-rshb-indeks-mosbirzhi-rspp-vektor-ustoychivogo-razvitiya/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "4057"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/b8e2122bdda2fbb95c97.html",
+  "fetched_at": "2026-11-04T12:17:11+00:00",
+  "sha256": "52b48a5b2dcb7ac547593868e1f83d7945d1daf1634a01afd829777f07e25be1",
+  "bytes": 533707,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "dd52fa0408f7a3222eec",
+  "url": "https://www.rshb-am.ru/birzhevye-paevye-investicionnye-fondy-bpif/bpif-rshb-korporativnye-obligatsii-smart-beta-rshu/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "3906"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/dd52fa0408f7a3222eec.html",
+  "fetched_at": "2026-11-04T12:17:53+00:00",
+  "sha256": "650f0e7b954877ca76d979490680f86fca8387fd5ba9c157f768d0ffd6b7c983",
+  "bytes": 440707,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "8ea27ecf458680e7f882",
+  "url": "https://www.rshb-am.ru/birzhevye-paevye-investicionnye-fondy-bpif/bpif-rshb-obligatsii-vektor-i-es-dzhi/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "4362"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/8ea27ecf458680e7f882.html",
+  "fetched_at": "2026-11-04T12:18:11+00:00",
+  "sha256": "5633ee0553da62c3cc32c48d6ffe08bb416794c5ee243a3e84b6e7fe9aec996b",
+  "bytes": 538198,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "38e4432ea011ff80882d",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "0959-94131180",
+   "2566",
+   "2567",
+   "2568",
+   "2795",
+   "2797",
+   "2800",
+   "3906",
+   "4057",
+   "4140",
+   "4362",
+   "5585",
+   "6673",
+   "7837"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/38e4432ea011ff80882d.html",
+  "fetched_at": "2026-11-04T12:17:07+00:00",
+  "sha256": "8b1709158c185580ac143b3d2c81f92b3b84a843dfbc982cc797e089e5d904f2",
+  "bytes": 224735,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "ffc8fb21e5c9bcb731f0",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-denezhnyy-potok/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "5585"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/ffc8fb21e5c9bcb731f0.html",
+  "fetched_at": "2026-11-04T12:17:33+00:00",
+  "sha256": "2f2cc02b3ee40912bdbe78237401be0e4f72da3739074dd6a2c3009a8ca17e61",
+  "bytes": 490407,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "7997ac30315e442ee44a",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-dolgovoy-rynok/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "4140"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/7997ac30315e442ee44a.html",
+  "fetched_at": "2026-11-04T12:17:41+00:00",
+  "sha256": "25caec14d419232d12a2aa0d1be03ea469b5b0bc5d10e075cc0d20d20b797e98",
+  "bytes": 514497,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "1100fc375dcf131f4dfb",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-fond-aktsiy/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "2568"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/1100fc375dcf131f4dfb.html",
+  "fetched_at": "2026-11-04T12:18:22+00:00",
+  "sha256": "e71dffeb1dc00c652f8adf4ce488d5fe7516c5720b3e1e4b411e80bc93b2ea70",
+  "bytes": 606922,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "be269eeb8fd7069fb939",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-fond-kompaniy-maloy-i-sredney-kapitalizatsii/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "0959-94131180"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/be269eeb8fd7069fb939.html",
+  "fetched_at": "2026-11-04T12:18:28+00:00",
+  "sha256": "f99b6e21b557e02c7557a6551d8dae17b896ad1ac5f1a962ce2173b7a7e2b970",
+  "bytes": 550795,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "dcc1aca2b784c75cdef9",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-fond-obligatsiy/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "2567"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/dcc1aca2b784c75cdef9.html",
+  "fetched_at": "2026-11-04T12:18:33+00:00",
+  "sha256": "336615682fb2761a145c85caa7dfd1408b2ab6443c8d2ea36fd0a03b17390227",
+  "bytes": 645981,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "156863c072f189ed84ad",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-fond-sbalansirovannyy/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "2566"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/156863c072f189ed84ad.html",
+  "fetched_at": "2026-11-04T12:17:18+00:00",
+  "sha256": "f44bc607f50fe059d7c4272b4bf36ac734e4798a1f6985d23672c19475c3654f",
+  "bytes": 633764,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "8970876ede7c88cf978b",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-kaznacheyskiy/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "2797"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/8970876ede7c88cf978b.html",
+  "fetched_at": "2026-11-04T12:17:47+00:00",
+  "sha256": "43becea48a99f9950c99932cc69cab5943ee58441ceedd36ca3e10fe7200eb58",
+  "bytes": 563026,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "4adcc11dcc9b87950373",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-luchshie-otrasli/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "2800"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/4adcc11dcc9b87950373.html",
+  "fetched_at": "2026-11-04T12:17:59+00:00",
+  "sha256": "03b6758646d75660cadd0f20741442d701614981a7dc43b5b9a890ba1c6408da",
+  "bytes": 601701,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "43c8b53419b823e490e1",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-novyy-impuls/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "6673"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/43c8b53419b823e490e1.html",
+  "fetched_at": "2026-11-04T12:18:05+00:00",
+  "sha256": "797f2390efe658b4867bbec354b2e483484d1127e73796dda4dfe582e87a36ca",
+  "bytes": 348082,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "bdc6f29c4ecdc6053d50",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-smartagro/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "7837"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/bdc6f29c4ecdc6053d50.html",
+  "fetched_at": "2026-11-04T12:18:17+00:00",
+  "sha256": "d810c8f7865a9847d10b9d8055fbc7165caf17430d26a605e4ad2c294c3094a8",
+  "bytes": 255292,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "889e688a09fa22976b61",
+  "url": "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/opif-valyutnye-obligacii/",
+  "domain": "www.rshb-am.ru",
+  "fmt": "html",
+  "funds": [
+   "2795"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/889e688a09fa22976b61.html",
+  "fetched_at": "2026-11-04T12:17:26+00:00",
+  "sha256": "b22e2fd3667a0243ba2dff0e0fc613ec2fab675d4b12d19193afa11ef0106d75",
+  "bytes": 632370,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
  },
  {
   "key": "02f9a141da409048c565",

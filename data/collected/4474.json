@@ -1,1 +1,1 @@
-{"rules": "4474", "currency": "RUB", "segments": [], "official_returns": [], "payouts": [], "page_url": null, "status": "unavailable", "reason": "сайт УК https://mkb-am.ru из сети сборщика: сайт не отвечает (ReadTimeout)", "errors": [], "warnings": []}
+{"rules": "4474", "currency": "RUB", "segments": [], "official_returns": [], "payouts": [], "page_url": null, "status": "no_adapter", "reason": "сбор с сайта этой УК ещё не реализован", "errors": [], "warnings": []}
