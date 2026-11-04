@@ -872,9 +872,10 @@ funds,url,format,fetched_at,sha256,bytes,status
 0050-54904637 1148-94139715 1149-94139555 2622 4483 4742 5248,https://www.ingosinvest-am.ru/bpif,html,2026-11-04T11:32:18+00:00,306087330cdd1d8faa5956629f859ccaee22c0a36941292a68dd36530d9c9b04,86277,ok
 0050-54904637 1148-94139715 1149-94139555 2622 4483 4742 5248,https://www.ingosinvest-am.ru/pif,html,2026-11-04T11:32:17+00:00,52678f003ada2bdcd58d290c0809180060a99ba6e5e7c4f654d08a67d2fbfea5,83049,ok
 ,https://www.ingosinvest-am.ru/robots.txt,txt,2026-11-03T16:05:24+00:00,8a6da3c09ddf5639d4a1e37a2dd3ecece0451d9cc01e8c626bf74cefdcba0618,143,ok
+4121 4474,https://www.mkb-am.ru/,html,,,,error: сайт не отвечает (ConnectTimeout)
 0035-18983813,https://www.monomah.ru,html,,,,error: сайт недоступен (ConnectError)
 ,https://www.monomah.ru/robots.txt,txt,,,,error: сайт недоступен (ConnectError)
-0097-14126383,https://www.p-fondy.ru,html,,,,error: сайт недоступен (ConnectError)
+0097-14126383,https://www.p-fondy.ru,html,,,,error: сайт не отвечает (ConnectTimeout)
 ,https://www.p-fondy.ru/robots.txt,txt,,,,error: сайт недоступен (ConnectError)
 2006-94172747,https://www.peramo.ru/pif/,html,2026-11-04T11:32:28+00:00,34d9385267b69241de367498c9349ec3a707160abe5ee58dc8777654085ad521,51833,ok
 2006-94172747,https://www.peramo.ru/pif/conservatoriya/,html,2026-11-04T11:32:29+00:00,4ccdc24e5b5904bba771e5dbd2e75244991c41034b908175e318adeec1d4beff,76707,ok
@@ -911,33 +912,61 @@ funds,url,format,fetched_at,sha256,bytes,status
 ,https://www.renlife.ru/robots.txt,txt,2026-11-04T11:32:51+00:00,38d33801bb26142ba1b2a7ec774a8db37464f61941e0231726dce3e1c9ef2b8e,1489,ok
 0959-94131180 2566 2567 2568 2795 2797 2800 3906 4057 4140 4362 5585 6673 7837,https://www.rshb-am.ru/,html,2026-11-04T11:36:34+00:00,6d0768964fcdf03979589198b29f5f5e2bf36a2cbaceb68394ef5e7f0cfdddb8,226669,ok
 0959-94131180,https://www.rshb-am.ru/ajax/data-sha.php?fund=1&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:30+00:00,d3a6826986b701358f3345f6520559a7a6a309f03f12c6da877f07c0ff65ca23,8431,ok
+0959-94131180,https://www.rshb-am.ru/ajax/data-sha.php?fund=1&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:45+00:00,8445a7860cb33def7a22a438aaca3ac297cc019ebb9facc71415352de8c90d3c,204,ok
 5585,https://www.rshb-am.ru/ajax/data-sha.php?fund=10&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:36+00:00,4601fb7c304b569a9e6397b1f1c08368cfbc117baa2f20fafe4cc86a476894c5,8727,ok
+5585,https://www.rshb-am.ru/ajax/data-sha.php?fund=10&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:22+00:00,588551c99b9cc1583cafb8d4ee3b3d57443f10bbc3da7256b70ebd379e4f3152,207,ok
 2568,https://www.rshb-am.ru/ajax/data-sha.php?fund=2&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:25+00:00,e7ee98b4dd584963a05ec35a851c10f844a4d1ff3b8b79ac774a47d282fd3768,8723,ok
+2568,https://www.rshb-am.ru/ajax/data-sha.php?fund=2&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:42+00:00,a5518d9d3175a4c92e73a390068a0a844b96ffa81f215097b7a171f913d0561b,209,ok
 4057,https://www.rshb-am.ru/ajax/data-sha.php?fund=22&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:15+00:00,45204d83a5c5f7c0c7870aff7e5670a6ad9acc4d509ff7f4624f84901408095e,8133,ok
+4057,https://www.rshb-am.ru/ajax/data-sha.php?fund=22&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:11+00:00,814dc56d3ecb392b335a775d03752551b983fabba4e283da21438a6b157a1943,197,ok
 3906,https://www.rshb-am.ru/ajax/data-sha.php?fund=23&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:55+00:00,9ef32b97b6233fb3d7b5f1abb2277013ef27984c3a844bb1461718661a125d68,8440,ok
+3906,https://www.rshb-am.ru/ajax/data-sha.php?fund=23&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:30+00:00,c1830d1d2772419871ab07b203a4d07f13d43cb801e1f592d3c811f3a6d65fd3,203,ok
 2800,https://www.rshb-am.ru/ajax/data-sha.php?fund=3&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:01+00:00,312c03ec83290bbc13fd173d668dd8ddf960943e64df4d58a65a25902c18f14a,8431,ok
+2800,https://www.rshb-am.ru/ajax/data-sha.php?fund=3&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:33+00:00,e1aee977eec872d1cb6fb16a186e58faa4699286335246261558f4dd37818865,203,ok
 6673,https://www.rshb-am.ru/ajax/data-sha.php?fund=35&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:08+00:00,4f457ea5071546a728655411a3018d02901f78e796ea4645df49c277b9b43a6c,7887,ok
+6673,https://www.rshb-am.ru/ajax/data-sha.php?fund=35&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:35+00:00,caa0d0903bfbec24c1eb4f8abbd094c367c07a68f7046b1720b867e4c8d0b7d3,190,ok
 4362,https://www.rshb-am.ru/ajax/data-sha.php?fund=36&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:13+00:00,f8ff240aa45e655e0cd8f4b99d6a5d05413402b6bc2fcbaf2b1b8ac7efb2cdfe,8144,ok
+4362,https://www.rshb-am.ru/ajax/data-sha.php?fund=36&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:37+00:00,ec5a86d1549b131fad1b5b8c516d95bc817cd1d24532ee9b66d78c8e8c397a6e,196,ok
 2566,https://www.rshb-am.ru/ajax/data-sha.php?fund=4&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:23+00:00,4475bd42a6b726bc70b6adf9c7000912c562021aa6767dea62801fe27376ebf9,8736,ok
+2566,https://www.rshb-am.ru/ajax/data-sha.php?fund=4&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:15+00:00,d425eff916690b4c5fe62f42560ddb50eb693d9a1784abc71383d4c0a89e0eba,210,ok
 2797,https://www.rshb-am.ru/ajax/data-sha.php?fund=5&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:50+00:00,ee1780772a38beab8e92c3fdee77718ccaac31f08020e5e6ad3a4be62122e472,8284,ok
+2797,https://www.rshb-am.ru/ajax/data-sha.php?fund=5&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:27+00:00,e0e13dde61bbb4a1c9d8fb1162362b6c82ed92b7382adcd9a258cfbff0d029a7,203,ok
 7837,https://www.rshb-am.ru/ajax/data-sha.php?fund=51&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:19+00:00,052e15358da3074f25f6d07f87b79d48b38bcb6e7c4cd39b09d96b6a687a175b,3088,ok
+7837,https://www.rshb-am.ru/ajax/data-sha.php?fund=51&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:40+00:00,a64301946bbe42662cf116b71572890d0ddb9d9ba5b72bb0cf241524b0523aa0,202,ok
 2567,https://www.rshb-am.ru/ajax/data-sha.php?fund=6&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:35+00:00,529cdcfdfb25a5bd66007e5ca3f2cc3aeffbf1f0cd22ad58fd5dd91c128606d6,9019,ok
+2567,https://www.rshb-am.ru/ajax/data-sha.php?fund=6&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:47+00:00,4f939105d47db76c1a8dea5e5b441c755c162b23fdbec427f943f7522604c97c,218,ok
 2795,https://www.rshb-am.ru/ajax/data-sha.php?fund=7&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:30+00:00,1fce85ccc1d12d9cb43ef0bc823c11df70865d020eccaead41a00e3fd3dad889,8701,ok
+2795,https://www.rshb-am.ru/ajax/data-sha.php?fund=7&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:19+00:00,eec034d5d581fe6f6ccc3aff3a5b232c78a39e0b1d0bf43d82b01ce8025e407e,210,ok
 4140,https://www.rshb-am.ru/ajax/data-sha.php?fund=9&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:44+00:00,126b50a23040a1db1700ecc42880c81682d452924bb24fdfa1cfa1a557642443,8449,ok
+4140,https://www.rshb-am.ru/ajax/data-sha.php?fund=9&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:24+00:00,83ba56b971116b9c1a6a1a7c435970727804547e781797979ddcee661de5ec25,204,ok
 0959-94131180,https://www.rshb-am.ru/ajax/data.php?fund=1&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:29+00:00,56ece1c5333447760369323e5a54ae369300a2dfc88f47d5b1598f02f111ac0b,6393,ok
+0959-94131180,https://www.rshb-am.ru/ajax/data.php?fund=1&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:44+00:00,3ba6f546099b00bd5f32758127b96a346978a02391f3f8ebf680e85464ae5fad,153,ok
 5585,https://www.rshb-am.ru/ajax/data.php?fund=10&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:35+00:00,3fa08ada16ddf97e6e0c1237ee5233a76d2156f9cd5da58c368632505cb74ae9,6680,ok
+5585,https://www.rshb-am.ru/ajax/data.php?fund=10&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:21+00:00,29bfa057689650a96b9013d2c48cd5468527154958c8ed842afa7a52676bc8f5,162,ok
 2568,https://www.rshb-am.ru/ajax/data.php?fund=2&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:24+00:00,641a31e7d21214e180bd5d07bd32c09203b07b08e091ac88471de648d2d4db1d,6972,ok
+2568,https://www.rshb-am.ru/ajax/data.php?fund=2&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:41+00:00,31df6b8e7059f19f59e4ad0b38a9078e97c98fc7991785fe93debf8f444b8bd6,169,ok
 4057,https://www.rshb-am.ru/ajax/data.php?fund=22&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:14+00:00,e5dda02924df18038a3d4f3243bec67a193d1b3c967de8f1ddee8b11fa59eede,6919,ok
+4057,https://www.rshb-am.ru/ajax/data.php?fund=22&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:11+00:00,95474333ac57cbdbc2d75c22477a231591af1b75f2f37d312f302becb6328547,168,ok
 3906,https://www.rshb-am.ru/ajax/data.php?fund=23&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:54+00:00,479aad891344ff65ef8597aedbc37061fed417c2a37348202e6686e4fc74cd41,6679,ok
+3906,https://www.rshb-am.ru/ajax/data.php?fund=23&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:29+00:00,0a6e5b89903eab8b27fa6496aba74e8cc66a7aa6676835b2495e10eaf3a26862,161,ok
 2800,https://www.rshb-am.ru/ajax/data.php?fund=3&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:00+00:00,87b7f0f105af9390f34396eebb3bd6e48db49729e93ef15160850edb19aac32e,6968,ok
+2800,https://www.rshb-am.ru/ajax/data.php?fund=3&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:32+00:00,36f01649f992e48bf06b068c17d10405a9a8a822d791904d1120c4d92dd5b518,168,ok
 6673,https://www.rshb-am.ru/ajax/data.php?fund=35&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:06+00:00,ad14a36531cf22a00febc7aac3caf82722cf7d16d8958d4ce5dde64a9cb7f3b3,6686,ok
+6673,https://www.rshb-am.ru/ajax/data.php?fund=35&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:34+00:00,42fb1900b2c7d8d5b14f11f006ae8d54dd0aa8f57460f0ea0664fa8bd1892316,161,ok
 4362,https://www.rshb-am.ru/ajax/data.php?fund=36&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:12+00:00,d42c056288f3e7661ab7d4199c3d6ae289d4a5f40e41d2f8fcbe08e914259ea2,6687,ok
+4362,https://www.rshb-am.ru/ajax/data.php?fund=36&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:36+00:00,08df55c56444c53fd5596d9e31853ef9d694de716107510aaaa0ecbd34373851,160,ok
 2566,https://www.rshb-am.ru/ajax/data.php?fund=4&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:21+00:00,81ff84a1072221df3104290183419f1f0e84bec7595bd39fd64a93d129998f9e,6974,ok
+2566,https://www.rshb-am.ru/ajax/data.php?fund=4&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:14+00:00,23418681825973140629764d0638c0e1cb618afe9fe3c34e0ef32880460a7097,166,ok
 2797,https://www.rshb-am.ru/ajax/data.php?fund=5&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:49+00:00,ed556023af660b75321f0c9fc0a7df48bc7e1e43854f286af3450d968c029849,6972,ok
+2797,https://www.rshb-am.ru/ajax/data.php?fund=5&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:26+00:00,9191ae233e69b5d9d94b72dc53ec67b2485a0a223255ed80306e34fe05a82a72,169,ok
 7837,https://www.rshb-am.ru/ajax/data.php?fund=51&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:18+00:00,a2722ca85bc05dd325379f977f0251e2c4ee3f9596429f4092c6d6f9d034fca1,2534,ok
+7837,https://www.rshb-am.ru/ajax/data.php?fund=51&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:38+00:00,5fe16de3bd9f25c868d0a196c758c468022541ed2afba1d62cdb7e5232ffcaf6,168,ok
 2567,https://www.rshb-am.ru/ajax/data.php?fund=6&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:18:34+00:00,cdf4c09d36338b821dbf957652e7184c0f51c17b9769b9d18d634003e06f60f5,6972,ok
+2567,https://www.rshb-am.ru/ajax/data.php?fund=6&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:46+00:00,a10134fcd63ffe96bb6d8d48b9cc34704efa5f87f71332d49fec30a9e3fea889,167,ok
 2795,https://www.rshb-am.ru/ajax/data.php?fund=7&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:28+00:00,9645f3fd0486963132dc01a5228724cecd27563361def8311416f873d9c4b378,6975,ok
+2795,https://www.rshb-am.ru/ajax/data.php?fund=7&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:18+00:00,51724cadde540aa2fd02dd66a6167c01e0c476ebbcddafef1d99160d9e69398a,168,ok
 4140,https://www.rshb-am.ru/ajax/data.php?fund=9&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04,json,2026-11-04T12:17:43+00:00,2f90376d2bf24488acc5189118aa2abfe117f3595b4d06fe73c7940c5a14f021,6974,ok
+4140,https://www.rshb-am.ru/ajax/data.php?fund=9&type=&period=begin&date_from=2026-10-23&date_to=2026-11-04,json,2026-11-04T13:37:23+00:00,294667e8a5f71d1d0a9f1ccf206126970e64d55b55b032521f49c6af3f92957b,168,ok
 5585,https://www.rshb-am.ru/ajax/datapotok.php?fund=10&type=pro&period=begin&date_from=&date_to=2026-11-04,json,2026-11-04T12:17:38+00:00,214f4ed5ce051b023b88015396bdb3ce4d7349b2e520c80e8be5dcd03ceccd40,57556,ok
 4057,https://www.rshb-am.ru/birzhevye-paevye-investicionnye-fondy-bpif/bpif-rshb-indeks-mosbirzhi-rspp-vektor-ustoychivogo-razvitiya/,html,2026-11-04T12:17:11+00:00,52b48a5b2dcb7ac547593868e1f83d7945d1daf1634a01afd829777f07e25be1,533707,ok
 3906,https://www.rshb-am.ru/birzhevye-paevye-investicionnye-fondy-bpif/bpif-rshb-korporativnye-obligatsii-smart-beta-rshu/,html,2026-11-04T12:17:53+00:00,650f0e7b954877ca76d979490680f86fca8387fd5ba9c157f768d0ffd6b7c983,440707,ok
