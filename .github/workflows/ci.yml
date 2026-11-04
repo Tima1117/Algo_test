@@ -1,0 +1,25 @@
+# Тесты и сборка на каждый push: разборщики на фикстурах, нормализация, притоки, сайт.
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12', cache: pip, cache-dependency-path: pyproject.toml }
+      - run: pip install -e '.[dev]'
+      - name: Тесты (разборщики на настоящих фикстурах, нормализация, притоки)
+        run: python -m pytest -q
+      - name: Сборка данных из сохранённого сбора (без сети) и проверка воспроизводимости
+        run: |
+          python -m pif build --strict
+          git diff --stat --exit-code -- data/site data/series data/quality_report.md
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: site/package-lock.json }
+      - name: Сборка сайта
+        working-directory: site
+        run: npm ci && npm run build
