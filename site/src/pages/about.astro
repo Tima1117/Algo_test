@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { funds, meta, uks } from '../lib/data';
 import { date, host } from '../lib/format';
+import Hint from '../components/Hint.astro';
 
 const base = import.meta.env.BASE_URL;
 const byUk = uks.map((u) => {
@@ -55,7 +56,7 @@ const sk = meta.registry.skipped;
 
   <h2>Покрытие по управляющим компаниям</h2>
   <div class="table-wrap"><table>
-    <thead><tr><th>УК</th><th class="num">Фондов</th><th class="num">С рядом</th><th>Почему нет у остальных</th><th>Сайт</th></tr></thead>
+    <thead><tr><th>УК</th><th class="num">Фондов</th><th class="num">С рядом<Hint text="Сколько фондов этой УК с собранной историей СЧА и пая." /></th><th>Почему нет у остальных<Hint text="Статусы фондов УК без собранной истории." /></th><th>Сайт</th></tr></thead>
     <tbody>{byUk.map((u) => (
       <tr><td><a href={`${base}uk/${u.inn}/`}>{u.short}</a></td><td class="num">{u.funds}</td><td class="num">{u.funds_with_data}</td>
         <td class="muted">{u.reasons.join('; ')}</td><td>{u.site && <a href={u.site} rel="nofollow noopener" target="_blank">{host(u.site)}</a>}</td></tr>

@@ -1,0 +1,59 @@
+---
+// Подсказки в стиле algosphere.tech: тёмно-синий пузырь со стрелкой над элементом с data-tip.
+// Работает от наведения, от фокуса с клавиатуры и от нажатия на телефоне.
+---
+<script>
+  const tip = document.createElement('div');
+  tip.className = 'tip';
+  tip.setAttribute('role', 'tooltip');
+  document.body.append(tip);
+  let current: HTMLElement | null = null;
+
+  function place(el: HTMLElement) {
+    const r = el.getBoundingClientRect();
+    const t = tip.getBoundingClientRect();
+    const below = r.top - t.height - 10 < 0;
+    const top = (below ? r.bottom + 10 : r.top - t.height - 10) + scrollY;
+    const centre = r.left + r.width / 2;
+    const left = Math.max(8, Math.min(centre - t.width / 2, innerWidth - t.width - 8));
+    tip.style.top = `${top}px`;
+    tip.style.left = `${left + scrollX}px`;
+    tip.style.setProperty('--arrow-x', `${centre - left}px`);
+    tip.classList.toggle('below', below);
+  }
+
+  function show(el: HTMLElement) {
+    current = el;
+    tip.textContent = el.dataset.tip || '';
+    tip.classList.add('on');
+    place(el);
+  }
+
+  function hide() {
+    current = null;
+    tip.classList.remove('on');
+  }
+
+  document.addEventListener('mouseover', (e) => {
+    const el = (e.target as HTMLElement).closest<HTMLElement>('[data-tip]');
+    if (el && el !== current) show(el);
+    else if (!el && current && !current.matches(':focus')) hide();
+  });
+  document.addEventListener('focusin', (e) => {
+    const el = (e.target as HTMLElement).closest<HTMLElement>('[data-tip]');
+    if (el) show(el);
+  });
+  document.addEventListener('focusout', hide);
+  // нажатие на «?» не должно сортировать колонку, в заголовке которой он стоит
+  document.addEventListener('click', (e) => {
+    const el = (e.target as HTMLElement).closest<HTMLElement>('.qhint');
+    if (el) {
+      e.stopPropagation();
+      e.preventDefault();
+      show(el);   // не переключаем: на телефоне нажатию предшествует mouseover, и переключение сразу бы скрыло
+    } else if (!(e.target as HTMLElement).closest('[data-tip]')) hide();
+  }, true);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hide(); });
+  addEventListener('scroll', () => current && place(current), { passive: true });
+  addEventListener('resize', () => current && place(current));
+</script>

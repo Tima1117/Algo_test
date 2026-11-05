@@ -3,6 +3,8 @@ import Base from '../layouts/Base.astro';
 import Charts from '../components/Charts.astro';
 import { funds, market, meta, uks } from '../lib/data';
 import { money, month, sign } from '../lib/format';
+import Hint from '../components/Hint.astro';
+import { H } from '../lib/hints';
 
 const base = import.meta.env.BASE_URL;
 const ts = (m: string) => Date.UTC(+m.slice(0, 4), +m.slice(5, 7) - 1, 15) / 1000;
@@ -38,17 +40,17 @@ const covered = funds.filter((f) => f.n_points > 0).length;
     это нижняя оценка рынка, а не его полный размер.</p>
 
   <div class="grid two">
-    <div class="panel"><h3>Чистые притоки по типам, ₽ в месяц</h3><div class="chart" data-chart={JSON.stringify(flowByType)}></div></div>
-    <div class="panel"><h3>СЧА по типам, ₽</h3><div class="chart" data-chart={JSON.stringify(navByType)}></div></div>
+    <div class="panel"><h3>Чистые притоки по типам, ₽ в месяц<Hint text={`${H.marketFlowsChart} ${H.flow}`} /></h3><div class="chart" data-chart={JSON.stringify(flowByType)}></div></div>
+    <div class="panel"><h3>СЧА по типам, ₽<Hint text={H.marketNavChart} /></h3><div class="chart" data-chart={JSON.stringify(navByType)}></div></div>
   </div>
 
   {(['type', 'category'] as const).map((key) => (
     <>
-      <h2>{key === 'type' ? 'По типам фондов' : 'По категориям'}</h2>
+      <h2>{key === 'type' ? 'По типам фондов' : 'По категориям'}<Hint text={key === 'type' ? 'Открытые — паи можно купить и погасить у УК в любой рабочий день; биржевые — паи торгуются на бирже; интервальные — погашение только в интервалы, указанные в правилах.' : 'Категория фонда по правилам доверительного управления, как в реестре Банка России.'} /></h2>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>{key === 'type' ? 'Тип' : 'Категория'}</th><th class="num">Фондов с рядом</th><th class="num">СЧА, {month(meta.last_month)}</th>
-            <th class="num">Приток, мес</th><th class="num">Приток, кв</th><th class="num">Приток, 12 мес</th></tr></thead>
+          <thead><tr><th>{key === 'type' ? 'Тип' : 'Категория'}</th><th class="num">Фондов с рядом<Hint text={H.marketCoverage} /></th><th class="num">СЧА, {month(meta.last_month)}</th>
+            <th class="num">Приток, мес<Hint text={H.flowM} /></th><th class="num">Приток, кв<Hint text={H.flowQ} /></th><th class="num">Приток, 12 мес<Hint text={H.flowY} /></th></tr></thead>
           <tbody>
             {groups(key).map((g: any) => (
               <tr><td>{g.label}</td><td class="num">{g.n} из {g.all}</td><td class="num">{money(g.nav)}</td>
@@ -63,15 +65,15 @@ const covered = funds.filter((f) => f.n_points > 0).length;
 
   <div class="grid two" style="margin-top:10px">
     <div>
-      <h2>Топ-10 УК по СЧА</h2>
+      <h2>Топ-10 УК по СЧА<Hint text={H.topNav} /></h2>
       <div class="table-wrap"><table>
-        <thead><tr><th>#</th><th>УК</th><th class="num">СЧА</th><th class="num">Фондов с рядом</th></tr></thead>
+        <thead><tr><th>#</th><th>УК</th><th class="num">СЧА</th><th class="num">Фондов с рядом<Hint text={H.marketCoverage} /></th></tr></thead>
         <tbody>{topNav.map((u, i) => <tr><td class="mono">{i + 1}</td><td><a href={`${base}uk/${u.inn}/`}>{u.short}</a></td>
           <td class="num">{money(u.nav_rub)}</td><td class="num">{u.funds_with_data} из {u.funds}</td></tr>)}</tbody>
       </table></div>
     </div>
     <div>
-      <h2>Топ-10 УК по притокам за 12 месяцев</h2>
+      <h2>Топ-10 УК по притокам за 12 месяцев<Hint text={H.topFlow} /></h2>
       <div class="table-wrap"><table>
         <thead><tr><th>#</th><th>УК</th><th class="num">Приток, 12 мес</th><th class="num">Приток, мес</th></tr></thead>
         <tbody>{topFlow.map((u, i) => <tr><td class="mono">{i + 1}</td><td><a href={`${base}uk/${u.inn}/`}>{u.short}</a></td>

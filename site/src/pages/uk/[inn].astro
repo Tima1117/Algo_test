@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import Charts from '../../components/Charts.astro';
 import { COMPARE_UK_URL, funds, meta, uks, type Uk } from '../../lib/data';
 import { date, host, money, month, pct, sign } from '../../lib/format';
+import Hint from '../../components/Hint.astro';
+import { H } from '../../lib/hints';
 
 export function getStaticPaths() {
   return uks.map((u) => ({ params: { inn: u.inn }, props: { u } }));
@@ -26,27 +28,27 @@ const statusClass = (s: string) => (s === 'ok' ? 'ok' : ['partial', 'stale', 'no
   <h1>{u.short}</h1>
   <p class="muted">{u.name} · ИНН <span class="mono">{u.inn}</span> · ОГРН <span class="mono">{u.ogrn}</span>
     {u.site && <> · <a href={u.site} rel="nofollow noopener" target="_blank">{host(u.site)}</a></>}</p>
-  <p><a class="btn" href={`${COMPARE_UK_URL}?inn=${u.inn}`}>Открыть в разделе «Сравнить УК»</a>
-    <a class="btn" href={`${base}?uk=${u.inn}`}>Фонды УК в рейтинге</a></p>
+  <p><a class="btn" href={`${COMPARE_UK_URL}?inn=${u.inn}`} data-tip={H.compareUk}>Открыть в разделе «Сравнить УК»</a>
+    <a class="btn" href={`${base}?uk=${u.inn}`} data-tip="Открыть общий рейтинг с фильтром по этой УК">Фонды УК в рейтинге</a></p>
 
   <div class="grid kpis">
-    <div class="panel kpi"><div class="label">Розничных фондов</div><div class="value">{u.funds}</div><div class="hint">с рядом: {u.funds_with_data}</div></div>
-    <div class="panel kpi"><div class="label">Суммарная СЧА</div><div class="value">{money(u.nav_rub)}</div><div class="hint">по фондам с рядом, {date(meta.as_of)}</div></div>
-    <div class="panel kpi"><div class="label">Приток, {month(meta.last_month)}</div><div class={`value ${sign(u.flow_m)}`}>{money(u.flow_m)}</div><div class="hint">квартал: {money(u.flow_q)}</div></div>
-    <div class="panel kpi"><div class="label">Приток за 12 месяцев</div><div class={`value ${sign(u.flow_y)}`}>{money(u.flow_y)}</div><div class="hint">сумма по фондам с полным годом</div></div>
+    <div class="panel kpi"><div class="label">Розничных фондов<Hint text={H.ukFunds} /></div><div class="value">{u.funds}</div><div class="hint">с рядом: {u.funds_with_data}</div></div>
+    <div class="panel kpi"><div class="label">Суммарная СЧА<Hint text={H.ukNav} /></div><div class="value">{money(u.nav_rub)}</div><div class="hint">по фондам с рядом, {date(meta.as_of)}</div></div>
+    <div class="panel kpi"><div class="label">Приток, {month(meta.last_month)}<Hint text={`${H.flowM} ${H.flow}`} /></div><div class={`value ${sign(u.flow_m)}`}>{money(u.flow_m)}</div><div class="hint">квартал: {money(u.flow_q)}</div></div>
+    <div class="panel kpi"><div class="label">Приток за 12 месяцев<Hint text={H.flowY} /></div><div class={`value ${sign(u.flow_y)}`}>{money(u.flow_y)}</div><div class="hint">сумма по фондам с полным годом</div></div>
   </div>
 
   {u.funds_with_data > 0 && (
     <div class="grid two">
-      <div class="panel"><h3>СЧА по месяцам</h3><div class="chart" data-chart={JSON.stringify(navChart)}></div></div>
-      <div class="panel"><h3>Чистые притоки по месяцам</h3><div class="chart" data-chart={JSON.stringify(chart)}></div></div>
+      <div class="panel"><h3>СЧА по месяцам<Hint text="Сумма СЧА фондов УК с собранной историей на конец каждого месяца. Если у фонда история начинается позже, он входит в сумму с этого месяца." /></h3><div class="chart" data-chart={JSON.stringify(navChart)}></div></div>
+      <div class="panel"><h3>Чистые притоки по месяцам<Hint text={`Сумма чистых притоков фондов УК по месяцам. ${H.flow}`} /></h3><div class="chart" data-chart={JSON.stringify(chart)}></div></div>
     </div>
   )}
 
   <h2>Фонды</h2>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Фонд</th><th class="num">СЧА</th><th class="num">Приток, мес</th><th class="num">Приток, год</th><th class="num">1 год</th><th>Данные</th></tr></thead>
+      <thead><tr><th>Фонд</th><th class="num">СЧА<Hint text={H.nav} /></th><th class="num">Приток, мес<Hint text={H.flowM} /></th><th class="num">Приток, год<Hint text={H.flowY} /></th><th class="num">1 год<Hint text={H.ret} /></th><th>Данные<Hint text={H.dataStatus} /></th></tr></thead>
       <tbody>
         {list.map((f) => (
           <tr>
@@ -55,7 +57,7 @@ const statusClass = (s: string) => (s === 'ok' ? 'ok' : ['partial', 'stale', 'no
             <td class={`num ${sign(f.flow_m)}`}>{money(f.flow_m)}</td>
             <td class={`num ${sign(f.flow_y)}`}>{money(f.flow_y)}</td>
             <td class={`num ${sign(f.ret_1y)}`}>{pct(f.ret_1y)}</td>
-            <td><span class={`badge ${statusClass(f.data_status)}`} title={f.data_reason}>{f.data_status_label}</span></td>
+            <td><span class={`badge ${statusClass(f.data_status)}`} data-tip={f.data_reason || f.data_status_label}>{f.data_status_label}</span></td>
           </tr>
         ))}
       </tbody>

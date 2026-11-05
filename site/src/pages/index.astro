@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import { funds, meta, quality, uks } from '../lib/data';
 import { date, money, month, pct, sign } from '../lib/format';
+import Hint from '../components/Hint.astro';
+import { H } from '../lib/hints';
 
 const base = import.meta.env.BASE_URL;
 const sorted = [...funds].sort((a, b) => (b.nav_rub ?? -1) - (a.nav_rub ?? -1));
@@ -23,20 +25,20 @@ const attr = (v: number | null) => (v === null || v === undefined ? '' : String(
   </p>
 
   <div class="grid kpis">
-    <div class="panel kpi"><div class="label">Фондов в реестре</div><div class="value">{funds.length}</div>
+    <div class="panel kpi"><div class="label">Фондов в реестре<Hint text={H.funds} /></div><div class="value">{funds.length}</div>
       <div class="hint">{uks.length} управляющих компаний</div></div>
-    <div class="panel kpi"><div class="label">С собранной историей</div><div class="value">{withData}</div>
+    <div class="panel kpi"><div class="label">С собранной историей<Hint text={H.withData} /></div><div class="value">{withData}</div>
       <div class="hint">у остальных — статус с причиной</div></div>
-    <div class="panel kpi"><div class="label">СЧА собранных фондов</div><div class="value">{money(navTotal)}</div>
+    <div class="panel kpi"><div class="label">СЧА собранных фондов<Hint text={H.navTotal} /></div><div class="value">{money(navTotal)}</div>
       <div class="hint">на {date(meta.as_of)}</div></div>
-    <div class="panel kpi"><div class="label">Чистый приток, {month(meta.last_month)}</div>
+    <div class="panel kpi"><div class="label">Чистый приток, {month(meta.last_month)}<Hint text={`${H.flowMarket} ${H.flow}`} /></div>
       <div class={`value ${sign(flowMonth)}`}>{money(flowMonth)}</div><div class="hint">по фондам с рядом</div></div>
   </div>
 
   {!quality.publish_allowed && <div class="note bad">Последний прогон нашёл ошибки сбора или разбора — данные не обновлялись. Подробности в разделе «Качество данных».</div>}
 
   <form class="filters" id="filters" role="search" onsubmit="return false">
-    <input type="search" name="q" placeholder="Название, ISIN, тикер или номер правил" aria-label="Поиск" />
+    <input type="search" name="q" placeholder="Название, ISIN, тикер или номер правил" aria-label="Поиск" data-tip={H.search} />
     <select name="type" aria-label="Тип">
       <option value="">Все типы</option><option value="open">Открытые</option>
       <option value="exchange">Биржевые</option><option value="interval">Интервальные</option>
@@ -50,8 +52,8 @@ const attr = (v: number | null) => (v === null || v === undefined ? '' : String(
     <select name="cur" aria-label="Валюта">
       <option value="">Любая валюта</option>{currencies.map((c) => <option value={c}>{c}</option>)}
     </select>
-    <label><input type="checkbox" name="has" value="1" /> только с данными</label>
-    <a class="btn" href={`${base}data/rating.csv`} download>Скачать CSV</a>
+    <label data-tip={H.hasData}><input type="checkbox" name="has" value="1" /> только с данными</label>
+    <a class="btn" href={`${base}data/rating.csv`} download data-tip={H.csvRating}>Скачать CSV</a>
   </form>
   <p class="count" id="count"></p>
 
@@ -60,15 +62,15 @@ const attr = (v: number | null) => (v === null || v === undefined ? '' : String(
       <thead>
         <tr>
           <th class="sticky-col sortable" data-key="name">Фонд</th>
-          <th class="num sortable" data-key="nav" aria-sort="descending">СЧА</th>
-          <th class="num sortable" data-key="fm" title={`Чистый приток за ${month(meta.last_month)}`}>Приток, мес</th>
-          <th class="num sortable" data-key="fq" title="За последние 3 полных месяца">Приток, кв</th>
-          <th class="num sortable" data-key="fy" title="За последние 12 полных месяцев">Приток, год</th>
-          <th class="num sortable" data-key="r1m">1 мес</th>
-          <th class="num sortable" data-key="r3m">3 мес</th>
-          <th class="num sortable" data-key="r6m">6 мес</th>
-          <th class="num sortable" data-key="r1y">1 год</th>
-          <th class="hide-sm">Данные</th>
+          <th class="num sortable" data-key="nav" aria-sort="descending">СЧА<Hint text={H.nav} /></th>
+          <th class="num sortable" data-key="fm">Приток, мес<Hint text={`${H.flowM} Сейчас это ${month(meta.last_month)}. ${H.flow}`} /></th>
+          <th class="num sortable" data-key="fq">Приток, кв<Hint text={H.flowQ} /></th>
+          <th class="num sortable" data-key="fy">Приток, год<Hint text={H.flowY} /></th>
+          <th class="num sortable" data-key="r1m">1 мес<Hint text={H.ret} /></th>
+          <th class="num sortable" data-key="r3m">3 мес<Hint text={H.ret} /></th>
+          <th class="num sortable" data-key="r6m">6 мес<Hint text={H.ret} /></th>
+          <th class="num sortable" data-key="r1y">1 год<Hint text={H.ret} /></th>
+          <th class="hide-sm">Данные<Hint text={H.dataStatus} /></th>
         </tr>
       </thead>
       <tbody>
@@ -90,11 +92,11 @@ const attr = (v: number | null) => (v === null || v === undefined ? '' : String(
               const v = f[`ret_${k}`];
               const off = f.official[k];
               const bad = off && off.status.startsWith('расхождение');
-              return <td class={`num ${sign(v)}`} title={off ? `Официальная: ${pct(off.value)} на ${date(off.as_of)} — ${off.status}` : ''}>
-                {pct(v)}{bad && <span class="badge warn" title="Расходится с официальной доходностью больше чем на 0,5 п. п."> ≠</span>}
+              return <td class={`num ${sign(v)}`} data-tip={off ? `Официальная доходность УК: ${pct(off.value)} на ${date(off.as_of)} — ${off.status}` : undefined}>
+                {pct(v)}{bad && <span class="badge warn" data-tip={H.retMismatch}> ≠</span>}
               </td>;
             })}
-            <td class="hide-sm"><span class={`badge ${statusClass(f.data_status)}`} title={f.data_reason}>{f.data_status_label}</span></td>
+            <td class="hide-sm"><span class={`badge ${statusClass(f.data_status)}`} data-tip={f.data_reason || f.data_status_label}>{f.data_status_label}</span></td>
           </tr>
         ))}
       </tbody>

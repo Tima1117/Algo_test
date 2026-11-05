@@ -1,0 +1,6 @@
+---
+// Значок «?» с подсказкой. Текст показывает общий скрипт из Tooltips.astro (наведение, фокус, нажатие).
+interface Props { text: string }
+const { text } = Astro.props;
+---
+<span class="qhint" tabindex="0" role="button" aria-label={`Подсказка: ${text}`} data-tip={text}>?</span>

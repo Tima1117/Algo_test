@@ -131,3 +131,18 @@ footer.bottom { border-top: 1px solid var(--line); padding: 24px 0 40px; color: 
   dl.props { grid-template-columns: 1fr; gap: 2px; }
   dl.props dd { margin-bottom: 8px; }
 }
+
+/* Подсказки: значок «?» и пузырь как у algosphere.tech */
+.qhint { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; margin-left: 5px;
+  border-radius: 50%; border: 1px solid rgba(146, 152, 186, .5); color: var(--muted); font: 600 10px/1 Inter, sans-serif;
+  cursor: help; vertical-align: 1px; flex: none; text-transform: none; letter-spacing: 0; user-select: none; }
+.qhint:hover, .qhint:focus-visible { color: var(--text); border-color: var(--cyan); outline: none; }
+[data-tip]:not(.qhint):not(a) { cursor: help; }
+.tip { position: absolute; z-index: 100; top: 0; left: 0; max-width: min(320px, calc(100vw - 16px)); padding: 8px 12px;
+  background: #19247f; color: #fff; font: 400 13px/1.45 Inter, sans-serif; border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .45); pointer-events: none; opacity: 0; transform: translateY(4px);
+  transition: opacity .12s, transform .12s; text-align: left; white-space: normal; }
+.tip.on { opacity: 1; transform: none; }
+.tip::after { content: ''; position: absolute; left: var(--arrow-x, 50%); top: 100%; transform: translateX(-50%);
+  border: 6px solid transparent; border-top-color: #19247f; }
+.tip.below::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: #19247f; }
