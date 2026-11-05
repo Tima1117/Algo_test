@@ -14,7 +14,7 @@ const s = series(f.rules);
 const base = import.meta.env.BASE_URL;
 const ts = (d: string) => Date.UTC(+d.slice(0, 4), +d.slice(5, 7) - 1, +d.slice(8, 10)) / 1000;
 const srcUrl = (id: number) => (s ? s.sources[id]?.page || s.sources[id]?.url : null);
-const cur = f.currency === 'RUB' ? '₽' : f.currency;
+const cur = !f.currency || f.currency === 'RUB' ? '₽' : f.currency;
 const PERIOD_LABEL: Record<string, string> = { '1m': '1 месяц', '3m': '3 месяца', '6m': '6 месяцев', '1y': '1 год' };
 const statusClass = ['ok'].includes(f.data_status) ? 'ok' : ['partial', 'stale', 'not_formed'].includes(f.data_status) ? 'warn' : 'bad';
 
@@ -49,7 +49,7 @@ const flowChart = s && {
 
   <div class="grid kpis">
     <div class="panel kpi"><div class="label">СЧА<Hint text={H.nav} /></div><div class="value">{money(f.nav_rub)}</div>
-      <div class="hint">{f.currency !== 'RUB' && f.nav !== null ? `${money(f.nav, f.currency)} · ` : ''}на {date(f.last_date)}</div></div>
+      <div class="hint">{f.currency && f.currency !== 'RUB' && f.nav !== null ? `${money(f.nav, f.currency)} · ` : ''}на {date(f.last_date)}</div></div>
     <div class="panel kpi"><div class="label">Стоимость пая<Hint text={H.price} /></div><div class="value">{f.price === null ? '—' : `${num(f.price, 2)} ${cur}`}</div>
       <div class="hint">на {date(f.ret_as_of)}</div></div>
     <div class="panel kpi"><div class="label">Приток, {month(meta.last_month)}<Hint text={`${H.flowM} ${H.flow}`} /></div><div class={`value ${sign(f.flow_m)}`}>{money(f.flow_m)}</div>
@@ -68,7 +68,7 @@ const flowChart = s && {
         <dt>Дата регистрации</dt><dd>{date(f.reg_date)}</dd>
         <dt>Статус в реестре ЦБ<Hint text={H.registryStatus} /></dt><dd>{f.status}</dd>
         <dt>ISIN / тикер<Hint text={H.isin} /></dt><dd class="mono">{f.isin ?? '—'} / {f.ticker ?? '—'}</dd>
-        <dt>Валюта пая</dt><dd>{f.currency}</dd>
+        <dt>Валюта пая</dt><dd>{f.currency ?? 'неизвестна — нет данных УК'}</dd>
         <dt>Страница фонда у УК<Hint text={H.pageUk} /></dt><dd>{f.page_url ? <a href={f.page_url} rel="nofollow noopener" target="_blank">{host(f.page_url)}</a> : '—'}</dd>
         <dt>Ряд<Hint text={H.series} /></dt><dd>{f.n_points ? `${f.n_points} точек, ${date(f.first_date)} — ${date(f.last_date)}, ${({daily: 'ежедневно', weekly: 'еженедельно', monthly: 'ежемесячно'} as any)[f.frequency ?? ''] ?? f.frequency}` : 'нет'}</dd>
       </dl>

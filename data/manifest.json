@@ -3544,14 +3544,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/7e727743389fa7a72380.json",
-  "fetched_at": "2026-11-04T11:31:38+00:00",
+  "fetched_at": "2026-11-05T12:53:04+00:00",
   "sha256": "aa2188e335ee40caf1e69e0a4a8530a636a1f784a62062698d5b39ac806ece3e",
   "bytes": 32131,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok"
+  "status": "ok (не изменился)"
  },
  {
   "key": "f249b80cb463be245c12",
@@ -3561,14 +3561,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/f249b80cb463be245c12.json",
-  "fetched_at": "2026-11-04T11:31:38+00:00",
+  "fetched_at": "2026-11-05T12:53:05+00:00",
   "sha256": "fd0267c1b0b7d3da3846f7ab36fed4e66c4831815163d923b3bc1551f229a2a0",
   "bytes": 31797,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok"
+  "status": "ok (не изменился)"
  },
  {
   "key": "6c4f65e63bce7fb7ee15",
@@ -3578,14 +3578,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/6c4f65e63bce7fb7ee15.json",
-  "fetched_at": "2026-11-04T11:31:39+00:00",
+  "fetched_at": "2026-11-05T12:53:06+00:00",
   "sha256": "3aa4d4146667726dde085c0c3947c222781b2a08feae3a12abfc0edcef038c97",
   "bytes": 31133,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok"
+  "status": "ok (не изменился)"
  },
  {
   "key": "214c0576903288adf794",
@@ -3595,14 +3595,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/214c0576903288adf794.json",
-  "fetched_at": "2026-11-04T11:31:41+00:00",
+  "fetched_at": "2026-11-05T12:53:07+00:00",
   "sha256": "ddf1c87c1ab454b18373a79c094d70944527b9db7c17246b02f275ce29c1fa98",
   "bytes": 32082,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok"
+  "status": "ok (не изменился)"
  },
  {
   "key": "512ff6a759d67d41046a",
@@ -3612,14 +3612,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/512ff6a759d67d41046a.json",
-  "fetched_at": "2026-11-04T11:31:42+00:00",
+  "fetched_at": "2026-11-05T12:53:08+00:00",
   "sha256": "c1219609f89fd52a71e259e5ae111d3962247eb6a4ca03dd9a1a4dcbb834b68f",
   "bytes": 34366,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok"
+  "status": "ok (не изменился)"
  },
  {
   "key": "17d596d29356bd0e961f",
@@ -3629,14 +3629,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/17d596d29356bd0e961f.json",
-  "fetched_at": "2026-11-04T11:31:43+00:00",
+  "fetched_at": "2026-11-05T12:53:09+00:00",
   "sha256": "8d619a7f810c17a92431e6748f8045e85147d759a0885af42a1e23137d990f9d",
   "bytes": 34494,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok"
+  "status": "ok (не изменился)"
  },
  {
   "key": "366921bb8e861c778ace",
@@ -3646,14 +3646,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/366921bb8e861c778ace.json",
-  "fetched_at": "2026-11-04T11:31:44+00:00",
+  "fetched_at": "2026-11-05T12:53:10+00:00",
   "sha256": "1c324d575b255e1c322e33abd9fa5d98614142fb4902d90c70772b39cd85264b",
   "bytes": 35033,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok"
+  "status": "ok (не изменился)"
  },
  {
   "key": "0f2d15aeca1fbe979829",
@@ -3663,14 +3663,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/0f2d15aeca1fbe979829.json",
-  "fetched_at": "2026-11-04T11:31:45+00:00",
+  "fetched_at": "2026-11-05T12:53:11+00:00",
   "sha256": "441cef55f71f8e2bafb93318daa3277907daee6d4a6961657edcffd7d2b73ac3",
   "bytes": 35028,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok"
+  "status": "ok (не изменился)"
  },
  {
   "key": "2fbd6eea777b75dbc223",
@@ -3680,14 +3680,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/2fbd6eea777b75dbc223.json",
-  "fetched_at": "2026-11-04T11:31:46+00:00",
+  "fetched_at": "2026-11-05T12:53:12+00:00",
   "sha256": "682061be83ce22849858223b3f2ba12ee0741d3d93aad83aed0a6a15c0ea98d3",
   "bytes": 33416,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok"
+  "status": "ok (не изменился)"
  },
  {
   "key": "5edfad4d19b74e21387a",
@@ -3697,14 +3697,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/5edfad4d19b74e21387a.json",
-  "fetched_at": "2026-11-04T11:31:47+00:00",
+  "fetched_at": "2026-11-05T12:53:14+00:00",
   "sha256": "ec43430d1bf9f00c509e836baaa16c401e106bc344f2f36ea4ce095dccf90c54",
   "bytes": 16533,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok"
+  "status": "ok (не изменился)"
  },
  {
   "key": "148e94842da2ce8e1228",
@@ -13013,14 +13013,14 @@
   "funds": [],
   "method": "GET",
   "path": "www.cbr.ru/efbafaf9466b857aa58d.txt",
-  "fetched_at": "2026-11-04T11:31:33+00:00",
+  "fetched_at": "2026-11-05T12:53:00+00:00",
   "sha256": "36a7b9c67579c3e17ea9341be49ca722992af32e40aa26f5efa8a5b82eff84c3",
   "bytes": 300,
-  "http_status": 200,
+  "http_status": 304,
   "etag": "\"40b1b8e815dd1:0\"",
   "last_modified": "Fri, 26 Jun 2026 15:36:28 GMT",
   "content_type": "text/plain",
-  "status": "ok"
+  "status": "ok (304, не изменился)"
  },
  {
   "key": "39582b07f4a4d41ad526",
@@ -13132,12 +13132,12 @@
   "funds": [],
   "method": "GET",
   "path": "www.cbr.ru/99afefa62fb1532edd74.xlsx",
-  "fetched_at": "2026-11-04T11:31:34+00:00",
-  "sha256": "45c77ad4b5f0eb908078b09914c9663bc76a5243be817c79b788d8cc0770063a",
-  "bytes": 171729,
+  "fetched_at": "2026-11-05T12:53:01+00:00",
+  "sha256": "79dc604f31e9188ff146917fb5a4f0761675073e8bbae4c89e284548a6d3cc91",
+  "bytes": 171730,
   "http_status": 200,
   "etag": null,
-  "last_modified": "Wed, 04 Nov 2026 03:42:50 GMT",
+  "last_modified": "Thu, 05 Nov 2026 03:46:04 GMT",
   "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   "status": "ok"
  },
@@ -13149,12 +13149,12 @@
   "funds": [],
   "method": "GET",
   "path": "www.cbr.ru/8c25c887ad9084a3e2af.xlsx",
-  "fetched_at": "2026-11-04T11:31:36+00:00",
-  "sha256": "9308a2caad57c853fbf10dcb43675cd83e47721e89b9f4868a71ea1fc7146b43",
-  "bytes": 1760639,
+  "fetched_at": "2026-11-05T12:53:03+00:00",
+  "sha256": "14deb574480777996176f8557288571be5dee93beeb6e1ee16eb852f534f9489",
+  "bytes": 1760708,
   "http_status": 200,
   "etag": null,
-  "last_modified": "Wed, 04 Nov 2026 02:08:36 GMT",
+  "last_modified": "Thu, 05 Nov 2026 02:07:58 GMT",
   "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   "status": "ok"
  },

@@ -119,7 +119,8 @@ def build_all() -> bool:
                                        "currency": "RUB", "official_returns": []}
         status, reason = c.get("status", "ok"), c.get("reason", "")
         n = normalized.get(f.rules)
-        currency = c.get("currency") or "RUB"
+        # валюту пая знаем только от УК; у фондов без данных честно «неизвестна», а не рубли по умолчанию
+        currency = (c.get("currency") or "RUB") if n is not None else None
         s = {**f.to_dict(), "type_label": TYPE_LABELS[f.type], "currency": currency,
              "page_url": c.get("page_url"), "last_date": None, "nav": None, "nav_rub": None, "price": None,
              "flow_m": None, "flow_q": None, "flow_y": None, "ret_as_of": None,
@@ -280,9 +281,11 @@ def write_quality_md(q: dict, corrections: list[dict]) -> None:
     L += ["", f"## Сверка доходности с официальной (допуск {0.5} п. п.)", "",
           f"Сравнений: {q['checks']['total']}, сошлось: {q['checks']['ok']}, расхождений: {q['checks']['discrepancies']}.", ""]
     if q["discrepancies"]:
-        L += ["| Фонд | УК | Период | На дату | Наша, % | Официальная, % | Разница, п. п. | Источник |", "|---|---|---|---|---|---|---|---|"]
+        L += ["| Фонд | УК | Период | На дату | Наша, % | Официальная, % | Разница, п. п. | Источник | Вероятная причина |",
+              "|---|---|---|---|---|---|---|---|---|"]
         L += [f"| {d.get('fund', d['rules'])} ({d['rules']}) | {d.get('uk', '')} | {d['period']} | {d['as_of']} | {d['ours']} | "
-              f"{d['official']} | {d['diff_pp']} | {d['source_url']} |" for d in q["discrepancies"]]
+              f"{d['official']} | {d['diff_pp']} | {d['source_url']} | {d.get('hint') or 'не установлена'} |"
+              for d in q["discrepancies"]]
     L += ["", "## Ошибки сбора и разбора (блокируют публикацию)", ""]
     L += [f"- {e['uk'] or ''} {e['rules'] or ''}: {e['message']}" for e in q["errors"]] or ["Нет."]
     L += ["", "## Предупреждения (сайт недоступен, данные не обновились)", ""]

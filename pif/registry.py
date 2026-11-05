@@ -157,7 +157,8 @@ def parse_moex_page(doc: RawDoc) -> list[dict]:
 
 
 def fetch_moex(http: Fetcher) -> dict[str, dict]:
-    """Номер правил -> {isin, ticker}. Берём только торгуемые паи (is_traded=1)."""
+    """Номер правил -> {isin, ticker}. ISIN — у любой бумаги справочника (в том числе у паёв, которые
+    сейчас не торгуются), тикер — только у торгуемых (is_traded=1)."""
     out: dict[str, dict] = {}
     start = 0
     while True:
@@ -167,10 +168,12 @@ def fetch_moex(http: Fetcher) -> dict[str, dict]:
         page = parse_moex_page(doc)
         for s in page:
             reg = str(s.get("regnumber") or "").strip()
-            if not reg or not s.get("is_traded"):
+            if not reg or not s.get("isin"):
                 continue
-            # у одного фонда может быть несколько бумаг (рублёвая/валютная) — берём основную
-            out.setdefault(reg, {"isin": s.get("isin"), "ticker": s.get("secid")})
+            entry = {"isin": s["isin"], "ticker": s.get("secid") if s.get("is_traded") else None}
+            # у одного фонда может быть несколько бумаг — предпочитаем торгуемую
+            if reg not in out or (entry["ticker"] and not out[reg]["ticker"]):
+                out[reg] = entry
         if len(page) < 100:
             break
         start += 100

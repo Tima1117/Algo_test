@@ -4,16 +4,16 @@
   "source_page": "https://www.cbr.ru/registries/RSCI/",
   "uk_source": "https://www.cbr.ru/vfs/finmarkets/files/supervision/list_managementcompanies.xlsx",
   "isin_source": "https://iss.moex.com/iss/securities.json (группа stock_ppif)",
-  "fetched_at": "2026-11-04T11:31:36+00:00",
-  "fund_registry_sha256": "9308a2caad57c853fbf10dcb43675cd83e47721e89b9f4868a71ea1fc7146b43",
-  "uk_registry_as_of": "2026-11-04",
+  "fetched_at": "2026-11-05T12:53:03+00:00",
+  "fund_registry_sha256": "14deb574480777996176f8557288571be5dee93beeb6e1ee16eb852f534f9489",
+  "uk_registry_as_of": "2026-11-05",
   "skipped": {
    "qualified_only": 164,
    "other_type_or_status": 7591,
    "no_uk_in_license_registry": 0
   },
-  "with_isin": 156,
-  "collected_on": "2026-11-04"
+  "with_isin": 185,
+  "collected_on": "2026-11-05"
  },
  "funds": [
   {
@@ -49,7 +49,7 @@
    "uk_inn": "7730149408",
    "uk_site": "https://www.region-am.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0B9QA4",
    "ticker": null
   },
   {
@@ -139,7 +139,7 @@
    "uk_inn": "7730149408",
    "uk_site": "https://www.region-am.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0DNSP1",
    "ticker": null
   },
   {
@@ -157,7 +157,7 @@
    "uk_inn": "7730149408",
    "uk_site": "https://www.region-am.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0DNSN6",
    "ticker": null
   },
   {
@@ -1147,7 +1147,7 @@
    "uk_inn": "7701140866",
    "uk_site": "https://www.wealthim.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0JNWK1",
    "ticker": null
   },
   {
@@ -2263,7 +2263,7 @@
    "uk_inn": "7710183778",
    "uk_site": "https://www.first-am.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A1002D0",
    "ticker": null
   },
   {
@@ -2281,7 +2281,7 @@
    "uk_inn": "7710183778",
    "uk_site": "https://www.first-am.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0EQ3P7",
    "ticker": null
   },
   {
@@ -2623,7 +2623,7 @@
    "uk_inn": "7710183778",
    "uk_site": "https://www.first-am.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0JP4R7",
    "ticker": null
   },
   {
@@ -2947,7 +2947,7 @@
    "uk_inn": "7710183778",
    "uk_site": "https://www.first-am.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0EQ3Q5",
    "ticker": null
   },
   {
@@ -3019,7 +3019,7 @@
    "uk_inn": "7710183778",
    "uk_site": "https://www.first-am.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0EQ3R3",
    "ticker": null
   },
   {
@@ -3037,7 +3037,7 @@
    "uk_inn": "7710183778",
    "uk_site": "https://www.first-am.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0JX1H4",
    "ticker": null
   },
   {
@@ -3793,7 +3793,7 @@
    "uk_inn": "7838059090",
    "uk_site": "https://redbridge-am.com",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0JPCM4",
    "ticker": null
   },
   {
@@ -3829,7 +3829,7 @@
    "uk_inn": "7706285907",
    "uk_site": "http://www.am-metropol.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0B76E6",
    "ticker": null
   },
   {
@@ -3973,7 +3973,7 @@
    "uk_inn": "3808083878",
    "uk_site": "https://www.energy-invest.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0JPMP6",
    "ticker": null
   },
   {
@@ -4027,7 +4027,7 @@
    "uk_inn": "7718218817",
    "uk_site": "https://www.upravlyaem.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0JPR68",
    "ticker": null
   },
   {
@@ -4171,7 +4171,7 @@
    "uk_inn": "7718218817",
    "uk_site": "https://www.upravlyaem.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0JPR92",
    "ticker": null
   },
   {
@@ -4243,7 +4243,7 @@
    "uk_inn": "7718218817",
    "uk_site": "https://www.upravlyaem.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0JPR84",
    "ticker": null
   },
   {
@@ -4279,7 +4279,7 @@
    "uk_inn": "6454074653",
    "uk_site": "https://www.ew-mc.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A101F29",
    "ticker": null
   },
   {
@@ -5179,7 +5179,7 @@
    "uk_inn": "7826685368",
    "uk_site": "https://www.dohod.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0JP0K0",
    "ticker": null
   },
   {
@@ -5359,7 +5359,7 @@
    "uk_inn": "7826685368",
    "uk_site": "https://www.dohod.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0JP641",
    "ticker": null
   },
   {
@@ -5683,7 +5683,7 @@
    "uk_inn": "7728142469",
    "uk_site": "https://www.alfacapital.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0ERNJ4",
    "ticker": null
   },
   {
@@ -6007,7 +6007,7 @@
    "uk_inn": "7728142469",
    "uk_site": "https://www.alfacapital.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0HNST4",
    "ticker": null
   },
   {
@@ -6313,7 +6313,7 @@
    "uk_inn": "7728142469",
    "uk_site": "https://www.alfacapital.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0JP4U1",
    "ticker": null
   },
   {
@@ -6403,7 +6403,7 @@
    "uk_inn": "7728142469",
    "uk_site": "https://www.alfacapital.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0JNK00",
    "ticker": null
   },
   {
@@ -6439,7 +6439,7 @@
    "uk_inn": "7728142469",
    "uk_site": "https://www.alfacapital.ru",
    "exchange_tradable": true,
-   "isin": null,
+   "isin": "RU000A0JNK34",
    "ticker": null
   },
   {
@@ -6565,7 +6565,7 @@
    "uk_inn": "1435126890",
    "uk_site": "https://www.akbars-capital.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0JPSN8",
    "ticker": null
   },
   {
@@ -6583,7 +6583,7 @@
    "uk_inn": "1435126890",
    "uk_site": "https://www.akbars-capital.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0JPSH0",
    "ticker": null
   },
   {
@@ -6619,7 +6619,7 @@
    "uk_inn": "1435126890",
    "uk_site": "https://www.akbars-capital.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0F5GJ0",
    "ticker": null
   },
   {
@@ -6655,7 +6655,7 @@
    "uk_inn": "1435126890",
    "uk_site": "https://www.akbars-capital.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0F6N86",
    "ticker": null
   },
   {
@@ -7051,7 +7051,7 @@
    "uk_inn": "7825489723",
    "uk_site": "https://www.tkbip.ru",
    "exchange_tradable": false,
-   "isin": null,
+   "isin": "RU000A0JNUZ3",
    "ticker": null
   },
   {

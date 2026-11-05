@@ -14,7 +14,7 @@ export interface FundSummary {
   rules: string; name: string; full_name: string; type: 'open' | 'interval' | 'exchange'; type_label: string;
   category: string; status: string; reg_date: string; formation_end: string | null;
   uk_name: string; uk_short: string; uk_ogrn: string; uk_inn: string; uk_site: string;
-  exchange_tradable: boolean; isin: string | null; ticker: string | null; currency: string;
+  exchange_tradable: boolean; isin: string | null; ticker: string | null; currency: string | null;
   page_url: string | null; last_date: string | null; nav: number | null; nav_rub: number | null; price: number | null;
   flow_m: number | null; flow_q: number | null; flow_y: number | null; ret_as_of: string | null;
   ret_1m: number | null; ret_3m: number | null; ret_6m: number | null; ret_1y: number | null;

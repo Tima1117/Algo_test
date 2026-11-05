@@ -8,7 +8,7 @@ import { H } from '../lib/hints';
 const base = import.meta.env.BASE_URL;
 const sorted = [...funds].sort((a, b) => (b.nav_rub ?? -1) - (a.nav_rub ?? -1));
 const categories = [...new Set(funds.map((f) => f.category))].sort();
-const currencies = [...new Set(funds.map((f) => f.currency))].sort();
+const currencies = [...new Set(funds.map((f) => f.currency).filter(Boolean))].sort() as string[];
 const ukOptions = [...uks].sort((a, b) => a.short.localeCompare(b.short, 'ru'));
 const withData = funds.filter((f) => f.n_points > 0).length;
 const navTotal = funds.reduce((s, f) => s + (f.nav_rub ?? 0), 0);
@@ -76,13 +76,13 @@ const attr = (v: number | null) => (v === null || v === undefined ? '' : String(
       <tbody>
         {sorted.map((f) => (
           <tr data-name={`${f.name} ${f.full_name} ${f.isin ?? ''} ${f.ticker ?? ''} ${f.rules}`.toLowerCase()}
-              data-type={f.type} data-cat={f.category} data-uk={f.uk_inn} data-cur={f.currency}
+              data-type={f.type} data-cat={f.category} data-uk={f.uk_inn} data-cur={f.currency ?? ''}
               data-has={f.n_points > 0 ? '1' : '0'} data-nav={attr(f.nav_rub)} data-fm={attr(f.flow_m)}
               data-fq={attr(f.flow_q)} data-fy={attr(f.flow_y)} data-r1m={attr(f.ret_1m)} data-r3m={attr(f.ret_3m)}
               data-r6m={attr(f.ret_6m)} data-r1y={attr(f.ret_1y)} data-sortname={f.name.toLowerCase()}>
             <td class="fund sticky-col">
               <a href={`${base}fund/${f.rules}/`}>{f.name}</a>
-              <div class="sub">{f.type_label} · <a href={`${base}uk/${f.uk_inn}/`} class="muted">{f.uk_short}</a>{f.ticker && <> · <span class="mono">{f.ticker}</span></>}{f.currency !== 'RUB' && <> · {f.currency}</>}</div>
+              <div class="sub">{f.type_label} · <a href={`${base}uk/${f.uk_inn}/`} class="muted">{f.uk_short}</a>{f.ticker && <> · <span class="mono">{f.ticker}</span></>}{f.currency && f.currency !== 'RUB' && <> · {f.currency}</>}</div>
             </td>
             <td class="num">{money(f.nav_rub)}</td>
             <td class={`num ${sign(f.flow_m)}`}>{money(f.flow_m)}</td>
