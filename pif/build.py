@@ -74,6 +74,19 @@ def manual_sample(funds_by: dict[str, Fund], series: dict[str, dict], k: int = 1
     return rows
 
 
+def discrepancy_hint(collected: dict, frequency: str, payouts: list) -> str:
+    """Вероятная причина расхождения с официальной доходностью — чтобы его можно было проверить, а не гадать."""
+    text = " ".join(collected.get("warnings", [])).lower()
+    if "выплат" in text:
+        return ("фонд выплачивает доход пайщикам, а суммы выплат УК публикует только в PDF — "
+                "в нашем расчёте их нет" if not payouts else
+                "фонд выплачивает доход; часть выплат УК опубликовала только в PDF")
+    if frequency in ("monthly", "irregular"):
+        return ("фонд публикует СЧА и пай раз в месяц: УК берёт за начало периода другую точку "
+                "(например, конец предыдущего месяца), отсюда разница в длине периода")
+    return ""
+
+
 def build_all() -> bool:
     funds, reg_meta, collected, rates = load_inputs()
     funds_by = {f.rules: f for f in funds}
@@ -122,8 +135,11 @@ def build_all() -> bool:
             payouts = c.get("payouts", [])
             ret_as_of, own = own_returns(pts, payouts)
             checks, bad = compare_official(f.rules, pts, c.get("official_returns", []), payouts)
+            hint = discrepancy_hint(c, n.frequency, payouts)
             for ch in checks:
                 ch.update(fund=f.name, uk=f.uk_short)
+                if ch in bad:
+                    ch["hint"] = hint
             all_checks += checks
             discrepancies += bad
             s.update(

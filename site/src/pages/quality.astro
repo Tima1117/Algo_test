@@ -34,13 +34,17 @@ const PERIOD: Record<string, string> = { '1m': '1 мес', '3m': '3 мес', '6m
   </table></div>
 
   <h2>Расхождения с официальной доходностью</h2>
+  <p class="muted">Это сверка доходности, а не СЧА: мы пересчитываем доходность пая из собранного ряда и сравниваем
+    с цифрой, которую публикует УК. Сами значения СЧА и пая при этом могут полностью совпадать с сайтом УК —
+    расходится способ счёта (выплаты дохода, дата начала периода). Вероятная причина — в последней колонке.</p>
   {quality.discrepancies.length === 0 ? <p class="muted">Нет.</p> : (
     <div class="table-wrap"><table>
-      <thead><tr><th>Фонд</th><th>Период</th><th>На дату</th><th class="num">По ряду</th><th class="num">Официальная</th><th class="num">Разница, п. п.</th><th>Источник</th></tr></thead>
+      <thead><tr><th>Фонд</th><th>Период</th><th>На дату</th><th class="num">По ряду</th><th class="num">Официальная</th><th class="num">Разница, п. п.</th><th>Источник</th><th>Вероятная причина</th></tr></thead>
       <tbody>{quality.discrepancies.map((d: any) => (
         <tr><td><a href={`${base}fund/${d.rules}/`}>{fundLink(d.rules)}</a><div class="sub muted">{d.uk}</div></td><td>{PERIOD[d.period] ?? d.period}</td><td class="mono">{date(d.as_of)}</td>
           <td class="num">{pct(d.ours)}</td><td class="num">{pct(d.official)}</td><td class="num neg">{num(d.diff_pp, 2)}</td>
-          <td>{d.source_url && <a href={d.source_url} rel="nofollow noopener" target="_blank">открыть</a>}</td></tr>
+          <td>{d.source_url && <a href={d.source_url} rel="nofollow noopener" target="_blank">открыть</a>}</td>
+          <td class="muted" style="min-width:220px">{d.hint || 'не установлена'}</td></tr>
       ))}</tbody>
     </table></div>
   )}
