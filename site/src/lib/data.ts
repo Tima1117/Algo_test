@@ -31,10 +31,10 @@ export interface Uk {
 }
 
 export interface Source { id: number; url: string; page: string | null; sha256: string; fetched_at: string; stale: boolean }
-export interface MonthRow { month: string; date: string | null; nav: number | null; price: number | null; nav_rub: number | null; flow: number | null; flow_rub: number | null; note: string; src?: number }
+export interface MonthRow { month: string; date: string | null; nav: number | null; price: number | null; nav_rub: number | null; flow: number | null; flow_rub: number | null; note: string; src?: number; src_nav?: number | null }
 export interface Series {
   rules: string; currency: string; frequency: string;
-  points: { date: string; nav: number | null; price: number | null; nav_rub: number | null; src: number }[];
+  points: { date: string; nav: number | null; price: number | null; nav_rub: number | null; src: number; src_nav?: number | null }[];
   sources: Source[]; monthly: MonthRow[]; corrections: any[]; anomalies: any[]; gaps: any[]; checks: any[];
   payouts?: { date: string; amount: number; source_url: string }[];
 }

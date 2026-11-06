@@ -14,18 +14,21 @@ const s = series(f.rules);
 const base = import.meta.env.BASE_URL;
 const ts = (d: string) => Date.UTC(+d.slice(0, 4), +d.slice(5, 7) - 1, +d.slice(8, 10)) / 1000;
 const srcUrl = (id: number) => (s ? s.sources[id]?.page || s.sources[id]?.url : null);
+// у части УК СЧА и пай лежат в разных файлах — у каждого поля свой источник
+const rawUrl = (id: number | null | undefined) => (s && id !== null && id !== undefined ? s.sources[id]?.url ?? null : null);
+const navSrc = (p: { src: number; src_nav?: number | null }) => (p.src_nav ?? p.src);
 const cur = !f.currency || f.currency === 'RUB' ? '₽' : f.currency;
 const PERIOD_LABEL: Record<string, string> = { '1m': '1 месяц', '3m': '3 месяца', '6m': '6 месяцев', '1y': '1 год' };
 const statusClass = ['ok'].includes(f.data_status) ? 'ok' : ['partial', 'stale', 'not_formed'].includes(f.data_status) ? 'warn' : 'bad';
 
 const navChart = s && {
   kind: 'line', unit: '₽', info: 'nav-info',
-  x: s.points.map((p) => ts(p.date)), links: s.points.map((p) => srcUrl(p.src)),
+  x: s.points.map((p) => ts(p.date)), links: s.points.map((p) => rawUrl(navSrc(p))),
   series: [{ label: 'СЧА, ₽', values: s.points.map((p) => p.nav_rub), color: '#38bdf8' }],
 };
 const priceChart = s && {
   kind: 'line', unit: cur, info: 'price-info',
-  x: s.points.map((p) => ts(p.date)), links: s.points.map((p) => srcUrl(p.src)),
+  x: s.points.map((p) => ts(p.date)), links: s.points.map((p) => rawUrl(p.src)),
   series: [{ label: `Стоимость пая, ${cur}`, values: s.points.map((p) => p.price), color: '#c084fc' }],
 };
 const flowRows = s ? s.monthly.filter((r) => r.month >= meta.months[0]) : [];
@@ -185,7 +188,9 @@ const flowChart = s && {
               {[...s.points].reverse().map((p) => (
                 <tr><td class="mono">{date(p.date)}</td><td class="num">{p.nav === null ? '—' : num(p.nav, 2)}</td>
                   <td class="num">{p.price === null ? '—' : num(p.price, 4)}</td>
-                  <td><a href={srcUrl(p.src) ?? '#'} rel="nofollow noopener" target="_blank">#{p.src}</a></td></tr>
+                  <td>{navSrc(p) === p.src
+                    ? <a href={rawUrl(p.src) ?? '#'} rel="nofollow noopener" target="_blank" data-tip="СЧА и пай из одного источника">#{p.src}</a>
+                    : <>СЧА <a href={rawUrl(navSrc(p)) ?? '#'} rel="nofollow noopener" target="_blank">#{navSrc(p)}</a>, пай <a href={rawUrl(p.src) ?? '#'} rel="nofollow noopener" target="_blank">#{p.src}</a></>}</td></tr>
               ))}
             </tbody>
           </table>
