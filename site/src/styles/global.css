@@ -146,3 +146,24 @@ footer.bottom { border-top: 1px solid var(--line); padding: 24px 0 40px; color: 
 .tip::after { content: ''; position: absolute; left: var(--arrow-x, 50%); top: 100%; transform: translateX(-50%);
   border: 6px solid transparent; border-top-color: #19247f; }
 .tip.below::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: #19247f; }
+
+/* рейтинг: высокая обёртка, чтобы шапка липла внутри неё; двухстрочная шапка с группами колонок */
+.table-wrap.tall { max-height: 78vh; overflow: auto; }
+#rating thead tr.group th { top: 0; }
+#rating thead tr:nth-child(2) th { top: 36px; }
+#rating thead tr.group th { height: 36px; }
+th.grp { text-align: center; border-bottom: 1px solid var(--line); color: var(--text); }
+.grp-note { color: var(--muted); font-weight: 500; }
+.fund-col, td.fund { min-width: 230px; }
+.part { display: inline-block; margin-left: 4px; font: 500 10px var(--mono); color: var(--muted); vertical-align: 1px; }
+.show-sm { display: none; margin-top: 4px; }
+@media (max-width: 640px) {
+  .fund-col, td.fund { min-width: 170px; max-width: 200px; }
+  .show-sm { display: block; }
+  .grp-note { display: none; }
+  .table-wrap.tall { max-height: 72vh; }
+}
+/* таблица доходности в карточке фонда: переносим заголовки, а не режем */
+.ret-table th { white-space: normal; line-height: 1.25; }
+.ret-table td, .ret-table th { padding: 8px 6px; }
+#rating td, #rating th { padding-left: 8px; padding-right: 8px; }

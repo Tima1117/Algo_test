@@ -12,7 +12,7 @@ export interface Official { value: number; as_of: string | null; ours: number | 
 
 export interface FundSummary {
   rules: string; name: string; full_name: string; type: 'open' | 'interval' | 'exchange'; type_label: string;
-  category: string; status: string; reg_date: string; formation_end: string | null;
+  category: string; asset_class: string; payouts_note: string; flow_q_n: number; flow_y_n: number; status: string; reg_date: string; formation_end: string | null;
   uk_name: string; uk_short: string; uk_ogrn: string; uk_inn: string; uk_site: string;
   exchange_tradable: boolean; isin: string | null; ticker: string | null; currency: string | null;
   page_url: string | null; last_date: string | null; nav: number | null; nav_rub: number | null; price: number | null;

@@ -7,7 +7,7 @@ import { H } from '../lib/hints';
 
 const base = import.meta.env.BASE_URL;
 const sorted = [...funds].sort((a, b) => (b.nav_rub ?? -1) - (a.nav_rub ?? -1));
-const categories = [...new Set(funds.map((f) => f.category))].sort();
+const classes = [...new Set(funds.map((f) => f.asset_class))].sort();
 const currencies = [...new Set(funds.map((f) => f.currency).filter(Boolean))].sort() as string[];
 const ukOptions = [...uks].sort((a, b) => a.short.localeCompare(b.short, 'ru'));
 const withData = funds.filter((f) => f.n_points > 0).length;
@@ -43,8 +43,8 @@ const attr = (v: number | null) => (v === null || v === undefined ? '' : String(
       <option value="">Все типы</option><option value="open">Открытые</option>
       <option value="exchange">Биржевые</option><option value="interval">Интервальные</option>
     </select>
-    <select name="cat" aria-label="Категория">
-      <option value="">Все категории</option>{categories.map((c) => <option value={c}>{c}</option>)}
+    <select name="cls" aria-label="Класс активов" data-tip={H.assetClass}>
+      <option value="">Все классы активов</option>{classes.map((c) => <option value={c}>{c}</option>)}
     </select>
     <select name="uk" aria-label="Управляющая компания">
       <option value="">Все УК</option>{ukOptions.map((u) => <option value={u.inn}>{u.short}</option>)}
@@ -57,37 +57,43 @@ const attr = (v: number | null) => (v === null || v === undefined ? '' : String(
   </form>
   <p class="count" id="count"></p>
 
-  <div class="table-wrap">
+  <div class="table-wrap tall">
     <table id="rating">
       <thead>
+        <tr class="group">
+          <th class="sticky-col sortable fund-col" data-key="name" rowspan="2">Фонд</th>
+          <th class="num sortable" data-key="nav" aria-sort="descending" rowspan="2">СЧА<Hint text={H.nav} /></th>
+          <th class="grp" colspan="3">Чистый приток, ₽<Hint text={H.flow} /></th>
+          <th class="grp" colspan="4">Доходность пая <span class="grp-note">· не является инвестиционной рекомендацией</span><Hint text={H.ret} /></th>
+          <th class="hide-sm" rowspan="2">Данные<Hint text={H.dataStatus} /></th>
+        </tr>
         <tr>
-          <th class="sticky-col sortable" data-key="name">Фонд</th>
-          <th class="num sortable" data-key="nav" aria-sort="descending">СЧА<Hint text={H.nav} /></th>
-          <th class="num sortable" data-key="fm">Приток, мес<Hint text={`${H.flowM} Сейчас это ${month(meta.last_month)}. ${H.flow}`} /></th>
-          <th class="num sortable" data-key="fq">Приток, кв<Hint text={H.flowQ} /></th>
-          <th class="num sortable" data-key="fy">Приток, год<Hint text={H.flowY} /></th>
-          <th class="num sortable" data-key="r1m">1 мес<Hint text={H.ret} /></th>
-          <th class="num sortable" data-key="r3m">3 мес<Hint text={H.ret} /></th>
-          <th class="num sortable" data-key="r6m">6 мес<Hint text={H.ret} /></th>
-          <th class="num sortable" data-key="r1y">1 год<Hint text={H.ret} /></th>
-          <th class="hide-sm">Данные<Hint text={H.dataStatus} /></th>
+          <th class="num sortable" data-key="fm">мес<Hint text={`${H.flowM} Сейчас это ${month(meta.last_month)}.`} /></th>
+          <th class="num sortable" data-key="fq">кв<Hint text={H.flowQ} /></th>
+          <th class="num sortable" data-key="fy">год<Hint text={H.flowY} /></th>
+          <th class="num sortable" data-key="r1m">1 мес</th>
+          <th class="num sortable" data-key="r3m">3 мес</th>
+          <th class="num sortable" data-key="r6m">6 мес</th>
+          <th class="num sortable" data-key="r1y">1 год</th>
         </tr>
       </thead>
       <tbody>
         {sorted.map((f) => (
           <tr data-name={`${f.name} ${f.full_name} ${f.isin ?? ''} ${f.ticker ?? ''} ${f.rules}`.toLowerCase()}
-              data-type={f.type} data-cat={f.category} data-uk={f.uk_inn} data-cur={f.currency ?? ''}
+              data-type={f.type} data-cls={f.asset_class} data-uk={f.uk_inn} data-cur={f.currency ?? ''}
               data-has={f.n_points > 0 ? '1' : '0'} data-nav={attr(f.nav_rub)} data-fm={attr(f.flow_m)}
               data-fq={attr(f.flow_q)} data-fy={attr(f.flow_y)} data-r1m={attr(f.ret_1m)} data-r3m={attr(f.ret_3m)}
               data-r6m={attr(f.ret_6m)} data-r1y={attr(f.ret_1y)} data-sortname={f.name.toLowerCase()}>
             <td class="fund sticky-col">
               <a href={`${base}fund/${f.rules}/`}>{f.name}</a>
-              <div class="sub">{f.type_label} · <a href={`${base}uk/${f.uk_inn}/`} class="muted">{f.uk_short}</a>{f.ticker && <> · <span class="mono">{f.ticker}</span></>}{f.currency && f.currency !== 'RUB' && <> · {f.currency}</>}</div>
+              <div class="sub">{f.type_label} · {f.asset_class} · <a href={`${base}uk/${f.uk_inn}/`} class="muted">{f.uk_short}</a>{f.ticker && <> · <span class="mono">{f.ticker}</span></>}{f.currency && f.currency !== 'RUB' && <> · {f.currency}</>}</div>
+              <div class="show-sm"><span class={`badge ${statusClass(f.data_status)}`} data-tip={f.data_reason || f.data_status_label}>{f.data_status_label}</span></div>
+              {f.payouts_note && <div><span class="badge warn" data-tip={H.payoutsMissing}>доходность {f.payouts_note}</span></div>}
             </td>
             <td class="num">{money(f.nav_rub)}</td>
             <td class={`num ${sign(f.flow_m)}`}>{money(f.flow_m)}</td>
-            <td class={`num ${sign(f.flow_q)}`}>{money(f.flow_q)}</td>
-            <td class={`num ${sign(f.flow_y)}`}>{money(f.flow_y)}</td>
+            <td class={`num ${sign(f.flow_q)}`}>{money(f.flow_q)}{f.flow_q !== null && f.flow_q_n < 3 && <span class="part" data-tip={H.partial(f.flow_q_n, 3)}>{f.flow_q_n}/3</span>}</td>
+            <td class={`num ${sign(f.flow_y)}`}>{money(f.flow_y)}{f.flow_y !== null && f.flow_y_n < 12 && <span class="part" data-tip={H.partial(f.flow_y_n, 12)}>{f.flow_y_n}/12</span>}</td>
             {(['1m', '3m', '6m', '1y'] as const).map((k) => {
               const v = f[`ret_${k}`];
               const off = f.official[k];
@@ -105,7 +111,8 @@ const attr = (v: number | null) => (v === null || v === undefined ? '' : String(
   <p class="disclaimer">
     Доходность — изменение расчётной стоимости пая по собранному ряду на {date(meta.as_of)}; знак ≠ — расхождение с официально
     опубликованной УК доходностью больше 0,5 п. п. Не является инвестиционной рекомендацией; доходность в прошлом не гарантирует
-    доходности в будущем. Притоки — в рублях, за последний полный месяц ({month(meta.last_month)}), квартал и 12 месяцев.
+    доходности в будущем. Притоки — в рублях, за последний полный месяц ({month(meta.last_month)}), квартал и 12 месяцев;
+    пометка «8/12» — сумма только за месяцы, где приток посчитан. Класс активов — по названию фонда (у ЦБ категория у всех одна).
   </p>
 
   <script>
@@ -114,7 +121,7 @@ const attr = (v: number | null) => (v === null || v === undefined ? '' : String(
     const tbody = table.tBodies[0];
     const rows = Array.from(tbody.rows);
     const count = document.getElementById('count')!;
-    const keys = ['q', 'type', 'cat', 'uk', 'cur', 'has', 'sort', 'dir'];
+    const keys = ['q', 'type', 'cls', 'uk', 'cur', 'has', 'sort', 'dir'];
     let sortKey = 'nav';
     let sortDir: 'asc' | 'desc' = 'desc';
 
@@ -142,12 +149,12 @@ const attr = (v: number | null) => (v === null || v === undefined ? '' : String(
     function apply() {
       const fd = new FormData(form);
       const q = String(fd.get('q') || '').trim().toLowerCase();
-      const f = { type: fd.get('type'), cat: fd.get('cat'), uk: fd.get('uk'), cur: fd.get('cur'), has: fd.get('has') };
+      const f = { type: fd.get('type'), cls: fd.get('cls'), uk: fd.get('uk'), cur: fd.get('cur'), has: fd.get('has') };
       let shown = 0;
       for (const r of rows) {
         const d = r.dataset;
         const ok = (!q || q.split(/\s+/).every((w) => d.name!.includes(w))) &&
-          (!f.type || d.type === f.type) && (!f.cat || d.cat === f.cat) && (!f.uk || d.uk === f.uk) &&
+          (!f.type || d.type === f.type) && (!f.cls || d.cls === f.cls) && (!f.uk || d.uk === f.uk) &&
           (!f.cur || d.cur === f.cur) && (!f.has || d.has === '1');
         r.hidden = !ok;
         if (ok) shown++;
