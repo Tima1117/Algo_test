@@ -16,6 +16,7 @@ from pathlib import Path
 
 from . import config
 from .flows import add_months, aggregate, month_key, month_range, monthly_rows, period_flow
+from .classify import asset_class
 from .fx import Rates
 from .model import STATUS_LABELS, TYPE_LABELS, Fund
 from .normalize import normalize
@@ -75,6 +76,18 @@ def manual_sample(funds_by: dict[str, Fund], series: dict[str, dict], k: int = 1
     return rows
 
 
+def payouts_note(name: str, collected: dict, payouts: list) -> str:
+    """Пометка у доходности фонда, который платит доход, если суммы выплат собрать не удалось."""
+    warned = any("выплат" in w.lower() for w in collected.get("warnings", []))
+    if not (warned or "выплат" in name.lower()):
+        return ""
+    if not payouts:
+        return "без учёта выплат"
+    if any("pdf" in w.lower() and "выплат" in w.lower() for w in collected.get("warnings", [])):
+        return "выплаты учтены не все"
+    return ""
+
+
 def discrepancy_hint(collected: dict, frequency: str, payouts: list) -> str:
     """Вероятная причина расхождения с официальной доходностью — чтобы его можно было проверить, а не гадать."""
     text = " ".join(collected.get("warnings", [])).lower()
@@ -122,9 +135,10 @@ def build_all() -> bool:
         n = normalized.get(f.rules)
         # валюту пая знаем только от УК; у фондов без данных честно «неизвестна», а не рубли по умолчанию
         currency = (c.get("currency") or "RUB") if n is not None else None
-        s = {**f.to_dict(), "type_label": TYPE_LABELS[f.type], "currency": currency,
+        s = {**f.to_dict(), "type_label": TYPE_LABELS[f.type], "asset_class": asset_class(f.name), "currency": currency,
              "page_url": c.get("page_url"), "last_date": None, "nav": None, "nav_rub": None, "price": None,
              "flow_m": None, "flow_q": None, "flow_y": None, "flow_q_n": 0, "flow_y_n": 0, "ret_as_of": None,
+             "payouts_note": "",
              **{f"ret_{k}": None for k in PERIODS}, "official": {}, "discrepancy": False,
              "n_points": 0, "first_date": None, "frequency": None, "corrections": 0, "anomalies": 0, "gaps": 0}
         if n is not None:
@@ -138,6 +152,7 @@ def build_all() -> bool:
             ret_as_of, own = own_returns(pts, payouts)
             checks, bad = compare_official(f.rules, pts, c.get("official_returns", []), payouts)
             hint = discrepancy_hint(c, n.frequency, payouts)
+            s["payouts_note"] = payouts_note(f.name, c, payouts)
             for ch in checks:
                 ch.update(fund=f.name, uk=f.uk_short)
                 if ch in bad:
@@ -180,7 +195,8 @@ def build_all() -> bool:
     groups = {
         "uk": {f.rules: f.uk_inn for f in funds},
         "type": {f.rules: f.type for f in funds},
-        "category": {f.rules: f.category for f in funds},
+        # категория у ЦБ одна на все розничные фонды — сводим по своему классу активов (pif/classify.py)
+        "asset_class": {f.rules: asset_class(f.name) for f in funds},
         "market": {f.rules: "all" for f in funds},
     }
     agg = {name: aggregate(fund_rows, g, months12) for name, g in groups.items()}
@@ -266,7 +282,7 @@ def build_all() -> bool:
     _dump(SITE_DIR / "meta.json", meta)
     _dump(SITE_DIR / "funds.json", summaries)
     _dump(SITE_DIR / "uk.json", uk_list)
-    _dump(SITE_DIR / "market.json", {"type": agg_table("type"), "category": agg_table("category"),
+    _dump(SITE_DIR / "market.json", {"type": agg_table("type"), "asset_class": agg_table("asset_class"),
                                      "market": agg_table("market")})
     _dump(SITE_DIR / "quality.json", {**quality, "all_checks": all_checks})
     _dump(SITE_DIR / "corrections.json", all_corrections)
@@ -308,7 +324,7 @@ def write_quality_md(q: dict, corrections: list[dict]) -> None:
     L += [f"- {c['rules']} {c['date']} {c['field']}: {c['action']} — {c['reason']}" for c in corrections[:100]]
     L += ["", f"## Аномалии без исправления: {len(q['anomalies'])}", ""]
     L += [f"- {a['rules']} {a['date']}: цена {a['change_pct']}%, СЧА {a['nav_change_pct']}%" for a in q["anomalies"][:100]]
-    L += ["", "## Сходимость сводов притоков", "", "| Месяц | Фонды | УК | Типы | Категории | Рынок | ОК |", "|---|---|---|---|---|---|---|"]
-    L += [f"| {c.get('label', c['month'])} | {c['funds']} | {c['uk']} | {c['type']} | {c['category']} | {c['market']} | {'да' if c['ok'] else 'НЕТ'} |"
+    L += ["", "## Сходимость сводов притоков", "", "| Период | Фонды | УК | Типы | Классы активов | Рынок | ОК |", "|---|---|---|---|---|---|---|"]
+    L += [f"| {c.get('label', c['month'])} | {c['funds']} | {c['uk']} | {c['type']} | {c['asset_class']} | {c['market']} | {'да' if c['ok'] else 'НЕТ'} |"
           for c in q["consistency"]]
     (config.DATA_DIR / "quality_report.md").write_text("\n".join(L) + "\n", "utf-8")
