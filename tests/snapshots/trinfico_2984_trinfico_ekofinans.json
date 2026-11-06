@@ -1,0 +1,15 @@
+{
+  "count": 6,
+  "first": {
+    "date": "2020-10-23",
+    "nav": 987885.35,
+    "price": 940.84
+  },
+  "last": {
+    "date": "2026-11-03",
+    "nav": 195683060.28,
+    "price": 1279.32
+  },
+  "name": "trinfico_2984_trinfico_ekofinans",
+  "sha256": "6deb7c0592dca0b07367896a0189ab55d667048454a014fe8c09e412d3a8cbc6"
+}

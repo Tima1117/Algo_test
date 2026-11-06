@@ -1,0 +1,15 @@
+{
+  "count": 6,
+  "first": {
+    "date": "2021-05-25",
+    "nav": 9999392.75,
+    "price": 999.94
+  },
+  "last": {
+    "date": "2026-11-03",
+    "nav": 166309928.26,
+    "price": 1074.24
+  },
+  "name": "trinfico_4344_mirovye_dokhodnye_obligatsii",
+  "sha256": "b6d8a76dcfd36b15ef7f9c95886c07da9b0a7ab84f8dc6e8b60d6946a05fd631"
+}

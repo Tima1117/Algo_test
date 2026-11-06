@@ -1,0 +1,15 @@
+{
+  "count": 6,
+  "first": {
+    "date": "2021-03-05",
+    "nav": 10101386.56,
+    "price": 999.94
+  },
+  "last": {
+    "date": "2026-11-03",
+    "nav": 1353344842.55,
+    "price": 1698.99
+  },
+  "name": "trinfico_4275_rossiyskie_dokhodnye_obligatsii",
+  "sha256": "67cc5871dd5d3d46cd8d1473fd48e71859598ed099e25743b40a6f0dda2305d2"
+}

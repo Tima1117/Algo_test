@@ -1,0 +1,15 @@
+{
+  "count": 27,
+  "first": {
+    "date": "2021-10-28",
+    "nav": 125342403.51,
+    "price": 1012.84
+  },
+  "last": {
+    "date": "2026-11-03",
+    "nav": 223496642.75,
+    "price": 700.62
+  },
+  "name": "trinfico_3863_lidar",
+  "sha256": "5fc9b7eed3a3bb88a2760fbade6709cb1906088b21f0d37bebcb5bce2ccb9090"
+}

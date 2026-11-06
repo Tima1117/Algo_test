@@ -1,0 +1,15 @@
+{
+  "count": 6,
+  "first": {
+    "date": "2017-02-28",
+    "nav": 9998259.41,
+    "price": 999.83
+  },
+  "last": {
+    "date": "2026-11-03",
+    "nav": 65522907.88,
+    "price": 1163.91
+  },
+  "name": "trinfico_3264_trinfico_kapitalist",
+  "sha256": "1314d8d92973a885c84e8bfe52a4d6b23406a10afcdb6fd36c8d7be3ce63b2b3"
+}
