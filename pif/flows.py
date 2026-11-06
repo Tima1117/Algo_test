@@ -82,16 +82,17 @@ def monthly_rows(points: list[Point], currency: str, rates: Rates, formation_end
     return rows
 
 
-def period_flow(rows: list[dict], last_month: str, months: int) -> float | None:
-    """Сумма притоков за months месяцев, заканчивая last_month. Нет хотя бы одного месяца -> None."""
+def period_flow(rows: list[dict], last_month: str, months: int) -> tuple[float | None, int]:
+    """Сумма притоков за months месяцев, заканчивая last_month, по тем месяцам, где приток посчитан.
+
+    Возвращает (сумма, сколько месяцев в неё вошло). Месяцы без данных не додумываются — сумма просто
+    короче, и это видно по счётчику. Так же считаются своды по УК, типам и рынку, поэтому сумма по
+    фондам всегда равна итогам.
+    """
     by = {r["month"]: r for r in rows}
-    total = 0.0
-    for i in range(months):
-        r = by.get(add_months(last_month, -i))
-        if r is None or r["flow_rub"] is None:
-            return None
-        total += r["flow_rub"]
-    return total
+    vals = [r["flow_rub"] for i in range(months)
+            if (r := by.get(add_months(last_month, -i))) is not None and r["flow_rub"] is not None]
+    return (sum(vals) if vals else None), len(vals)
 
 
 def aggregate(fund_rows: dict[str, list[dict]], groups: dict[str, str], months: list[str]) -> dict[str, dict]:

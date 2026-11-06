@@ -26,8 +26,9 @@ def test_flow_known_numbers():
     assert by["2026-02"]["date"] == "2026-02-27"            # последняя точка месяца
     assert by["2026-02"]["flow"] == pytest.approx(220.0)    # 20 паёв × 11 ₽
     assert by["2026-03"]["flow"] == pytest.approx(-99.0)    # −10 паёв × 9,9 ₽
-    assert period_flow(rows, "2026-03", 2) == pytest.approx(121.0)
-    assert period_flow(rows, "2026-03", 3) is None          # январь неизвестен
+    assert period_flow(rows, "2026-03", 2) == (pytest.approx(121.0), 2)
+    # январь неизвестен: сумма только по известным месяцам, и это видно по счётчику
+    assert period_flow(rows, "2026-03", 3) == (pytest.approx(121.0), 2)
 
 
 def test_missing_month_is_gap_not_zero():

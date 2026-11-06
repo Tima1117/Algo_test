@@ -123,7 +123,7 @@ def build_all() -> bool:
         currency = (c.get("currency") or "RUB") if n is not None else None
         s = {**f.to_dict(), "type_label": TYPE_LABELS[f.type], "currency": currency,
              "page_url": c.get("page_url"), "last_date": None, "nav": None, "nav_rub": None, "price": None,
-             "flow_m": None, "flow_q": None, "flow_y": None, "ret_as_of": None,
+             "flow_m": None, "flow_q": None, "flow_y": None, "flow_q_n": 0, "flow_y_n": 0, "ret_as_of": None,
              **{f"ret_{k}": None for k in PERIODS}, "official": {}, "discrepancy": False,
              "n_points": 0, "first_date": None, "frequency": None, "corrections": 0, "anomalies": 0, "gaps": 0}
         if n is not None:
@@ -146,8 +146,10 @@ def build_all() -> bool:
             s.update(
                 last_date=(last or lastp).date.isoformat(), nav=_r(last.nav) if last else None,
                 nav_rub=_r(last.nav * rate) if last and rate else None, price=lastp.price if lastp else None,
-                flow_m=_r(period_flow(rows, last_month, 1)), flow_q=_r(period_flow(rows, last_month, 3)),
-                flow_y=_r(period_flow(rows, last_month, 12)), ret_as_of=ret_as_of,
+                flow_m=_r(period_flow(rows, last_month, 1)[0]),
+                flow_q=_r(period_flow(rows, last_month, 3)[0]), flow_q_n=period_flow(rows, last_month, 3)[1],
+                flow_y=_r(period_flow(rows, last_month, 12)[0]), flow_y_n=period_flow(rows, last_month, 12)[1],
+                ret_as_of=ret_as_of,
                 **{f"ret_{k}": _r(v) for k, v in own.items()},
                 official={ch["period"]: {"value": ch["official"], "as_of": ch["as_of"], "ours": ch["ours"],
                                          "status": ch["status"], "url": ch["source_url"]} for ch in checks},
@@ -182,16 +184,25 @@ def build_all() -> bool:
     }
     agg = {name: aggregate(fund_rows, g, months12) for name, g in groups.items()}
 
-    # проверка сходимости: сумма притоков по фондам = итог по УК = итог по типам = рынок
+    # проверка сходимости: сумма притоков по фондам = итог по УК = по типам = по категориям = рынок —
+    # за каждый месяц, за квартал и за 12 месяцев (те же цифры, что в рейтинге, карточках УК и «Рынке»)
+    def group_total(a: dict, months: list[str]) -> float:
+        return sum(cells.get(m, {}).get("flow_rub", 0.0) for cells in a.values() for m in months)
+
+    periods = [(m, m, [m]) for m in months12] + [
+        ("quarter", "квартал", month_range(add_months(last_month, -2), last_month)),
+        ("year", "12 месяцев", months12)]
     consistency = []
-    for m in months12:
-        by_fund = sum(r["flow_rub"] for rows in fund_rows.values() for r in rows
-                      if r["month"] == m and r["flow_rub"] is not None)
-        totals = {name: sum(cells.get(m, {}).get("flow_rub", 0.0) for cells in a.values()) for name, a in agg.items()}
+    for key, label, months in periods:
+        n = len(months)
+        by_fund = sum(period_flow(rows, months[-1], n)[0] or 0.0 for rows in fund_rows.values())
+        totals = {name: group_total(a, months) for name, a in agg.items()}
         ok = all(abs(v - by_fund) < 1.0 for v in totals.values())
-        consistency.append({"month": m, "funds": _r(by_fund), **{k: _r(v) for k, v in totals.items()}, "ok": ok})
+        consistency.append({"month": key, "label": label, "funds": _r(by_fund),
+                            **{k: _r(v) for k, v in totals.items()}, "ok": ok})
         if not ok:
-            errors.append({"rules": None, "uk": None, "message": f"своды притоков не сходятся за {m}: {totals} vs {by_fund}"})
+            errors.append({"rules": None, "uk": None, "message": f"своды притоков не сходятся ({label}): {totals} vs {by_fund}"})
+    quarter = periods[-2][2]
 
     uk_list = []
     for inn in sorted({f.uk_inn for f in funds}):
@@ -200,8 +211,10 @@ def build_all() -> bool:
             "inn": inn, "ogrn": fs[0]["uk_ogrn"], "name": fs[0]["uk_name"], "short": fs[0]["uk_short"],
             "site": fs[0]["uk_site"], "funds": len(fs), "funds_with_data": sum(1 for s in fs if s["n_points"]),
             "nav_rub": _r(sum(s["nav_rub"] or 0 for s in fs)),
-            "flow_m": _r(sum(s["flow_m"] or 0 for s in fs)), "flow_q": _r(sum(s["flow_q"] or 0 for s in fs)),
-            "flow_y": _r(sum(s["flow_y"] or 0 for s in fs)),
+            # итоги УК — из тех же месячных сводов, что и рынок, поэтому сумма по УК равна рынку
+            "flow_m": _r(group_total({inn: agg["uk"].get(inn, {})}, [last_month])),
+            "flow_q": _r(group_total({inn: agg["uk"].get(inn, {})}, quarter)),
+            "flow_y": _r(group_total({inn: agg["uk"].get(inn, {})}, months12)),
             "monthly": [{"month": m, **{k: _r(v) if isinstance(v, float) else v
                                         for k, v in agg["uk"].get(inn, {}).get(m, {}).items()}} for m in months12],
             "statuses": dict(Counter(s["data_status"] for s in fs)),
@@ -295,6 +308,6 @@ def write_quality_md(q: dict, corrections: list[dict]) -> None:
     L += ["", f"## Аномалии без исправления: {len(q['anomalies'])}", ""]
     L += [f"- {a['rules']} {a['date']}: цена {a['change_pct']}%, СЧА {a['nav_change_pct']}%" for a in q["anomalies"][:100]]
     L += ["", "## Сходимость сводов притоков", "", "| Месяц | Фонды | УК | Типы | Категории | Рынок | ОК |", "|---|---|---|---|---|---|---|"]
-    L += [f"| {c['month']} | {c['funds']} | {c['uk']} | {c['type']} | {c['category']} | {c['market']} | {'да' if c['ok'] else 'НЕТ'} |"
+    L += [f"| {c.get('label', c['month'])} | {c['funds']} | {c['uk']} | {c['type']} | {c['category']} | {c['market']} | {'да' if c['ok'] else 'НЕТ'} |"
           for c in q["consistency"]]
     (config.DATA_DIR / "quality_report.md").write_text("\n".join(L) + "\n", "utf-8")
