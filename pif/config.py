@@ -15,8 +15,9 @@ LOG_DIR = ROOT / "logs"
 
 USER_AGENT = os.environ.get(
     "PIF_USER_AGENT",
-    "pif-registry/0.1 (+https://github.com/Tima1117/Algo_test; "
-    "test assignment for algosphere.tech; max 1 request/second)",
+    # Честно называем себя и цель. Ссылку на репозиторий убрали: ТРИНФИКО отвечает 403 на любой UA со ссылкой,
+    # а подпись без неё остаётся такой же честной (и одинаковой для всех сайтов — не уловка под один сайт).
+    "pif-registry/0.1 (test assignment for algosphere.tech; max 1 request/second)",
 )
 
 # robots.txt соблюдается для всех сайтов. Исключения — только официально документированные публичные API,
@@ -35,8 +36,6 @@ ROBOTS_EXCEPTIONS = {
     "my.raiffeisen-capital.ru": "robots.txt закрывает сайт целиком (Disallow: /), включая публичный график СЧА и пая",
     "web-api.kaplife.ru": "robots.txt закрывает API целиком; через него сайт УК показывает СЧА и пай",
     "ozon-am.ru": "robots.txt закрывает сайт целиком (Disallow: /), включая последние СЧА и пай",
-    "mkb-am.ru": "robots.txt закрывает сайт целиком (Disallow: /), включая страницы БПИФ со СЧА и стоимостью пая",
-    "www.mkb-am.ru": "robots.txt закрывает сайт целиком (Disallow: /), включая страницы БПИФ со СЧА и стоимостью пая",
     "www.rshb-am.ru": "шаблонный robots.txt Битрикса закрывает адреса с параметрами (/*?), а график СЧА и пая "
                       "на странице фонда загружается из /ajax/data.php?fund=…",
 }
