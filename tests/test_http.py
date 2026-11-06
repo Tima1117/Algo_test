@@ -106,3 +106,37 @@ def test_page_with_captcha_widget_for_forms_is_not_blocked(tmp_path, monkeypatch
             + b"<table>" + b"<tr><td>01.10.2026</td><td>100,5</td></tr>" * 2000 + b"</table></body></html>")
     f, _ = make(tmp_path, lambda req: httpx.Response(200, content=page, headers={"content-type": "text/html"}))
     assert f.get("https://example.ru/fund", fmt="html").content() == page
+
+
+def test_dead_site_is_skipped_after_two_failures(tmp_path, monkeypatch):
+    monkeypatch.setattr("pif.config.MIN_INTERVAL_SEC", 0)
+    monkeypatch.setattr("pif.http.time.sleep", lambda s: None)
+    calls = []
+
+    def handler(req):
+        calls.append(req.url.path)
+        raise httpx.ConnectTimeout("down")
+
+    f, _ = make(tmp_path, handler)
+    for i in range(5):
+        with pytest.raises(FetchError):
+            f.get(f"https://down.example.ru/{i}", fmt="txt")
+    assert len(calls) == 2 * 3        # две попытки адреса по 3 раза, остальные адреса — без запросов
+
+
+def test_empty_200_is_an_error(tmp_path, monkeypatch):
+    monkeypatch.setattr("pif.config.MIN_INTERVAL_SEC", 0)
+    f, _ = make(tmp_path, lambda req: httpx.Response(200, content=b""))
+    with pytest.raises(FetchError, match="пустой"):
+        f.get("https://example.ru/api", fmt="json")
+
+
+def test_html_instead_of_json_is_blocked(tmp_path, monkeypatch):
+    monkeypatch.setattr("pif.config.MIN_INTERVAL_SEC", 0)
+    f, _ = make(tmp_path, lambda req: httpx.Response(200, content=b"<html>access denied</html>",
+                                                     headers={"content-type": "text/html"}))
+    with pytest.raises(Blocked, match="HTML"):
+        f.get("https://example.ru/api/fund/", fmt="json")
+    # JSON с неправильным content-type — не блокировка
+    g, _ = make(tmp_path / "2", lambda req: httpx.Response(200, content=b'[{"a": 1}]', headers={"content-type": "text/html"}))
+    assert g.get("https://example.ru/api/x", fmt="json").json() == [{"a": 1}]

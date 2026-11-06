@@ -35,6 +35,9 @@ CAPTCHA_MARKERS = (
 )
 
 
+MAX_NET_FAILURES = 2
+
+
 class FetchError(Exception):
     """Источник не отдал данные. reason — человекочитаемая причина для статуса фонда."""
 
@@ -166,6 +169,9 @@ class Fetcher:
         self._transport = transport   # для тестов: httpx.MockTransport
         self._extra_ca: dict[str, str] = {}   # домен -> дополнительный корневой сертификат (PEM)
         self._robots: dict[str, Robots] = {}
+        # сколько сетевых неудач подряд у домена: после двух сайт до конца прогона считаем недоступным,
+        # иначе недоступный сайт с десятками адресов держит сбор по полторы минуты на каждый адрес
+        self._net_failures: dict[str, int] = {}
 
     # ---------- внутреннее ----------
     def trust_extra_ca(self, domain: str, pem: str) -> None:
@@ -280,6 +286,11 @@ class Fetcher:
                 "method": method, "path": str(path.relative_to(self.raw_dir))}
         try:
             resp = self._request(domain, method, url, params, body, req_headers, attempts)
+            if fmt == "json" and resp.status_code == 200 and "text/html" in resp.headers.get("content-type", "") \
+                    and not resp.content.lstrip(b"\xef\xbb\xbf \t\r\n").startswith((b"{", b"[")):
+                # вместо ответа API пришла HTML-страница — это блокировка или заглушка, а не новый формат данных
+                raise Blocked(full_url, "вместо данных API сайт отдал HTML-страницу (вероятно, блокировка сети сборщика)",
+                              resp.status_code)
         except FetchError as err:
             self.stats.inc("errors")
             # время неудачной попытки не пишем: иначе каждый прогон менял бы манифест без изменений на сайтах
@@ -311,6 +322,20 @@ class Fetcher:
         return RawDoc(full_url, path, sha, now, fmt, key=key)
 
     def _request(self, domain, method, url, params, body, headers, attempts: int = 3) -> httpx.Response:
+        if self._net_failures.get(domain, 0) >= MAX_NET_FAILURES:
+            raise FetchError(url, f"сайт не отвечает ({MAX_NET_FAILURES} неудачи подряд, дальше в этом прогоне не пробуем)")
+        try:
+            resp = self._request_once(domain, method, url, params, body, headers, attempts)
+        except FetchError as e:
+            if e.status is None and not isinstance(e, Blocked):   # сеть, а не ответ сайта
+                with self._guard:
+                    self._net_failures[domain] = self._net_failures.get(domain, 0) + 1
+            raise
+        with self._guard:
+            self._net_failures[domain] = 0
+        return resp
+
+    def _request_once(self, domain, method, url, params, body, headers, attempts: int) -> httpx.Response:
         for attempt in range(1, attempts + 1):
             with self._domain_lock(domain):
                 self._wait_turn(domain)
@@ -336,6 +361,8 @@ class Fetcher:
             return resp
         if resp.status_code >= 400:
             raise FetchError(url, f"HTTP {resp.status_code}", resp.status_code)
+        if resp.status_code == 200 and not resp.content.strip():
+            raise FetchError(url, "сайт вернул пустой ответ")
         # антибот может отдать заглушку и с кодом 200 (например, ServicePipe на bcs.ru)
         if "text/html" in resp.headers.get("content-type", "") and (
                 # «smartcaptcha» сюда не входит: многие сайты подключают виджет капчи для форм заявок на обычных
