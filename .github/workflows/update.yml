@@ -52,4 +52,5 @@ jobs:
           git add data
           if git diff --cached --quiet; then echo "Данные не изменились"; exit 0; fi
           git commit -m "Данные: обновление $(date -u +%F)"
+          git pull --rebase origin main   # пока шёл сбор, в main могли прийти коммиты
           git push

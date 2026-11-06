@@ -1,12 +1,18 @@
 # Весь путь от сбора до готового сайта: make all
-PY ?= python3
+# Зависимости ставятся в свой .venv — на свежей Ubuntu системный pip закрыт (PEP 668).
+VENV ?= .venv
+PY := $(VENV)/bin/python
 
 .PHONY: all install collect build test site clean-raw
 
 all: install collect site            ## сбор → данные → сайт
 
-install:
-	$(PY) -m pip install -e '.[dev]'
+$(PY):
+	python3 -m venv $(VENV)
+
+install: $(PY)                       ## python-зависимости в .venv и npm-пакеты сайта
+	$(PY) -m pip install -q --upgrade pip
+	$(PY) -m pip install -q -e '.[dev]'
 	cd site && npm ci
 
 collect:                            ## реестр + сбор + нормализация + притоки + отчёт качества
