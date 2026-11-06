@@ -6,7 +6,7 @@
   "isin_source": "https://iss.moex.com/iss/securities.json (группа stock_ppif)",
   "fetched_at": "2026-11-05T12:53:03+00:00",
   "fund_registry_sha256": "14deb574480777996176f8557288571be5dee93beeb6e1ee16eb852f534f9489",
-  "uk_registry_as_of": "2026-11-05",
+  "uk_registry_as_of": "2026-11-04",
   "skipped": {
    "qualified_only": 164,
    "other_type_or_status": 7591,

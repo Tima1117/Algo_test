@@ -1,1 +1,1 @@
-{"rules": "6661", "currency": "RUB", "segments": [], "official_returns": [], "payouts": [], "page_url": null, "status": "blocked", "reason": "доступ закрыт сайтом (HTTP 403); капчи и закрытые разделы не обходим", "errors": [], "warnings": []}
+{"rules": "6661", "currency": "RUB", "segments": [], "official_returns": [], "payouts": [], "page_url": null, "status": "unavailable", "reason": "сайт УК https://www.akbars-capital.ru из сети сборщика: сайт не отвечает (ConnectTimeout)", "errors": [], "warnings": []}
