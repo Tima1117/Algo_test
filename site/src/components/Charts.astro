@@ -34,8 +34,30 @@
     WWW: ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'],
   };
 
+  // Пропуск в данных должен быть виден как разрыв линии. uPlot рвёт линию только на null,
+  // поэтому там, где шаг между точками больше двух обычных, вставляем пустую точку.
+  function withGaps(cfg: Cfg): Cfg {
+    if (cfg.kind !== 'line' || cfg.x.length < 3) return cfg;
+    const steps = cfg.x.slice(1).map((t, i) => t - cfg.x[i]).sort((a, b) => a - b);
+    const typical = steps[Math.floor(steps.length / 2)];
+    const x: number[] = [];
+    const links: (string | null)[] = [];
+    const vals = cfg.series.map(() => [] as (number | null)[]);
+    cfg.x.forEach((t, i) => {
+      if (i > 0 && t - cfg.x[i - 1] > 2 * typical) {
+        x.push(cfg.x[i - 1] + typical);
+        links.push(null);
+        vals.forEach((v) => v.push(null));
+      }
+      x.push(t);
+      links.push(cfg.links ? cfg.links[i] : null);
+      cfg.series.forEach((s, k) => vals[k].push(s.values[i]));
+    });
+    return { ...cfg, x, links: cfg.links ? links : undefined, series: cfg.series.map((s, k) => ({ ...s, values: vals[k] })) };
+  }
+
   function render(el: HTMLElement) {
-    const cfg = JSON.parse(el.dataset.chart!) as Cfg;
+    const cfg = withGaps(JSON.parse(el.dataset.chart!) as Cfg);
     const bars = cfg.kind === 'bars';
     const monthly = cfg.monthly ?? bars;
     const info = cfg.info ? document.getElementById(cfg.info) : null;

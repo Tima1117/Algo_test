@@ -28,7 +28,7 @@ const statusClass = (s: string) => (s === 'ok' ? 'ok' : ['partial', 'stale', 'no
   <h1>{u.short}</h1>
   <p class="muted">{u.name} · ИНН <span class="mono">{u.inn}</span> · ОГРН <span class="mono">{u.ogrn}</span>
     {u.site && <> · <a href={u.site} rel="nofollow noopener" target="_blank">{host(u.site)}</a></>}</p>
-  <p><a class="btn" href={`${COMPARE_UK_URL}?inn=${u.inn}`} data-tip={H.compareUk}>Открыть в разделе «Сравнить УК»</a>
+  <p><a class="btn" href={COMPARE_UK_URL} data-tip={H.compareUk}>«Сравнить УК» на algosphere.tech — найти по ИНН {u.inn}</a>
     <a class="btn" href={`${base}?uk=${u.inn}`} data-tip="Открыть общий рейтинг с фильтром по этой УК">Фонды УК в рейтинге</a></p>
 
   <div class="grid kpis">
@@ -52,7 +52,7 @@ const statusClass = (s: string) => (s === 'ok' ? 'ok' : ['partial', 'stale', 'no
       <tbody>
         {list.map((f) => (
           <tr>
-            <td class="fund"><a href={`${base}fund/${f.rules}/`}>{f.name}</a><div class="sub">{f.type_label} · {f.category}</div></td>
+            <td class="fund"><a href={`${base}fund/${f.rules}/`}>{f.name}</a><div class="sub">{f.type_label} · {f.asset_class}</div></td>
             <td class="num">{money(f.nav_rub)}</td>
             <td class={`num ${sign(f.flow_m)}`}>{money(f.flow_m)}</td>
             <td class={`num ${sign(f.flow_y)}`}>{money(f.flow_y)}</td>

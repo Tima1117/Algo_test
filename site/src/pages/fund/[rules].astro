@@ -42,7 +42,7 @@ const flowChart = s && {
   <p class="muted"><a href={base}>Рейтинг</a> / <a href={`${base}uk/${f.uk_inn}/`}>{f.uk_short}</a></p>
   <h1>{f.name}</h1>
   <p>
-    <span class="badge blue">{f.type_label}</span> <span class="badge">{f.category}</span>
+    <span class="badge blue">{f.type_label}</span> <span class="badge" data-tip={H.assetClass}>{f.asset_class}</span>
     <span class={`badge ${statusClass}`} data-tip={f.data_reason || H.dataStatus}>{f.data_status_label}</span>
     {f.discrepancy && <span class="badge warn" data-tip={H.retMismatch}>доходность расходится с официальной</span>}
     {f.ticker && <span class="badge">{f.ticker}</span>}
@@ -67,6 +67,7 @@ const flowChart = s && {
       <dl class="props">
         <dt>Полное название</dt><dd>{f.full_name}</dd>
         <dt>Управляющая компания</dt><dd><a href={`${base}uk/${f.uk_inn}/`}>{f.uk_short}</a>, ИНН <span class="mono">{f.uk_inn}</span></dd>
+        <dt>Категория по реестру ЦБ</dt><dd>{f.category}</dd>
         <dt>Номер правил<Hint text={H.rules} /></dt><dd class="mono">{f.rules}</dd>
         <dt>Дата регистрации</dt><dd>{date(f.reg_date)}</dd>
         <dt>Статус в реестре ЦБ<Hint text={H.registryStatus} /></dt><dd>{f.status}</dd>
@@ -75,14 +76,16 @@ const flowChart = s && {
         <dt>Страница фонда у УК<Hint text={H.pageUk} /></dt><dd>{f.page_url ? <a href={f.page_url} rel="nofollow noopener" target="_blank">{host(f.page_url)}</a> : '—'}</dd>
         <dt>Ряд<Hint text={H.series} /></dt><dd>{f.n_points ? `${f.n_points} точек, ${date(f.first_date)} — ${date(f.last_date)}, ${({daily: 'ежедневно', weekly: 'еженедельно', monthly: 'ежемесячно'} as any)[f.frequency ?? ''] ?? f.frequency}` : 'нет'}</dd>
       </dl>
-      <p style="margin-top:12px"><a class="btn" href={`${COMPARE_UK_URL}?inn=${f.uk_inn}`} data-tip={H.compareUk}>УК в разделе «Сравнить УК»</a>
+      <p style="margin-top:12px"><a class="btn" href={COMPARE_UK_URL} data-tip={H.compareUk}>«Сравнить УК» на algosphere.tech — найти по ИНН {f.uk_inn}</a>
         {s && <a class="btn" href={`${base}data/fund/${f.rules}.csv`} download data-tip={H.csvFund}>Ряд в CSV</a>}</p>
     </div>
     <div class="panel">
       <h3>Доходность пая<Hint text={H.ret} /></h3>
+      <p class="disclaimer" style="margin-top:-4px">Не является инвестиционной рекомендацией. Доходность в прошлом не гарантирует доходности в будущем.</p>
+      {f.payouts_note && <div class="note warn" style="margin:8px 0">Доходность по ряду — {f.payouts_note}: фонд выплачивает доход пайщикам, а суммы выплат УК публикует только в PDF.</div>}
       <div class="table-wrap" style="border:0">
-        <table>
-          <thead><tr><th>Период</th><th class="num">По ряду на {date(f.ret_as_of)}<Hint text={H.retByRow} /></th><th class="num">Официальная<Hint text={H.retOfficial} /></th><th class="num">По ряду на ту же дату<Hint text={H.retSameDate} /></th><th>Сверка<Hint text={H.retCheck} /></th></tr></thead>
+        <table class="ret-table">
+          <thead><tr><th>Период</th><th class="num">Наша, {date(f.ret_as_of)}<Hint text={H.retByRow} /></th><th class="num">УК<Hint text={H.retOfficial} /></th><th class="num hide-sm">Наша на дату УК<Hint text={H.retSameDate} /></th><th>Сверка<Hint text={H.retCheck} /></th></tr></thead>
           <tbody>
             {(['1m', '3m', '6m', '1y'] as const).map((k) => {
               const o = f.official[k];
@@ -90,8 +93,10 @@ const flowChart = s && {
                 <td>{PERIOD_LABEL[k]}</td>
                 <td class={`num ${sign(f[`ret_${k}`])}`}>{pct(f[`ret_${k}`])}</td>
                 <td class="num">{o ? <a href={o.url ?? '#'} rel="nofollow noopener" target="_blank" data-tip={`Официальная доходность УК на ${date(o.as_of)}. Нажмите, чтобы открыть источник.`}>{pct(o.value)}</a> : '—'}</td>
-                <td class={`num ${sign(o?.ours)}`}>{o ? pct(o.ours) : '—'}</td>
-                <td>{o ? <span class={`badge ${o.status === 'сходится' ? 'ok' : o.status.startsWith('расхождение') ? 'warn' : ''}`}>{o.status}{o.as_of ? `, ${date(o.as_of)}` : ''}</span> : <span class="muted">не опубликована / не найдена</span>}</td>
+                <td class={`num hide-sm ${sign(o?.ours)}`}>{o ? pct(o.ours) : '—'}</td>
+                <td>{o ? <span class={`badge ${o.status === 'сходится' ? 'ok' : o.status.startsWith('расхождение') ? 'warn' : ''}`}
+                  data-tip={`${o.status}${o.as_of ? ` (на ${date(o.as_of)})` : ''}; наша доходность на эту дату: ${pct(o.ours)}`}>
+                  {o.status === 'сходится' ? '✓' : o.status.startsWith('расхождение') ? '≠' : '—'}</span> : <span class="muted" data-tip="УК не публикует официальную доходность за этот период или мы её не нашли">нет</span>}</td>
               </tr>;
             })}
           </tbody>

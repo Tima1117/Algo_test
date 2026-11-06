@@ -90,10 +90,10 @@ const PERIOD: Record<string, string> = { '1m': '1 мес', '3m': '3 мес', '6m
   <h2>Сходимость сводов притоков<Hint text={H.consistency} /></h2>
   <p class="muted">Сумма притоков по фондам должна совпадать с итогами по УК, типам, категориям и рынку.</p>
   <div class="table-wrap"><table>
-    <thead><tr><th>Месяц</th><th class="num">Сумма по фондам</th><th class="num">По УК</th><th class="num">По типам</th><th class="num">По категориям</th><th class="num">Рынок</th><th>Сходится</th></tr></thead>
+    <thead><tr><th>Месяц</th><th class="num">Сумма по фондам</th><th class="num">По УК</th><th class="num">По типам</th><th class="num">По классам активов</th><th class="num">Рынок</th><th>Сходится</th></tr></thead>
     <tbody>{quality.consistency.map((c: any) => (
-      <tr><td>{month(c.month)}</td><td class="num">{money(c.funds)}</td><td class="num">{money(c.uk)}</td><td class="num">{money(c.type)}</td>
-        <td class="num">{money(c.category)}</td><td class="num">{money(c.market)}</td><td>{c.ok ? <span class="badge ok">да</span> : <span class="badge bad">нет</span>}</td></tr>
+      <tr><td>{c.month.includes('-') ? month(c.month) : c.label}</td><td class="num">{money(c.funds)}</td><td class="num">{money(c.uk)}</td><td class="num">{money(c.type)}</td>
+        <td class="num">{money(c.asset_class)}</td><td class="num">{money(c.market)}</td><td>{c.ok ? <span class="badge ok">да</span> : <span class="badge bad">нет</span>}</td></tr>
     ))}</tbody>
   </table></div>
 </Base>
