@@ -135,15 +135,16 @@ def probe_uncovered(http: Fetcher, funds: list[Fund]) -> list[FundData]:
             status, reason = "unavailable", "в реестре лицензий ЦБ не указан сайт УК"
         else:
             try:
-                # одна попытка: здесь нужно только понять, отвечает ли сайт
-                http.get(site, fmt="html", funds=[f.rules for f in group], allow_stale=False,
-                         check_robots=False, attempts=1)
+                # одна попытка: здесь нужно только понять, отвечает ли сайт (и не закрыт ли он robots.txt)
+                http.get(site, fmt="html", funds=[f.rules for f in group], allow_stale=False, attempts=1)
             except Blocked as e:
                 if (urlsplit(site).hostname or "") in config.FOREIGN_IP_BLOCKED:
                     status, reason = "geo_blocked", (
                         f"сайт отвечает {e.reason.split('(')[-1].rstrip(')')} на запросы с зарубежных IP, где работает "
                         "сборщик (и GitHub Actions); из России сайт открывается. Сбор отсюда невозможен, а без доступа "
                         "к сайту нечего разбирать — нужен запуск с российского IP")
+                elif "robots.txt" in e.reason:
+                    status, reason = "blocked", "robots.txt сайта УК закрывает его для роботов — не собираем"
                 else:
                     status, reason = "blocked", f"{e.reason}; капчи и закрытые разделы не обходим"
             except FetchError as e:
