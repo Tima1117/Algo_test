@@ -1,0 +1,15 @@
+{
+  "count": 356,
+  "first": {
+    "date": "2025-06-02",
+    "nav": 682669840.08,
+    "price": 2347.18
+  },
+  "last": {
+    "date": "2026-11-03",
+    "nav": 459566202.7,
+    "price": 2074.76
+  },
+  "name": "aton_global_markets_cost",
+  "sha256": "a3a777a6204e36f5f05b65e9be555ce6372b790c935195e706c78a13b459f417"
+}
