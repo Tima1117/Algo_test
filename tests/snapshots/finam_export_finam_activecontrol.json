@@ -1,0 +1,15 @@
+{
+  "count": 105,
+  "first": {
+    "date": "2026-06-10",
+    "nav": 60458280.74,
+    "price": 10.0065
+  },
+  "last": {
+    "date": "2026-11-05",
+    "nav": 64228722.89,
+    "price": 10.4529
+  },
+  "name": "finam_export_finam_activecontrol",
+  "sha256": "eea7841f8329ca855f0ba75158584e961ee39ad845643aefc848a39cfb6a5720"
+}

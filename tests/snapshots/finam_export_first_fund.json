@@ -1,0 +1,15 @@
+{
+  "count": 314,
+  "first": {
+    "date": "2025-08-01",
+    "nav": 36216786.0,
+    "price": 300.23
+  },
+  "last": {
+    "date": "2026-11-03",
+    "nav": 30751855.86,
+    "price": 269.62
+  },
+  "name": "finam_export_first_fund",
+  "sha256": "22bc39d53653bcd8eab2651470a21b36a07ef1251e646dad8b6cd67f68a323e8"
+}

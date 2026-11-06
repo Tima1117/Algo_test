@@ -1,0 +1,15 @@
+{
+  "count": 314,
+  "first": {
+    "date": "2025-08-01",
+    "nav": 3410301432.54,
+    "price": 11.71
+  },
+  "last": {
+    "date": "2026-11-03",
+    "nav": 8431717461.92,
+    "price": 14.0891
+  },
+  "name": "finam_export_money_market",
+  "sha256": "861cb5a13900cdb38a19f3672938cb87021bd65f8b58c8247e91da4705028ea7"
+}
