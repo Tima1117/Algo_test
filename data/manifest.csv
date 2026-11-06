@@ -678,7 +678,65 @@ funds,url,format,fetched_at,sha256,bytes,status
 0017-46538911 0034-18810975 0055-56612034 0095-59893492 0387-78483850 0500-94103344 0645-94120472 0698-94121750 4039 4213 4580 4713 4929 5012 5425 5473 5626 5732 5955 6107 6183 6267 6467 6527 6541 6580 6838 6848 6911 6917 6931 6932 6991 6996 7146 7245 7246 7335 7374 7593 7781 7851 7852 7926,https://www.alfacapital.ru/gate/v1/fundsData/v1,json,2026-11-03T15:11:06+00:00,29994633fde6fbdf024b3d520c51da57810b45caf84d04a8abe5074a44f88091,56716,ok
 ,https://www.alfacapital.ru/robots.txt,txt,2026-11-05T23:15:05+00:00,cfae4409c83bee297a8779dccaa0f5956e137eef036d10c39e46fdb65091b0e8,2810,ok (не изменился)
 0009-46349328 0568-94120101 0729-94125699 1008-94131435 1009-94131352 2487 4330 4506 5936 6221 6763 6764 7136 7410 7680 7682 7838 7839 7840,https://www.am-aton.ru,html,,,,error: сайт недоступен (ConnectError)
-,https://www.am-aton.ru/robots.txt,txt,,,,error: сайт недоступен (ConnectError)
+0009-46349328 0568-94120101 0729-94125699 1008-94131435 1009-94131352 2487 4330 4506 5936 6221 6763 6764 7136 7410 7680 7682 7838 7839 7840,https://www.am-aton.ru/api/fund/,json,2026-11-06T08:33:56+00:00,648e4cf193d565b86b8ab14c8abc6004f47a4fcd63cbd715f4c72173d00a2427,251320,ok
+,https://www.am-aton.ru/api/fund/AMRE/,json,2026-11-06T08:34:05+00:00,3a0471514448fe502626265fc7139089db1b31b1ec5fbdeb8040ff586426e750,23814,ok
+4330,https://www.am-aton.ru/api/fund/AMRE/cost/,json,2026-11-06T08:34:48+00:00,0b4af23db8b4feb73f13ec4004cbd86aeb8064f624802e15b906641411950a78,134794,ok
+4330,https://www.am-aton.ru/api/fund/AMRE/profit/,json,2026-11-06T08:34:54+00:00,b5d1cbcc8a4c24513eafdf4f97099b8ecd2ea0438fe2ba8353882927281ccb0e,2678,ok
+,https://www.am-aton.ru/api/fund/AMRH/,json,2026-11-06T08:34:06+00:00,f7a96c0edbad966c7e1f13add382c08c1216bdd2e27cab84f5ea17af052ac84a,21417,ok
+4506,https://www.am-aton.ru/api/fund/AMRH/cost/,json,2026-11-06T08:34:54+00:00,88039201def2420d3b3810556965becda6299a916f0b948564bad09aa7525cbc,131334,ok
+4506,https://www.am-aton.ru/api/fund/AMRH/profit/,json,2026-11-06T08:35:00+00:00,9e3b90a6382cf2cdea678b4ceea00dd309b919a9aa0a016c5d178d6e23b6eb36,2112,ok
+,https://www.am-aton.ru/api/fund/amfl/,json,2026-11-06T08:34:07+00:00,c11fea5ee4ecc45e9431a4799758fa51131a56a430327616f9879816a06cb5ab,21136,ok
+6763,https://www.am-aton.ru/api/fund/amfl/cost/,json,2026-11-06T08:35:00+00:00,7c6d8296b53077ec338bf85ec87dd8467f29e1c95f60381d0bdfcf85e05f0fee,49272,ok
+6763,https://www.am-aton.ru/api/fund/amfl/profit/,json,2026-11-06T08:35:06+00:00,0839140ae88e54271b1b181c08ce0e0e81b9c8875ad64742b5033dbb353cd742,2268,ok
+,https://www.am-aton.ru/api/fund/amgb/,json,2026-11-06T08:34:08+00:00,6caba3d8fdeb55b8a986bfc392d974f439711f362f07d45627fb01734cbb2c97,22387,ok
+6764,https://www.am-aton.ru/api/fund/amgb/cost/,json,2026-11-06T08:34:22+00:00,ccb10d39cc422679b0e80a1f22d39d2a33d0794f362a3af2a4661dce1354fb80,48992,ok
+6764,https://www.am-aton.ru/api/fund/amgb/profit/,json,2026-11-06T08:34:29+00:00,efdc48e05882eb7baed98e79af9f10577b3777119ae360863b868ddbf3dec4c1,2281,ok
+,https://www.am-aton.ru/api/fund/amgl/,json,2026-11-06T08:34:10+00:00,2467e5e0968857efad6b76c43eea70f82fea9f63c07ac7083ea264beedcad2da,20977,ok
+7136,https://www.am-aton.ru/api/fund/amgl/cost/,json,2026-11-06T08:34:32+00:00,bcbb5cc829dfbdc6a4c6006bd3df00fd25ca9ebd2e0cb6c19bdd54aa01d84f84,35377,ok
+7136,https://www.am-aton.ru/api/fund/amgl/profit/,json,2026-11-06T08:34:37+00:00,999e5660c1878f7ecf617b26b3f5981a691cf589b34e46a11a76545b669ebb76,3156,ok
+,https://www.am-aton.ru/api/fund/amix/,json,2026-11-06T08:34:15+00:00,b7f8ede53e08aeb6e5c011f68de4324deb4fe2f25bc6a6523cbdea8f820e09b6,18205,ok
+7839,https://www.am-aton.ru/api/fund/amix/cost/,json,2026-11-06T08:34:29+00:00,2bc930bd081556ca810852a80c150230195748758f99d4a8faaff72144f111f4,10889,ok
+7839,https://www.am-aton.ru/api/fund/amix/profit/,json,2026-11-06T08:34:31+00:00,1ac57437b9e1fbf1e6b8c661aff49279ceb6685f43ff721ee447472a9f0a447d,2733,ok
+,https://www.am-aton.ru/api/fund/amvd/,json,2026-11-06T08:34:11+00:00,6e643ed4071b8ec12c747dbc7959bf6b2949513d950b8b9d66cd4a2db224d917,21084,ok
+7838,https://www.am-aton.ru/api/fund/amvd/cost/,json,2026-11-06T08:34:17+00:00,7ba644a05c5293dc9672911ddff4ebb9d4d8eb62ca39605bccf20751d50e709c,10170,ok
+7838,https://www.am-aton.ru/api/fund/amvd/profit/,json,2026-11-06T08:34:18+00:00,164e53596375d8aed73cbe781d59ac7a960c5be52c060fe2241c8a04ad45160f,1762,ok
+,https://www.am-aton.ru/api/fund/amvy/,json,2026-11-06T08:34:16+00:00,3f0aa74cc89efba5c5f6cb01157a08e0c1f51082262bf81989b3d9d17d4227ea,19770,ok
+7840,https://www.am-aton.ru/api/fund/amvy/cost/,json,2026-11-06T08:34:19+00:00,fd945c05e2a5c4fda62ee8f25465c5a42748f296256f2e49840c4b2ac371fb75,10306,ok
+7840,https://www.am-aton.ru/api/fund/amvy/profit/,json,2026-11-06T08:34:20+00:00,a7c08c184916417c41012b27b032cc2577c0e0c88a87218814d58c3834788d33,1748,ok
+,https://www.am-aton.ru/api/fund/bond_fund/,json,2026-11-06T08:34:00+00:00,d51ecff5b43eabf80cae5a4936b9b30cf870f54469916c3982e6b200bf80eaf9,36924,ok
+0729-94125699,https://www.am-aton.ru/api/fund/bond_fund/cost/,json,2026-11-06T08:36:02+00:00,38e851934e3e5bae895758267d6feb6b91f3229e0110d91eefa4871cf2e8aeb8,494940,ok
+0729-94125699,https://www.am-aton.ru/api/fund/bond_fund/profit/,json,2026-11-06T08:36:08+00:00,489e7cc7da980cd4ac37447042e0e088a54df8b2bfcab53246d9b474f59332f1,3091,ok
+,https://www.am-aton.ru/api/fund/cumul/,json,2026-11-06T08:34:14+00:00,faed668e48f0830aa4dfe5f2cac4135c8784de6c0710259cf8cc6c3621366e72,24148,ok
+5936,https://www.am-aton.ru/api/fund/cumul/cost/,json,2026-11-06T08:34:38+00:00,7572d400ec1f7598361640207e8dd2508ad32c4bffe7210f21ff93df5f81b635,75644,ok
+5936,https://www.am-aton.ru/api/fund/cumul/profit/,json,2026-11-06T08:34:43+00:00,1663e8175409db4027e416d9823931a601999c730f4deb95ffc36c6233614b10,3171,ok
+,https://www.am-aton.ru/api/fund/cumul_yuan/,json,2026-11-06T08:34:09+00:00,b9a89d0f9420312732c22c77230919c3a8d70cbc653a5f621de1dd412c86d270,26285,ok
+6221,https://www.am-aton.ru/api/fund/cumul_yuan/cost/,json,2026-11-06T08:34:43+00:00,c06e1f16e3eb1ee033c15ffc62446c415c8f1289d16d7cf89e334904ec2e070e,62821,ok
+6221,https://www.am-aton.ru/api/fund/cumul_yuan/profit/,json,2026-11-06T08:34:47+00:00,25d97a4ce40ba58088ac27628b35776a9a389356516ae29623d737a6a5b307ce,3246,ok
+,https://www.am-aton.ru/api/fund/dszh_ofz/,json,2026-11-06T08:34:12+00:00,0e9a42b8a34414e90bd7f327e12db3eb5c51428e83495e6d76fe7a69d5bb903b,21546,ok
+7680,https://www.am-aton.ru/api/fund/dszh_ofz/cost/,json,2026-11-06T08:35:14+00:00,1eeed9b67fb57017c0118fb332b908bf7d0a9e4182ce390ed6e8708734b91c2e,15510,ok
+7680,https://www.am-aton.ru/api/fund/dszh_ofz/profit/,json,2026-11-06T08:35:19+00:00,0403a27bf5360e9bfc6857eeeb45f330397536d8c042e063cec8948b7f273f93,2874,ok
+,https://www.am-aton.ru/api/fund/dszh_shares/,json,2026-11-06T08:34:13+00:00,86f4f30f3c283344bb0a5fa4cb6eac9566f13596fbb7a7a3927808aa7409fe31,21445,ok
+7682,https://www.am-aton.ru/api/fund/dszh_shares/cost/,json,2026-11-06T08:35:09+00:00,ea282598a208543915b8b5c37c956b51b0328d23a4c3dd9f4f855bfd424e0f8f,15365,ok
+7682,https://www.am-aton.ru/api/fund/dszh_shares/profit/,json,2026-11-06T08:35:14+00:00,1a59308ad68a53ebf4272359966208c8f4eb5d252480391ff91906e213cef03f,2722,ok
+,https://www.am-aton.ru/api/fund/eurobond_fund/,json,2026-11-06T08:33:59+00:00,39bdb440b5831572b0c5868a5dcc3ae60995b6229ed1c48ba081b1aff1fed54e,37190,ok
+0568-94120101,https://www.am-aton.ru/api/fund/eurobond_fund/cost/,json,2026-11-06T08:35:35+00:00,964713d43b3a1c9b776b46a1b42617a03f34e5cb88e1019cf4ef2541e4e20d48,1048825,ok
+0568-94120101,https://www.am-aton.ru/api/fund/eurobond_fund/profit/,json,2026-11-06T08:35:42+00:00,0633ede050fee49e7b47b784673f6a57a89d161a977cec084c64c046c617b538,3135,ok
+,https://www.am-aton.ru/api/fund/global_markets/,json,2026-11-06T08:34:03+00:00,7b587bcd36c61ebffeb3b3a4f657910079fcec1ee252f82539e579067de99959,37545,ok
+2487,https://www.am-aton.ru/api/fund/global_markets/cost/,json,2026-11-06T08:35:50+00:00,4e62c697cab1c798d733ac3b71cf5d235301bdb1d6a6161967a21e4837dbcdc5,310326,ok
+2487,https://www.am-aton.ru/api/fund/global_markets/profit/,json,2026-11-06T08:35:50+00:00,192745f71bbddf580d2a465c205fb2d1b5e290702befc3a60435a840f1fbaefa,3324,ok
+,https://www.am-aton.ru/api/fund/high_technology_fund/,json,2026-11-06T08:34:02+00:00,2bbdc6cea549b428378b98937b6776108a52350b88efc78c879bcbe51f08d2dd,36831,ok
+1009-94131352,https://www.am-aton.ru/api/fund/high_technology_fund/cost/,json,2026-11-06T08:35:44+00:00,88beacb689bcd582ff6acabffa0e59bd91271edcf9b03806644cd0a10ba9871e,474025,ok
+1009-94131352,https://www.am-aton.ru/api/fund/high_technology_fund/profit/,json,2026-11-06T08:35:49+00:00,b618c05a5d9a78a8537ec41ca405e3c33618bcc205ae993001e1c2af6cb4086d,3314,ok
+,https://www.am-aton.ru/api/fund/infrastructure/,json,2026-11-06T08:34:01+00:00,4bad38224237b64e426dcd2433eb6d8fba43cff37dbd6e9f48243912e66bbc11,39649,ok
+1008-94131435,https://www.am-aton.ru/api/fund/infrastructure/cost/,json,2026-11-06T08:35:53+00:00,ec96785bd212f762337eca6362bcbc76a8f5bb050c126cc92c850f203f83430c,523390,ok
+1008-94131435,https://www.am-aton.ru/api/fund/infrastructure/profit/,json,2026-11-06T08:36:00+00:00,4b247c4a29181d3ee23c659d92b9493fba1060d7007c92d17131d7d91d3ab1fa,3620,ok
+,https://www.am-aton.ru/api/fund/pyotr_stolypin/,json,2026-11-06T08:33:57+00:00,e83e907943eb10a9cd2866c5e7a9d8329a6b1d930c3e7054f5e57a9ef842ba35,38105,ok
+0009-46349328,https://www.am-aton.ru/api/fund/pyotr_stolypin/cost/,json,2026-11-06T08:35:07+00:00,cd4fcc1ef0f14e8aa411e1dc9a5d85904f0e505a48afd122ee54400f7d450431,918965,ok
+0009-46349328,https://www.am-aton.ru/api/fund/pyotr_stolypin/profit/,json,2026-11-06T08:35:08+00:00,d7e1dbee61714a1797e99ffed2c995844b24c48c50f8bc262dc26da3d4557c58,3435,ok
+,https://www.am-aton.ru/api/fund/reserve_capital/,json,2026-11-06T08:34:04+00:00,13f63cd428c7637671f6b7b905daa7ed42f58330b463c987472d5d354528a15f,27125,ok
+7410,https://www.am-aton.ru/api/fund/reserve_capital/cost/,json,2026-11-06T08:36:08+00:00,4944e996f4b803037df602455fb326260e9ce67021e1cb0c5fa70dda6a52dc11,25019,ok
+7410,https://www.am-aton.ru/api/fund/reserve_capital/profit/,json,2026-11-06T08:36:13+00:00,de6828ae79cfe88dd7f72a92d94451380d787eb3389265b2336e57c3e54a8273,2705,ok
+,https://www.am-aton.ru/robots.txt,txt,2026-11-06T08:33:56+00:00,fb7279552bac400a40a03fedb844081722f137222df0cdbe17cff82370202f5c,1456,ok
 2565,https://www.aricapital.ru/funds/fund-cm,html,2026-11-05T23:15:08+00:00,a9de8bae8a9a8be8160dbe169713f4c3f7fd2b3ab5a15111767d8d30da19c29d,1167916,ok
 3208,https://www.aricapital.ru/funds/fund-gi,html,2026-11-05T23:15:11+00:00,b44852ba1fb5bf5c21936cff42632ce992b44b94eb100a0eb8a65b11a9b6cf71,887207,ok
 3606,https://www.aricapital.ru/funds/fund-ha,html,2026-11-05T23:15:13+00:00,479f0ba8bd335b5232540333b96140e8f523c6ca752942e019941d4ce4ff2649,1216671,ok
@@ -807,7 +865,36 @@ funds,url,format,fetched_at,sha256,bytes,status
 0044-52842352,https://www.energy-invest.ru,html,,,,error: сайт недоступен (ConnectError)
 ,https://www.energy-invest.ru/robots.txt,txt,,,,error: сайт не отвечает (ConnectTimeout)
 0097а-59837006 6459 7306 7802,https://www.fdu.ru,html,,,,error: сайт недоступен (ConnectError)
-,https://www.fdu.ru/robots.txt,txt,,,,error: сайт недоступен (ConnectError)
+0097а-59837006 6459 7306 7802,https://www.fdu.ru/documents/disclosure/,html,2026-11-06T08:26:50+00:00,c7fd282ec27a7be29dfa60d93e61b3edc6ea9ec7105b9d4327cb8f8b6aac08bf,59935,ok
+7802,https://www.fdu.ru/documents/disclosure/finam_activecontrol/,html,2026-11-06T08:26:51+00:00,82984b3ad883761e0b8eab8c7c71bb4b97131e578f6ba34e7bf5b1df8760df18,61236,ok
+7802,https://www.fdu.ru/documents/disclosure/finam_activecontrol/dynamics_profit_finam_activecontrol/,html,2026-11-06T08:26:52+00:00,7fc1f7c068eb7e788a04336438a578fc8b12109a5eee1e537e858a62c16ba1c6,71186,ok
+7802,https://www.fdu.ru/documents/disclosure/finam_activecontrol/dynamics_profit_finam_activecontrol/,html,2026-11-06T08:26:54+00:00,05abd4f9d642007cb56985328f9b534dfa42c0f17a25e04f84713c0284708d69,87674,ok
+7802,https://www.fdu.ru/documents/disclosure/finam_activecontrol/dynamics_profit_finam_activecontrol/,html,2026-11-06T08:26:53+00:00,8ba9687b83f009daab2c75f53861046f6ef0273cb2f0421b209966d0b32bbe2a,79827,ok
+7802,https://www.fdu.ru/documents/disclosure/finam_activecontrol/dynamics_profit_finam_activecontrol/,html,2026-11-06T08:26:55+00:00,4b975c547f3527aff2af7bcc013d7977b5cc63627d362e4308d479f6e3a7cb48,87674,ok
+7306,https://www.fdu.ru/documents/disclosure/finam_bonds/,html,2026-11-06T08:26:57+00:00,8ae8ca257f712ba7d6aabb11af0afe693c3adda94101727fea92577cf9f2305f,61143,ok
+7306,https://www.fdu.ru/documents/disclosure/finam_bonds/dynamics_profit_bonds/,html,2026-11-06T08:27:00+00:00,10e31a1f1de896618626b6b733f7f8b065c27cca8dc08432dd35ae289ab86a35,80014,ok
+7306,https://www.fdu.ru/documents/disclosure/finam_bonds/dynamics_profit_bonds/,html,2026-11-06T08:26:59+00:00,7bbd20a37344506efb3c9f562718476e02e9810dc2d2df8558a841bc7d275179,71086,ok
+7306,https://www.fdu.ru/documents/disclosure/finam_bonds/dynamics_profit_bonds/,html,2026-11-06T08:27:01+00:00,a24baa61783ef075013bfd58bd54f40ae02e2f8759fb6619771ed5b21a4828b0,92988,ok
+7306,https://www.fdu.ru/documents/disclosure/finam_bonds/dynamics_profit_bonds/,html,2026-11-06T08:27:02+00:00,df77315bbc98bde074295ac29e3f2c104168b9a3b6a57996e4b5808215604c1e,116610,ok
+0097а-59837006,https://www.fdu.ru/documents/disclosure/first_fund/,html,2026-11-06T08:27:04+00:00,c06e6d130fe56f3573101dd782d9dcdf9b041180e40b292a0748cfbf36870128,61892,ok
+0097а-59837006,https://www.fdu.ru/documents/disclosure/first_fund/dynamics_profit_first_fund/,html,2026-11-06T08:27:12+00:00,6a2e8de49a57fe4caede24484ac541a64da442f30631a6d5280d7ec9885cd9db,93740,ok
+0097а-59837006,https://www.fdu.ru/documents/disclosure/first_fund/dynamics_profit_first_fund/,html,2026-11-06T08:27:15+00:00,606b0c00a0547d4eb6060cd8fba1ca6fb0d0666b6c8ec502eceaaaa52b9559dd,117476,ok
+0097а-59837006,https://www.fdu.ru/documents/disclosure/first_fund/dynamics_profit_first_fund/,html,2026-11-06T08:27:07+00:00,08f6b3a1cca8e35edd696ffef3062448d90a5174a5be3ebbec1d8a988a679abd,71818,ok
+0097а-59837006,https://www.fdu.ru/documents/disclosure/first_fund/dynamics_profit_first_fund/,html,2026-11-06T08:27:10+00:00,9568b42e302c1f10f4ed9f9786b2137632c3cd0c1428cd29b83eca1deef2745e,80742,ok
+6459,https://www.fdu.ru/documents/disclosure/money_market/,html,2026-11-06T08:27:17+00:00,2e0dc353c768236a438c6a90d4035bd057ac05f9bfa847298e4f0a10ecc6a42d,61180,ok
+6459,https://www.fdu.ru/documents/disclosure/money_market/dynamics_profit_money_market/,html,2026-11-06T08:27:19+00:00,f34f571907f77206dd6d47f07d43fdcaf27737625720ccf9373bb38bdab6a4ec,71293,ok
+6459,https://www.fdu.ru/documents/disclosure/money_market/dynamics_profit_money_market/,html,2026-11-06T08:27:21+00:00,2f97c151caff1525c54df23454be98c8ffcfe6690cf55d110523c14e41fe596e,93971,ok
+6459,https://www.fdu.ru/documents/disclosure/money_market/dynamics_profit_money_market/,html,2026-11-06T08:27:20+00:00,babfc3e422792013bca2fe0cd1a057146ff2f41d64e4056bcbf11dd67fa57102,80535,ok
+6459,https://www.fdu.ru/documents/disclosure/money_market/dynamics_profit_money_market/,html,2026-11-06T08:27:22+00:00,91b9f9670abb2eedd5a06a11419a81e1255fe9790f4e56876ea44706467afbcd,118531,ok
+7306,https://www.fdu.ru/documents/fund/report/?name=dynamics_profit_bonds&timePeriod=1,html,2026-11-06T08:27:03+00:00,4733482788e3c6bde2d01eed2a0982d686d5150a3a205c5db91bc0fd14693023,26673,ok
+7306,https://www.fdu.ru/documents/fund/report/?name=dynamics_profit_bonds&timePeriod=6,html,2026-11-06T08:32:31+00:00,4214e9316f6058f0bc25500974ea70bc504c1fdb3e9d6c3f2c68e158237efb10,2654,ok
+7802,https://www.fdu.ru/documents/fund/report/?name=dynamics_profit_finam_activecontrol&timePeriod=1,html,2026-11-06T08:26:56+00:00,8b6367c298986241e5dc7ae5661f40741e66300f3613490ed4bd547302333cde,10914,ok
+7802,https://www.fdu.ru/documents/fund/report/?name=dynamics_profit_finam_activecontrol&timePeriod=6,html,2026-11-06T08:32:30+00:00,1387be91f30cc4c4db62f208f5c589b25c17d9eaf89ddb4168d1eabf7799e4f4,2632,ok
+0097а-59837006,https://www.fdu.ru/documents/fund/report/?name=dynamics_profit_first_fund&timePeriod=1,html,2026-11-06T08:27:17+00:00,2fe2da2f7315c150d66e2f0647563acbabc6f994b76c7f0e3151b31e00644791,74985,ok
+0097а-59837006,https://www.fdu.ru/documents/fund/report/?name=dynamics_profit_first_fund&timePeriod=6,html,2026-11-06T08:32:35+00:00,24cf8be11f49139626291a28be0f183954fbf6cfc9a66195273be40ee4ab084d,2612,ok
+6459,https://www.fdu.ru/documents/fund/report/?name=dynamics_profit_money_market&timePeriod=1,html,2026-11-06T08:27:23+00:00,84d2d0ad26ab8f71a56f528c08a3ec80064a36ceef9c3923493dcb7fe2ecb0a5,53212,ok
+6459,https://www.fdu.ru/documents/fund/report/?name=dynamics_profit_money_market&timePeriod=6,html,2026-11-06T08:32:35+00:00,c188680258975fdf0340d751eaf9a9a99bde2fe449cc8a8b430623694da16869,2679,ok
+,https://www.fdu.ru/robots.txt,txt,,,,error: HTTP 404
 0007-45141428 0011-46360962 0051-56540197 0597-94120779 2569 2940 3428 3555 3629 3636 3785 4162 4426 4427 4428 4429 4431 4471-СД 4607 4678 4860 4978 4979 4980 5061 5230 5268 5324 5325 5471 5472 5592 5649 5972 6079 6312 6938 6992 7137 7160 7313 7594 7610 7894 7905 8124,https://www.first-am.ru/disclosure/fund/,html,2026-11-05T23:15:21+00:00,e29b4e877d2fcb4296d0258fb0b505abf57759603fe7314ee85df6a37c14642b,392461,ok
 3785,https://www.first-am.ru/individuals/etf/corporate-bonds-rub,html,2026-11-05T23:15:45+00:00,749a660e78f551bd31b663098bf4e8c3db3cadc681f4648eb74efb86902b5b2d,2057121,ok
 7894,https://www.first-am.ru/individuals/etf/etf-aiiq,html,2026-11-05T23:16:49+00:00,1ff015296deb3c14f0caca991b1862dcc641f02f658bde7a5095d3bd76a791be,590757,ok
@@ -1101,8 +1188,13 @@ funds,url,format,fetched_at,sha256,bytes,status
 2026-94198244,https://www.tkbip.ru/funds/tkb-bnp-pariba-zoloto/export/?dateFrom=23.10.2026&dateTo=05.11.2026&format=csv,csv,2026-11-05T23:18:37+00:00,828b1ad380c9beee3917b243afd7922630224ac106f40c66ce7c311eee37b452,457,ok
 0078-58234010 0081-58233855 0096-58227323 0219-14281681 0478-75408434 0991-94131990 2026-94198244,https://www.tkbip.ru/funds/tkb-bnp-pariba-zoloto/information/,html,2026-11-05T23:18:34+00:00,6b9aa6316d673c1b5503e617e944b558f2fc516a19070379fcc8b93c2aee8391,178042,ok (не изменился)
 ,https://www.tkbip.ru/robots.txt,txt,2026-11-05T23:18:26+00:00,0c4b960c728d158155949932f6cc3f40a3c30f9a7fa1a0dfb1c1d5eafce0323b,26,"ok (304, не изменился)"
-2984 3264 3863 4275 4344,https://www.trinfico-am.ru/opif/,html,,,,error: доступ закрыт сайтом (HTTP 403)
-,https://www.trinfico-am.ru/robots.txt,txt,,,,error: доступ закрыт сайтом (HTTP 403)
+2984 3264 3863 4275 4344,https://www.trinfico-am.ru/opif/,html,2026-11-06T08:43:26+00:00,0ea992fb56a2a7ab11ea46602716ecd7419a1318adb38df56015361f616d09f4,106884,ok
+4344,https://www.trinfico-am.ru/opif/mirovye-dokhodnye-obligatsii/,html,2026-11-06T08:43:50+00:00,6e586a11ec32512d380842e7130fe3099c9c5d692ffb0f501efc9345efa25977,2362493,ok
+3863,https://www.trinfico-am.ru/opif/opif-rfi-lidar/,html,2026-11-06T08:43:36+00:00,ed9ffff9d8ca999550058b5e896da3aa4937bd61705d3f657e40533dfbc6bfb7,1776099,ok
+4275,https://www.trinfico-am.ru/opif/rossiyskie-dokhodnye-obligatsii/,html,2026-11-06T08:44:06+00:00,a7b88c4b08ec3b18759d31b819ba69f09e6d76d1fd73518451317a5c90b68b1a,2497138,ok
+2984,https://www.trinfico-am.ru/opif/trinfico-ekofinans/,html,2026-11-06T08:44:47+00:00,1369d6c7a35cbf052d4fd25b0cfd3cbb3f9d55a41870b1e3a91490d958212e10,2561841,ok
+3264,https://www.trinfico-am.ru/opif/trinfico-kapitalist/,html,2026-11-06T08:44:31+00:00,75f9569c0578aa89eb64521126c4887c47b136e9bcbb3cef3e04482b877e2b50,3955926,ok
+,https://www.trinfico-am.ru/robots.txt,txt,2026-11-06T08:29:33+00:00,889a7dd66a12a9954c625e736078d6ff0f6eea842c54e76a55ca25f5991fb127,2200,ok
 1970-94172090,https://www.uksun.ru,html,,,,error: антибот-проверка вместо данных
 ,https://www.uksun.ru/robots.txt,txt,,,,error: сайт не отвечает (ConnectTimeout)
 5007,https://www.upravlyaem.ru/ajax/datav.php?fund=25&type=price,json,2026-11-04T11:34:00+00:00,c1130c93ddfd65eddf53220fb555b8d7e32b4e863d446ffbcdbf160ec97ed29b,827,error: сайт не отвечает (ConnectTimeout)
