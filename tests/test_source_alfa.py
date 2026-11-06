@@ -27,6 +27,7 @@ from pif.parsing import UnknownFormat
 from pif.sources.alfa import (HOME_URL, NAV_URL, AlfaCapitalAdapter, match_fund, parse_catalog,
                               parse_nav_currency, parse_nav_page, parse_returns)
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "alfa"
 
@@ -144,6 +145,7 @@ def test_catalog_unknown_format():
 
 def test_nav_page_values():
     pts = parse_nav_page(load("nav_opif_akop_p0.json"))
+    assert_series(pts, "alfa_nav_opif_akop_p0")
     by = {p.date: p for p in pts}
     assert len(pts) == 60
     assert pts[0].date == date(2026, 8, 11) and pts[-1].date == date(2026, 11, 2)   # по возрастанию
@@ -158,10 +160,12 @@ def test_nav_page_values():
 
 def test_nav_page_yuan_and_interval():
     pts = parse_nav_page(load("nav_bpif-akmc-yuan_p0.json"))
+    assert_series(pts, "alfa_nav_bpif_akmc_yuan_p0")
     assert pts[-1].date == date(2026, 11, 2)
     assert pts[-1].price == 105.79405 and pts[-1].nav == 215509809.63
     assert parse_nav_currency(load("nav_bpif-akmc-yuan_p0.json")) == "CNY"
     # интервальный фонд: конец месяца + даты интервалов
+    assert_series(parse_nav_page(load("nav_ipifsi_ak_p0.json")), "alfa_nav_ipifsi_ak_p0")
     dates = [p.date for p in parse_nav_page(load("nav_ipifsi_ak_p0.json"))]
     assert dates[-3:] == [date(2026, 9, 30), date(2026, 10, 23), date(2026, 10, 30)]
     assert parse_nav_page(load("nav_ipifsi_ak_p0.json"))[-1].nav == 3083840128.28
@@ -282,6 +286,8 @@ def test_collect_offline():
 
     akop = res["0095-59893492"]
     assert akop.status == "ok" and akop.currency == "RUB"
+    # ряд из двух страниц (p0 + p1), обрезанный по since
+    assert_series([p for s in akop.segments for p in s.points], "alfa_collect_opif_akop")
     pts = {p.date: p for s in akop.segments for p in s.points}
     assert min(pts) == date(2026, 8, 3) and max(pts) == date(2026, 11, 2)
     assert sum(len(s.points) for s in akop.segments) == len(pts)        # без дублей между страницами
@@ -296,6 +302,7 @@ def test_collect_offline():
 
     frel = res["7926"]
     assert frel.status == "ok"
+    assert_series([p for s in frel.segments for p in s.points], "alfa_collect_opif_frelbroc")
     assert frel.official_returns == [] and any("КИД" in w for w in frel.warnings)
     assert frel.page_url.endswith("/disclosure/pifs/opif-frelbroc/cost")
 

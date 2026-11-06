@@ -21,6 +21,7 @@ from pif.model import Fund, SeriesPoint
 from pif.parsing import UnknownFormat
 from pif.sources import ronin as r
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "ronin"
 RULES = "2003-94172428"
@@ -53,6 +54,7 @@ def test_xls_reader_rows():
 
 def test_history_values_and_units():
     title, pts = r.parse_history(xls())
+    assert_series(pts, "ronin_trustopif_xls")
     assert "РОНИН фонд сбалансированный" in title
     by = {p.date: p for p in pts}
     assert by[date(2026, 11, 2)] == SeriesPoint(date(2026, 11, 2), 35648600.99, 2970.72)

@@ -1,0 +1,15 @@
+{
+  "count": 292,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 26339790.19,
+    "price": 10.3293
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 313264197.87,
+    "price": 12.1384
+  },
+  "name": "psb_collect_994_zolotoy_rynok",
+  "sha256": "5a83268a440c3c344cc6f4d207f64da4b52188a8369840a7cd1b893d018c7062"
+}

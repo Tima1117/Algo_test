@@ -18,6 +18,7 @@ from pif.parsing import UnknownFormat
 from pif.sources.aricapital import (AricapitalAdapter, FUND_URL, LIST_URL, match_site_ids, parse_fund_card,
                                     parse_fund_list, parse_returns, parse_series)
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "aricapital"
 
@@ -91,6 +92,7 @@ def test_fund_card_broken():
 
 def test_parse_series_cm():
     pts = parse_series(read("fund-cm.html"), "fund-cm")
+    assert_series(pts, "aricapital_series_fund_cm")
     by = {p.date: p for p in pts}
     assert len(pts) == 25                     # 2 первые точки + 23 рабочих дня с 01.10.2026
     # первая точка истории: 2013-04-07T20:00Z — полночь по Москве (тогда UTC+4), в архиве «08 апреля 2013»
@@ -107,6 +109,7 @@ def test_parse_series_cm():
 def test_parse_series_skips_benchmark_funds():
     # на странице «Мультистратегии» в том же массиве лежат ряды «Харизматичных идей» и «Мировых рынков»
     pts = parse_series(read("fund-rs.html"), "fund-rs")
+    assert_series(pts, "aricapital_series_fund_rs")
     by = {p.date: p for p in pts}
     assert pts[0].date == date(2018, 8, 24) and pts[0].price == 999.96
     assert (by[date(2026, 10, 30)].nav, by[date(2026, 10, 30)].price) == (481250156.24, 2922.68)
@@ -115,6 +118,7 @@ def test_parse_series_skips_benchmark_funds():
 
 def test_parse_series_ri():
     pts = parse_series(read("fund-ri.html"), "fund-ri")
+    assert_series(pts, "aricapital_series_fund_ri")
     assert pts[0].date == date(2024, 3, 19) and (pts[0].nav, pts[0].price) == (16698451.35, 999.91)
     assert (pts[-1].date, pts[-1].nav, pts[-1].price) == (date(2026, 11, 2), 335914234.07, 868.62)
 

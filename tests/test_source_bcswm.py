@@ -22,6 +22,7 @@ from pif.model import Fund
 from pif.parsing import UnknownFormat
 from pif.sources.base import Context
 from pif.sources.bcswm import BcsWmAdapter, parse_csv, parse_fund_list, parse_values_page
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "bcswm"
 UF1_PAGE = "https://www.bcswm.ru/funds/uf1/values/"
@@ -85,6 +86,7 @@ def test_values_page_broken_raises(old, new):
 
 def test_csv_uf1_values_in_rubles():
     pts = {p.date: p for p in parse_csv(_read("uf1.csv"))}
+    assert_series(parse_csv(_read("uf1.csv")), "bcswm_csv_uf1")
     # строка таблицы на странице фонда: 02.11.2026 — 187.51 руб. и 3 333 025 544.67 руб.
     assert pts[date(2026, 11, 2)].price == 187.51
     assert pts[date(2026, 11, 2)].nav == 3333025544.67
@@ -97,6 +99,7 @@ def test_csv_uf1_values_in_rubles():
 
 def test_csv_drs_zero_rows_are_none():
     pts = parse_csv(_read("drs.csv"))
+    assert_series(pts, "bcswm_csv_drs")
     assert pts[0].date == date(2013, 6, 13) and pts[0].nav is None and pts[0].price is None
     last = pts[-1]
     assert (last.date, last.nav, last.price) == (date(2026, 11, 2), 80790734.21, 217.24)

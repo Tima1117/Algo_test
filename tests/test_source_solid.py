@@ -21,6 +21,7 @@ from pif.model import Fund
 from pif.parsing import UnknownFormat
 from pif.sources import solid
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "solid"
 
@@ -76,6 +77,7 @@ def test_rules_normalization():
 # ---------- история ----------
 def test_history_solid_invest():
     pts = solid.parse_history((FIX / "detail_solid-invest.json").read_bytes())
+    assert_series(pts, "solid_invest_history")
     by = {p.date: p for p in pts}
     assert [p.date for p in pts] == sorted(by)                       # по возрастанию, без дублей
     assert by[date(2025, 9, 1)].price == 816.64
@@ -90,6 +92,7 @@ def test_history_solid_invest():
 
 def test_history_fingold_formation_point_has_no_nav():
     pts = solid.parse_history((FIX / "detail_fingold.json").read_bytes())
+    assert_series(pts, "solid_fingold_history")
     by = {p.date: p for p in pts}
     assert pts[0].date == date(2025, 9, 23)
     assert by[date(2025, 9, 23)].price == 1000.0 and by[date(2025, 9, 23)].nav is None

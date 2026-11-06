@@ -25,6 +25,7 @@ from pif.model import Fund
 from pif.parsing import UnknownFormat
 from pif.sources import psb
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "psb"
 
@@ -94,6 +95,7 @@ def test_fund_page_broken_markup_is_unknown_format():
 # ---------- выгрузка CSV ----------
 def test_costs_csv_values_match_site():
     pts = psb.parse_costs_csv((FIX / "costs_412_full.csv").read_bytes())
+    assert_series(pts, "psb_costs_412")
     assert [p.date for p in pts] == sorted(p.date for p in pts)
     p = _point(pts, date(2026, 10, 30))          # = «8 477.13 на 30.10.2026» в «Динамике фонда»
     assert p.price == 8477.13 and p.nav == 10224758280.53
@@ -106,6 +108,7 @@ def test_costs_csv_values_match_site():
 
 def test_costs_csv_skips_formation_day_without_values():
     pts = psb.parse_costs_csv(_read("costs_998_head_tail.csv"))
+    assert_series(pts, "psb_costs_998_head_tail")
     assert pts[0].date == date(2023, 1, 27) and pts[0].price == 999.94
     assert date(2023, 1, 24) not in {p.date for p in pts}
     assert _point(pts, date(2026, 11, 2)).nav == 1474861872.01
@@ -195,6 +198,7 @@ def test_collect_end_to_end(tmp_path, monkeypatch):
 
     div = res["5210"]
     assert div.status == "ok"
+    assert_series(div.segments[0].points, "psb_collect_997_dividendnye_aktsii")
     assert [(p.date, p.amount) for p in div.payouts] == [
         (date(2025, 9, 30), 87.8902), (date(2025, 12, 30), 13.0709), (date(2026, 3, 31), 21.01779),
         (date(2026, 6, 30), 10.30837), (date(2026, 9, 30), 71.53905)]
@@ -202,6 +206,7 @@ def test_collect_end_to_end(tmp_path, monkeypatch):
 
     gold = res["6919"]                                      # БПИФ: на сайте к названию добавлен тикер
     assert gold.status == "ok" and gold.page_url.endswith("/funds/zolotoy-rynok/")
+    assert_series(gold.segments[0].points, "psb_collect_994_zolotoy_rynok")
     assert _point(gold.segments[0].points, date(2026, 10, 30)).price == 11.7983
 
     assert res["9999"].status == "not_found" and "Несуществующий фонд" in res["9999"].reason

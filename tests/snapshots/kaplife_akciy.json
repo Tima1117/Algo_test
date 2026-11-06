@@ -1,0 +1,15 @@
+{
+  "count": 7,
+  "first": {
+    "date": "2025-07-25",
+    "nav": 574478.78,
+    "price": 999.85
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 154638699.83,
+    "price": 891.13
+  },
+  "name": "kaplife_akciy",
+  "sha256": "a1cb78c9c9677aa30fd8eb9dbface8baf2ea6230836ded0072c284a72d2c19bd"
+}

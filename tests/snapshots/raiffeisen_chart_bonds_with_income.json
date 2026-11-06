@@ -1,0 +1,15 @@
+{
+  "count": 52,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 1470782818.46,
+    "price": 52677.79
+  },
+  "last": {
+    "date": "2026-10-30",
+    "nav": 5376435023.14,
+    "price": 51454.62
+  },
+  "name": "raiffeisen_chart_bonds_with_income",
+  "sha256": "8c39bef724a2404c13d7e482abeb23f4d9439b53a31716e6ed59b5681ca1354a"
+}

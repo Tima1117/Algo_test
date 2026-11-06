@@ -1,0 +1,15 @@
+{
+  "count": 48,
+  "first": {
+    "date": "2017-10-25",
+    "nav": 2397905.61,
+    "price": 1840.39
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 32552517.03,
+    "price": 3222.08
+  },
+  "name": "dohod_series_5_da",
+  "sha256": "b0d755449dbd8bb38d986ba611b73b50b33b42bae2138167c012bc2dbe7fb42f"
+}

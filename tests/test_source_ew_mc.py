@@ -25,6 +25,7 @@ from pif.parsing import UnknownFormat
 from pif.sources import ew_mc
 from pif.sources.base import Context
 from pif.sources.ew_mc import EwMcAdapter, parse_chart, parse_fund_list, parse_fund_page, parse_kid_text
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "ew_mc"
 PERVYY = "https://ew-mc.ru/funds/otkrytyy-paevoy-investitsionnyy-fond-rynochnykh-finansovykh-instrumentov-pervyy/"
@@ -58,6 +59,7 @@ def test_fund_list_without_cards_raises():
 
 def test_pervyy_page_series_rules_and_kids():
     page = parse_fund_page(_read("fund_pervyy.html"))
+    assert_series(page.points, "ew_mc_pervyy")
     assert page.rules == "3902" and page.currency == "RUB"
     pts = {p.date: p for p in page.points}
     # таблица на странице: 02.11.2026 «8 999.11» / «67 867 794.76», 30.10.2026 «9 138.66» / «71 012 970.82»
@@ -80,6 +82,7 @@ def test_corrected_kid_goes_before_original_of_same_date():
 
 def test_cifra_skips_empty_template_row():
     page = parse_fund_page(_read("fund_cifra.html"))
+    assert_series(page.points, "ew_mc_cifra")
     assert page.rules == "7695"
     assert page.points[0].date == date(2026, 6, 30)            # завершение формирования
     assert (page.points[0].price, page.points[0].nav) == (999.83, 84764772.92)

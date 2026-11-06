@@ -28,6 +28,7 @@ from pif.sources.t_capital import (API_HOST, DYNAMIC_API, FOLDERS_PAGE, NAV_API,
                                    RU_ROOT_CA, STATS_PAGE, NoData, TCapitalAdapter, _trust_ru_root_ca,
                                    parse_dynamic, parse_fair_price, parse_folders, parse_nav,
                                    parse_payout_notices)
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "t_capital"
 
@@ -86,8 +87,12 @@ def test_dynamic_broken(mutate):
 # ---------- история СЧА и пая ----------
 
 def test_history_tmos():
-    nav = {p.date: p.nav for p in parse_nav(read("nav_TMOS.json"))}
-    price = {p.date: p.price for p in parse_fair_price(read("price_TMOS.json"))}
+    nav_pts = parse_nav(read("nav_TMOS.json"))
+    price_pts = parse_fair_price(read("price_TMOS.json"))
+    assert_series(nav_pts, "t_capital_tmos_nav")
+    assert_series(price_pts, "t_capital_tmos_price")
+    nav = {p.date: p.nav for p in nav_pts}
+    price = {p.date: p.price for p in price_pts}
     assert nav[date(2026, 9, 30)] == 13586534817.03 and price[date(2026, 9, 30)] == 5.6597     # КИД
     assert nav[date(2026, 10, 30)] == 15268739458.96 and price[date(2026, 10, 30)] == 6.3065    # статистика
     assert price[date(2026, 11, 2)] == 6.1626
@@ -96,8 +101,12 @@ def test_history_tmos():
 
 
 def test_history_gold_in_usd():
-    nav = {p.date: p.nav for p in parse_nav(read("nav_TGLD.json"))}
-    price = {p.date: p.price for p in parse_fair_price(read("price_TGLD.json"))}
+    nav_pts = parse_nav(read("nav_TGLD.json"))
+    price_pts = parse_fair_price(read("price_TGLD.json"))
+    assert_series(nav_pts, "t_capital_tgld_nav")
+    assert_series(price_pts, "t_capital_tgld_price")
+    nav = {p.date: p.nav for p in nav_pts}
+    price = {p.date: p.price for p in price_pts}
     assert nav[date(2026, 10, 30)] == 171917982.32 and price[date(2026, 10, 30)] == 0.153
 
 

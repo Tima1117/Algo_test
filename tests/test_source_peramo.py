@@ -20,6 +20,7 @@ from pif.model import Fund, SeriesPoint
 from pif.parsing import UnknownFormat
 from pif.sources import peramo as p
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "peramo"
 RULES = "2006-94172747"
@@ -45,6 +46,7 @@ def test_rules_prices_and_returns():
     card = raw("conservatoriya.html")
     assert p.parse_rules(card) == RULES
     pts = p.parse_prices(card)
+    assert_series(pts, "peramo_conservatoriya_price")
     by = {x.date: x for x in pts}
     assert by[date(2026, 10, 30)] == SeriesPoint(date(2026, 10, 30), None, 2268.28)   # СЧА нет — None, не 0
     assert by[date(2026, 9, 30)].price == 2253.85

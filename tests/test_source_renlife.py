@@ -19,6 +19,7 @@ from pif.parsing import UnknownFormat, norm_text
 from pif.sources.base import Context
 from pif.sources.renlife import (LIST_URL, NO_RETURNS_WARNING, RenlifeAdapter, parse_dynamics_placeholder,
                                  parse_fund_list, parse_fund_rules, parse_series)
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "renlife"
 
@@ -70,6 +71,7 @@ def test_rules_row_missing_is_unknown_format():
 
 def test_series_7200_values_and_order():
     pts = parse_series(_read("fund_7200.html"))
+    assert_series(pts, "renlife_7200_razumnye_investitsii")
     assert len(pts) == 16                                  # 12 свежих + 4 первых строки исходной таблицы
     assert [p.date for p in pts] == sorted(p.date for p in pts)
     by = {p.date: p for p in pts}
@@ -84,6 +86,7 @@ def test_series_7200_values_and_order():
 
 def test_series_7217_values():
     pts = parse_series(_read("fund_7217.html"))
+    assert_series(pts, "renlife_7217_sbalansirovannyy")
     by = {p.date: p for p in pts}
     assert len(pts) == 12
     assert pts[0].date == date(2025, 12, 23) and pts[0].price == 99.9972 and pts[0].nav == 118096.65

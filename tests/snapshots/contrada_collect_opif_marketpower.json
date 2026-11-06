@@ -1,0 +1,15 @@
+{
+  "count": 15,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 875177822.6,
+    "price": 142.26
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 1295121267.33,
+    "price": 150.45
+  },
+  "name": "contrada_collect_opif_marketpower",
+  "sha256": "56da729b45b43a56ca6a92cac746cb62b8efa52080e1bc6f64ecf72b6570ad78"
+}

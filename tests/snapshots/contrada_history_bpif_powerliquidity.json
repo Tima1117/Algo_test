@@ -1,0 +1,15 @@
+{
+  "count": 13,
+  "first": {
+    "date": "2025-10-23",
+    "nav": 99991903.49,
+    "price": 99.99
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 725111934.34,
+    "price": 114.23
+  },
+  "name": "contrada_history_bpif_powerliquidity",
+  "sha256": "2917a8e17e20c484b76203ddb844f1e239e0f6d60e95be25fa5bfa1ce0c34e63"
+}

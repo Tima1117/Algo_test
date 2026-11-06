@@ -1,0 +1,15 @@
+{
+  "count": 11,
+  "first": {
+    "date": "2025-04-10",
+    "nav": 107301748.68,
+    "price": 999.96
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 8700742995.34,
+    "price": 1290.94
+  },
+  "name": "sberlife_p1_pervyy_dolevoy",
+  "sha256": "8f2902ab1a1d649706e5fdf7792916ebecce3942c023b3d5b926ec6629f67042"
+}

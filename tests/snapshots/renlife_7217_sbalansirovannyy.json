@@ -1,0 +1,15 @@
+{
+  "count": 12,
+  "first": {
+    "date": "2025-12-23",
+    "nav": 118096.65,
+    "price": 99.9972
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 51717775.26,
+    "price": 102.9796
+  },
+  "name": "renlife_7217_sbalansirovannyy",
+  "sha256": "508c606fa039c83351f6f19bdfad0eb284cdf710d2c99a832962e3c1dd7f9c69"
+}

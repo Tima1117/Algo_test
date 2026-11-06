@@ -27,6 +27,7 @@ from pif.sources.base import Context
 from pif.sources.dohod import (CHART_URL, DISCLOSURE_URL, LIST_PAGES, DohodAdapter, _msk_day, parse_chart,
                                parse_fund_links, parse_fund_page, parse_returns_fund_page, parse_rules_number,
                                parse_series)
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "dohod"
 DA_URL = "https://www.dohod.ru/individuals/mutual-funds/open-funds/da"
@@ -84,6 +85,7 @@ def test_rules_number():
 
 def test_series_opif():
     pts = {p.date: p for p in parse_series(read("chart_5_pai.json"), read("chart_5_cha.json"))}
+    assert_series(parse_series(read("chart_5_pai.json"), read("chart_5_cha.json")), "dohod_series_5_da")
     assert (pts[date(2026, 10, 30)].nav, pts[date(2026, 10, 30)].price) == (33143204.02, 3282.44)
     assert (pts[date(2026, 11, 2)].nav, pts[date(2026, 11, 2)].price) == (32552517.03, 3222.08)
     assert min(pts) == date(2017, 10, 25)          # история с запуска стратегии, режет segment(since)
@@ -93,6 +95,7 @@ def test_series_opif():
 def test_series_bpif_from_opif_endpoint():
     # для БПИФ costdynamics/opif тоже отдаёт СЧА и пай — числа как в таблице 5609-У
     pts = {p.date: p for p in parse_series(read("chart_889_pai.json"), read("chart_889_cha.json"))}
+    assert_series(parse_series(read("chart_889_pai.json"), read("chart_889_cha.json")), "dohod_series_889_grod")
     assert (pts[date(2026, 10, 30)].nav, pts[date(2026, 10, 30)].price) == (193552721.89, 747.06)
     assert (pts[date(2026, 11, 2)].nav, pts[date(2026, 11, 2)].price) == (190726541.64, 736.15)
 

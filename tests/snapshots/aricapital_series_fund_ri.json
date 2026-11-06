@@ -1,0 +1,15 @@
+{
+  "count": 25,
+  "first": {
+    "date": "2024-03-19",
+    "nav": 16698451.35,
+    "price": 999.91
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 335914234.07,
+    "price": 868.62
+  },
+  "name": "aricapital_series_fund_ri",
+  "sha256": "15b2a8615d07322d64b7f9c7961eec6a66a030291377e8b4eaa89ec2eeed6819"
+}

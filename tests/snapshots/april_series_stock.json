@@ -1,0 +1,15 @@
+{
+  "count": 11,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 515155671.6,
+    "price": 1305.75
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 444805026.72,
+    "price": 1182.52
+  },
+  "name": "april_series_stock",
+  "sha256": "2ef5961a5ce68f2078f42c62873db7219fc0fae1147f89a99aea58c86402ebd6"
+}

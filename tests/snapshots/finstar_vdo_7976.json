@@ -1,0 +1,15 @@
+{
+  "count": 7,
+  "first": {
+    "date": "2026-10-23",
+    "nav": 9999178.28,
+    "price": 999.82
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 10003881.3,
+    "price": 1000.29
+  },
+  "name": "finstar_vdo_7976",
+  "sha256": "56c65a5ebe5b620d9605282dbcdbdaecaa99f2cdf3e33e1d91f9638ac77f0e66"
+}

@@ -22,6 +22,7 @@ from pif.model import Fund, SeriesPoint
 from pif.parsing import UnknownFormat
 from pif.sources import proficit as p
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "proficit"
 KID = "https://myproficit.ru/wp-content/uploads/2026/10/KID30.09.26.pdf"
@@ -41,6 +42,8 @@ def _fund(rules: str = "6492") -> Fund:
 def test_csv_values_and_units():
     series = p.parse_csv(raw("lk_fund_values.csv"))
     assert set(series) == {"6492", "7127"}
+    assert_series(series["6492"], "proficit_csv_6492")
+    assert_series(series["7127"], "proficit_csv_7127")
     by = {x.date: x for x in series["6492"]}
     assert by[date(2026, 9, 30)] == SeriesPoint(date(2026, 9, 30), 19662055.77, 1015.7)   # как в КИД
     assert by[date(2026, 11, 2)] == SeriesPoint(date(2026, 11, 2), 20938273.71, 1110.18)

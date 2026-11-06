@@ -1,0 +1,15 @@
+{
+  "count": 21,
+  "first": {
+    "date": "2000-04-17",
+    "nav": null,
+    "price": 10.0
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 146531514.42,
+    "price": 721.29
+  },
+  "name": "solid_invest_history",
+  "sha256": "678c4b872805f9e9add2581a926d8adf0199f3cd9a481d7b9340320e387a9b0e"
+}

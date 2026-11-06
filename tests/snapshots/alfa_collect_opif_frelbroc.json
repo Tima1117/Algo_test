@@ -1,0 +1,15 @@
+{
+  "count": 66,
+  "first": {
+    "date": "2026-08-11",
+    "nav": 29690759.59,
+    "price": 101.9
+  },
+  "last": {
+    "date": "2026-08-10",
+    "nav": 28863162.42,
+    "price": 101.13
+  },
+  "name": "alfa_collect_opif_frelbroc",
+  "sha256": "c7a30c4bbc5132e9385f690b39d32dca4a7d61f4d2fa3d87e2ac23654c9419d2"
+}

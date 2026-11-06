@@ -1,0 +1,15 @@
+{
+  "count": 11,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 12603795.2,
+    "price": 1119.97
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 7200719.32,
+    "price": 1132.91
+  },
+  "name": "april_collect_6778",
+  "sha256": "0d0cc73001b2b8f96e0f44814361ca471dcceada9bbb68b18e13bec16cd74016"
+}

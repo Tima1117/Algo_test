@@ -1,0 +1,15 @@
+{
+  "count": 140,
+  "first": {
+    "date": "2015-01-30",
+    "nav": null,
+    "price": 1081.83
+  },
+  "last": {
+    "date": "2026-10-30",
+    "nav": null,
+    "price": 2268.28
+  },
+  "name": "peramo_conservatoriya_price",
+  "sha256": "6449e92b61a62cdca1c3e6deb30ae681aae445fa5ac45797048529fb89dde1e0"
+}

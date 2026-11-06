@@ -1,0 +1,15 @@
+{
+  "count": 2,
+  "first": {
+    "date": "2026-10-05",
+    "nav": null,
+    "price": 101.9098
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": null,
+    "price": 103.6058
+  },
+  "name": "ozon_deviation_ofzsa",
+  "sha256": "3fffeca9f0fcba6b33a75d6386f4b4e7de47ace3266694e3ab17ad891c4852e2"
+}

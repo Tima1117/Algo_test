@@ -1,0 +1,15 @@
+{
+  "count": 320,
+  "first": {
+    "date": "2013-06-13",
+    "nav": null,
+    "price": null
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 80790734.21,
+    "price": 217.24
+  },
+  "name": "bcswm_csv_drs",
+  "sha256": "97bd3f4d8016cc23cfc54b10a041908cb71f1b5319a6f1bc338453d6ec4b6228"
+}

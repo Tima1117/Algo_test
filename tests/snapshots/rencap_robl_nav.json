@@ -1,0 +1,13 @@
+{
+  "count": 13,
+  "first": {
+    "date": "2026-10-15",
+    "value": 24999139.7
+  },
+  "last": {
+    "date": "2026-11-02",
+    "value": 25164266.92
+  },
+  "name": "rencap_robl_nav",
+  "sha256": "6d7ddae7c57a42f04940a7c87b310fa206eb0c6b1d77870fbf7f9000c9e3c93f"
+}

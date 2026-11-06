@@ -1,0 +1,15 @@
+{
+  "count": 3,
+  "first": {
+    "date": "2025-08-29",
+    "nav": 32457695.25,
+    "price": 1053.52
+  },
+  "last": {
+    "date": "2025-12-30",
+    "nav": 15074293.88,
+    "price": 1315.98
+  },
+  "name": "region_zoloto_2025",
+  "sha256": "b1593b509bc691a92bf1909aaf6d186cacf9ab73d27d56e4fbf749bab0e4aeb6"
+}

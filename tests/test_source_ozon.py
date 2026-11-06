@@ -22,6 +22,7 @@ from pif.sources.base import Context
 from pif.sources.ozon import (DEVIATION_API, DOCS_API, FUNDS_API, STATS_API, OzonAdapter, SiteFund,
                               _name_key, match_fund, parse_deviation, parse_documents, parse_fund_list,
                               parse_statistics)
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "ozon"
 
@@ -108,6 +109,8 @@ def test_documents_broken():
 def test_statistics_values():
     st = parse_statistics(read("statistics.json"))
     assert len(st) == 5
+    for site_name, ticker in {f"БПИФ РФИ «{n}»": t for n, t in FUNDS.values()}.items():
+        assert_series(st[site_name].points, f"ozon_statistics_{ticker.lower()}")
     oliq = st["БПИФ РФИ «Озон Денежный рынок»"]
     assert oliq.currency == "RUB"
     assert [(p.date, p.nav, p.price) for p in oliq.points] == [
@@ -171,6 +174,8 @@ def test_statistics_empty_previous_day():
 def test_deviation_values():
     dev = parse_deviation(read("deviation.json"))
     assert len(dev) == 5
+    for site_name, ticker in {f"БПИФ РФИ «{n}»": t for n, t in FUNDS.values()}.items():
+        assert_series(dev[site_name], f"ozon_deviation_{ticker.lower()}")
     tops = dev["БПИФ РФИ «Акции индекса Московской Биржи»"]
     assert [(p.date, p.nav, p.price) for p in tops] == [
         (date(2026, 10, 5), None, 109.0026),

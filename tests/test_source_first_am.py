@@ -22,6 +22,7 @@ from pif.model import Fund
 from pif.parsing import UnknownFormat
 from pif.sources import first_am as fa
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "first_am"
 
@@ -47,6 +48,7 @@ def _fund(rules: str, name: str, *, ticker: str | None = None, status: str = "С
 # ---------- ряд ----------
 def test_open_fund_series_values_match_site():
     chart = fa.parse_chart(_read("fund_ros_akc.html"))
+    assert_series(chart.points, "first_am_ros_akc")
     assert chart.currency == "RUB"
     assert chart.title == "Фонд российских акций"
     pts = chart.points
@@ -65,6 +67,7 @@ def test_open_fund_series_values_match_site():
 
 def test_income_fund_payouts_are_kept_apart_from_price():
     chart = fa.parse_chart(_read("fund_valyutnykh_obligatsiy_s_vyplatoy.html"))
+    assert_series(chart.points, "first_am_val_obl_vyplata")
     assert chart.payouts == {date(2026, 9, 30): 889.88}
     # в дату выплаты пай уже без дохода: 29.09 — 51 704,75 ₽, 30.09 — 50 353,21 ₽
     assert _point(chart.points, date(2026, 9, 29)).price == 51704.75
@@ -78,6 +81,7 @@ def test_income_fund_payouts_are_kept_apart_from_price():
 def test_split_etf_uses_actual_unit_price_not_chart_scaled():
     # SBMX: паи раздроблены 04.06.2021 в 100 раз; на графике price = 1765, на сайте пай — 17,65 ₽
     pts = fa.parse_series(_read("etf_sbmx.html"))
+    assert_series(pts, "first_am_sbmx")
     p = _point(pts, date(2026, 11, 2))
     assert p.price == 17.65 and p.nav == 20195799632.62
     assert _point(pts, date(2026, 10, 30)).price == 18.06
@@ -86,6 +90,7 @@ def test_split_etf_uses_actual_unit_price_not_chart_scaled():
 
 def test_usd_interval_fund_simplified_page():
     chart = fa.parse_chart(_read("ipif_valyutnye_obligatsii.html"))
+    assert_series(chart.points, "first_am_ipif_val_obl")
     assert chart.currency == "USD"
     p = _point(chart.points, date(2026, 11, 2))             # 36,13 $ / 15 144 280,35 $
     assert p.price == 36.13 and p.nav == 15144280.35
@@ -125,6 +130,7 @@ def _uk_return(chart, base: date, end: date) -> float:
 def test_monthly_payouts_reproduce_official_return():
     # FLOW платит доход каждый месяц; дата выплаты — день, когда пай уже без дохода
     chart = fa.parse_chart(_read("etf_flow.html"))
+    assert_series(chart.points, "first_am_flow")
     assert chart.payouts == {date(2026, 7, 31): 11.12, date(2026, 8, 31): 10.02,
                              date(2026, 9, 30): 10.94, date(2026, 10, 30): 13.31}
     px = {p.date: p.price for p in chart.points}

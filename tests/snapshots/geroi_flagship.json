@@ -1,0 +1,15 @@
+{
+  "count": 32,
+  "first": {
+    "date": "2025-10-29",
+    "nav": 952582890.5,
+    "price": 858.46
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 729327780.29,
+    "price": 924.94
+  },
+  "name": "geroi_flagship",
+  "sha256": "5cf95ba0f012cb3106b6f904118d087c1fa5f1f5784a62c2d65f0e3ee1d59337"
+}

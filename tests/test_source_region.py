@@ -26,6 +26,7 @@ from pif.model import Fund
 from pif.parsing import UnknownFormat
 from pif.sources import region as rg
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "region"
 
@@ -77,6 +78,7 @@ def test_current_year_table_values_match_site():
     html = _read("fund_aktsii.html")
     assert rg.nav_currency_region(html) == "RUB"
     pts = rg.parse_nav_region(html)
+    assert_series(pts, "region_aktsii_page")
     assert [p.date for p in pts] == sorted(p.date for p in pts)
     p = _point(pts, date(2026, 11, 2))
     assert p.price == 19616.73 and p.nav == 247323994.45
@@ -86,10 +88,12 @@ def test_current_year_table_values_match_site():
 
 def test_ajax_year_tables_including_index_fund():
     pts = rg.parse_nav_ajax_region((FIX / "table_2025_aktsii.json").read_bytes())
+    assert_series(pts, "region_aktsii_2025")
     p = _point(pts, date(2025, 12, 30))
     assert p.price == 20342.50 and p.nav == 360064458.84
     assert _point(pts, date(2025, 9, 1)).price == 20706.97
     gold = rg.parse_nav_ajax_region((FIX / "table_2025_zoloto.json").read_bytes())
+    assert_series(gold, "region_zoloto_2025")
     assert [p.date for p in gold] == [date(2025, 8, 29), date(2025, 9, 1), date(2025, 12, 30)]
     assert _point(gold, date(2025, 12, 30)).nav == 15074293.88
 
@@ -119,6 +123,7 @@ def test_payouts_messages():
         date(2025, 10, 1), "https://region-am.ru/upload/files/5306/5306_soob_dohod_2025_3q.pdf")
     # в дату выплаты пай уже без дохода: 29.09 — 1 072,62 ₽, 30.09 — 1 041,46 ₽
     pts = rg.parse_nav_region(_read("fund_kuponnyy_dokhod.html"))
+    assert_series(pts, "region_kuponnyy_dokhod_page")
     assert _point(pts, date(2026, 9, 29)).price == 1072.62 and _point(pts, date(2026, 9, 30)).price == 1041.46
     with pytest.raises(UnknownFormat, match="сумм"):
         rg.parse_payouts_region(_read("fund_kuponnyy_dokhod.html").replace("32 руб. 26 коп.", "тридцать два рубля"), "u")

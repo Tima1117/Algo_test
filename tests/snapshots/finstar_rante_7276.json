@@ -1,0 +1,15 @@
+{
+  "count": 93,
+  "first": {
+    "date": "2026-06-25",
+    "nav": 52845874.38,
+    "price": 1023.66
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 51174202.85,
+    "price": 977.42
+  },
+  "name": "finstar_rante_7276",
+  "sha256": "d59ca3c7537bb7a156a97b798abfabbda726ef4170ee24b0a2e5dd380a6d0954"
+}

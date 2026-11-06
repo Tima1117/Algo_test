@@ -21,6 +21,7 @@ from pif.model import Fund, SeriesPoint
 from pif.parsing import UnknownFormat
 from pif.sources import metropol as m
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "metropol"
 EXPORT = m.EXPORT_URL.format(slug="golden_fleece")
@@ -52,6 +53,7 @@ def test_home_rules_and_returns():
 
 def test_export_series_values_and_units():
     name, pts, skipped = m.parse_export(raw("golden_fleece_export.html"))
+    assert_series(pts, "metropol_golden_fleece_export")
     assert name == "Метрополь Золотое руно"
     # на сайте за 05.03.2026 «Цена 14546018.65, СЧА 413.64» — строку не берём, но и не молчим
     assert date(2026, 3, 5) not in {p.date for p in pts}

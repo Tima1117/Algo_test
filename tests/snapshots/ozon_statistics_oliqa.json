@@ -1,0 +1,15 @@
+{
+  "count": 2,
+  "first": {
+    "date": "2026-10-30",
+    "nav": 52353994.53,
+    "price": 104.708
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 52414080.98,
+    "price": 104.8282
+  },
+  "name": "ozon_statistics_oliqa",
+  "sha256": "e491aafb250fa54b25f60c3cd7a47dd65fbbe753d35beb79ae743a6ec167f960"
+}

@@ -1,0 +1,15 @@
+{
+  "count": 5,
+  "first": {
+    "date": "2025-08-28",
+    "nav": 444452409.68,
+    "price": 20672.74
+  },
+  "last": {
+    "date": "2025-12-30",
+    "nav": 360064458.84,
+    "price": 20342.5
+  },
+  "name": "region_aktsii_2025",
+  "sha256": "f3bca67af2fca82bca67f76c7a7a9c8a49b5b608a848347477c20ff7c15c63a3"
+}

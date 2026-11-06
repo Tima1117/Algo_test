@@ -1,0 +1,13 @@
+{
+  "count": 13,
+  "first": {
+    "date": "2026-04-16",
+    "value": 999.96
+  },
+  "last": {
+    "date": "2026-11-02",
+    "value": 1069.77
+  },
+  "name": "rencap_vdor_price",
+  "sha256": "a340f15427147a390d64057f96b7c4c7819333c829da0001472bf33365185dda"
+}

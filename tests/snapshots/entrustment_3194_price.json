@@ -1,0 +1,15 @@
+{
+  "count": 297,
+  "first": {
+    "date": "2025-08-25",
+    "nav": null,
+    "price": 118.62
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": null,
+    "price": 135.51
+  },
+  "name": "entrustment_3194_price",
+  "sha256": "406511ba946766d9872354fc3b0f7223c2e7bf2f6f3b3f0c0257173620de3c60"
+}

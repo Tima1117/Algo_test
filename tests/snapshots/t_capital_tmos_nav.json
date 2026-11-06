@@ -1,0 +1,15 @@
+{
+  "count": 27,
+  "first": {
+    "date": "2026-09-25",
+    "nav": 13704635259.47,
+    "price": null
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 14949626544.15,
+    "price": null
+  },
+  "name": "t_capital_tmos_nav",
+  "sha256": "5dbf170e2fc3fec3ed3a3d60cbdddb604d04a40619c9c2cdf62ae95367dd6f74"
+}

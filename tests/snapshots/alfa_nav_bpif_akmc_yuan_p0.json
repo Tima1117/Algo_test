@@ -1,0 +1,15 @@
+{
+  "count": 5,
+  "first": {
+    "date": "2026-10-27",
+    "nav": 215507698.56,
+    "price": 105.79301
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 215509809.63,
+    "price": 105.79405
+  },
+  "name": "alfa_nav_bpif_akmc_yuan_p0",
+  "sha256": "dd38ecea499b151523f92344640c3eaa3fdbb303c45540223678b58e02dd0cc5"
+}

@@ -1,0 +1,15 @@
+{
+  "count": 327,
+  "first": {
+    "date": "2007-12-24",
+    "nav": 10000000.0,
+    "price": 5000.0
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 1747796.45,
+    "price": 4498.1
+  },
+  "name": "redbridge_sek_csv",
+  "sha256": "aa828e5a10d531ce6403751d443fc5f3ad00d811cb494df00aac4db52ad5e040"
+}

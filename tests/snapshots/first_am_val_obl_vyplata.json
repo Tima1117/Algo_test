@@ -1,0 +1,15 @@
+{
+  "count": 26,
+  "first": {
+    "date": "2025-07-28",
+    "nav": 13035733.71,
+    "price": 49996.56
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 635541908.78,
+    "price": 49731.52
+  },
+  "name": "first_am_val_obl_vyplata",
+  "sha256": "b576d82bcba43978a2da3d43272fd846b87f8979e16eb777db349576463ca4cd"
+}

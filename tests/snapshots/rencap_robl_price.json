@@ -1,0 +1,13 @@
+{
+  "count": 13,
+  "first": {
+    "date": "2026-10-15",
+    "value": 999.97
+  },
+  "last": {
+    "date": "2026-11-02",
+    "value": 1006.57
+  },
+  "name": "rencap_robl_price",
+  "sha256": "266b9b73be1c2ea2fd7d5226c20ac0a0feb44c9abd7f54e27017b1166e2cc1ce"
+}

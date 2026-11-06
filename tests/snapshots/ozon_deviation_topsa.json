@@ -1,0 +1,15 @@
+{
+  "count": 2,
+  "first": {
+    "date": "2026-10-05",
+    "nav": null,
+    "price": 109.0026
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": null,
+    "price": 115.6934
+  },
+  "name": "ozon_deviation_topsa",
+  "sha256": "182162bb0c5005b52c57685a35c2926e93bb2f73ec69c18766b3277836ed45af"
+}

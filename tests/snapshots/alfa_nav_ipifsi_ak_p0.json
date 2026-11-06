@@ -1,0 +1,15 @@
+{
+  "count": 20,
+  "first": {
+    "date": "2025-06-30",
+    "nav": 3012135356.3,
+    "price": 148.83
+  },
+  "last": {
+    "date": "2026-10-30",
+    "nav": 3083840128.28,
+    "price": 152.65
+  },
+  "name": "alfa_nav_ipifsi_ak_p0",
+  "sha256": "c616a832c4e08316c7004d8d1cc28bcab8c9c42ff8387e1fc1ca695942fafc73"
+}

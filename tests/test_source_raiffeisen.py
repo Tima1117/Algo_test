@@ -25,6 +25,7 @@ from pif.model import Fund
 from pif.parsing import UnknownFormat
 from pif.sources import raiffeisen as rf
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "raiffeisen"
 EQUITIES = "a4baea00-7af9-11db-a626-0040ca6957f7"
@@ -91,6 +92,7 @@ def test_page_broken_is_unknown_format():
 # ---------- ряд графика и выплаты ----------
 def test_chart_values_match_site():
     pts = rf.parse_chart_raif((FIX / "chart_equities.json").read_bytes())
+    assert_series(pts, "raiffeisen_chart_equities")
     assert [p.date for p in pts] == sorted(p.date for p in pts)
     p = _point(pts, date(2026, 11, 2))          # currentCostShare на сайте: 50 134,76 ₽ на 02.11.2026
     assert p.price == 50134.76 and p.nav == 10715287039.77
@@ -104,6 +106,7 @@ def test_payouts_on_record_date_and_price_already_ex_payout():
     pays = rf.parse_payouts_raif(raw, "https://x/chart")
     assert [(p.date, p.amount) for p in pays] == [(date(2025, 9, 30), 2613.61), (date(2026, 9, 30), 1371.36)]
     pts = rf.parse_chart_raif(raw)
+    assert_series(pts, "raiffeisen_chart_bonds_with_income")
     assert _point(pts, date(2025, 9, 29)).price == 52894.21
     assert _point(pts, date(2025, 9, 30)).price == 50209.39       # уже без выплаты
     assert rf.parse_payouts_raif((FIX / "chart_equities.json").read_bytes(), "u") == []

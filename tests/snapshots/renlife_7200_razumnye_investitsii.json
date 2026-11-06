@@ -1,0 +1,15 @@
+{
+  "count": 16,
+  "first": {
+    "date": "2025-08-29",
+    "nav": 100927.33,
+    "price": 99.9874
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 3108212.7,
+    "price": 99.7109
+  },
+  "name": "renlife_7200_razumnye_investitsii",
+  "sha256": "51a2a72e3999203c141b359df000632d842d466bcb47166fbfb73fbd4d5f04df"
+}

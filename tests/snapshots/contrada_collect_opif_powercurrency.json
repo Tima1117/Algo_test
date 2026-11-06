@@ -1,0 +1,15 @@
+{
+  "count": 15,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 100188705.75,
+    "price": 100.19
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 1081911267.25,
+    "price": 101.23
+  },
+  "name": "contrada_collect_opif_powercurrency",
+  "sha256": "46827c2b6d25ed6438c091a55bc89b8d1b16062aeb5aa4f55135969be1c65d0a"
+}

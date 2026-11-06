@@ -1,0 +1,15 @@
+{
+  "count": 66,
+  "first": {
+    "date": "2026-08-11",
+    "nav": 52032815500.66,
+    "price": 7385.21
+  },
+  "last": {
+    "date": "2026-08-10",
+    "nav": 51975741934.74,
+    "price": 7366.01
+  },
+  "name": "alfa_collect_opif_akop",
+  "sha256": "26b09ef41af8216d56a987faaec88da8a4268abe31de7a7444e262f469076040"
+}

@@ -26,6 +26,7 @@ from pif.model import Fund
 from pif.parsing import UnknownFormat
 from pif.sources import contrada as c
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "contrada"
 
@@ -56,6 +57,7 @@ def by_date(points):
 
 def test_history_sila_balansa():
     pts = c.parse_history((FIX / "inform_opif_sila-balansa.json").read_bytes())
+    assert_series(pts, "contrada_history_opif_sila-balansa")
     assert [p.date for p in pts] == sorted(p.date for p in pts)
     m = by_date(pts)
     # как на странице: «02.11.2026 | 484 606 124,85 | -0,21 | 170,97 | -0,20»
@@ -67,12 +69,14 @@ def test_history_sila_balansa():
 
 def test_history_bpif_table_with_benchmark_column():
     m = by_date(c.parse_history(load("inform_bpif_powerliquidity.json")))
+    assert_series(c.parse_history(load("inform_bpif_powerliquidity.json")), "contrada_history_bpif_powerliquidity")
     assert m[date(2026, 11, 2)].nav == 725111934.34 and m[date(2026, 11, 2)].price == 114.23
     assert min(m) == date(2025, 10, 23)                 # дата завершения формирования
 
 
 def test_history_interval_fund_is_monthly():
     m = by_date(c.parse_history(load("inform_ipif_HighBonds.json")))
+    assert_series(c.parse_history(load("inform_ipif_HighBonds.json")), "contrada_history_ipif_HighBonds")
     assert m[date(2026, 10, 30)].nav == 20675033815.75 and m[date(2026, 10, 30)].price == 1710.35
     assert m[date(2026, 9, 30)].price == 1686.51
 
@@ -163,6 +167,7 @@ def test_kid_as_of_is_month_end_not_document_date():
     # КИД «по состоянию на 23.10.2026» — пай и СЧА на 30.09.2026
     info = c.parse_kid_text(kid_text("kid_sila-dohoda_2026-10-23.txt"))
     pts = c.parse_history(load("inform_opif_sila-dohoda.json"))
+    assert_series(pts, "contrada_history_opif_sila-dohoda")
     assert c.kid_as_of(info, pts) == date(2026, 9, 30)
 
 
@@ -290,6 +295,7 @@ def test_collect_matches_by_rules(monkeypatch):
         assert fd.status == "ok", (r, fd.reason)
         assert fd.currency == "RUB"
         pts = fd.segments[0].points
+        assert_series(pts, f"contrada_collect_{slug}")
         assert pts and min(p.date for p in pts) >= date(2025, 9, 1)
         assert fd.page_url == f"https://contrada-capital.ru/inform/pif/{slug.replace('_', '/', 1)}"
         assert any("pypdf" in w for w in fd.warnings)

@@ -26,6 +26,7 @@ from pif.sources import geroi
 from pif.sources.base import Context
 from pif.sources.geroi import (GeroiAdapter, kid_data_date, parse_disclosure, parse_history, parse_home,
                                parse_kid_text)
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "geroi"
 
@@ -91,6 +92,7 @@ def test_history_feo_values_in_rubles():
 
 def test_history_drops_weekend_copies_but_keeps_working_saturday():
     pts = parse_history(_read("funds_3.json"))
+    assert_series(pts, "geroi_feo")
     dates = [p.date for p in pts]
     assert dates == sorted(dates)
     # 31.10–01.11.2026 (сб, вс) — копии пятницы 30.10, их нет
@@ -130,6 +132,7 @@ def test_kid_feo_returns_price_nav():
 def test_interim_kid_figures_are_as_of_last_month_end():
     """КИД «по состоянию на 22.10.2026» (после изменения правил) несёт цифры на 30.09.2026."""
     kid = parse_kid_text(_text("kid_flagship_20261022.txt"))
+    assert_series(parse_history(_read("funds_1.json")), "geroi_flagship")
     assert kid.doc_date == date(2026, 10, 22)
     assert kid.price == 873.85 and kid.nav == 694740025.13
     assert kid.returns == {"1m": 1.2, "3m": 0.21, "6m": -7.4, "1y": -0.58}

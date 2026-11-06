@@ -1,0 +1,15 @@
+{
+  "count": 8,
+  "first": {
+    "date": "2025-09-23",
+    "nav": null,
+    "price": 1000.0
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 52302425.02,
+    "price": 926.98
+  },
+  "name": "solid_fingold_history",
+  "sha256": "3e342ea4375b806e21108ca0f0fd955741c5a7106bbbdbfa26de9980922e44c8"
+}

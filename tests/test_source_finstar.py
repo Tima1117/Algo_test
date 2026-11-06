@@ -29,6 +29,7 @@ from pif.sources import finstar
 from pif.sources.base import Context
 from pif.sources.finstar import (LIST_URL, FinstarAdapter, parse_fund_list, parse_kid_links, parse_kid_returns,
                                  parse_payout_marks, parse_rules, parse_series, parse_table, payout_ex_dates)
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "finstar"
 BASE = "https://finstar-capital.ru"
@@ -74,6 +75,7 @@ def test_rules_row_missing_is_unknown_format():
 
 def test_series_rante_values():
     points = parse_series(_read("fund_7276.html"))
+    assert_series(points, "finstar_rante_7276")
     assert [p.date for p in points] == sorted(p.date for p in points)
     by = {p.date: p for p in points}
     assert (by[date(2026, 11, 2)].price, by[date(2026, 11, 2)].nav) == (977.42, 51174202.85)
@@ -84,8 +86,10 @@ def test_series_rante_values():
 
 def test_series_bpif_and_young_fund():
     bpif = parse_series(_read("fund_6396.html"))
+    assert_series(bpif, "finstar_bpif_6396")
     assert (bpif[-1].date, bpif[-1].price, bpif[-1].nav) == (date(2026, 11, 2), 1448.67, 46716135.59)
     vdo = parse_series(_read("fund_7976.html"))
+    assert_series(vdo, "finstar_vdo_7976")
     assert len(vdo) == 7
     assert (vdo[0].date, vdo[0].price, vdo[0].nav) == (date(2026, 10, 23), 999.82, 9999178.28)
 

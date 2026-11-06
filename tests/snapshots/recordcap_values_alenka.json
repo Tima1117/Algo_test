@@ -1,0 +1,15 @@
+{
+  "count": 8,
+  "first": {
+    "date": "2025-08-26",
+    "nav": 1309920473.36,
+    "price": 26147.72
+  },
+  "last": {
+    "date": "2025-09-04",
+    "nav": 1304161472.37,
+    "price": 25962.89
+  },
+  "name": "recordcap_values_alenka",
+  "sha256": "37e03219f496a57c5668d7171869a50dc30c244890cfaa71dda7a0272deb457c"
+}

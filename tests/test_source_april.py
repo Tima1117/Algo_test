@@ -23,6 +23,7 @@ from pif.parsing import UnknownFormat
 from pif.sources.april import (API_URL, FUNDS_PAGE, AprilAdapter, match_funds, parse_fund_list,
                                parse_returns, parse_rules_map, parse_series)
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "april"
 API_FIX = FIX / "fund_details_list.json"
@@ -96,6 +97,7 @@ def test_fund_list_broken(broken):
 
 def test_series_balance():
     pts = parse_series(item(api(), 3))
+    assert_series(pts, "april_series_balance")
     assert len(pts) == 11
     assert [p.date for p in pts][:5] == [date(2025, 9, d) for d in (1, 2, 3, 4, 5)]
     assert pts[-1].date == date(2026, 11, 2)
@@ -108,6 +110,7 @@ def test_series_balance():
 
 def test_series_stock():
     by = {p.date: p for p in parse_series(item(api(), 2))}
+    assert_series(parse_series(item(api(), 2)), "april_series_stock")
     assert (by[date(2026, 11, 2)].price, by[date(2026, 11, 2)].nav) == (1182.52, 444805026.72)
     assert (by[date(2026, 10, 30)].price, by[date(2026, 10, 30)].nav) == (1208.90, 454728097.77)
 
@@ -218,6 +221,7 @@ def test_collect():
         assert fd.status == "ok", (fd.rules, fd.reason)
         assert fd.currency == "RUB" and not fd.warnings
         assert len(fd.segments) == 1 and len(fd.segments[0].points) == 11
+        assert_series(fd.segments[0].points, f"april_collect_{fd.rules}")
         assert fd.segments[0].raw_url == API_URL
         assert {r.period for r in fd.official_returns} == {"1m", "3m", "6m", "1y"}
     bal = res["0060-56716383"]

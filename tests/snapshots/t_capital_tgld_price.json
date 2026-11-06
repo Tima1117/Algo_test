@@ -1,0 +1,15 @@
+{
+  "count": 27,
+  "first": {
+    "date": "2026-09-25",
+    "nav": null,
+    "price": 0.1659
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": null,
+    "price": 0.1576
+  },
+  "name": "t_capital_tgld_price",
+  "sha256": "7b3fef0a836d3fd29aeb489edc79df57f5c73188d5caaa937cf9250bc413a8d0"
+}

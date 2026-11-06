@@ -1,0 +1,15 @@
+{
+  "count": 17,
+  "first": {
+    "date": "2025-07-17",
+    "nav": 15047777.88,
+    "price": 999.85
+  },
+  "last": {
+    "date": "2026-10-30",
+    "nav": 302643348.8,
+    "price": 1683.79
+  },
+  "name": "proficit_csv_7127",
+  "sha256": "7df154ab44940eb8779b3f3ec6233af5e135bff0032b5e5ccc21dfc9df0bf564"
+}

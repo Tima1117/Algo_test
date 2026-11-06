@@ -1,0 +1,15 @@
+{
+  "count": 3,
+  "first": {
+    "date": "2026-09-29",
+    "nav": 52354166.89,
+    "price": 1072.62
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 48146338.82,
+    "price": 1052.78
+  },
+  "name": "region_kuponnyy_dokhod_page",
+  "sha256": "dc5fbf4d9db0417322fbcb1a7862952b2f4168dbb68de6911e966022e58ec62b"
+}

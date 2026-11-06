@@ -1,0 +1,15 @@
+{
+  "count": 15,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 55331062.99,
+    "price": 102.22
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 736177388.53,
+    "price": 98.92
+  },
+  "name": "contrada_collect_opif_sila-dohoda",
+  "sha256": "e80ba96d550548b518a87fa8d2bb98ac9fc119dbb588a300dc45c232bc608fa5"
+}

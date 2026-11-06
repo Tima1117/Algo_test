@@ -1,0 +1,15 @@
+{
+  "count": 9,
+  "first": {
+    "date": "2025-09-30",
+    "nav": 7080680217.99,
+    "price": 1398.99
+  },
+  "last": {
+    "date": "2026-10-30",
+    "nav": 20675033815.75,
+    "price": 1710.35
+  },
+  "name": "contrada_collect_ipif_HighBonds",
+  "sha256": "5c4d7a489175b67773f588fdf6b5bde23c1a0ea8e3bc766c8983f3ecb5593841"
+}

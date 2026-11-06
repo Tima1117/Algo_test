@@ -1,0 +1,15 @@
+{
+  "count": 27,
+  "first": {
+    "date": "2026-09-25",
+    "nav": 46056714.78,
+    "price": 1428.22
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 46716135.59,
+    "price": 1448.67
+  },
+  "name": "finstar_bpif_6396",
+  "sha256": "9efe35da65f06d4f09fd4c6b54cd816c901dbcba85603d10cee37ce0383e5412"
+}

@@ -1,0 +1,15 @@
+{
+  "count": 20,
+  "first": {
+    "date": "2021-12-22",
+    "nav": 29996599.57,
+    "price": 99.99
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 484606124.85,
+    "price": 170.97
+  },
+  "name": "contrada_history_opif_sila-balansa",
+  "sha256": "df7a76fce9e5fc169ff36f184e70eeb39e82809bbdca7d0f41db398051f51c2d"
+}

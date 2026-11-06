@@ -1,0 +1,15 @@
+{
+  "count": 9,
+  "first": {
+    "date": "2025-12-23",
+    "nav": 19999676118.6,
+    "price": 999.98
+  },
+  "last": {
+    "date": "2026-10-30",
+    "nav": 15106086135.79,
+    "price": 1150.25
+  },
+  "name": "contrada_collect_ipif_KontradaBonds",
+  "sha256": "7d35c16458e570acc3c5916e8e3d7e5bbcd65232044c03779797acd86ea1043d"
+}

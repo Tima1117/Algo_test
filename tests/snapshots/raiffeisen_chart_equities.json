@@ -1,0 +1,15 @@
+{
+  "count": 17,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 14908858184.93,
+    "price": 57163.53
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 10715287039.77,
+    "price": 50134.76
+  },
+  "name": "raiffeisen_chart_equities",
+  "sha256": "bf90db15cc5b12993c9aac4229c904aa42a5c2c0e987dd77bdfd61c891e0b407"
+}

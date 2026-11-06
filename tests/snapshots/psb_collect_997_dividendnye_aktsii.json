@@ -1,0 +1,15 @@
+{
+  "count": 292,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 1709072514.85,
+    "price": 1139.07
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 930951811.05,
+    "price": 825.38
+  },
+  "name": "psb_collect_997_dividendnye_aktsii",
+  "sha256": "288a2fe5d42e771c707e0847ca05d65b6d189c766be40d6439558b1ed269822d"
+}

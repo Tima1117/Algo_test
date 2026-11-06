@@ -26,6 +26,7 @@ from pif.model import Fund
 from pif.parsing import UnknownFormat
 from pif.sources.base import Context
 from pif.sources.redbridge import RedBridgeAdapter, parse_csv, parse_fund_list, parse_fund_page, parse_returns
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "redbridge"
 SEK_PAGE = "https://www.redbridge-am.com/foundations/opif-km-sekyuritiz/"
@@ -113,7 +114,9 @@ def test_fund_page_broken_raises(old, new):
 
 def test_csv_securities_values_in_rubles():
     notes: list[str] = []
-    pts = {p.date: p for p in parse_csv(_read("sek.csv"), notes)}
+    series = parse_csv(_read("sek.csv"), notes)
+    assert_series(series, "redbridge_sek_csv")
+    pts = {p.date: p for p in series}
     assert notes == []
     # как в таблице на странице фонда: 02.11.2026 — 4 498,10 руб. и 1 747 796,45 руб.
     assert (pts[date(2026, 11, 2)].nav, pts[date(2026, 11, 2)].price) == (1747796.45, 4498.1)
@@ -128,7 +131,9 @@ def test_csv_securities_values_in_rubles():
 
 def test_csv_mercury_year_typo_is_fixed_with_note():
     notes: list[str] = []
-    pts = {p.date: p for p in parse_csv(_read("merk.csv"), notes)}
+    series = parse_csv(_read("merk.csv"), notes)
+    assert_series(series, "redbridge_merk_csv")
+    pts = {p.date: p for p in series}
     assert pts[date(2026, 3, 26)].price == 2909.88 and pts[date(2026, 3, 26)].nav == 13557704.66
     assert pts[date(2025, 3, 26)].price == 3206.13            # настоящая строка 26.03.2025 не затёрта
     assert notes == ["архив УК, строка 156: дата 26.03.2025 стоит между 27.03.2026 и 25.03.2026 — "

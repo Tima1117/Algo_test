@@ -29,6 +29,7 @@ from pif.sources.base import Context
 from pif.sources.rencap import (BASE, RenCapAdapter, parse_chart_points, parse_kid_list, parse_kid_text,
                                 parse_product_page, parse_products, parse_regulations, parse_rules_footer,
                                 parse_section)
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "rencap"
 
@@ -81,6 +82,8 @@ def test_product_page_broken_config_raises(cut):
 def test_chart_points_vdor_values():
     prices = parse_chart_points(_read("cp_fund_vdora_share_price.json"), "пай")
     navs = parse_chart_points(_read("cp_fund_vdora_nav.json"), "СЧА")
+    assert_series(prices, "rencap_vdor_price")
+    assert_series(navs, "rencap_vdor_nav")
     assert min(prices) == date(2026, 4, 16)                    # завершение формирования
     assert prices[date(2026, 11, 2)] == 1069.77 and navs[date(2026, 11, 2)] == 987351576.56
     assert prices[date(2026, 10, 30)] == 1070.95 and navs[date(2026, 10, 30)] == 991796766.4
@@ -91,6 +94,8 @@ def test_chart_points_vdor_values():
 def test_chart_points_robl_whole_history():
     prices = parse_chart_points(_read("cp_fund_robl_share_price.json"), "пай")
     navs = parse_chart_points(_read("cp_fund_robl_nav.json"), "СЧА")
+    assert_series(prices, "rencap_robl_price")
+    assert_series(navs, "rencap_robl_nav")
     assert len(prices) == 13 and min(prices) == date(2026, 10, 15)
     assert prices[date(2026, 11, 2)] == 1006.57 and navs[date(2026, 11, 2)] == 25164266.92
 

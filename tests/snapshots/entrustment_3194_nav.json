@@ -1,0 +1,15 @@
+{
+  "count": 297,
+  "first": {
+    "date": "2025-08-25",
+    "nav": 636991835.6,
+    "price": null
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 738739153.03,
+    "price": null
+  },
+  "name": "entrustment_3194_nav",
+  "sha256": "4c436153fa5d3269e142121d92539a4402a178f112949a76a49c1cdb7ce02a03"
+}

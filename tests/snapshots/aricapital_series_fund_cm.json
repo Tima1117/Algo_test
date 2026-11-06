@@ -1,0 +1,15 @@
+{
+  "count": 25,
+  "first": {
+    "date": "2013-04-08",
+    "nav": 9998630.18,
+    "price": 999.86
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 1485939641.84,
+    "price": 2639.91
+  },
+  "name": "aricapital_series_fund_cm",
+  "sha256": "0ed0784b27622a53c2b99e21635d2f986efb56fa8e4a533332825ccb35cac8ef"
+}

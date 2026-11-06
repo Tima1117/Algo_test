@@ -21,6 +21,7 @@ from pif.model import Fund, SeriesPoint
 from pif.parsing import UnknownFormat
 from pif.sources import sberlife as s
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "sberlife"
 
@@ -49,6 +50,9 @@ def test_portfolios_and_matching_by_full_name():
 
 def test_params_series_values_and_units():
     series = s.parse_params(raw("get-params.json"))
+    assert_series(series[1][1], "sberlife_p1_pervyy_dolevoy")
+    assert_series(series[2][1], "sberlife_p2_puls_rynka")
+    assert_series(series[3][1], "sberlife_p3_pervyy_dolevoy_2")
     ccy, pts = series[1]
     assert ccy == "RUB"
     by = {p.date: p for p in pts}

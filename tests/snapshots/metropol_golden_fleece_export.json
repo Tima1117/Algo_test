@@ -1,0 +1,15 @@
+{
+  "count": 14,
+  "first": {
+    "date": "2003-12-08",
+    "nav": null,
+    "price": 100.0
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 11977302.22,
+    "price": 354.29
+  },
+  "name": "metropol_golden_fleece_export",
+  "sha256": "7a532c5af393caab4ee857ae4c58a0cf7a19ebe60d8186bb349cc76fd34a06c7"
+}

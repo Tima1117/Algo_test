@@ -23,6 +23,7 @@ from pif.parsing import UnknownFormat
 from pif.sources.base import Context
 from pif.sources.recordcap import (LIST_URL, RecordcapAdapter, parse_fund_list, parse_returns, parse_rules,
                                    parse_values_columns, parse_values_page, parse_values_rows)
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "recordcap"
 ALENKA = "https://recordcap.ru/documents/funds/alenka"
@@ -66,6 +67,7 @@ def test_rules_row_missing_is_unknown_format():
 
 def test_values_open_fund_with_benchmark_columns():
     cols, points, more = parse_values_page(_read("doc_alenka.html"))
+    assert_series(points, "recordcap_doc_alenka")
     assert cols == {"date": 0, "price": 1, "nav": 2}
     assert more is True                         # есть кнопка «Показать еще»
     assert [p.date for p in points] == sorted(p.date for p in points)
@@ -77,6 +79,7 @@ def test_values_open_fund_with_benchmark_columns():
 
 def test_values_interval_fund_whole_table_on_page():
     cols, points, more = parse_values_page(_read("doc_03.html"))
+    assert_series(points, "recordcap_doc_03")
     assert more is False and len(points) == 13
     assert (points[0].date, points[0].price, points[0].nav) == (date(2026, 5, 19), 9997.98, 24216286.89)
     assert (points[-1].date, points[-1].price, points[-1].nav) == (date(2026, 10, 30), 10100.99, 27192260.69)
@@ -84,6 +87,7 @@ def test_values_interval_fund_whole_table_on_page():
 
 def test_values_fragment_from_load_more():
     points = parse_values_rows(_read("values_alenka.html"), {"date": 0, "price": 1, "nav": 2})
+    assert_series(points, "recordcap_values_alenka")
     assert len(points) == 8
     sep1 = next(p for p in points if p.date == date(2025, 9, 1))
     assert (sep1.price, sep1.nav) == (26214.66, 1316859923.89)

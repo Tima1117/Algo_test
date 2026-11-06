@@ -23,6 +23,7 @@ from pif.sources.entrustment import (
     CATALOG_URL, DISCLOSURE_INDEX_URL, EntrustmentAdapter, _msk_day, parse_catalog,
     parse_disclosure_index, parse_history, parse_latest, parse_returns, pick_window,
 )
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "entrustment"
 DISC_3194 = "https://entrustment.ru/disclosure_old/opif-obligatsiy-sistema-kapital-mobilnyy/"
@@ -36,6 +37,7 @@ def read(name: str) -> str:
 
 def test_history_price():
     pts = {p.date: p for p in parse_history(read("chart_3194_price.html"), "price")}
+    assert_series(parse_history(read("chart_3194_price.html"), "price"), "entrustment_3194_price")
     assert pts[date(2025, 9, 1)].price == 118.86
     assert pts[date(2025, 10, 30)].price == 120.03
     assert pts[date(2026, 10, 30)].price == 135.37     # «Данные на 30.10.2026» на странице фонда
@@ -47,6 +49,7 @@ def test_history_price():
 
 def test_history_nav():
     pts = {p.date: p for p in parse_history(read("chart_3194_nav.html"), "nav")}
+    assert_series(parse_history(read("chart_3194_nav.html"), "nav"), "entrustment_3194_nav")
     assert pts[date(2025, 9, 1)].nav == 637946414.17
     assert pts[date(2026, 10, 30)].nav == 737972405.73
     assert pts[date(2026, 11, 2)].nav == 738739153.03

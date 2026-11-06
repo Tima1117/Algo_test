@@ -23,6 +23,7 @@ from pif.model import Fund, SeriesPoint
 from pif.parsing import UnknownFormat
 from pif.sources import kaplife as k
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "kaplife"
 EQ = "Капитал Лайф Фонд акций для долевого страхования жизни"
@@ -44,6 +45,8 @@ def _fund(rules: str, name: str) -> Fund:
 def test_series_values_units_and_matching():
     series = k.parse_series(raw("dszh_get.json"))
     assert set(series) == {EQ, MIX}
+    assert_series(series[EQ], "kaplife_akciy")
+    assert_series(series[MIX], "kaplife_smesh")
     eq = {p.date: p for p in series[EQ]}
     # сверено с КИД и справкой о СЧА на 30.09.2026: рубли, не тысячи
     assert eq[date(2026, 9, 30)] == SeriesPoint(date(2026, 9, 30), 135143488.97, 823.73)
