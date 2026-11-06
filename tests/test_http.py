@@ -98,3 +98,11 @@ def test_robots_txt_is_respected(tmp_path, monkeypatch):
     with pytest.raises(Blocked, match="robots.txt"):
         f.get("https://example.ru/api/nav", fmt="json")
     assert seen == ["/robots.txt", "/funds/"]     # robots.txt читается один раз, запрещённый адрес не запрашивается
+
+
+def test_page_with_captcha_widget_for_forms_is_not_blocked(tmp_path, monkeypatch):
+    monkeypatch.setattr("pif.config.MIN_INTERVAL_SEC", 0)
+    page = (b"<html><head><script src='https://smartcaptcha.yandexcloud.net/captcha.js'></script></head><body>"
+            + b"<table>" + b"<tr><td>01.10.2026</td><td>100,5</td></tr>" * 2000 + b"</table></body></html>")
+    f, _ = make(tmp_path, lambda req: httpx.Response(200, content=page, headers={"content-type": "text/html"}))
+    assert f.get("https://example.ru/fund", fmt="html").content() == page
