@@ -67,7 +67,7 @@ def monthly_rows(points: list[Point], currency: str, rates: Rates, formation_end
         rate = rates.on(currency, p.date)
         row = {"month": k, "date": p.date.isoformat(), "nav": p.nav, "price": p.price,
                "nav_rub": p.nav * rate if rate else None, "flow": None, "flow_rub": None, "note": "",
-               "src": p.src}
+               "src": p.src, "src_nav": p.src_nav}
         prev = ends.get(add_months(k, -1))
         if prev is not None:
             row["flow"] = p.nav - prev.nav * (p.price / prev.price)

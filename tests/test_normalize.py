@@ -55,3 +55,14 @@ def test_gaps_are_reported_not_filled():
     assert n.frequency == "daily"
     assert len(n.points) == 18
     assert n.gaps and n.gaps[0]["from"] == "2026-01-09"
+
+
+def test_nav_and_price_keep_their_own_sources():
+    nav = {"raw_url": "nav.json", "sha256": "a", "fetched_at": "2026-11-01T00:00:00+00:00",
+           "points": [{"date": "2026-01-01", "nav": 100.0, "price": None}]}
+    price = {"raw_url": "price.json", "sha256": "b", "fetched_at": "2026-11-01T00:00:00+00:00",
+             "points": [{"date": "2026-01-01", "nav": None, "price": 10.0}]}
+    n = normalize("X", [nav, price])
+    p = n.points[0]
+    assert n.sources[p.src_nav]["url"] == "nav.json"
+    assert n.sources[p.src]["url"] == "price.json"

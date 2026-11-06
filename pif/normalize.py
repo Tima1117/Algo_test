@@ -26,7 +26,8 @@ class Point:
     date: date
     nav: float | None
     price: float | None
-    src: int
+    src: int                     # источник стоимости пая (или СЧА, если пая в точке нет)
+    src_nav: int | None = None   # источник СЧА — у части УК СЧА и пай лежат в разных файлах
 
 
 @dataclass
@@ -75,10 +76,12 @@ def merge_segments(rules: str, segments: list[dict]) -> tuple[list[Point], list[
                     corrections.append({"rules": rules, "date": d, "field": fld, "action": "replaced",
                                         "old": cur[fld], "new": v,
                                         "reason": "источники расходятся за одну дату — взята более свежая выгрузка"})
-                by_date.setdefault(d, {"nav": None, "price": None, "src": sid})
+                by_date.setdefault(d, {"nav": None, "price": None, "src_nav": None, "src_price": None})
                 by_date[d][fld] = v
-                by_date[d]["src"] = sid
-    points = [Point(date.fromisoformat(d), v["nav"], v["price"], v["src"]) for d, v in sorted(by_date.items())]
+                by_date[d][f"src_{fld}"] = sid
+    points = [Point(date.fromisoformat(d), v["nav"], v["price"],
+                    v["src_price"] if v["src_price"] is not None else v["src_nav"], v["src_nav"])
+              for d, v in sorted(by_date.items())]
     return points, sources, corrections
 
 

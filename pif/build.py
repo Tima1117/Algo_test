@@ -66,7 +66,8 @@ def manual_sample(funds_by: dict[str, Fund], series: dict[str, dict], k: int = 1
     rnd = random.Random(20261103)
     rows = []
     for n, (rules, p, fld, label) in enumerate(rnd.sample(pool, min(k, len(pool))), 1):
-        f, src = funds_by[rules], series[rules]["sources"][p["src"]]
+        sid = p["src_nav"] if fld == "nav" and p.get("src_nav") is not None else p["src"]
+        f, src = funds_by[rules], series[rules]["sources"][sid]
         rows.append({"n": n, "rules": rules, "fund": f.name, "uk": f.uk_short, "date": p["date"],
                      "field": label, "our_value": p[fld], "page_url": src.get("page") or "",
                      "raw_url": src["url"], "value_on_site": "", "match": "", "checked_by": "",
@@ -164,7 +165,7 @@ def build_all() -> bool:
                 "rules": f.rules, "currency": currency, "frequency": n.frequency,
                 "points": [{"date": p.date.isoformat(), "nav": p.nav, "price": p.price,
                             "nav_rub": _r(p.nav * r) if p.nav is not None and (r := rates.on(currency, p.date)) else None,
-                            "src": p.src} for p in pts],
+                            "src": p.src, "src_nav": p.src_nav} for p in pts],
                 "sources": n.sources, "monthly": [{**r, "nav": _r(r["nav"]), "nav_rub": _r(r["nav_rub"]),
                                                    "flow": _r(r["flow"]), "flow_rub": _r(r["flow_rub"])} for r in rows],
                 "corrections": n.corrections, "anomalies": n.anomalies, "gaps": n.gaps, "checks": checks,
