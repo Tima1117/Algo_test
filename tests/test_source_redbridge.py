@@ -242,3 +242,11 @@ def test_collect_broken_archive_is_parse_error(tmp_path, monkeypatch):
     ctx = _ctx(tmp_path, monkeypatch, overrides={"sek.csv": bad})
     (sek,) = RedBridgeAdapter().collect(ctx, [_fund("0976-58229693", "КМ Секьюритиз")])
     assert sek.status == "parse_error" and "заголовок" in sek.reason
+
+
+def test_archive_published_as_image_is_unavailable_not_parse_error():
+    """06.11.2026 УК заменила CSV-архив «КМ Меркури» картинкой: это не новый формат, а отсутствие данных."""
+    from pif.sources.redbridge import ArchiveNotCsv, parse_fund_page
+    html = (FIX / "merkuri_2026-11-06_archive_jpg.html").read_bytes()
+    with pytest.raises(ArchiveNotCsv, match="JPG"):
+        parse_fund_page(html, "https://www.redbridge-am.com/foundations/opif-km-merkuri/")

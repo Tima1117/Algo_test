@@ -36,6 +36,7 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
+from ..http import FetchError
 from ..model import Fund, FundData, OfficialReturn, SeriesPoint
 from ..parsing import day, norm_text, num, pct, require
 from .base import Adapter, Context
@@ -131,6 +132,15 @@ def parse_latest(html) -> list[SeriesPoint]:
                    for i, d in cols.items()), key=lambda p: p.date)
 
 
+class ArchiveNotCsv(FetchError):
+    """УК выложила архив значений не в CSV (например, картинкой) — ряд не обновить, прошлые точки остаются."""
+
+    def __init__(self, url: str):
+        ext = url.rsplit(".", 1)[-1].upper() if "." in url.rsplit("/", 1)[-1] else "не CSV"
+        super().__init__(url, f"УК выложила архив значений стоимости пая и СЧА в формате {ext} вместо CSV — "
+                              "машиночитаемых новых данных нет")
+
+
 def parse_fund_page(html: bytes | str, source_url: str) -> dict:
     """Страница фонда -> {rules, csv_url, latest, returns}."""
     soup = _soup(html)
@@ -143,8 +153,12 @@ def parse_fund_page(html: bytes | str, source_url: str) -> dict:
             break
     require(rules is not None, "страница фонда: не нашёл номер правил в строке «Правила доверительного "
                                "управления (дата, №)»")
-    link = next((a for a in soup.find_all("a", href=True)
-                 if _cell(a).startswith(ARCHIVE_LINK) and a["href"].lower().endswith(".csv")), None)
+    archive = [a for a in soup.find_all("a", href=True) if _cell(a).startswith(ARCHIVE_LINK)]
+    link = next((a for a in archive if a["href"].lower().endswith(".csv")), None)
+    if link is None and archive and archive[0]["href"].lower().rsplit(".", 1)[-1] in ("jpg", "jpeg", "png", "pdf"):
+        # ссылка на архив есть, но ведёт не на CSV (06.11.2026 у «КМ Меркури» — на картинку JPG):
+        # формат разбора не менялся, просто УК выложила архив немашиночитаемым — новых данных нет
+        raise ArchiveNotCsv(urljoin(source_url, archive[0]["href"].strip()))
     require(link is not None, f"страница фонда: нет ссылки «{ARCHIVE_LINK} …» на CSV-файл")
     return {"rules": rules, "csv_url": urljoin(source_url, link["href"].strip()),
             "latest": parse_latest(soup), "returns": parse_returns(soup, source_url)}
