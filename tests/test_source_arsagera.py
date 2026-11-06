@@ -23,6 +23,7 @@ from pif.parsing import UnknownFormat
 from pif.sources import arsagera
 from pif.sources.arsagera import ArsageraAdapter, match_code, parse_metrics, quarter_windows
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "arsagera"
 
@@ -51,6 +52,7 @@ def test_metrics_fa_values_match_fund_page():
     assert (pts[date(2026, 10, 30)].price, pts[date(2026, 10, 30)].nav) == (13694.11, 2615024369.54)
     assert (pts[date(2026, 11, 2)].price, pts[date(2026, 11, 2)].nav) == (13591.5, 2595771594.86)
     assert date(2026, 10, 31) not in pts           # выходные в свежей истории не публикуются
+    assert_series(parse_metrics(_read("fa_2026q4.json")), "arsagera_fa_2026q4")
 
 
 def test_metrics_reproduce_official_returns_on_page():
@@ -84,6 +86,8 @@ def test_quarter_windows_cover_range_with_stable_bounds():
         (date(2025, 7, 1), date(2025, 9, 30)), (date(2025, 10, 1), date(2025, 12, 31)),
         (date(2026, 1, 1), date(2026, 3, 31))]
     assert quarter_windows(date(2026, 10, 24), date(2026, 11, 3)) == [(date(2026, 10, 1), date(2026, 12, 31))]
+    # «сегодня» в адрес не попадает: до конца квартала окна (и адреса) те же
+    assert quarter_windows(date(2026, 10, 24), date(2026, 12, 31)) == [(date(2026, 10, 1), date(2026, 12, 31))]
 
 
 def test_match_code_by_quoted_full_name():

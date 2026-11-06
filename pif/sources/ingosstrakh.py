@@ -4,8 +4,10 @@
 
 - /api/content/open-mutual-funds — каталог фондов из раздела «Раскрытие информации»:
   номер правил ДУ («№ 4742 от 02.12.2021») и внутренний fundId. Сопоставление — по номеру правил.
-- /api/Info/FundQuotesDynamic/{fundId}?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD&useCache=false —
-  JSON-ряд за диапазон дат: date, unitValue (расчётная стоимость пая), assetsValue (СЧА).
+- /api/Info/FundQuotesDynamic/{fundId}?startDate=YYYY-MM-DD&useCache=false —
+  JSON-ряд с даты startDate: date, unitValue (расчётная стоимость пая), assetsValue (СЧА).
+  endDate API не обязателен: без него отдаёт ряд до последней опубликованной точки (проверено 06.11.2026:
+  ответ байт в байт тот же, что с endDate=сегодня). Не передаём его, чтобы адрес не менялся каждый день.
   Частота — каждый рабочий день. Последние две точки те же, что в таблице «Раскрытие информации →
   О ПИФах → Расчётная стоимость пая и СЧА» (/open-info/required/about-pifs).
 - POST /api/Info/FundProfitabilityRegular, тело [fundId] — официальная доходность за 1/3/6/12 мес.
@@ -247,10 +249,11 @@ class IngosstrakhAdapter(Adapter):
                                "«Раскрытие информации → О ПИФах», ряд и доходность — из API сайта УК")
 
         # --- ряд СЧА и пая ---
+        # Без endDate (открытый конец): адрес зависит только от startDate и не меняется, пока на сайте
+        # нет новых точек, — повторный сбор берёт его из кэша/условным запросом, а не качает заново.
         start = ctx.start_for(fund.rules)
         raw = ctx.http.get(QUOTES_URL.format(fund_id=site.fund_id), fmt="json", funds=[fund.rules],
-                           params={"startDate": start.isoformat(), "endDate": date.today().isoformat(),
-                                   "useCache": "false"})
+                           params={"startDate": start.isoformat(), "useCache": "false"})
         points = parse_history(raw.content(), site.fund_id)
         if not points:
             if fund.rules in ctx.last_dates:

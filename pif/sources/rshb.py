@@ -8,7 +8,10 @@
   - <h1>: «ОПИФ «Фонд Облигаций»», «БПИФ «РСХБ – Корпоративные облигации смарт бета (RSHU)»»;
   - графики: div#graph-pif data-json="/ajax/data.php?fund=<id>&type=&period=begin&date_from=&date_to=<дата>" —
     стоимость пая, div#graph-sha data-json="/ajax/data-sha.php?…" — СЧА. Ответ — [[epoch-ms, значение], …]
-    по рабочим дням за всю историю; date_from=ГГГГ-ММ-ДД сервер учитывает (проверено на обоих адресах);
+    по рабочим дням за всю историю; date_from=ГГГГ-ММ-ДД сервер учитывает (проверено на обоих адресах).
+    date_to на странице — дата последней точки; пустой date_to= (как date_from= на самой странице) сервер
+    понимает как «до конца ряда»: ответы data.php, data-sha.php и datapotok.php с date_to=, без date_to и
+    с date_to=сегодня совпали байт в байт (проверено 06.11.2026 из GitHub Actions);
   - шапка дневной таблицы: «Расчетная стоимость инвестиционного пая (РСИП), рубли», «Стоимость чистых
     активов (СЧА), рубли» — отсюда валюта пая и единицы СЧА (рубли, не тысячи);
   - таблица «Динамика стоимости пая» (table.graph__pro-table): День / Месяц / 3 месяца / 6 месяцев /
@@ -316,8 +319,9 @@ class RshbAdapter(Adapter):
             return FundData(fund.rules, status="not_found", page_url=page_url,
                             reason=f"на странице {page_url} тикер {page.ticker}, в реестре {fund.ticker}")
 
-        # Как на странице, но с докачкой хвоста (date_from) и стабильным в пределах дня date_to.
-        rng = {"date_from": ctx.start_for(fund.rules).isoformat(), "date_to": date.today().isoformat()}
+        # Как на странице, но с докачкой хвоста (date_from) и открытым концом (пустой date_to): с датой
+        # «сегодня» адрес менялся бы каждый день и повторный сбор качал бы ряд заново без изменений на сайте.
+        rng = {"date_from": ctx.start_for(fund.rules).isoformat(), "date_to": ""}
         price_doc = ctx.http.get(PRICE_API, params={**page.price_params, **rng}, fmt="json", funds=[fund.rules])
         nav_doc = ctx.http.get(NAV_API, params={**page.nav_params, **rng}, fmt="json", funds=[fund.rules])
         prices, navs = parse_prices(price_doc.content()), parse_navs(nav_doc.content())

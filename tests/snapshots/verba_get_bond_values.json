@@ -1,0 +1,15 @@
+{
+  "count": 292,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 721710245.42,
+    "price": 443.48
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 708367218.55,
+    "price": 441.0
+  },
+  "name": "verba_get_bond_values",
+  "sha256": "a1c8752fdd73e253cec5865511cd9a6862f32a9c9930c40a33bb5d7e6c225730"
+}

@@ -22,6 +22,7 @@ from pif.model import Fund, SeriesPoint
 from pif.parsing import UnknownFormat
 from pif.sources import verba as v
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "verba"
 RULES = "1638-94198209"
@@ -52,6 +53,7 @@ def test_chart_values_and_units():
     assert by[date(2026, 10, 30)] == SeriesPoint(date(2026, 10, 30), 715414461.15, 445.39)
     assert pts[0].date == date(2025, 9, 1) and len(pts) == 292
     assert date(2025, 11, 1) in by                               # рабочая суббота 2025 г.
+    assert_series(pts, "verba_get_bond_values")
 
 
 def test_broken_chart_raises():
@@ -108,7 +110,8 @@ def test_adapter_end_to_end_requests_tail(tmp_path, monkeypatch):
     assert fd.segments[0].points[-1] == SeriesPoint(date(2026, 11, 2), 708367218.55, 441.0)
     assert {r.period for r in fd.official_returns} == {"1m", "3m", "6m", "1y"}
     ajax = [form for url, form in seen if url == v.AJAX_URL]
-    assert ajax and ajax[0]["date_start"] == "2026-09-21"          # докачка хвоста: last - 10 дней
+    # докачка хвоста: last - 10 дней; конец диапазона фиксированный, а не «сегодня» — тело запроса не меняется по дням
+    assert ajax == [{"action": "get_bond_values", "date_start": "2026-09-21", "date_end": "2099-12-31"}]
 
 
 def test_adapter_other_rules_not_found(tmp_path, monkeypatch):

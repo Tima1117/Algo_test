@@ -25,6 +25,7 @@ from pif.model import Fund
 from pif.parsing import UnknownFormat
 from pif.sources import ingosstrakh as ing
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FX = Path(__file__).parent / "fixtures" / "ingosstrakh"
 
@@ -104,6 +105,7 @@ def test_history_my_safe():
     assert by[date(2025, 9, 1)].price == 13843.93
     assert by[date(2025, 9, 1)].nav == 962613645.48
     assert all(p.nav and p.price for p in pts)
+    assert_series(pts, "ingosstrakh_quotes_639383")
 
 
 def test_history_yuan_in_rubles():
@@ -113,6 +115,7 @@ def test_history_yuan_in_rubles():
     assert by[date(2026, 11, 2)].nav == 507732048.83
     assert by[date(2026, 10, 30)].price == 127.15
     assert by[date(2026, 10, 30)].nav == 500184496.60
+    assert_series(pts, "ingosstrakh_quotes_48141850")
 
 
 def test_history_missing_value_is_none():
@@ -279,11 +282,12 @@ def test_collect_on_fixtures(tmp_path):
     assert res["2622"].status == "unavailable"
     assert {res[r].status for r in ("4742", "4483", "1149-94139555", "0050-54904637")} == {"unavailable"}
 
-    # каталог и витрины — по одному запросу на все фонды; ряд — с начала истории по сегодня
+    # каталог и витрины — по одному запросу на все фонды; ряд — с начала истории без endDate (открытый конец):
+    # в адресе нет сегодняшней даты, повторный сбор без изменений на сайте ничего не качает заново
     urls = [c[1] for c in http.calls]
     assert urls.count(ing.CATALOG_URL) == 1 and urls.count(ing.LISTING_PAGES[0]) == 1
     q = next(c for c in http.calls if c[1].endswith("/639383"))
-    assert q[2]["startDate"] == "2025-09-01" and q[2]["endDate"] == date.today().isoformat()
+    assert q[2] == {"startDate": "2025-09-01", "useCache": "false"}
     assert q[4] == ("1148-94139715",)
     r = next(c for c in http.calls if c[1] == ing.RETURNS_URL and c[3] == [639383])
     assert r[0] == "POST"

@@ -22,6 +22,7 @@ from pif.model import Fund, SeriesPoint
 from pif.parsing import UnknownFormat
 from pif.sources import makslife as m
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "makslife"
 NAME = "МАКС-Жизнь Первый для долевого страхования жизни"
@@ -54,6 +55,7 @@ def test_api_values_and_units():
     assert by[date(2026, 11, 2)] == SeriesPoint(date(2026, 11, 2), 141993.63, 1051.8)
     assert by[date(2026, 10, 30)] == SeriesPoint(date(2026, 10, 30), 143584.77, 1063.59)
     assert pts[0] == SeriesPoint(date(2026, 9, 25), 134971.03, 999.79)       # дата формирования
+    assert_series(pts, "makslife_calc_2025-09-01")
     _, more = m.parse_page(raw("calc_2026-10-01_p1_of10.json"))
     assert more is True
 
@@ -97,7 +99,9 @@ def test_adapter_single_page(tmp_path, monkeypatch):
     fd = m.MakslifeAdapter().collect(ctx, [_fund()])[0]
     assert fd.status == "ok" and fd.currency == "RUB" and fd.page_url == m.FUND_URL.format(id=1)
     assert len(fd.segments) == 1 and fd.segments[0].points[-1].price == 1051.8
-    assert seen[0]["opifId"] == "1" and seen[0]["date_from"] == "2025-09-01" and seen[0]["page_size"] == "100"
+    # date_to фиксированный (API его требует), а не «сегодня»: адрес не меняется по дням
+    assert seen == [{"opifId": "1", "date_from": "2025-09-01", "date_to": "2099-12-31", "page": "1",
+                     "page_size": "100"}]
     assert fd.official_returns == [] and fd.warnings == [m.NO_RETURNS]
 
 

@@ -32,6 +32,7 @@ from pif.sources import acapital
 from pif.sources.acapital import (EXPORT_URL, FUND_PAGE, GRAPH_URL, SITE_FUNDS, ACapitalAdapter, find_gaps,
                                   match_funds, month_windows, parse_export_title, parse_graph, parse_returns)
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "acapital"
 OCT = FIX / "graph_5806_2026-10.json"
@@ -77,6 +78,7 @@ def test_graph_october():
     assert (by[date(2026, 10, 30)].nav, by[date(2026, 10, 30)].price) == (637873518.74, 804.33)
     assert (by[date(2026, 10, 1)].nav, by[date(2026, 10, 1)].price) == (603823035.17, 719.96)
     assert date(2026, 10, 3) not in by                        # суббота — расчёта нет
+    assert_series(pts, "acapital_graph_5806_2026-10")
 
 
 def test_graph_current_month():
@@ -202,6 +204,8 @@ def test_month_windows():
     assert w[-1] == (date(2026, 11, 1), date(2026, 11, 30))
     # хвост с середины месяца — окно всё равно с 1-го числа (адрес стабилен)
     assert month_windows(date(2026, 10, 15), date(2026, 11, 3)) == w[-2:]
+    # «сегодня» в адрес не попадает: на следующий день и до конца месяца окна (и адреса) те же
+    assert month_windows(date(2025, 9, 1), date(2026, 11, 30)) == w
 
 
 def test_find_gaps():

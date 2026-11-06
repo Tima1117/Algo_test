@@ -11,7 +11,9 @@
   date_to=ГГГГ-ММ-ДД&page=N&page_size=100 — {"state": "success", "items": [{date, rsip — расчётная
   стоимость пая, cha — СЧА, difRsip, difCha, …}], "pagination": {…, "has_next_page"}}; новые
   сверху; page_size не больше 100 (на 500 API отвечает 400). Каждый рабочий день с 25.09.2026.
-  Запрашиваем с ctx.start_for() и листаем страницы. Единицы — как в таблице на странице:
+  Запрашиваем с ctx.start_for() и листаем страницы. date_to обязателен (без него 422 «Необходимо
+  заполнить «Date To»»), но дату в будущем API принимает: с date_to=2099-12-31 ответ байт в байт тот же,
+  что с сегодняшней датой (проверено 06.11.2026) — поэтому граница фиксированная, адрес не меняется по дням. Единицы — как в таблице на странице:
   «Расчетная стоимость инвестиционного пая (РСИП), рубли», «Стоимость чистых активов (СЧА), рубли»
   (СЧА фонда действительно мала: 141 993,63 руб. на 02.11.2026 при паях по 1 051,80 руб.).
 
@@ -37,6 +39,9 @@ API_URL = f"{BASE}/invest-pif/api/etf/v1/calculations"
 FUND_URL = BASE + "/invest/opif/{id}"
 PAGE_SIZE = 100
 MAX_PAGES = 60          # 6000 рабочих дней — заведомо больше, чем бывает; защита от зацикливания
+# Фиксированный конец диапазона вместо «сегодня»: API требует date_to, а с сегодняшней датой адрес менялся бы
+# каждый день и повторный сбор качал бы ряд заново, хотя на сайте ничего не изменилось.
+DATE_TO = "2099-12-31"
 
 NO_RETURNS = ("официальная доходность за 1/3/6/12 мес УК не публикует: КИД в документах фонда нет, "
               "блок «Динамика» на странице считается браузером из ряда — не заполнена")
@@ -122,7 +127,7 @@ class MakslifeAdapter(Adapter):
             segments = []
             for page in range(1, MAX_PAGES + 1):
                 raw = ctx.http.get(API_URL, fmt="json", funds=[fund.rules], params={
-                    "opifId": opif_id, "date_from": start.isoformat(), "date_to": date.today().isoformat(),
+                    "opifId": opif_id, "date_from": start.isoformat(), "date_to": DATE_TO,
                     "page": page, "page_size": PAGE_SIZE})
                 points, more = parse_page(raw.content())
                 segments.append(self.segment(raw, points, page_url=page_url, since=ctx.since))

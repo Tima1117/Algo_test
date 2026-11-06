@@ -17,7 +17,9 @@
   date (unix-время полуночи, новые сверху), pif_price (пай), asset_price (СЧА), currency, ops
   (сплиты/консолидации паёв — график по ним пересчитывает цену, подсказка показывает исходную).
   Берём исходные pif_price и asset_price; непустой ops — предупреждение. Каждый рабочий день,
-  история с 2010 г.; запрашиваем с ctx.start_for() (докачка хвоста). СЧА в рублях
+  история с 2010 г.; запрашиваем с ctx.start_for() (докачка хвоста). Без date_end сервер отвечает пустым
+  телом, а дату в будущем принимает: с date_end=2099-12-31 ответ байт в байт тот же, что с сегодняшней
+  датой (проверено 06.11.2026), — граница фиксированная, тело запроса не меняется по дням. СЧА в рублях
   (708 367 218,55 на 02.11.2026 — как в таблице на странице), пай в рублях (currency = RUB).
 Сообщений о выплате дохода пайщикам на сайте нет — payouts не заполняем.
 """
@@ -38,6 +40,9 @@ BASE = "https://verbapartners.ru"
 FUND_URL = f"{BASE}/ru/services/s_m/bonds"
 INFO_URL = f"{BASE}/ru/services/s_m/bonds/inf_pif"
 AJAX_URL = f"{BASE}/wp-admin/admin-ajax.php"
+# Фиксированный конец диапазона вместо «сегодня»: без date_end график пуст, а с сегодняшней датой тело
+# запроса (и ключ кэша) менялось бы каждый день — повторный сбор качал бы ряд заново без изменений на сайте.
+DATE_END = "2099-12-31"
 
 _MSK = timezone(timedelta(hours=3))
 _RULES = re.compile(r"№\s*(\d{4}-\d{8})(?!-)")
@@ -149,7 +154,7 @@ class VerbaAdapter(Adapter):
             raw = ctx.http.get(AJAX_URL, method="POST", fmt="json", funds=[fund.rules], data={
                 "action": "get_bond_values",
                 "date_start": start.isoformat(),
-                "date_end": date.today().isoformat(),
+                "date_end": DATE_END,
             })
             ccy, points, ops = parse_chart(raw.content())
             fd = FundData(fund.rules, currency=ccy, page_url=FUND_URL,

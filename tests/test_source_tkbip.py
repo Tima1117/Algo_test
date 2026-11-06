@@ -19,6 +19,7 @@ from pif.http import FetchError, RawDoc
 from pif.model import Fund
 from pif.parsing import UnknownFormat
 from pif.sources.base import Context
+from snapshot import assert_series
 from urllib.parse import unquote
 
 from pif.sources import tkbip
@@ -59,6 +60,7 @@ def test_history_bond_fund():
     assert (last.date, last.nav, last.price) == (date(2026, 11, 2), 776913379.36, 9451.67)
     prev = next(p for p in pts if p.date == date(2026, 10, 30))
     assert (prev.nav, prev.price) == (776522868.13, 9447.80)
+    assert_series(pts, "tkbip_export_fond-obligatsiy")
 
 
 def test_history_currency_fund_is_in_rubles():
@@ -67,6 +69,7 @@ def test_history_currency_fund_is_in_rubles():
     # Официальные рублёвые значения (а не справочные USD* 412.62 / 6324655.25)
     assert (last.date, last.nav, last.price) == (date(2026, 11, 2), 509497150.76, 33239.43)
     assert len(pts) == 292
+    assert_series(pts, "tkbip_export_fond-valyutnykh-obligatsiy")
 
 
 def test_history_broken_csv():
@@ -261,7 +264,8 @@ class FakeHttp:
         elif m := re.fullmatch(rf"{BASE}/funds/([a-z0-9-]+)/information/", url):
             path = FIX / f"info_{m.group(1)}.html"
         elif m := re.fullmatch(rf"{BASE}/funds/([a-z0-9-]+)/export/", url):
-            assert params["format"] == "csv" and params["dateFrom"] == "01.09.2025"
+            # конец диапазона фиксированный, а не «сегодня»: адрес выгрузки не меняется по дням
+            assert params == {"dateFrom": "01.09.2025", "dateTo": "31.12.2099", "format": "csv"}
             path = FIX / f"export_{m.group(1)}.csv"
         elif m := re.fullmatch(rf"{BASE}/disclosure-of-information/reporting-of-mutual-funds/(\d+)/", url):
             path = FIX / f"disc_{m.group(1)}.html"

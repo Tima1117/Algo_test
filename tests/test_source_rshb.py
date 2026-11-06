@@ -37,6 +37,7 @@ from pif.parsing import UnknownFormat
 from pif.returns import period_return
 from pif.sources import rshb
 from pif.sources.base import Context
+from snapshot import assert_series
 
 FIX = Path(__file__).parent / "fixtures" / "rshb"
 OPIF = "https://www.rshb-am.ru/paevye-investicionnye-fondy-pif/"
@@ -211,6 +212,8 @@ def test_series_bonds_values():
     assert min(price) == date(2013, 7, 4) and price[date(2013, 7, 4)].price == 1000.0
     dates = [p.date for p in rshb.parse_prices(read("price_6.json"))]
     assert dates == sorted(dates)
+    assert_series(rshb.parse_prices(read("price_6.json")), "rshb_price_6")
+    assert_series(rshb.parse_navs(read("nav_6.json")), "rshb_nav_6")
 
 
 def test_series_reproduce_official_returns():
@@ -329,7 +332,6 @@ def test_collect_end_to_end():
             [make_fund("9999", "РСХБ – Нет такого фонда")]
     http = FakeHttp()
     res = run(http, funds, since=date(2026, 10, 1))
-    today = date.today().isoformat()
 
     bonds = res["2567"]
     assert (bonds.status, bonds.currency, bonds.page_url) == ("ok", "RUB", OPIF + "opif-fond-obligatsiy/")
@@ -342,13 +344,16 @@ def test_collect_end_to_end():
         [("1m", 1.55, date(2026, 10, 31)), ("3m", 0.9, date(2026, 10, 31)),
          ("6m", 1.61, date(2026, 10, 31)), ("1y", 9.66, date(2026, 10, 31))]
     assert bonds.official_returns[0].source_url == bonds.page_url and bonds.payouts == [] and not bonds.warnings
-    # запрос как на странице, но с since и сегодняшней датой
-    assert (rshb.PRICE_API, {"fund": "6", "type": "", "period": "begin", "date_from": "2026-10-01",
-                             "date_to": today}, ["2567"]) in http.calls
+    # запрос как на странице, но с since и открытым концом (пустой date_to, без сегодняшней даты):
+    # адрес не меняется по дням, повторный сбор без изменений на сайте ничего не качает заново
+    for api in (rshb.PRICE_API, rshb.NAV_API):
+        assert (api, {"fund": "6", "type": "", "period": "begin", "date_from": "2026-10-01",
+                      "date_to": ""}, ["2567"]) in http.calls
 
     potok = res["5585"]
     assert potok.status == "ok" and [(p.date, p.amount) for p in potok.payouts] == []     # выплата 30.09 < since
-    assert any(c[0] == rshb.PAYOUTS_API and c[1]["fund"] == "10" and c[1]["date_to"] == today for c in http.calls)
+    assert (rshb.PAYOUTS_API, {"fund": "10", "type": "pro", "period": "begin", "date_from": "", "date_to": ""},
+            ["5585"]) in http.calls
 
     agro = res["7837"]
     assert agro.status == "ok" and [r.period for r in agro.official_returns] == ["1m", "3m"]

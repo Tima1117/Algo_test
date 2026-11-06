@@ -1,0 +1,15 @@
+{
+  "count": 273,
+  "first": {
+    "date": "2013-07-05",
+    "nav": 10000000.0,
+    "price": null
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 26601016805.59,
+    "price": null
+  },
+  "name": "rshb_nav_6",
+  "sha256": "1b287eb34d6f492672b413120b649328d3c2562c36181502bafda88f12cfe055"
+}

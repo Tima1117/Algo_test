@@ -1,0 +1,15 @@
+{
+  "count": 27,
+  "first": {
+    "date": "2026-09-25",
+    "nav": 134971.03,
+    "price": 999.79
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 141993.63,
+    "price": 1051.8
+  },
+  "name": "makslife_calc_2025-09-01",
+  "sha256": "b731678a7b873b047c305dda944fedeae21cfcba6cb494b2719a16dcd1b4b1b5"
+}

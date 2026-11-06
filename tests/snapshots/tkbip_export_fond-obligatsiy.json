@@ -1,0 +1,15 @@
+{
+  "count": 292,
+  "first": {
+    "date": "2025-09-01",
+    "nav": 1102771931.34,
+    "price": 8399.62
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 776913379.36,
+    "price": 9451.67
+  },
+  "name": "tkbip_export_fond-obligatsiy",
+  "sha256": "d4dde88df60a9a938b6cf7cf14613a9118b82dcecb0792358cf1c967c079c50a"
+}

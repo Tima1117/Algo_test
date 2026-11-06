@@ -12,7 +12,9 @@
 - https://www.tkbip.ru/funds/<slug>/export/?dateFrom=ДД.ММ.ГГГГ&dateTo=ДД.ММ.ГГГГ&format=csv —
   выгрузка с вкладки «Результаты» (форма «Выберите диапазон дат для экспорта данных»):
   CSV «Дата;Стоимость чистых активов (СЧА);Расчетная стоимость инвестиционного пая», каждый
-  рабочий день, новые даты сверху. Совпадает с данными графика на той же странице.
+  рабочий день, новые даты сверху. Совпадает с данными графика на той же странице. Без dateTo
+  выгрузка пуста (одна строка «"";"";""»), а дату в будущем сервер принимает: с dateTo=31.12.2099
+  CSV байт в байт тот же, что с сегодняшней датой (проверено 06.11.2026), — граница фиксированная.
 
 - https://www.tkbip.ru/disclosure-of-information/reporting-of-mutual-funds/<id>/ — страница фонда
   в «Раскрытии информации» (ссылка с «Информации о фонде»): PDF «Сообщение о выплате дохода …» и
@@ -52,6 +54,9 @@ _FUND_LINK_TEXT = re.compile(r"^[ОИБ]ПИФ\b.*«")      # «ОПИФ рын�
 # Подписи колонок доходности в таблицах /funds/ (после norm_text) -> период OfficialReturn.
 _PERIODS = {"1 м": "1m", "3 м": "3m", "6 м": "6m", "1 год": "1y"}
 _OFFICIAL_CCY = "RUB"
+# Фиксированный конец диапазона выгрузки вместо «сегодня»: без dateTo CSV пуст, а с сегодняшней датой адрес
+# менялся бы каждый день — повторный сбор качал бы выгрузку заново, хотя на сайте ничего не изменилось.
+EXPORT_DATE_TO = "31.12.2099"
 
 
 def _soup(content) -> BeautifulSoup:
@@ -523,7 +528,7 @@ class TkbipAdapter(Adapter):
             start = ctx.start_for(fund.rules)
             raw = ctx.http.get(f"{BASE}/funds/{slug}/export/", fmt="csv", funds=[fund.rules], params={
                 "dateFrom": start.strftime("%d.%m.%Y"),
-                "dateTo": date.today().strftime("%d.%m.%Y"),
+                "dateTo": EXPORT_DATE_TO,
                 "format": "csv",
             })
             points = parse_history(raw.content())

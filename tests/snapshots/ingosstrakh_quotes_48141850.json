@@ -1,0 +1,15 @@
+{
+  "count": 8,
+  "first": {
+    "date": "2026-10-22",
+    "nav": 502309341.05,
+    "price": 127.69
+  },
+  "last": {
+    "date": "2026-11-02",
+    "nav": 507732048.83,
+    "price": 129.07
+  },
+  "name": "ingosstrakh_quotes_48141850",
+  "sha256": "c7bc3d01272a9aaddc03403e12afd8ec1e438f79009efe1910b28d41c76f8dcb"
+}
