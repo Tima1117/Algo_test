@@ -40,6 +40,11 @@ ROBOTS_EXCEPTIONS = {
                       "на странице фонда загружается из /ajax/data.php?fund=…",
 }
 
+# Сайты, которые отвечают 403 на любые запросы с зарубежных IP (сборщик и GitHub Actions работают за рубежом),
+# а из России открываются. Это не закрытый раздел и не антибот — честно так и пишем в статусе фонда.
+FOREIGN_IP_BLOCKED = {"www.wealthim.ru", "wealthim.ru", "www.wimsavings.ru", "aaacapital.ru",
+                      "www.aaacapital.ru", "www.akbars-capital.ru", "akbars-capital.ru"}
+
 # Не чаще одного запроса в секунду к одному домену.
 MIN_INTERVAL_SEC = float(os.environ.get("PIF_MIN_INTERVAL", "1.05"))
 TIMEOUT_SEC = float(os.environ.get("PIF_TIMEOUT", "30"))

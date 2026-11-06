@@ -18,6 +18,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 from datetime import date
+from urllib.parse import urlsplit
 from pathlib import Path
 
 from . import config
@@ -138,7 +139,13 @@ def probe_uncovered(http: Fetcher, funds: list[Fund]) -> list[FundData]:
                 http.get(site, fmt="html", funds=[f.rules for f in group], allow_stale=False,
                          check_robots=False, attempts=1)
             except Blocked as e:
-                status, reason = "blocked", f"{e.reason}; капчи и закрытые разделы не обходим"
+                if (urlsplit(site).hostname or "") in config.FOREIGN_IP_BLOCKED:
+                    status, reason = "geo_blocked", (
+                        f"сайт отвечает {e.reason.split('(')[-1].rstrip(')')} на запросы с зарубежных IP, где работает "
+                        "сборщик (и GitHub Actions); из России сайт открывается. Сбор отсюда невозможен, а без доступа "
+                        "к сайту нечего разбирать — нужен запуск с российского IP")
+                else:
+                    status, reason = "blocked", f"{e.reason}; капчи и закрытые разделы не обходим"
             except FetchError as e:
                 status, reason = "unavailable", f"сайт УК {site} из сети сборщика: {e.reason}"
         log.info("[без адаптера] %s: %s (%d фондов)", site, reason, len(group))
