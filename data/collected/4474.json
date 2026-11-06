@@ -1,1 +1,1 @@
-{"rules": "4474", "currency": "RUB", "segments": [], "official_returns": [], "payouts": [], "page_url": null, "status": "unavailable", "reason": "сайт не отвечает (ConnectTimeout)", "errors": [], "warnings": []}
+{"rules": "4474", "currency": "RUB", "segments": [], "official_returns": [], "payouts": [], "page_url": null, "status": "blocked", "reason": "robots.txt сайта УК закрывает его для роботов — не собираем", "errors": [], "warnings": []}

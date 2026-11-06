@@ -133,6 +133,25 @@
   "status": "ok"
  },
  {
+  "key": "e2f402f26abe00c6f882",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=RU000A109K57&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4998"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/e2f402f26abe00c6f882.json",
+  "fetched_at": "2026-11-06T09:53:02+00:00",
+  "sha256": "ee5707b9eb921fe8d745921ff61af4250529dd4525da69fafa267ac6e366789c",
+  "bytes": 415,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "494ba49307d6e16d931e",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=RU000A109KE6&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -164,6 +183,25 @@
   "fetched_at": "2026-11-05T23:18:50+00:00",
   "sha256": "d3cf1cb9e7a16e35742d5df3c69e80371aeeadb3c7035dac090273d051d14996",
   "bytes": 416,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "a416068da9b0e4312a5b",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=RU000A109KE6&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4212"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/a416068da9b0e4312a5b.json",
+  "fetched_at": "2026-11-06T09:53:08+00:00",
+  "sha256": "e3e99ba1ac0e0b571ba89379888e38d9ef7bf2a6bf0a5bd00c8d541689efe507",
+  "bytes": 378,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -209,6 +247,25 @@
   "status": "ok"
  },
  {
+  "key": "70548b284e97ead185f0",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=RU000A109KH9&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4677"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/70548b284e97ead185f0.json",
+  "fetched_at": "2026-11-06T09:52:53+00:00",
+  "sha256": "3c8368785a9bf032c96087bdb65a888019099d25d78d2152b0165c7f4f544a3d",
+  "bytes": 416,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "dfec6672084b3998955e",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=RU000A109KS6&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -247,6 +304,25 @@
   "status": "ok"
  },
  {
+  "key": "089fb69729b74edc0f46",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=RU000A109KS6&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "5991"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/089fb69729b74edc0f46.json",
+  "fetched_at": "2026-11-06T09:53:06+00:00",
+  "sha256": "0ee92305229c82a1b52833a70783bc22e9d90e9ae77b030f538da9357dff647f",
+  "bytes": 378,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "4c51703383b2c8037011",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TBEU&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -277,6 +353,25 @@
   "path": "api-invest-gw.tinkoff.ru/681cd034f430d9180723.json",
   "fetched_at": "2026-11-05T23:19:04+00:00",
   "sha256": "895e55a48c54fab64426c385555695a4a2df57e26ade8eccda930d3ec1b64cc4",
+  "bytes": 405,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "ae04e149433d008f2187",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TBEU&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4618"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/ae04e149433d008f2187.json",
+  "fetched_at": "2026-11-06T09:53:23+00:00",
+  "sha256": "ca9cc8df061e375096d6a1720e51b26d6e0c8c8be1d859e9934e27f77ad82ead",
   "bytes": 405,
   "http_status": 200,
   "etag": null,
@@ -323,6 +418,25 @@
   "status": "ok"
  },
  {
+  "key": "64c8a3508256bc0bb324",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TBRU&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4458"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/64c8a3508256bc0bb324.json",
+  "fetched_at": "2026-11-06T09:53:17+00:00",
+  "sha256": "f6c93fc76cb215e07ff4f7605a3a897fcc7d86890be229e36bc5aeee214cb01e",
+  "bytes": 371,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "4f2fb1bf5617a4a55efc",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TDIV&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -354,6 +468,25 @@
   "fetched_at": "2026-11-05T23:18:39+00:00",
   "sha256": "7862acd27762652e1003291d91d2ae9d239ed126c6fb6ee603e8c0247ce8008a",
   "bytes": 416,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "94fb4995c2aa4d405804",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TDIV&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "5707"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/94fb4995c2aa4d405804.json",
+  "fetched_at": "2026-11-06T09:52:57+00:00",
+  "sha256": "845b8ee9d7866ed40e4b6963e03b105ba705a9e84be2b104464085040af09f77",
+  "bytes": 378,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -399,6 +532,25 @@
   "status": "ok"
  },
  {
+  "key": "5d5e1c4d2c2b677f4d11",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TEUR&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "3899"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/5d5e1c4d2c2b677f4d11.json",
+  "fetched_at": "2026-11-06T09:53:27+00:00",
+  "sha256": "f09c95c92758a6cffb47b802933e12434714a54d313b029524f27a277b6cf554",
+  "bytes": 371,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "bf1685d20823a225f485",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TGLD&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -429,6 +581,25 @@
   "path": "api-invest-gw.tinkoff.ru/12282f12b025020611a8.json",
   "fetched_at": "2026-11-05T23:18:41+00:00",
   "sha256": "baaa9975685fbf7790a4fc772e034ab9a0b8f811b7ed8ca71094238cbc8d4f82",
+  "bytes": 407,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "9ca2a80d8d447519bebb",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TGLD&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4098"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/9ca2a80d8d447519bebb.json",
+  "fetched_at": "2026-11-06T09:53:00+00:00",
+  "sha256": "eef4bfd0b9e8651c3978204421946378cabb40a57c3f785e363ad70dea05da12",
   "bytes": 407,
   "http_status": 200,
   "etag": null,
@@ -475,6 +646,25 @@
   "status": "ok"
  },
  {
+  "key": "b36f3f40be5fd7af2b8a",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TITR&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "6126"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/b36f3f40be5fd7af2b8a.json",
+  "fetched_at": "2026-11-06T09:52:51+00:00",
+  "sha256": "fa1981a92b64836be40e3972fa03c5d934935071406a2bb6f7150863399edc0f",
+  "bytes": 369,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "dc391834749fabec0844",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TLCB&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -513,6 +703,25 @@
   "status": "ok"
  },
  {
+  "key": "3979e11240cff9a32196",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TLCB&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "5728"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/3979e11240cff9a32196.json",
+  "fetched_at": "2026-11-06T09:53:10+00:00",
+  "sha256": "8002b417a2509addb358f90b9682b1f5146b217dace3d419a1116109bfdfb0f6",
+  "bytes": 378,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "fc864ddcc070755ffd39",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TMON&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -543,6 +752,25 @@
   "path": "api-invest-gw.tinkoff.ru/6368615580e2c268c0a8.json",
   "fetched_at": "2026-11-05T23:18:35+00:00",
   "sha256": "11c722a99830280fec11d8606ab2b16bdf95cb13eceb2183873250b40676f6ca",
+  "bytes": 424,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "4ecbe2c0014f693c19bb",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TMON&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "5229"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/4ecbe2c0014f693c19bb.json",
+  "fetched_at": "2026-11-06T09:52:55+00:00",
+  "sha256": "02bc39ce44490dc573b20da49c294e6cd17aec56bb684048157085581ec7d9d9",
   "bytes": 424,
   "http_status": 200,
   "etag": null,
@@ -589,6 +817,25 @@
   "status": "ok"
  },
  {
+  "key": "3bd7e049f5e566225d6d",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TMOS&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4100"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/3bd7e049f5e566225d6d.json",
+  "fetched_at": "2026-11-06T09:53:04+00:00",
+  "sha256": "b9bb22bf1b218153d90b80be63929c33fb3fd9328177d49a4601462d91d40485",
+  "bytes": 406,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "2048ecef81767d842dbd",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TOFZ&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -627,6 +874,25 @@
   "status": "ok"
  },
  {
+  "key": "82ef3c6cbde1be74a6d7",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TOFZ&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "6635"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/82ef3c6cbde1be74a6d7.json",
+  "fetched_at": "2026-11-06T09:53:14+00:00",
+  "sha256": "3ab20b10946ff390eba013d66e4c517183aed55d8ce2204b7025f608cca29871",
+  "bytes": 378,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "c3c23a24cd307633c728",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TPAY&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -657,6 +923,25 @@
   "path": "api-invest-gw.tinkoff.ru/ee1c5d50c38dfd452d05.json",
   "fetched_at": "2026-11-05T23:19:00+00:00",
   "sha256": "624b9f415d0f87ae1bc127fda750496b354e836997aaf42a891ed4c41c1dda4c",
+  "bytes": 423,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "d3c290ccad65272659ad",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TPAY&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "6287"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/d3c290ccad65272659ad.json",
+  "fetched_at": "2026-11-06T09:53:19+00:00",
+  "sha256": "bd437da6511dcdea5dd02556548ff4b120b539cd663e46bffb30ba9028a311dd",
   "bytes": 423,
   "http_status": 200,
   "etag": null,
@@ -741,6 +1026,25 @@
   "status": "ok"
  },
  {
+  "key": "a6d1ff7cf5e0e5195f18",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TRND&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "6876"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/a6d1ff7cf5e0e5195f18.json",
+  "fetched_at": "2026-11-06T09:53:21+00:00",
+  "sha256": "27b5179c429985aff75080280ca74da0b488630defbab2026e799f9eec8e1755",
+  "bytes": 405,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "3cd9aace92af7cb360be",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TRUR&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -779,6 +1083,25 @@
   "status": "ok"
  },
  {
+  "key": "90e046bebb5edb6cc2fc",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TRUR&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "3900"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/90e046bebb5edb6cc2fc.json",
+  "fetched_at": "2026-11-06T09:53:29+00:00",
+  "sha256": "8a9cd3e4f0e44969bbe1a989b70b78e73ce5ba0921da0d68945c675374e7585c",
+  "bytes": 373,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "92011044e32fa5192d21",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TSAV&from=2025-09-01&considerSplits=true",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -809,6 +1132,25 @@
   "path": "api-invest-gw.tinkoff.ru/cb9fe08c938a1b806459.json",
   "fetched_at": "2026-11-05T23:18:54+00:00",
   "sha256": "546aa0383f02b778b71c9a40fdf869809c20983e540a0b82b28098fd8b217f53",
+  "bytes": 405,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "d68fa2e4be02c8876c8f",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TSAV&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "7939"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/d68fa2e4be02c8876c8f.json",
+  "fetched_at": "2026-11-06T09:53:12+00:00",
+  "sha256": "244506e363fa235e07f9bcae0a11988da4250416e3279676d923a9c01830abb6",
   "bytes": 405,
   "http_status": 200,
   "etag": null,
@@ -855,6 +1197,25 @@
   "status": "ok"
  },
  {
+  "key": "22770fc2b17c82876636",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/fair-price?ticker=TUSD&from=2026-10-24&considerSplits=true",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "3898"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/22770fc2b17c82876636.json",
+  "fetched_at": "2026-11-06T09:53:25+00:00",
+  "sha256": "83b568d220fbf106354aa252967ae625cc9078e732bc5f015931d97b42370ddd",
+  "bytes": 370,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "2c36fdc47cce85cb9724",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=RU000A109K57&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -886,6 +1247,25 @@
   "fetched_at": "2026-11-05T23:18:42+00:00",
   "sha256": "a419f9492260711b553a8122c09ce5fdc855ab863e415a7d408c33ef34a8e87f",
   "bytes": 480,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "b5fdec7865cf4839fc6b",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=RU000A109K57&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4998"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/b5fdec7865cf4839fc6b.json",
+  "fetched_at": "2026-11-06T09:53:01+00:00",
+  "sha256": "1cdc0de62a9789370bc05b9d256d278164c8e94a2e4bf2cec73d17f61238652f",
+  "bytes": 436,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -931,6 +1311,25 @@
   "status": "ok"
  },
  {
+  "key": "ee1771d44e1db25f80bc",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=RU000A109KE6&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4212"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/ee1771d44e1db25f80bc.json",
+  "fetched_at": "2026-11-06T09:53:07+00:00",
+  "sha256": "91e77fbd4be6976602193888149c56cc420ba6b3495de2ea76e7ea61db036fe4",
+  "bytes": 435,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "ea237f6bb3c9f90a134a",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=RU000A109KH9&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -961,6 +1360,25 @@
   "path": "api-invest-gw.tinkoff.ru/e0f7bd821cf5908e9cd3.json",
   "fetched_at": "2026-11-05T23:18:32+00:00",
   "sha256": "3b5758ed95c2d2e4e450cc43fd24f71cba0d28d8dbac80549cbf9ca009d99534",
+  "bytes": 480,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "38fd0bd329469c97677d",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=RU000A109KH9&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4677"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/38fd0bd329469c97677d.json",
+  "fetched_at": "2026-11-06T09:52:52+00:00",
+  "sha256": "235eb6c5c2c6eb545f208111dfb9919e0c6822aff99214fcbccdd89d152d5257",
   "bytes": 480,
   "http_status": 200,
   "etag": null,
@@ -1007,6 +1425,25 @@
   "status": "ok"
  },
  {
+  "key": "991d4f179b6c69a35fa5",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=RU000A109KS6&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "5991"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/991d4f179b6c69a35fa5.json",
+  "fetched_at": "2026-11-06T09:53:05+00:00",
+  "sha256": "b400075c4ddd22f6aca409900dd6ee17a0177c26611880f4131b6fc3ce2c09a7",
+  "bytes": 436,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "a2d9d53f6b6c99d8b04e",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TBEU&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -1038,6 +1475,25 @@
   "fetched_at": "2026-11-05T23:19:03+00:00",
   "sha256": "d29b9a413ad524e20829d78f2bde57ec816a2b3147e0f3820fdcb07eef747432",
   "bytes": 455,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "215e670f08091420949f",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TBEU&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4618"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/215e670f08091420949f.json",
+  "fetched_at": "2026-11-06T09:53:22+00:00",
+  "sha256": "0946b4b4f7c41b0517a6f467475ee6a1012237dcd9399f9c0774402c966cf89b",
+  "bytes": 414,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -1083,6 +1539,25 @@
   "status": "ok"
  },
  {
+  "key": "ebd9f2bffb9f0f7783da",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TBRU&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4458"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/ebd9f2bffb9f0f7783da.json",
+  "fetched_at": "2026-11-06T09:53:15+00:00",
+  "sha256": "212e64ac4617ebf96bf0df8302f4d40556886ba89eae257a8c76ff5647d3942c",
+  "bytes": 435,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "e18a8d3a264cd545223b",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TDIV&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -1114,6 +1589,25 @@
   "fetched_at": "2026-11-05T23:18:38+00:00",
   "sha256": "7f3ac15051581557343752a0fd7b26cf069a7c020acdd397ea1cda19cea6f95d",
   "bytes": 479,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "fbf4c91df460b48a0049",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TDIV&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "5707"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/fbf4c91df460b48a0049.json",
+  "fetched_at": "2026-11-06T09:52:56+00:00",
+  "sha256": "b4cc5a215df28c076c4e3441e9b2f3428642b29f4095db3a732a1264df82d4f3",
+  "bytes": 436,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -1159,6 +1653,25 @@
   "status": "ok"
  },
  {
+  "key": "2d505d67e415bc4b2d32",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TEUR&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "3899"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/2d505d67e415bc4b2d32.json",
+  "fetched_at": "2026-11-06T09:53:26+00:00",
+  "sha256": "49141f30aa6a50a2af300e5db43b5c8af554ab6e651d78c22c453d9465de2120",
+  "bytes": 415,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "7645444452cce7827f3e",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TGLD&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -1190,6 +1703,25 @@
   "fetched_at": "2026-11-05T23:18:40+00:00",
   "sha256": "c7f54da7e9e0983baac53bd471f8049495a71f655a0b30ef07afc5f5ecc1af98",
   "bytes": 470,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "d5dedc6c2532f776136f",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TGLD&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4098"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/d5dedc6c2532f776136f.json",
+  "fetched_at": "2026-11-06T09:52:59+00:00",
+  "sha256": "ca317d1a672a987f6626bf88dff7e9d2f7c9e933adcde0e3ebced5ee6154c4c8",
+  "bytes": 428,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -1235,6 +1767,25 @@
   "status": "ok"
  },
  {
+  "key": "6841998c9adec8012231",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TITR&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "6126"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/6841998c9adec8012231.json",
+  "fetched_at": "2026-11-06T09:52:50+00:00",
+  "sha256": "78f048821da9ff24e0676de7ba478092df3e6f2bc9e025d6dd22fd3f08358535",
+  "bytes": 429,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "4d369cdfb11b866e4527",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TLCB&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -1273,6 +1824,25 @@
   "status": "ok"
  },
  {
+  "key": "238e776380c3b973628d",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TLCB&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "5728"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/238e776380c3b973628d.json",
+  "fetched_at": "2026-11-06T09:53:09+00:00",
+  "sha256": "5166d88bf9bfae375c4c3032a578deea82ef56d0075e8a607e66e11baa2c1f33",
+  "bytes": 442,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "f63450a302fd84498b19",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TMON&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -1303,6 +1873,25 @@
   "path": "api-invest-gw.tinkoff.ru/6e830ccb38b07b82523d.json",
   "fetched_at": "2026-11-05T23:18:34+00:00",
   "sha256": "fb5b5716fa1400e804545ce6b41fb3a1a17b8adbee1b21d387b077cbfe59e8e4",
+  "bytes": 495,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "da0e7d6857b227d8487c",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TMON&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "5229"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/da0e7d6857b227d8487c.json",
+  "fetched_at": "2026-11-06T09:52:54+00:00",
+  "sha256": "1e5d53d9c6866ccd1fdeaf98bb0d52baba86dfb332b9a97e4e09a988cb4ebe4e",
   "bytes": 495,
   "http_status": 200,
   "etag": null,
@@ -1349,6 +1938,25 @@
   "status": "ok"
  },
  {
+  "key": "a18967c56526927d7e2a",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TMOS&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "4100"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/a18967c56526927d7e2a.json",
+  "fetched_at": "2026-11-06T09:53:03+00:00",
+  "sha256": "1f11a590b5a0dbd6a97e477d81d95650bca7a4b99d1a23c6841dc7169c92104f",
+  "bytes": 443,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "8146e6aaa74dbd80cc1e",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TOFZ&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -1387,6 +1995,25 @@
   "status": "ok"
  },
  {
+  "key": "e64104d798123996b2ed",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TOFZ&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "6635"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/e64104d798123996b2ed.json",
+  "fetched_at": "2026-11-06T09:53:13+00:00",
+  "sha256": "e733ecfe36873cc0cc8f9027fc98a2b41d98cc5e9ce24496196f45b2cb788a04",
+  "bytes": 435,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "92ba9901f49d4c657fd6",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TPAY&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -1418,6 +2045,25 @@
   "fetched_at": "2026-11-05T23:18:59+00:00",
   "sha256": "6fc2e7a9c5ad2681ae8139f53058d1249699ce82083442e92bd7b7d2fed2daa9",
   "bytes": 487,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "a795873104a3a28a39e3",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TPAY&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "6287"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/a795873104a3a28a39e3.json",
+  "fetched_at": "2026-11-06T09:53:18+00:00",
+  "sha256": "3efe080b175283175394d3b3d0a3151b856a1eae90ac2116e3d9b451952ed565",
+  "bytes": 442,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -1501,6 +2147,25 @@
   "status": "ok"
  },
  {
+  "key": "85a4a28e651aec4dd7a6",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TRND&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "6876"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/85a4a28e651aec4dd7a6.json",
+  "fetched_at": "2026-11-06T09:53:20+00:00",
+  "sha256": "9ef6aa0311cfc461974d445622ff1424ca1aec7be00da59d6cb3259b8d57d8eb",
+  "bytes": 429,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "dc177a7aee421cdf8432",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TRUR&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -1532,6 +2197,25 @@
   "fetched_at": "2026-11-05T23:19:10+00:00",
   "sha256": "a67441be8f19c26b009e7f44c9e0df13c7ae7d6069a1254ac332899716016086",
   "bytes": 488,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "7a238103742a7ea6f780",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TRUR&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "3900"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/7a238103742a7ea6f780.json",
+  "fetched_at": "2026-11-06T09:53:28+00:00",
+  "sha256": "470ecf447d3f963b22e3225c730413b62980ea1ae9ec6c6878de1cb70aacab63",
+  "bytes": 443,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -1577,6 +2261,25 @@
   "status": "ok"
  },
  {
+  "key": "9857d518d045004bcb45",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TSAV&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "7939"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/9857d518d045004bcb45.json",
+  "fetched_at": "2026-11-06T09:53:11+00:00",
+  "sha256": "81e78d05c0ec9da7a4c876beb6bfde302927ebb089242c4a3439d22148b5d037",
+  "bytes": 480,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "62dc1dba55d348c9b6df",
   "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TUSD&from=2025-09-01",
   "domain": "api-invest-gw.tinkoff.ru",
@@ -1608,6 +2311,25 @@
   "fetched_at": "2026-11-05T23:19:05+00:00",
   "sha256": "fafa59d64b81c9fffaa1b261e75f131e2b7ab0a83c3b3660310f4cbc5e1194f2",
   "bytes": 464,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json;charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "16763b4fab88170c223c",
+  "url": "https://api-invest-gw.tinkoff.ru/capital/funds/v1/portfolio/history/nav?ticker=TUSD&from=2026-10-24",
+  "domain": "api-invest-gw.tinkoff.ru",
+  "fmt": "json",
+  "funds": [
+   "3898"
+  ],
+  "method": "GET",
+  "path": "api-invest-gw.tinkoff.ru/16763b4fab88170c223c.json",
+  "fetched_at": "2026-11-06T09:53:24+00:00",
+  "sha256": "164fcc82249c03df6d7a517ac50e5ad223363462091a6d955b1f46058b091b73",
+  "bytes": 422,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -2225,7 +2947,7 @@
   ],
   "method": "GET",
   "path": "bcs.ru/a2aa15cfd05bf60ea555.html",
-  "status": "error: антибот-проверка вместо данных"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "39abf02f0cf8b878a707",
@@ -3544,14 +4266,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/7e727743389fa7a72380.json",
-  "fetched_at": "2026-11-05T12:53:04+00:00",
-  "sha256": "aa2188e335ee40caf1e69e0a4a8530a636a1f784a62062698d5b39ac806ece3e",
-  "bytes": 32131,
+  "fetched_at": "2026-11-06T09:51:55+00:00",
+  "sha256": "0ac9af8c695f31b86fc9c6e20daa4b08182ba7771f3377e5cec6a42c3e4aae3e",
+  "bytes": 32159,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok (не изменился)"
+  "status": "ok"
  },
  {
   "key": "f249b80cb463be245c12",
@@ -3561,14 +4283,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/f249b80cb463be245c12.json",
-  "fetched_at": "2026-11-05T12:53:05+00:00",
-  "sha256": "fd0267c1b0b7d3da3846f7ab36fed4e66c4831815163d923b3bc1551f229a2a0",
-  "bytes": 31797,
+  "fetched_at": "2026-11-06T09:51:55+00:00",
+  "sha256": "bb2de61164bc374e5d9a975d787f46137b004cdc8f8499969e775a27339661b2",
+  "bytes": 31757,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok (не изменился)"
+  "status": "ok"
  },
  {
   "key": "6c4f65e63bce7fb7ee15",
@@ -3578,14 +4300,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/6c4f65e63bce7fb7ee15.json",
-  "fetched_at": "2026-11-05T12:53:06+00:00",
-  "sha256": "3aa4d4146667726dde085c0c3947c222781b2a08feae3a12abfc0edcef038c97",
-  "bytes": 31133,
+  "fetched_at": "2026-11-06T09:51:56+00:00",
+  "sha256": "e7a544aeb34b399a45584cfc6ae89121e069f670bb310bf76b071fac86150a4c",
+  "bytes": 31164,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok (не изменился)"
+  "status": "ok"
  },
  {
   "key": "214c0576903288adf794",
@@ -3595,14 +4317,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/214c0576903288adf794.json",
-  "fetched_at": "2026-11-05T12:53:07+00:00",
-  "sha256": "ddf1c87c1ab454b18373a79c094d70944527b9db7c17246b02f275ce29c1fa98",
-  "bytes": 32082,
+  "fetched_at": "2026-11-06T09:51:57+00:00",
+  "sha256": "9365c538db17bb2a5a09bf24eb04e60e28d9a3bc38cd4d5f2851e63ff92daa2c",
+  "bytes": 32109,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok (не изменился)"
+  "status": "ok"
  },
  {
   "key": "512ff6a759d67d41046a",
@@ -3612,14 +4334,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/512ff6a759d67d41046a.json",
-  "fetched_at": "2026-11-05T12:53:08+00:00",
-  "sha256": "c1219609f89fd52a71e259e5ae111d3962247eb6a4ca03dd9a1a4dcbb834b68f",
-  "bytes": 34366,
+  "fetched_at": "2026-11-06T09:51:58+00:00",
+  "sha256": "7036011a366e55107575f8893ec5d4d61c6c31bf8698366429379b33909ef12e",
+  "bytes": 34329,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok (не изменился)"
+  "status": "ok"
  },
  {
   "key": "17d596d29356bd0e961f",
@@ -3629,14 +4351,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/17d596d29356bd0e961f.json",
-  "fetched_at": "2026-11-05T12:53:09+00:00",
-  "sha256": "8d619a7f810c17a92431e6748f8045e85147d759a0885af42a1e23137d990f9d",
-  "bytes": 34494,
+  "fetched_at": "2026-11-06T09:51:59+00:00",
+  "sha256": "8c036c7e678643dacd40feca62a783ae5edb01015e5fe2017f0ea36f775d83f4",
+  "bytes": 34526,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok (не изменился)"
+  "status": "ok"
  },
  {
   "key": "366921bb8e861c778ace",
@@ -3646,14 +4368,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/366921bb8e861c778ace.json",
-  "fetched_at": "2026-11-05T12:53:10+00:00",
-  "sha256": "1c324d575b255e1c322e33abd9fa5d98614142fb4902d90c70772b39cd85264b",
-  "bytes": 35033,
+  "fetched_at": "2026-11-06T09:52:00+00:00",
+  "sha256": "e859fa17f1ed7744b2a80d1641c319024fc5eb91e4e9a2f57056d39b5d3a1a34",
+  "bytes": 35034,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok (не изменился)"
+  "status": "ok"
  },
  {
   "key": "0f2d15aeca1fbe979829",
@@ -3663,14 +4385,14 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/0f2d15aeca1fbe979829.json",
-  "fetched_at": "2026-11-05T12:53:11+00:00",
-  "sha256": "441cef55f71f8e2bafb93318daa3277907daee6d4a6961657edcffd7d2b73ac3",
-  "bytes": 35028,
+  "fetched_at": "2026-11-06T09:52:02+00:00",
+  "sha256": "87c977ad98e6d570f8258fbfa8f71fe4fe1826dcb5706c33407c60cb35220145",
+  "bytes": 34986,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=utf-8",
-  "status": "ok (не изменился)"
+  "status": "ok"
  },
  {
   "key": "2fbd6eea777b75dbc223",
@@ -3680,7 +4402,7 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/2fbd6eea777b75dbc223.json",
-  "fetched_at": "2026-11-05T12:53:12+00:00",
+  "fetched_at": "2026-11-06T09:52:03+00:00",
   "sha256": "682061be83ce22849858223b3f2ba12ee0741d3d93aad83aed0a6a15c0ea98d3",
   "bytes": 33416,
   "http_status": 200,
@@ -3697,7 +4419,7 @@
   "funds": [],
   "method": "GET",
   "path": "iss.moex.com/5edfad4d19b74e21387a.json",
-  "fetched_at": "2026-11-05T12:53:14+00:00",
+  "fetched_at": "2026-11-06T09:52:04+00:00",
   "sha256": "ec43430d1bf9f00c509e836baaa16c401e106bc344f2f36ea4ce095dccf90c54",
   "bytes": 16533,
   "http_status": 200,
@@ -4865,6 +5587,25 @@
   "status": "ok"
  },
  {
+  "key": "7a33d8f443ee89423354",
+  "url": "https://makclife.ru/invest-pif/api/etf/v1/calculations?opifId=1&date_from=2026-10-24&date_to=2099-12-31&page=1&page_size=100",
+  "domain": "makclife.ru",
+  "fmt": "json",
+  "funds": [
+   "7662"
+  ],
+  "method": "GET",
+  "path": "makclife.ru/7a33d8f443ee89423354.json",
+  "fetched_at": "2026-11-06T09:52:14+00:00",
+  "sha256": "e854afbd91f44a3b9f11739004c794ae12a2d96d92e75a60dc2aa6562821d983",
+  "bytes": 1338,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "15667e0a03b66298a99f",
   "url": "https://makclife.ru/o-kompanii/upravlyayushchaya-kompaniya.php",
   "domain": "makclife.ru",
@@ -4928,7 +5669,14 @@
   "funds": [],
   "method": "GET",
   "path": "mkb-am.ru/b209b395c0cdd9f8761a.txt",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "ok",
+  "fetched_at": "2026-11-06T09:56:09+00:00",
+  "sha256": "46807e235496ba8d849f071626c6a5ab1dcc71b17faf8b90419144d940478c1d",
+  "bytes": 25,
+  "http_status": 200,
+  "etag": "\"19-5d6312eb9c87a:dtagent10295240705110949ftFp\"",
+  "last_modified": "Sat, 22 Jan 2022 20:00:08 GMT",
+  "content_type": "text/plain; charset=UTF-8"
  },
  {
   "key": "5f5019dcad8e38a41ac7",
@@ -4979,6 +5727,25 @@
   "method": "GET",
   "path": "my.raiffeisen-capital.ru/45d08fb1974357d5cc3c.json",
   "fetched_at": "2026-11-05T23:16:02+00:00",
+  "sha256": "3d01c357d00953f41164f129b29dfa900f62f3d064ee7b35e9dbe2f3b8a207b5",
+  "bytes": 1959,
+  "http_status": 200,
+  "etag": "W/\"7a7-nQJrpOXY/FnqTGQ1+TcV+pEDd8w\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "a4da5cd0ec0a871a216d",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/00d63fbc-0a93-11e1-a573-0019bb24abc4/chart?fromDate=2026-10-24&toDate=2026-11-03",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "2241"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/a4da5cd0ec0a871a216d.json",
+  "fetched_at": "2026-11-06T09:52:19+00:00",
   "sha256": "3d01c357d00953f41164f129b29dfa900f62f3d064ee7b35e9dbe2f3b8a207b5",
   "bytes": 1959,
   "http_status": 200,
@@ -5045,6 +5812,25 @@
   "status": "ok"
  },
  {
+  "key": "30caa2764ef68416fa60",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/1178855a-4ef3-11ed-acd8-005056b9fcae/chart?fromDate=2026-10-24&toDate=2026-11-03",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "5097"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/30caa2764ef68416fa60.json",
+  "fetched_at": "2026-11-06T09:52:24+00:00",
+  "sha256": "19274d5c576ae198e6b807bc9b4d06cbcae2a776e66ade41338203a9a291b2a8",
+  "bytes": 1919,
+  "http_status": 200,
+  "etag": "W/\"77f-TknuqExOZL5HmI5vwt9QGCbs3d0\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "20f759ed31396f03c5d8",
   "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/157a6bbc-719f-11ef-ad00-005056b9fcae/chart?fromDate=2025-09-01&toDate=2026-11-02",
   "domain": "my.raiffeisen-capital.ru",
@@ -5093,6 +5879,25 @@
   "method": "GET",
   "path": "my.raiffeisen-capital.ru/cbd6c8aaa4f5c48b50a6.json",
   "fetched_at": "2026-11-05T23:16:10+00:00",
+  "sha256": "c41b2dc689b2c6804fca9ec047ef1d05dff6452a689e499edabe8dbf1a6ed553",
+  "bytes": 1925,
+  "http_status": 200,
+  "etag": "W/\"785-VLtUTiXMAJxANwAsTWc8y7UNMv4\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "6489a94253c78bc56de1",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/157a6bbc-719f-11ef-ad00-005056b9fcae/chart?fromDate=2026-10-24&toDate=2026-11-03",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "6468"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/6489a94253c78bc56de1.json",
+  "fetched_at": "2026-11-06T09:52:25+00:00",
   "sha256": "c41b2dc689b2c6804fca9ec047ef1d05dff6452a689e499edabe8dbf1a6ed553",
   "bytes": 1925,
   "http_status": 200,
@@ -5159,6 +5964,25 @@
   "status": "ok"
  },
  {
+  "key": "83ef74b0c776f6f88015",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/285197bc-76f1-11dc-9072-0019bb24abc4/chart?fromDate=2026-10-24&toDate=2026-11-03",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "0987-94132127"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/83ef74b0c776f6f88015.json",
+  "fetched_at": "2026-11-06T09:52:21+00:00",
+  "sha256": "e6ab415ebd6fb650ed3d167ce3b6f20d8a99cdd70de8ab570e7f1e6257072a79",
+  "bytes": 1958,
+  "http_status": 200,
+  "etag": "W/\"7a6-EtfqCbYWUBMEYkuhWZ7nBZR07gU\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "3a5b24be1c588748d09c",
   "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/a4baea00-7af9-11db-a626-0040ca6957f7/chart?fromDate=2025-09-01&toDate=2026-11-02",
   "domain": "my.raiffeisen-capital.ru",
@@ -5207,6 +6031,25 @@
   "method": "GET",
   "path": "my.raiffeisen-capital.ru/168d428dac2d93fe46ed.json",
   "fetched_at": "2026-11-05T23:16:01+00:00",
+  "sha256": "a50c330b96c6139c6fce3afd8aefbaf24ee5dd22745b2d4218f9be3cad8b074b",
+  "bytes": 1964,
+  "http_status": 200,
+  "etag": "W/\"7ac-LxxckTNrCxwj9sGpisq6pA7uGCs\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "0f8f1c29b0301f238a6e",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/a4baea00-7af9-11db-a626-0040ca6957f7/chart?fromDate=2026-10-24&toDate=2026-11-03",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "0241-74050443"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/0f8f1c29b0301f238a6e.json",
+  "fetched_at": "2026-11-06T09:52:18+00:00",
   "sha256": "a50c330b96c6139c6fce3afd8aefbaf24ee5dd22745b2d4218f9be3cad8b074b",
   "bytes": 1964,
   "http_status": 200,
@@ -5292,6 +6135,25 @@
   "status": "ok"
  },
  {
+  "key": "e2dd91d896baa8f60188",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/a4baea01-7af9-11db-a626-0040ca6957f7/chart?fromDate=2026-10-24&toDate=2026-11-03",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "0243-74050367"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/e2dd91d896baa8f60188.json",
+  "fetched_at": "2026-11-06T09:52:18+00:00",
+  "sha256": "be4aadae1f20b310216fc6e8d917db2dfe678cf71aa0492057a15929a9fabe23",
+  "bytes": 1956,
+  "http_status": 200,
+  "etag": "W/\"7a4-o6YY7uYnotzBOmsU1aU6JkPUCgs\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "bd6a90de5f3f9493d817",
   "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/a4baea02-7af9-11db-a626-0040ca6957f7/chart?fromDate=2025-09-01&toDate=2026-11-02",
   "domain": "my.raiffeisen-capital.ru",
@@ -5368,6 +6230,25 @@
   "status": "ok"
  },
  {
+  "key": "135b2b32dec83f14ff05",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/a4baea02-7af9-11db-a626-0040ca6957f7/chart?fromDate=2026-10-24&toDate=2026-11-03",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "0242-74050284"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/135b2b32dec83f14ff05.json",
+  "fetched_at": "2026-11-06T09:52:20+00:00",
+  "sha256": "fc8b1664f03760f456e583b09a8578872378ecf3a0e9c97becc096078768c0e5",
+  "bytes": 1965,
+  "http_status": 200,
+  "etag": "W/\"7ad-sGf3ErPJKId9UjCJ7m7yH80iR9c\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "03ecb8bc0ac62bec8253",
   "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/ddcb60ee-a971-11e1-8065-0019bb24abc4/chart?fromDate=2025-09-01&toDate=2026-11-02",
   "domain": "my.raiffeisen-capital.ru",
@@ -5416,6 +6297,25 @@
   "method": "GET",
   "path": "my.raiffeisen-capital.ru/f8c95b785d51158e17c8.json",
   "fetched_at": "2026-11-05T23:16:08+00:00",
+  "sha256": "b255f1958d5c8a0186642d028a124c45d0127bf98c51d26dd0ca1e82e889116b",
+  "bytes": 1965,
+  "http_status": 200,
+  "etag": "W/\"7ad-m22KQdipijw3ysU8w1Yn+u8OeIs\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "9012830fda2e47bd8526",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/ddcb60ee-a971-11e1-8065-0019bb24abc4/chart?fromDate=2026-10-24&toDate=2026-11-03",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "2356"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/9012830fda2e47bd8526.json",
+  "fetched_at": "2026-11-06T09:52:22+00:00",
   "sha256": "b255f1958d5c8a0186642d028a124c45d0127bf98c51d26dd0ca1e82e889116b",
   "bytes": 1965,
   "http_status": 200,
@@ -5568,6 +6468,25 @@
   "method": "GET",
   "path": "my.raiffeisen-capital.ru/91e35bb5d1c3f76af8d4.json",
   "fetched_at": "2026-11-05T23:16:11+00:00",
+  "sha256": "429627ffdb125aaaacf5fe2c3fd036be268acf4a48a4093df0833d7d35575c37",
+  "bytes": 1935,
+  "http_status": 200,
+  "etag": "W/\"78f-bjhM26UaPU/qf3/EqPFe90hkMc0\"",
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "68025df51341d245c049",
+  "url": "https://my.raiffeisen-capital.ru/api/v1/external/funds/fb00b672-8550-11ee-acf7-005056b9fcae/chart?fromDate=2026-10-24&toDate=2026-11-03",
+  "domain": "my.raiffeisen-capital.ru",
+  "fmt": "json",
+  "funds": [
+   "5778"
+  ],
+  "method": "GET",
+  "path": "my.raiffeisen-capital.ru/68025df51341d245c049.json",
+  "fetched_at": "2026-11-06T09:52:26+00:00",
   "sha256": "429627ffdb125aaaacf5fe2c3fd036be268acf4a48a4093df0833d7d35575c37",
   "bytes": 1935,
   "http_status": 200,
@@ -5917,14 +6836,14 @@
   ],
   "method": "GET",
   "path": "recordcap.ru/51708c7654e9073f9902.html",
-  "fetched_at": "2026-11-04T11:32:40+00:00",
-  "sha256": "4dba773aad271fb3385712c32e045e9087351b2e19f5e2a10c31a5b2770c9b4a",
-  "bytes": 88167,
+  "fetched_at": "2026-11-06T09:52:18+00:00",
+  "sha256": "add2a8617bf2a1c737959cfd6609b6620f1861ba841a412265217482b083880a",
+  "bytes": 88168,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=utf-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "ok"
  },
  {
   "key": "d007862acb21ef4e0c2b",
@@ -5936,14 +6855,14 @@
   ],
   "method": "GET",
   "path": "recordcap.ru/d007862acb21ef4e0c2b.html",
-  "fetched_at": "2026-11-04T11:32:45+00:00",
-  "sha256": "8b670dac1a9f6dac8faf249a0778473fd2922b40d11c968f11ff3c74cc7c0d49",
-  "bytes": 104576,
+  "fetched_at": "2026-11-06T09:52:27+00:00",
+  "sha256": "2c4261ed8b78c9e51d60fd7ec80bddc32665f2f70210d9b137e986715b07736a",
+  "bytes": 104577,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=utf-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "ok"
  },
  {
   "key": "1ad82b3b8ebd4482bc1a",
@@ -5955,14 +6874,14 @@
   ],
   "method": "GET",
   "path": "recordcap.ru/1ad82b3b8ebd4482bc1a.html",
-  "fetched_at": "2026-11-04T11:32:41+00:00",
-  "sha256": "1efdbdf16f5703cc0981c6c24bbf7b186826754c0cc9420b92796b8d3eb6950c",
-  "bytes": 310499,
+  "fetched_at": "2026-11-06T09:52:19+00:00",
+  "sha256": "48fa22c77494077a4429412dc239f9253080d4768ed16b02ffad10d04eba59a3",
+  "bytes": 310503,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=utf-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "ok"
  },
  {
   "key": "d5326dbb3f8136229531",
@@ -6012,14 +6931,14 @@
   ],
   "method": "GET",
   "path": "recordcap.ru/a3cd31d2d80c98ccb7f1.html",
-  "fetched_at": "2026-11-04T11:32:43+00:00",
-  "sha256": "25253d9e10acfd4bc3c97ccf342a46eb185b81e2be8635d1607114013ba840d8",
-  "bytes": 125192,
+  "fetched_at": "2026-11-06T09:52:25+00:00",
+  "sha256": "c35a75832aa0c16a61fd5c8d66ab9723dc48b2c6e900c2e947c7d492640b9041",
+  "bytes": 125194,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=utf-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "ok"
  },
  {
   "key": "ffa07bc208e65c1bcc89",
@@ -6048,14 +6967,14 @@
   "funds": [],
   "method": "GET",
   "path": "recordcap.ru/6a6de1afadaee98380e4.txt",
-  "fetched_at": "2026-11-04T11:32:40+00:00",
+  "fetched_at": "2026-11-06T09:52:17+00:00",
   "sha256": "5fbf7308b6d4ad1067ccbbb642cabacfb1de769ddf4785146b2b892eb4c94cce",
   "bytes": 225,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "text/plain; charset=utf-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "ok (не изменился)"
  },
  {
   "key": "cdbfbfc845660d4b6a98",
@@ -6446,14 +7365,14 @@
   ],
   "method": "GET",
   "path": "ronintrust.ru/1dd385939d67c2b3ba9d.html",
-  "fetched_at": "2026-11-04T11:33:06+00:00",
-  "sha256": "e4ec318e8638ca578060f6303fc1157f4aab93ba8fc7605a56b9d549c4137240",
-  "bytes": 28753,
+  "fetched_at": "2026-11-06T09:52:30+00:00",
+  "sha256": "319c6ddf3b77423ebbf252b0dd38a09d7e1a6d75fc072acf79d21ccf62ff98ea",
+  "bytes": 28755,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "ok"
  },
  {
   "key": "3f18523a971b6c8860f9",
@@ -6463,14 +7382,14 @@
   "funds": [],
   "method": "GET",
   "path": "ronintrust.ru/3f18523a971b6c8860f9.txt",
-  "fetched_at": "2026-11-04T11:33:05+00:00",
+  "fetched_at": "2026-11-06T09:52:30+00:00",
   "sha256": "3200f655bd0e859a4fb1a7237cc64d4cec38824f6f5ee914c37d0b9de0f9c554",
   "bytes": 1594,
-  "http_status": 200,
+  "http_status": 304,
   "etag": "W/\"63a-5e3335d0502c0\"",
   "last_modified": "Thu, 07 Jul 2022 09:03:47 GMT",
   "content_type": "text/plain",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "ok (304, не изменился)"
  },
  {
   "key": "50cbcca7be67ef45e8ab",
@@ -6482,14 +7401,14 @@
   ],
   "method": "GET",
   "path": "ronintrust.ru/50cbcca7be67ef45e8ab.xls",
-  "fetched_at": "2026-11-04T11:33:07+00:00",
-  "sha256": "1ee67ac7c5baf880e08f7eeaff3b7bd4002273f2d4deb692f36a0d5061c18927",
+  "fetched_at": "2026-11-06T09:52:32+00:00",
+  "sha256": "7ac59b26c99ea8ef81b5afd466b99577293091280d3af202d1c24093ac80001b",
   "bytes": 397824,
   "http_status": 200,
-  "etag": "\"61200-65f5c214a214f\"",
-  "last_modified": "Tue, 03 Nov 2026 09:46:00 GMT",
+  "etag": "\"61200-65f98188b69ea\"",
+  "last_modified": "Fri, 06 Nov 2026 09:18:31 GMT",
   "content_type": "application/vnd.ms-excel",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "ok"
  },
  {
   "key": "d428b01f84ac8a1cde8f",
@@ -6973,6 +7892,25 @@
   "fetched_at": "2026-11-03T15:34:31+00:00",
   "sha256": "9ea388d4595efe0f525f6d5d192af39255dafc223014deaca1483273c2da0de5",
   "bytes": 13431,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "a63b081179dd8f18d7d9",
+  "url": "https://verbapartners.ru/wp-admin/admin-ajax.php",
+  "domain": "verbapartners.ru",
+  "fmt": "json",
+  "funds": [
+   "1638-94198209"
+  ],
+  "method": "POST",
+  "path": "verbapartners.ru/a63b081179dd8f18d7d9.json",
+  "fetched_at": "2026-11-06T09:53:08+00:00",
+  "sha256": "6b026a5963e416d54f0141ac737a3e5edde8e9638411c5a21556cde7b85a5a41",
+  "bytes": 459,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -8986,7 +9924,7 @@
   ],
   "method": "GET",
   "path": "www.akbars-capital.ru/391c35fa3b5cd5ae4ac7.html",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: доступ закрыт сайтом (HTTP 403)"
  },
  {
   "key": "473e8c2ebc011b5db491",
@@ -13009,7 +13947,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "application/json; charset=UTF-8",
-  "status": "ok"
+  "status": "error: вместо данных API сайт отдал HTML-страницу (вероятно, блокировка сети сборщика)"
  },
  {
   "key": "839df6d1dfb1210b6b7c",
@@ -14065,13 +15003,13 @@
   "method": "GET",
   "path": "www.am-aton.ru/7a66166b77fe8c0e1310.txt",
   "status": "ok",
-  "fetched_at": "2026-11-06T08:33:56+00:00",
-  "sha256": "fb7279552bac400a40a03fedb844081722f137222df0cdbe17cff82370202f5c",
-  "bytes": 1456,
+  "fetched_at": "2026-11-06T09:52:05+00:00",
+  "sha256": "d0db68a344d1ad23628a7baec8bdbdf58a763073717bd3cf01ebba3d3478e8ef",
+  "bytes": 13602,
   "http_status": 200,
-  "etag": "W/\"6aea0c0b-5b0\"",
-  "last_modified": "Tue, 03 Nov 2026 16:30:03 GMT",
-  "content_type": "text/plain"
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=utf-8"
  },
  {
   "key": "acfdab2fb3d22eff41be",
@@ -14349,7 +15287,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.cbr.ru/efbafaf9466b857aa58d.txt",
-  "fetched_at": "2026-11-05T12:53:00+00:00",
+  "fetched_at": "2026-11-06T09:51:50+00:00",
   "sha256": "36a7b9c67579c3e17ea9341be49ca722992af32e40aa26f5efa8a5b82eff84c3",
   "bytes": 300,
   "http_status": 304,
@@ -14519,12 +15457,12 @@
   "funds": [],
   "method": "GET",
   "path": "www.cbr.ru/99afefa62fb1532edd74.xlsx",
-  "fetched_at": "2026-11-05T12:53:01+00:00",
-  "sha256": "79dc604f31e9188ff146917fb5a4f0761675073e8bbae4c89e284548a6d3cc91",
+  "fetched_at": "2026-11-06T09:51:50+00:00",
+  "sha256": "3bf3a9e867c0982019ac433f8654cd4b44aa12de7d865ca03b452cf2512fb043",
   "bytes": 171730,
   "http_status": 200,
   "etag": null,
-  "last_modified": "Thu, 05 Nov 2026 03:46:04 GMT",
+  "last_modified": "Fri, 06 Nov 2026 03:49:24 GMT",
   "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   "status": "ok"
  },
@@ -14536,12 +15474,12 @@
   "funds": [],
   "method": "GET",
   "path": "www.cbr.ru/8c25c887ad9084a3e2af.xlsx",
-  "fetched_at": "2026-11-05T12:53:03+00:00",
-  "sha256": "14deb574480777996176f8557288571be5dee93beeb6e1ee16eb852f534f9489",
-  "bytes": 1760708,
+  "fetched_at": "2026-11-06T09:51:52+00:00",
+  "sha256": "8fb17822f84336c9e056dbefb92867cc097a70ad5ae1617fc759ab2737ad2b50",
+  "bytes": 1761470,
   "http_status": 200,
   "etag": null,
-  "last_modified": "Thu, 05 Nov 2026 02:07:58 GMT",
+  "last_modified": "Fri, 06 Nov 2026 02:10:02 GMT",
   "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   "status": "ok"
  },
@@ -16490,7 +17428,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.energy-invest.ru/2c82280107409135a70c.txt",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт недоступен (ConnectError)"
  },
  {
   "key": "8b26f10a601b1d81c13b",
@@ -16520,8 +17458,8 @@
   ],
   "method": "GET",
   "path": "www.fdu.ru/d70fc4c235b3b7923c5e.html",
-  "fetched_at": "2026-11-06T08:26:50+00:00",
-  "sha256": "c7fd282ec27a7be29dfa60d93e61b3edc6ea9ec7105b9d4327cb8f8b6aac08bf",
+  "fetched_at": "2026-11-06T09:52:09+00:00",
+  "sha256": "d701c12a4cf1d35003d41e048edc048fc4915f61462b2ae0e283fadcde379d29",
   "bytes": 59935,
   "http_status": 200,
   "etag": null,
@@ -16539,8 +17477,8 @@
   ],
   "method": "GET",
   "path": "www.fdu.ru/c7a0c90765b12865c45b.html",
-  "fetched_at": "2026-11-06T08:26:51+00:00",
-  "sha256": "82984b3ad883761e0b8eab8c7c71bb4b97131e578f6ba34e7bf5b1df8760df18",
+  "fetched_at": "2026-11-06T09:52:10+00:00",
+  "sha256": "9739f11abd1f868fe19e820f95026ebb190282435e547203462b11eec67a199c",
   "bytes": 61236,
   "http_status": 200,
   "etag": null,
@@ -16558,8 +17496,8 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/10beafe454601e5f1a15.html",
-  "fetched_at": "2026-11-06T08:26:52+00:00",
-  "sha256": "7fc1f7c068eb7e788a04336438a578fc8b12109a5eee1e537e858a62c16ba1c6",
+  "fetched_at": "2026-11-06T09:52:12+00:00",
+  "sha256": "0def9f2fff94341dba5f62318774a6acacc6506e7a9abb8b7533f2d28a30abfe",
   "bytes": 71186,
   "http_status": 200,
   "etag": null,
@@ -16577,8 +17515,8 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/5d2c3b9952c83768185a.html",
-  "fetched_at": "2026-11-06T08:26:54+00:00",
-  "sha256": "05abd4f9d642007cb56985328f9b534dfa42c0f17a25e04f84713c0284708d69",
+  "fetched_at": "2026-11-06T09:52:15+00:00",
+  "sha256": "b2116f64c78f9843490d743d5faf118d0b2a2a20d549ba64bd02bef158689941",
   "bytes": 87674,
   "http_status": 200,
   "etag": null,
@@ -16596,8 +17534,8 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/94adfe65da2142ce637c.html",
-  "fetched_at": "2026-11-06T08:26:53+00:00",
-  "sha256": "8ba9687b83f009daab2c75f53861046f6ef0273cb2f0421b209966d0b32bbe2a",
+  "fetched_at": "2026-11-06T09:52:14+00:00",
+  "sha256": "9427294d2db932a525c955a1fc59bf82e6f1846db7b51d9b217cbacc07c21dbd",
   "bytes": 79827,
   "http_status": 200,
   "etag": null,
@@ -16615,8 +17553,8 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/e75a58cd93827800f471.html",
-  "fetched_at": "2026-11-06T08:26:55+00:00",
-  "sha256": "4b975c547f3527aff2af7bcc013d7977b5cc63627d362e4308d479f6e3a7cb48",
+  "fetched_at": "2026-11-06T09:52:17+00:00",
+  "sha256": "670bb15ba2df0098dd1b5f475848e5251a12f384735546064bf958e20cf5ee1d",
   "bytes": 87674,
   "http_status": 200,
   "etag": null,
@@ -16634,8 +17572,8 @@
   ],
   "method": "GET",
   "path": "www.fdu.ru/69a69a34dadc158481a0.html",
-  "fetched_at": "2026-11-06T08:26:57+00:00",
-  "sha256": "8ae8ca257f712ba7d6aabb11af0afe693c3adda94101727fea92577cf9f2305f",
+  "fetched_at": "2026-11-06T09:52:19+00:00",
+  "sha256": "7d51beeb25cc395471c73454b2c64fe2d9cf2c3493d9c971b4a9f0d0fa6c5cab",
   "bytes": 61143,
   "http_status": 200,
   "etag": null,
@@ -16653,9 +17591,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/302744b178683eafae20.html",
-  "fetched_at": "2026-11-06T08:27:00+00:00",
-  "sha256": "10e31a1f1de896618626b6b733f7f8b065c27cca8dc08432dd35ae289ab86a35",
-  "bytes": 80014,
+  "fetched_at": "2026-11-06T09:52:22+00:00",
+  "sha256": "98f7bac43f12734a22e3a3382d6da09991d731850cd4b9c0fab853592142b70b",
+  "bytes": 79811,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16672,9 +17610,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/3164a5dae4a50eb1bb76.html",
-  "fetched_at": "2026-11-06T08:26:59+00:00",
-  "sha256": "7bbd20a37344506efb3c9f562718476e02e9810dc2d2df8558a841bc7d275179",
-  "bytes": 71086,
+  "fetched_at": "2026-11-06T09:52:21+00:00",
+  "sha256": "b8b26cbb91ebd090911767b5d02b13eab2e3fb863c8f47909248dfdf543310af",
+  "bytes": 71089,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16691,9 +17629,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/e42b4a16e638ec1c7d97.html",
-  "fetched_at": "2026-11-06T08:27:01+00:00",
-  "sha256": "a24baa61783ef075013bfd58bd54f40ae02e2f8759fb6619771ed5b21a4828b0",
-  "bytes": 92988,
+  "fetched_at": "2026-11-06T09:52:23+00:00",
+  "sha256": "c2e8884c9e986a0d5df5fafdfb9d20a9394073f2314555d8886f34c852f213ac",
+  "bytes": 92788,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16710,9 +17648,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/ea58371b6e8fa5afb72c.html",
-  "fetched_at": "2026-11-06T08:27:02+00:00",
-  "sha256": "df77315bbc98bde074295ac29e3f2c104168b9a3b6a57996e4b5808215604c1e",
-  "bytes": 116610,
+  "fetched_at": "2026-11-06T09:52:25+00:00",
+  "sha256": "facc2a6d738bfacea265ed3f27d889c9a5823e24dae1b13b7a24c69c7ecf50c4",
+  "bytes": 116612,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16729,8 +17667,8 @@
   ],
   "method": "GET",
   "path": "www.fdu.ru/1efde84f318e3b3537ea.html",
-  "fetched_at": "2026-11-06T08:27:04+00:00",
-  "sha256": "c06e6d130fe56f3573101dd782d9dcdf9b041180e40b292a0748cfbf36870128",
+  "fetched_at": "2026-11-06T09:52:27+00:00",
+  "sha256": "a92af65bd319fdcff81979531cb490b115e219aa81d5919007fd3c9424a4979e",
   "bytes": 61892,
   "http_status": 200,
   "etag": null,
@@ -16748,9 +17686,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/4089590ffb700005127e.html",
-  "fetched_at": "2026-11-06T08:27:12+00:00",
-  "sha256": "6a2e8de49a57fe4caede24484ac541a64da442f30631a6d5280d7ec9885cd9db",
-  "bytes": 93740,
+  "fetched_at": "2026-11-06T09:52:38+00:00",
+  "sha256": "f4e3ec766202adf1eed411d4e3d1e83128af3a40b6962c3cecf150cd60c84477",
+  "bytes": 93537,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16767,9 +17705,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/c05ab8a4f85d9f3dcc65.html",
-  "fetched_at": "2026-11-06T08:27:15+00:00",
-  "sha256": "606b0c00a0547d4eb6060cd8fba1ca6fb0d0666b6c8ec502eceaaaa52b9559dd",
-  "bytes": 117476,
+  "fetched_at": "2026-11-06T09:52:42+00:00",
+  "sha256": "d935a91dde8a80239af05bf165408fabcb37cd6c62da9db375c7223815f61788",
+  "bytes": 117475,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16786,9 +17724,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/c676b76f4c943e4d578b.html",
-  "fetched_at": "2026-11-06T08:27:07+00:00",
-  "sha256": "08f6b3a1cca8e35edd696ffef3062448d90a5174a5be3ebbec1d8a988a679abd",
-  "bytes": 71818,
+  "fetched_at": "2026-11-06T09:52:31+00:00",
+  "sha256": "b764b8311440838a62a44c2389a6d27e7c0fa7169c9695654cd2a5c53348d447",
+  "bytes": 71810,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16805,9 +17743,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/e7f91868b82b6a1502d0.html",
-  "fetched_at": "2026-11-06T08:27:10+00:00",
-  "sha256": "9568b42e302c1f10f4ed9f9786b2137632c3cd0c1428cd29b83eca1deef2745e",
-  "bytes": 80742,
+  "fetched_at": "2026-11-06T09:52:34+00:00",
+  "sha256": "4349bd82f0e25b864835fddc76409d3bf2e87784abafab78bd8369c4e6eb162b",
+  "bytes": 80538,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16824,8 +17762,8 @@
   ],
   "method": "GET",
   "path": "www.fdu.ru/d1b62892744d5cab7e26.html",
-  "fetched_at": "2026-11-06T08:27:17+00:00",
-  "sha256": "2e0dc353c768236a438c6a90d4035bd057ac05f9bfa847298e4f0a10ecc6a42d",
+  "fetched_at": "2026-11-06T09:52:46+00:00",
+  "sha256": "24c6b63a27ff8dc29f1bc7f467d2f8bd597902cb95fcb8ba168a4dcf5d2f399f",
   "bytes": 61180,
   "http_status": 200,
   "etag": null,
@@ -16843,8 +17781,8 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/0727e3a18f8f5876996e.html",
-  "fetched_at": "2026-11-06T08:27:19+00:00",
-  "sha256": "f34f571907f77206dd6d47f07d43fdcaf27737625720ccf9373bb38bdab6a4ec",
+  "fetched_at": "2026-11-06T09:52:48+00:00",
+  "sha256": "31d7ef85eae54e36652dfce643a5aa3c5db8599df1eb4b860abad1734d17688a",
   "bytes": 71293,
   "http_status": 200,
   "etag": null,
@@ -16862,9 +17800,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/99ff168f60e1cea361c4.html",
-  "fetched_at": "2026-11-06T08:27:21+00:00",
-  "sha256": "2f97c151caff1525c54df23454be98c8ffcfe6690cf55d110523c14e41fe596e",
-  "bytes": 93971,
+  "fetched_at": "2026-11-06T09:52:50+00:00",
+  "sha256": "0728589bed8e72f9b26f834f3d795938c10ee5caf0804559f5953767200a8d29",
+  "bytes": 93762,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16881,9 +17819,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/bfc2a0288a6ca45d106c.html",
-  "fetched_at": "2026-11-06T08:27:20+00:00",
-  "sha256": "babfc3e422792013bca2fe0cd1a057146ff2f41d64e4056bcbf11dd67fa57102",
-  "bytes": 80535,
+  "fetched_at": "2026-11-06T09:52:49+00:00",
+  "sha256": "fd234d9aa4e4a31ea3058d757e6d9d008b6ff20ef29d43e84f257d5a9b0f82b1",
+  "bytes": 80325,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16900,9 +17838,9 @@
   ],
   "method": "POST",
   "path": "www.fdu.ru/d008e467d28b83969486.html",
-  "fetched_at": "2026-11-06T08:27:22+00:00",
-  "sha256": "91b9f9670abb2eedd5a06a11419a81e1255fe9790f4e56876ea44706467afbcd",
-  "bytes": 118531,
+  "fetched_at": "2026-11-06T09:52:52+00:00",
+  "sha256": "b7ee1d66809e4abc28ea6d9f109546eff44961a67c86935677f1f1a259e5e962",
+  "bytes": 118532,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -16938,7 +17876,7 @@
   ],
   "method": "GET",
   "path": "www.fdu.ru/edc4a02a72feab11db00.html",
-  "fetched_at": "2026-11-06T08:32:31+00:00",
+  "fetched_at": "2026-11-06T09:52:26+00:00",
   "sha256": "4214e9316f6058f0bc25500974ea70bc504c1fdb3e9d6c3f2c68e158237efb10",
   "bytes": 2654,
   "http_status": 200,
@@ -16976,7 +17914,7 @@
   ],
   "method": "GET",
   "path": "www.fdu.ru/d892fd0b1125cb3223d6.html",
-  "fetched_at": "2026-11-06T08:32:30+00:00",
+  "fetched_at": "2026-11-06T09:52:18+00:00",
   "sha256": "1387be91f30cc4c4db62f208f5c589b25c17d9eaf89ddb4168d1eabf7799e4f4",
   "bytes": 2632,
   "http_status": 200,
@@ -17014,9 +17952,9 @@
   ],
   "method": "GET",
   "path": "www.fdu.ru/f559a9573fe991ef606c.html",
-  "fetched_at": "2026-11-06T08:32:35+00:00",
-  "sha256": "24cf8be11f49139626291a28be0f183954fbf6cfc9a66195273be40ee4ab084d",
-  "bytes": 2612,
+  "fetched_at": "2026-11-06T09:52:45+00:00",
+  "sha256": "c74a8185668c3862c4ea66568f07a43ec821f41480ef3ed7600e4f7eb8fe94c9",
+  "bytes": 2611,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -17052,8 +17990,8 @@
   ],
   "method": "GET",
   "path": "www.fdu.ru/641acbe20c34ca15b989.html",
-  "fetched_at": "2026-11-06T08:32:35+00:00",
-  "sha256": "c188680258975fdf0340d751eaf9a9a99bde2fe449cc8a8b430623694da16869",
+  "fetched_at": "2026-11-06T09:52:53+00:00",
+  "sha256": "bf88a41fed0193526a1fa50c4f92279c33c1d9968d178175bc704a1782607288",
   "bytes": 2679,
   "http_status": 200,
   "etag": null,
@@ -18236,6 +19174,25 @@
   "status": "ok"
  },
  {
+  "key": "66cd84fd8ffe714fbf43",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/17587?startDate=2026-10-24&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "0050-54904637"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/66cd84fd8ffe714fbf43.json",
+  "fetched_at": "2026-11-06T09:52:15+00:00",
+  "sha256": "84a90b65e4e8738bed082e8aba6e9f2a6e6168c0bff517a195e1a8dde7ae2e62",
+  "bytes": 909,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "8798b489816be6adcbda",
   "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/36081295?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
   "domain": "www.ingosinvest-am.ru",
@@ -18305,6 +19262,25 @@
   "fetched_at": "2026-11-05T23:15:34+00:00",
   "sha256": "8da253242cbac3f00bae5c312350f35c87c0efab25f1e9127db7c82980baa996",
   "bytes": 1057,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "21413a0380103db3efcc",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/36081295?startDate=2026-10-24&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4483"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/21413a0380103db3efcc.json",
+  "fetched_at": "2026-11-06T09:52:11+00:00",
+  "sha256": "db3917959c85b0d740dc56e113ddcae44c98549b15639ef0f8f462cac360de65",
+  "bytes": 925,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -18388,6 +19364,25 @@
   "status": "ok"
  },
  {
+  "key": "431fb0578af7b39b552e",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/39270561?startDate=2026-10-24&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4742"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/431fb0578af7b39b552e.json",
+  "fetched_at": "2026-11-06T09:52:11+00:00",
+  "sha256": "61ec48ab9362d0f1c128716eec7b1222de0da82027b832da992da95703334e25",
+  "bytes": 918,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "7c4ce569eacb7d0b2385",
   "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/48141850?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
   "domain": "www.ingosinvest-am.ru",
@@ -18457,6 +19452,25 @@
   "fetched_at": "2026-11-05T23:15:44+00:00",
   "sha256": "37ad652bdc26bea7ed88310181bec4b219d68a281224495bee5d034d41cb70a5",
   "bytes": 1049,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "928dee7bc2f48bb8103b",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/48141850?startDate=2026-10-24&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "5248"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/928dee7bc2f48bb8103b.json",
+  "fetched_at": "2026-11-06T09:52:16+00:00",
+  "sha256": "e0654124fdf224205b3c6c63b2f88fc67e88f9bfc1720ad3535e6f8719e92ac8",
+  "bytes": 918,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -18540,6 +19554,25 @@
   "status": "ok"
  },
  {
+  "key": "0305e4107462d46394a0",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/541872?startDate=2026-10-24&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "1149-94139555"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/0305e4107462d46394a0.json",
+  "fetched_at": "2026-11-06T09:52:13+00:00",
+  "sha256": "e885adfba5d28d82d743da28d38d837b8199108019ae6d192c3da3d25cbf9b2a",
+  "bytes": 904,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "681747304c0beff62bd4",
   "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/639383?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
   "domain": "www.ingosinvest-am.ru",
@@ -18616,6 +19649,25 @@
   "status": "ok"
  },
  {
+  "key": "c3a7a0eea41fe10c0fa5",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/639383?startDate=2026-10-24&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "1148-94139715"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/c3a7a0eea41fe10c0fa5.json",
+  "fetched_at": "2026-11-06T09:52:14+00:00",
+  "sha256": "38429098bcbfb8569666b89e79e6e4fd58e94aa3b4a1c6154725a77fdeb6e3b5",
+  "bytes": 932,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "07e955578267f3b4152a",
   "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/7596108?startDate=2025-09-01&endDate=2026-11-03&useCache=false",
   "domain": "www.ingosinvest-am.ru",
@@ -18685,6 +19737,25 @@
   "fetched_at": "2026-11-05T23:15:36+00:00",
   "sha256": "a823a6a4e509b93f502e3e55a4576ded9daa74316869bd991529a49d34d7fcbb",
   "bytes": 1049,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "a45914d82007b4c72012",
+  "url": "https://www.ingosinvest-am.ru/api/Info/FundQuotesDynamic/7596108?startDate=2026-10-24&useCache=false",
+  "domain": "www.ingosinvest-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2622"
+  ],
+  "method": "GET",
+  "path": "www.ingosinvest-am.ru/a45914d82007b4c72012.json",
+  "fetched_at": "2026-11-06T09:52:12+00:00",
+  "sha256": "9b7fc722bed6ab4e13ad7516a43d0e731760f9d47ecbd898e4a6fb032016329e",
+  "bytes": 918,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -18869,7 +19940,7 @@
   "funds": [],
   "method": "GET",
   "path": "www.p-fondy.ru/3416d480756de3b856a5.txt",
-  "status": "error: сайт недоступен (ConnectError)"
+  "status": "error: сайт не отвечает (ConnectTimeout)"
  },
  {
   "key": "0b96b996544a464242cb",
@@ -19613,6 +20684,25 @@
   "status": "ok"
  },
  {
+  "key": "083d2caaec3962bf7619",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=1&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "0959-94131180"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/083d2caaec3962bf7619.json",
+  "fetched_at": "2026-11-06T09:53:13+00:00",
+  "sha256": "1f595964abf2ae323248e357f652f205d8911a3caf7d27de15f90715caf29628",
+  "bytes": 204,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "8ea87833cfe80724de69",
   "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=10&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -19663,6 +20753,25 @@
   "fetched_at": "2026-11-05T23:17:34+00:00",
   "sha256": "f25558fea83bec8395fb87b81b7f3f023869f89f56734a3c57b8d97a7c131204",
   "bytes": 237,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "a78b7699499d0baedaff",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=10&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "5585"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/a78b7699499d0baedaff.json",
+  "fetched_at": "2026-11-06T09:52:47+00:00",
+  "sha256": "6b6288b902c42407e5c728258dbcc70418e0e7ad2cb519647ac7f57be9c3bf36",
+  "bytes": 208,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -19727,6 +20836,25 @@
   "status": "ok"
  },
  {
+  "key": "bcc6cf403bb7edb455ef",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=2&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2568"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/bcc6cf403bb7edb455ef.json",
+  "fetched_at": "2026-11-06T09:53:11+00:00",
+  "sha256": "61b9b0764a53c86f71e202c6dd064b9951f3ebc0d630533d7605e0349ef9e4b6",
+  "bytes": 209,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "64065619885c3804d43a",
   "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=22&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -19777,6 +20905,25 @@
   "fetched_at": "2026-11-05T23:17:18+00:00",
   "sha256": "a5ce0d23c402cac91276b9a4e525c384c07bb7c7e46cb8935ab66125ec9c1852",
   "bytes": 225,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "f106dced093b6ee5742d",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=22&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4057"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/f106dced093b6ee5742d.json",
+  "fetched_at": "2026-11-06T09:52:36+00:00",
+  "sha256": "f5574845202bebfcfd1937d4edc9e27db870faa22b4456e231b9677d13b0b3c1",
+  "bytes": 197,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -19841,6 +20988,25 @@
   "status": "ok"
  },
  {
+  "key": "ccf5cfa3c2e38190d899",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=23&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "3906"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/ccf5cfa3c2e38190d899.json",
+  "fetched_at": "2026-11-06T09:52:57+00:00",
+  "sha256": "6dacd0e5e9608dcab0e2897156f0e5e0c00a8ad31101fc49a3e3a471aeed7571",
+  "bytes": 203,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "e5d2256ac70edb7290f5",
   "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=3&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -19891,6 +21057,25 @@
   "fetched_at": "2026-11-05T23:17:55+00:00",
   "sha256": "eb61cd5338d8b50078f9581079102097ec11b905f47a67a4feb4060f7d520520",
   "bytes": 232,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "1b028d7a3e01da37597f",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=3&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2800"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/1b028d7a3e01da37597f.json",
+  "fetched_at": "2026-11-06T09:52:59+00:00",
+  "sha256": "93ffe428613da7a06f44f9bad84742b369f479ef46faeff6e76b3926f6297143",
+  "bytes": 203,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -19955,6 +21140,25 @@
   "status": "ok"
  },
  {
+  "key": "85286fb3ea0d0c8fad26",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=35&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "6673"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/85286fb3ea0d0c8fad26.json",
+  "fetched_at": "2026-11-06T09:53:01+00:00",
+  "sha256": "5cf6409de29f6bf53db6d2193a47073db73c830aab8334f3f7a90e9e1144dba5",
+  "bytes": 190,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "e94d2f2d15a5f5a07620",
   "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=36&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -20005,6 +21209,25 @@
   "fetched_at": "2026-11-05T23:18:05+00:00",
   "sha256": "b478107116bfd07ae743dc76d326ba6dc48e2b75f978954ea42577da44c2d761",
   "bytes": 224,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "9b12d1327a356001db84",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=36&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4362"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/9b12d1327a356001db84.json",
+  "fetched_at": "2026-11-06T09:53:04+00:00",
+  "sha256": "563610749b41705758101ebb0f9270433c899fe7cd66db99bff83112a02135b0",
+  "bytes": 196,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -20069,6 +21292,25 @@
   "status": "ok"
  },
  {
+  "key": "476b69891c28fe128fb2",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=4&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2566"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/476b69891c28fe128fb2.json",
+  "fetched_at": "2026-11-06T09:52:40+00:00",
+  "sha256": "d87329b4877cab677104b49d32a92fee9b3cf8362591a1a786434b4746ef15fe",
+  "bytes": 210,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "a1f139ff946744faad00",
   "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=5&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -20119,6 +21361,25 @@
   "fetched_at": "2026-11-05T23:17:45+00:00",
   "sha256": "a79b56f20a13a20141fd9d65b29f4e8c955d4bc0c9e7a3c71451bb23700e0f88",
   "bytes": 232,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "009e07eba73726de6d43",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=5&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2797"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/009e07eba73726de6d43.json",
+  "fetched_at": "2026-11-06T09:52:54+00:00",
+  "sha256": "e4dcbc5b747c54cf59806adc0364760fb795fd683bfdca1dce768495e7334d9f",
+  "bytes": 203,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -20183,6 +21444,25 @@
   "status": "ok"
  },
  {
+  "key": "4dbda51ad5353d4cfc8d",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=51&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7837"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/4dbda51ad5353d4cfc8d.json",
+  "fetched_at": "2026-11-06T09:53:08+00:00",
+  "sha256": "c100a102843e0c55302bb351d9ba56919f31cdcb074cd25ae27a973e211c6ae2",
+  "bytes": 202,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "f9b0de3da90d5cbc0e86",
   "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=6&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -20233,6 +21513,25 @@
   "fetched_at": "2026-11-05T23:18:24+00:00",
   "sha256": "55a90a23b289bc4ff6428f43d6cb336d78acbf612dd3d7e18300c928f3651a03",
   "bytes": 249,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "758079f3fb83762df18a",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=6&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2567"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/758079f3fb83762df18a.json",
+  "fetched_at": "2026-11-06T09:53:15+00:00",
+  "sha256": "674eaf48bfd2195cff4e926fcf143b47d0c3c0b9de1737509166f10c6956acb9",
+  "bytes": 218,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -20297,6 +21596,25 @@
   "status": "ok"
  },
  {
+  "key": "869da98aaf7c8f49e5ae",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=7&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2795"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/869da98aaf7c8f49e5ae.json",
+  "fetched_at": "2026-11-06T09:52:44+00:00",
+  "sha256": "5e0d42a123467b265bf701e1dec4be9d70278fb8f04d169dd12ab8d2c668b810",
+  "bytes": 210,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "24ba89056fd8d6a96c49",
   "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=9&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -20347,6 +21665,25 @@
   "fetched_at": "2026-11-05T23:17:40+00:00",
   "sha256": "5a48a110403c8e45a561f81391c9d30795870164d5b289b07f4b6ca2a2154963",
   "bytes": 233,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "ef372683ce6673c1a8a3",
+  "url": "https://www.rshb-am.ru/ajax/data-sha.php?fund=9&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4140"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/ef372683ce6673c1a8a3.json",
+  "fetched_at": "2026-11-06T09:52:52+00:00",
+  "sha256": "a8e6f5a3a1f44c8872df8d8dc733200aa11fc5af2a45992bfe0723b9f453950a",
+  "bytes": 204,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -20411,6 +21748,25 @@
   "status": "ok"
  },
  {
+  "key": "1bdc6421304fdc57bfa6",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=1&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "0959-94131180"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/1bdc6421304fdc57bfa6.json",
+  "fetched_at": "2026-11-06T09:53:12+00:00",
+  "sha256": "654fcd710178802db1b09a2a51399ec0cfe3428e185f3330d59327e8640ea121",
+  "bytes": 153,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "e31c0a10f8e1951ce9f6",
   "url": "https://www.rshb-am.ru/ajax/data.php?fund=10&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -20461,6 +21817,25 @@
   "fetched_at": "2026-11-05T23:17:33+00:00",
   "sha256": "ceebc6c497b9cb9092c26d080d4048e6f014ec02268a667d70544f178f3e89cc",
   "bytes": 185,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "2174ae7185b20ea9829d",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=10&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "5585"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/2174ae7185b20ea9829d.json",
+  "fetched_at": "2026-11-06T09:52:46+00:00",
+  "sha256": "ce812f18ada4b73ae3e5d6728c0fdfc87968f892652b52b6fe55c64c08deda4b",
+  "bytes": 162,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -20525,6 +21900,25 @@
   "status": "ok"
  },
  {
+  "key": "362762b80ab1cc451ac6",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=2&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2568"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/362762b80ab1cc451ac6.json",
+  "fetched_at": "2026-11-06T09:53:10+00:00",
+  "sha256": "cd2d8ed83d16ff106ea3038960ec0b7b2292b484ff8a2afe51248aefbfa7c56c",
+  "bytes": 169,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "e8ac184997394e2622f2",
   "url": "https://www.rshb-am.ru/ajax/data.php?fund=22&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -20575,6 +21969,25 @@
   "fetched_at": "2026-11-05T23:17:17+00:00",
   "sha256": "47483e99cf28920deaa70893b7c674abb9ec0910756bb8e17075369fdd4f2215",
   "bytes": 192,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "b4455e43d4491f882a3c",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=22&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4057"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/b4455e43d4491f882a3c.json",
+  "fetched_at": "2026-11-06T09:52:36+00:00",
+  "sha256": "e299ed2d4d5e74ee482d0938ebaf3a84cd603cdf5a6bb062d0618099e3b5c789",
+  "bytes": 168,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -20639,6 +22052,25 @@
   "status": "ok"
  },
  {
+  "key": "0288bccedd97bb3000d3",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=23&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "3906"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/0288bccedd97bb3000d3.json",
+  "fetched_at": "2026-11-06T09:52:56+00:00",
+  "sha256": "f3902d5c398708f2217ddc852468bb4a2200def5558a3c0af4cbadb2d585bfa5",
+  "bytes": 160,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "caddb8d945d4a08a7887",
   "url": "https://www.rshb-am.ru/ajax/data.php?fund=3&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -20689,6 +22121,25 @@
   "fetched_at": "2026-11-05T23:17:54+00:00",
   "sha256": "a2af8a9339a385de16690d212f2297c7993dd7e8b5d7245056f8642dda9feda0",
   "bytes": 192,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "6630a939e287930c8ad7",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=3&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2800"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/6630a939e287930c8ad7.json",
+  "fetched_at": "2026-11-06T09:52:58+00:00",
+  "sha256": "59c62a89d3d989d586cb538decf6193711da3dc11c07835fa5bdd69cf4e46e56",
+  "bytes": 168,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -20753,6 +22204,25 @@
   "status": "ok"
  },
  {
+  "key": "b0d143c5665532ebf543",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=35&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "6673"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/b0d143c5665532ebf543.json",
+  "fetched_at": "2026-11-06T09:53:00+00:00",
+  "sha256": "7a9ab52183ba7339416523a1da08a11583150615966c84141115664857acf47d",
+  "bytes": 161,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "635ae1d900b6636238fe",
   "url": "https://www.rshb-am.ru/ajax/data.php?fund=36&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -20803,6 +22273,25 @@
   "fetched_at": "2026-11-05T23:18:04+00:00",
   "sha256": "83dd876f42e4dadaeae2d7f2773ab0236ed874f582aa1df209236addb5ba1b7e",
   "bytes": 182,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "8254a7b3d773f833b58c",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=36&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4362"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/8254a7b3d773f833b58c.json",
+  "fetched_at": "2026-11-06T09:53:03+00:00",
+  "sha256": "de279c4897e09d0e67eacb44fa04a500c15d71c745d04542bbf9432568742058",
+  "bytes": 160,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -20867,6 +22356,25 @@
   "status": "ok"
  },
  {
+  "key": "26599911b9e832ce22d8",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=4&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2566"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/26599911b9e832ce22d8.json",
+  "fetched_at": "2026-11-06T09:52:39+00:00",
+  "sha256": "abc44abbc90157ec12459069d60f66f533346ca70588a078ffdce50d79a30e98",
+  "bytes": 166,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "f4208ec365ccdae286d8",
   "url": "https://www.rshb-am.ru/ajax/data.php?fund=5&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -20917,6 +22425,25 @@
   "fetched_at": "2026-11-05T23:17:44+00:00",
   "sha256": "f41946b8c739851136390b73789250d48429ba906b42612c46701a4b19ddaac2",
   "bytes": 193,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "b0c9f486cea81841e03e",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=5&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2797"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/b0c9f486cea81841e03e.json",
+  "fetched_at": "2026-11-06T09:52:53+00:00",
+  "sha256": "37aa6e931eb95ba862d8e68ef910b55493d49a98229476f98b650c9c08e2121b",
+  "bytes": 169,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -20981,6 +22508,25 @@
   "status": "ok"
  },
  {
+  "key": "ca7b36662151c864e25a",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=51&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "7837"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/ca7b36662151c864e25a.json",
+  "fetched_at": "2026-11-06T09:53:06+00:00",
+  "sha256": "28f84971437bc1b3c7d9c5a3b425683048b9669db9a3aa891415333435ee7063",
+  "bytes": 168,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "63d17742bc0ad2391c1f",
   "url": "https://www.rshb-am.ru/ajax/data.php?fund=6&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -21031,6 +22577,25 @@
   "fetched_at": "2026-11-05T23:18:23+00:00",
   "sha256": "9dbceaa8a23b89c0f6e0add032fa75bac4989404efbfd0da1996079cd031ac6d",
   "bytes": 191,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "9823e7825aa44b1b0797",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=6&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2567"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/9823e7825aa44b1b0797.json",
+  "fetched_at": "2026-11-06T09:53:14+00:00",
+  "sha256": "2541a85eabe0f9b417052093cf0576213a2c01cceaff5a30e33ca4444a205dbf",
+  "bytes": 168,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
@@ -21095,6 +22660,25 @@
   "status": "ok"
  },
  {
+  "key": "de11541aa90092e59f37",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=7&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "2795"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/de11541aa90092e59f37.json",
+  "fetched_at": "2026-11-06T09:52:43+00:00",
+  "sha256": "bcc2304991f9119bdfc2d0eca66208601059e1f2f5e663ea0b56ee408838cbcf",
+  "bytes": 165,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
   "key": "c01390f73046bc29347b",
   "url": "https://www.rshb-am.ru/ajax/data.php?fund=9&type=&period=begin&date_from=2025-09-01&date_to=2026-11-04",
   "domain": "www.rshb-am.ru",
@@ -21149,6 +22733,44 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "0fb07b185ff121c0f1ba",
+  "url": "https://www.rshb-am.ru/ajax/data.php?fund=9&type=&period=begin&date_from=2026-10-24&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "4140"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/0fb07b185ff121c0f1ba.json",
+  "fetched_at": "2026-11-06T09:52:51+00:00",
+  "sha256": "b57555757785cdaab19d4d9e2151726b17ba320c4adcd269b5fb146df3295895",
+  "bytes": 168,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "ok"
+ },
+ {
+  "key": "6cc872cf3bbf2e697782",
+  "url": "https://www.rshb-am.ru/ajax/datapotok.php?fund=10&type=pro&period=begin&date_from=&date_to=",
+  "domain": "www.rshb-am.ru",
+  "fmt": "json",
+  "funds": [
+   "5585"
+  ],
+  "method": "GET",
+  "path": "www.rshb-am.ru/6cc872cf3bbf2e697782.json",
+  "fetched_at": "2026-11-06T09:52:49+00:00",
+  "sha256": "274d3b9d45fc56cd1574d8fdaf74f996ab069e0cb233dabd37179e0298f947b0",
+  "bytes": 57597,
+  "http_status": 200,
+  "etag": null,
+  "last_modified": null,
+  "content_type": "application/json; charset=utf-8",
   "status": "ok"
  },
  {
@@ -22077,6 +23699,25 @@
   "status": "ok"
  },
  {
+  "key": "6c856ca3b76ed1501510",
+  "url": "https://www.tkbip.ru/funds/opif-aktsiy-agana-ekstrim/export/?dateFrom=24.10.2026&dateTo=31.12.2099&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0219-14281681"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/6c856ca3b76ed1501510.csv",
+  "fetched_at": "2026-11-06T09:53:00+00:00",
+  "sha256": "822a897017b2f99344169ad6bebee0f2717c8fbeefc28293aa0a2a1135b41e2d",
+  "bytes": 404,
+  "http_status": 200,
+  "etag": "W/\"194-0caquwdLO/84JWXK58mroaNZ/Ts\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "a7b055b851bdadc40200",
   "url": "https://www.tkbip.ru/funds/opif-aktsiy-agana-ekstrim/information/",
   "domain": "www.tkbip.ru",
@@ -22173,6 +23814,25 @@
   "bytes": 457,
   "http_status": 200,
   "etag": "W/\"1c9-F4fRjUV4aGVrxfaUyONkxvC7HjY\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "272f5fd6eb1f295a05c4",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-obligatsiy/export/?dateFrom=24.10.2026&dateTo=31.12.2099&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0081-58233855"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/272f5fd6eb1f295a05c4.csv",
+  "fetched_at": "2026-11-06T09:53:02+00:00",
+  "sha256": "850b9e698999788f9ff02c54f8967acedd528b3e678cff613795cbebaa6d1235",
+  "bytes": 418,
+  "http_status": 200,
+  "etag": "W/\"1a2-i44TeUjECMxKKnrUQ6Bh5j9PsR0\"",
   "last_modified": null,
   "content_type": "text/csv; charset=utf-8",
   "status": "ok"
@@ -22279,6 +23939,25 @@
   "status": "ok"
  },
  {
+  "key": "6ff014ead58c7544165d",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-sbalansirovannyy-konservativnyy/export/?dateFrom=24.10.2026&dateTo=31.12.2099&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0078-58234010"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/6ff014ead58c7544165d.csv",
+  "fetched_at": "2026-11-06T09:53:03+00:00",
+  "sha256": "f04e82522c8da50d271cbcc21461ae16959f9cd14fb5d34654a0bdd163ce67ad",
+  "bytes": 418,
+  "http_status": 200,
+  "etag": "W/\"1a2-tRS2A5fOOpSoGAuHVWH0454DsUg\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "75056e9bf5a5582acca4",
   "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-sbalansirovannyy-konservativnyy/information/",
   "domain": "www.tkbip.ru",
@@ -22375,6 +24054,25 @@
   "bytes": 465,
   "http_status": 200,
   "etag": "W/\"1d1-wMFJbVVK4UwLRMklMLFOKJNYJSk\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "d968471eba2e68ae4cbc",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-fond-valyutnykh-obligatsiy/export/?dateFrom=24.10.2026&dateTo=31.12.2099&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0991-94131990"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/d968471eba2e68ae4cbc.csv",
+  "fetched_at": "2026-11-06T09:53:01+00:00",
+  "sha256": "470a3fcf609aa725043f3b9d3a0c5e0d64aa7759c1dccc0b3d51ade6329c8e4f",
+  "bytes": 425,
+  "http_status": 200,
+  "etag": "W/\"1a9-sQceqTt0LFFtY2kJfvB03xiH/6g\"",
   "last_modified": null,
   "content_type": "text/csv; charset=utf-8",
   "status": "ok"
@@ -22481,6 +24179,25 @@
   "status": "ok"
  },
  {
+  "key": "5e6d57e9cc377075713c",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-globalnye-investitsii/export/?dateFrom=24.10.2026&dateTo=31.12.2099&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0096-58227323"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/5e6d57e9cc377075713c.csv",
+  "fetched_at": "2026-11-06T09:53:04+00:00",
+  "sha256": "4c4226d314776af69e92124f65e62f75c6d7dcb3b0d917c4a0e0bebbb313010d",
+  "bytes": 411,
+  "http_status": 200,
+  "etag": "W/\"19b-HKG8wDiu7q6Dks0SJ2oVqowIy4I\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "150fb2d98ba5d4c7d707",
   "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-globalnye-investitsii/information/",
   "domain": "www.tkbip.ru",
@@ -22577,6 +24294,25 @@
   "bytes": 457,
   "http_status": 200,
   "etag": "W/\"1c9-1hClnl0WqI1gKiu41jeHVS2nQiA\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
+  "key": "f6d5baf2367bc31801d0",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-premium-fond-aktsiy/export/?dateFrom=24.10.2026&dateTo=31.12.2099&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "0478-75408434"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/f6d5baf2367bc31801d0.csv",
+  "fetched_at": "2026-11-06T09:52:58+00:00",
+  "sha256": "464b787e68bd79d6f403f1ef727531ec432b1a2edf401fe509722d75a3616ebf",
+  "bytes": 418,
+  "http_status": 200,
+  "etag": "W/\"1a2-xQZpDM4zCqjYqdSIvbRQGOcoBG8\"",
   "last_modified": null,
   "content_type": "text/csv; charset=utf-8",
   "status": "ok"
@@ -22683,6 +24419,25 @@
   "status": "ok"
  },
  {
+  "key": "08ebaaa3bc11ade9f931",
+  "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-zoloto/export/?dateFrom=24.10.2026&dateTo=31.12.2099&format=csv",
+  "domain": "www.tkbip.ru",
+  "fmt": "csv",
+  "funds": [
+   "2026-94198244"
+  ],
+  "method": "GET",
+  "path": "www.tkbip.ru/08ebaaa3bc11ade9f931.csv",
+  "fetched_at": "2026-11-06T09:52:59+00:00",
+  "sha256": "4aee54e960050d784a27f38be3158caa8f5c8c4a064d4817ec8ea8b15ce905c4",
+  "bytes": 418,
+  "http_status": 200,
+  "etag": "W/\"1a2-TzcGGFcB9vDi42o5G3JU/Itit68\"",
+  "last_modified": null,
+  "content_type": "text/csv; charset=utf-8",
+  "status": "ok"
+ },
+ {
   "key": "6a184b8940f1424ba64d",
   "url": "https://www.tkbip.ru/funds/tkb-bnp-pariba-zoloto/information/",
   "domain": "www.tkbip.ru",
@@ -22739,8 +24494,8 @@
   "method": "GET",
   "path": "www.trinfico-am.ru/f20599b95540a68705cf.html",
   "status": "ok",
-  "fetched_at": "2026-11-06T08:43:26+00:00",
-  "sha256": "0ea992fb56a2a7ab11ea46602716ecd7419a1318adb38df56015361f616d09f4",
+  "fetched_at": "2026-11-06T09:52:55+00:00",
+  "sha256": "25c5069416165d0325e3c3770e51ec1412c9427137ab73e08f69297f678a26bf",
   "bytes": 106884,
   "http_status": 200,
   "etag": null,
@@ -22757,8 +24512,8 @@
   ],
   "method": "GET",
   "path": "www.trinfico-am.ru/9d447d8e6aa4710b56ca.html",
-  "fetched_at": "2026-11-06T08:43:50+00:00",
-  "sha256": "6e586a11ec32512d380842e7130fe3099c9c5d692ffb0f501efc9345efa25977",
+  "fetched_at": "2026-11-06T09:53:25+00:00",
+  "sha256": "c8c11a9973c62737a1bef0900f0aba11bca3d369dce5cb7886fae1b50e4c1988",
   "bytes": 2362493,
   "http_status": 200,
   "etag": null,
@@ -22776,8 +24531,8 @@
   ],
   "method": "GET",
   "path": "www.trinfico-am.ru/3196386c91a4bd2dd545.html",
-  "fetched_at": "2026-11-06T08:43:36+00:00",
-  "sha256": "ed9ffff9d8ca999550058b5e896da3aa4937bd61705d3f657e40533dfbc6bfb7",
+  "fetched_at": "2026-11-06T09:53:06+00:00",
+  "sha256": "41d10e12a60846abe6c9854a3d564563c671ff5afdcd96d83ac00f3190bf1b56",
   "bytes": 1776099,
   "http_status": 200,
   "etag": null,
@@ -22795,8 +24550,8 @@
   ],
   "method": "GET",
   "path": "www.trinfico-am.ru/87322db63d2b4c3a6f21.html",
-  "fetched_at": "2026-11-06T08:44:06+00:00",
-  "sha256": "a7b88c4b08ec3b18759d31b819ba69f09e6d76d1fd73518451317a5c90b68b1a",
+  "fetched_at": "2026-11-06T09:53:41+00:00",
+  "sha256": "f04d74c135f336d875f59c449a0da52f8135b4b4bb3fd3901f8b036858b4d4cd",
   "bytes": 2497138,
   "http_status": 200,
   "etag": null,
@@ -22814,8 +24569,8 @@
   ],
   "method": "GET",
   "path": "www.trinfico-am.ru/c987b5cba55a0043d9dd.html",
-  "fetched_at": "2026-11-06T08:44:47+00:00",
-  "sha256": "1369d6c7a35cbf052d4fd25b0cfd3cbb3f9d55a41870b1e3a91490d958212e10",
+  "fetched_at": "2026-11-06T09:54:24+00:00",
+  "sha256": "7e2025fba5c3e0a86663205b14c724b95fc5049d84903bcc3e7a1387c0b3536f",
   "bytes": 2561841,
   "http_status": 200,
   "etag": null,
@@ -22833,8 +24588,8 @@
   ],
   "method": "GET",
   "path": "www.trinfico-am.ru/126dbac07f72171af01d.html",
-  "fetched_at": "2026-11-06T08:44:31+00:00",
-  "sha256": "75f9569c0578aa89eb64521126c4887c47b136e9bcbb3cef3e04482b877e2b50",
+  "fetched_at": "2026-11-06T09:54:07+00:00",
+  "sha256": "67331a7729d0ddef4876a725cfff09f1620ab17897a4e2c313e7a2a44b8f343d",
   "bytes": 3955926,
   "http_status": 200,
   "etag": null,
@@ -22851,7 +24606,7 @@
   "method": "GET",
   "path": "www.trinfico-am.ru/b34d8b86db1845c3c919.txt",
   "status": "ok",
-  "fetched_at": "2026-11-06T08:29:33+00:00",
+  "fetched_at": "2026-11-06T09:52:55+00:00",
   "sha256": "889a7dd66a12a9954c625e736078d6ff0f6eea842c54e76a55ca25f5991fb127",
   "bytes": 2200,
   "http_status": 200,
@@ -22879,7 +24634,14 @@
   "funds": [],
   "method": "GET",
   "path": "www.uksun.ru/8d652fb50aae55040fa0.txt",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "ok",
+  "fetched_at": "2026-11-06T10:00:57+00:00",
+  "sha256": "46f5ff7b8fdea56be31f66d674e84d73e6eced3dc874d35d84d689ee4e4ba2d6",
+  "bytes": 469,
+  "http_status": 200,
+  "etag": "W/\"626ae1d0-1d5\"",
+  "last_modified": "Thu, 28 Apr 2022 18:49:52 GMT",
+  "content_type": "text/plain"
  },
  {
   "key": "48ded482a5060d866a0f",
@@ -22898,7 +24660,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "7ade5cbf8634cc2c44d7",
@@ -22917,7 +24679,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "34470cd9a70099e1cb37",
@@ -22936,7 +24698,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "331a9fd01ed3ba5a3e4c",
@@ -22955,7 +24717,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "aed6e3c19c138f3eec7f",
@@ -22974,7 +24736,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "e0399b86f0688e5cb3eb",
@@ -22993,7 +24755,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "8c8e5f14642dfbf8acac",
@@ -23012,7 +24774,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "a5d240c3ab8bbee87064",
@@ -23050,7 +24812,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "a2419d26d0d4f3492a55",
@@ -23069,7 +24831,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "a80cefa2938e73bdbde5",
@@ -23088,7 +24850,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "828740b208295b84b941",
@@ -23141,7 +24903,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "e9301b6b2207b5eeff1c",
@@ -23160,7 +24922,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "24bfff347423aea8e4f9",
@@ -23179,7 +24941,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "24f4983a78237abd9bd7",
@@ -23198,7 +24960,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "e40473143c2bc9e40bdb",
@@ -23217,7 +24979,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "a8a0a7155edfaa523549",
@@ -23236,7 +24998,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "8c3a8537d7b5cf24ff4c",
@@ -23255,7 +25017,7 @@
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "45865b5245582329b60e",
@@ -23291,7 +25053,7 @@
   "etag": "\"8588-65f71c1420b70\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:58 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "2374a1b9f6c30b64f5df",
@@ -23310,7 +25072,7 @@
   "etag": "\"25e2b-65f71bff43e48\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:36 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "428ad5309e30735ff5f5",
@@ -23329,7 +25091,7 @@
   "etag": "\"1deff-65f71c0bf2f6d\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:49 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "a9ae1683dff7c5d00169",
@@ -23348,7 +25110,7 @@
   "etag": "\"25bc8-65f71c05077aa\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:42 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "723b34d0a47e9ff9f1c8",
@@ -23367,7 +25129,7 @@
   "etag": "\"298b2-65f71bf8bb0a6\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:29 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "06acda2f013fd892d75e",
@@ -23386,7 +25148,7 @@
   "etag": "\"29deb-65f71c0fcb56e\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:53 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "f41e0ff2c5475e06590b",
@@ -23405,7 +25167,7 @@
   "etag": "\"28190-65f71bcf0f118\"",
   "last_modified": "Wed, 04 Nov 2026 11:32:46 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "da1bfdf60e6fabbae206",
@@ -23424,7 +25186,7 @@
   "etag": "\"1dab8-65f71bde88fbd\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:02 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "fb0e11a6332959dc8e65",
@@ -23443,7 +25205,7 @@
   "etag": "\"966b-65f71be830aa0\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:12 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "1c2b5dfb6306ee1d61e1",
@@ -23462,7 +25224,7 @@
   "etag": "\"2643-65f71bf333064\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:24 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "b588b921ddf99aa3a5e1",
@@ -23481,7 +25243,7 @@
   "etag": "\"2ee1-65f71bf0029e3\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:20 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "3ca97cdc85976ff986c7",
@@ -23500,7 +25262,7 @@
   "etag": "\"3cef-65f71bf61d1e5\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:27 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "dfcb1a35cb7472369d14",
@@ -23519,7 +25281,7 @@
   "etag": "\"4c7b-65f71bec591e2\"",
   "last_modified": "Wed, 04 Nov 2026 11:33:16 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "f98d5c6623e7cffff946",
@@ -23538,7 +25300,7 @@
   "etag": "\"7178-65f71bc82b656\"",
   "last_modified": "Wed, 04 Nov 2026 11:32:38 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "f190929d8fface5a39f7",
@@ -23557,7 +25319,7 @@
   "etag": "\"76c6-65f71bcbe86d7\"",
   "last_modified": "Wed, 04 Nov 2026 11:32:42 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "a2ce9c84d2c0a783aaff",
@@ -23576,7 +25338,7 @@
   "etag": "\"7c19-65f71bd85bedb\"",
   "last_modified": "Wed, 04 Nov 2026 11:32:55 GMT",
   "content_type": null,
-  "status": "error: сайт не отвечает (ConnectTimeout)"
+  "status": "error: сайт не отвечает (2 неудачи подряд, дальше в этом прогоне не пробуем)"
  },
  {
   "key": "4c818e1eacba2492e57a",
