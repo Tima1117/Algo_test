@@ -994,10 +994,11 @@ funds,url,format,fetched_at,sha256,bytes,status
 ,https://www.peramo.ru/robots.txt,txt,2026-11-05T23:15:48+00:00,ec2ec743305280c6dd380c236b8911a4a965622c409addd3a5ab6196c05338d4,1556,"ok (304, не изменился)"
 0241-74050443 0242-74050284 0243-74050367 0987-94132127 2241 2260 2356 5097 5778 6468,https://www.raiffeisen-capital.ru/pifs-table-last-month/,html,2026-11-05T23:15:55+00:00,5ab74594187c211b831032bd87d8a36477ac16c38136445e1c1adc43409d30d3,332948,ok
 ,https://www.raiffeisen-capital.ru/robots.txt,txt,2026-11-03T16:05:29+00:00,02442f228b5fe10b844f62734008f8f3d8322a192980bbaf778b74c4c27ad651,84,ok
-0668-94120070 0976-58229693,https://www.redbridge-am.com/foundations/,html,2026-11-04T11:32:45+00:00,afc19bab2b16a77a217ca28f29b813107b931f432036262bde9d42cb723038f9,26866,error: сайт недоступен (ConnectError)
-0668-94120070,https://www.redbridge-am.com/foundations/opif-km-merkuri/,html,2026-11-04T11:32:46+00:00,f1ad6be6f33d3da3e48a8b4d522a8c76600501a1d4f73672b66f909e5e99db18,78181,error: сайт недоступен (ConnectError)
-0976-58229693,https://www.redbridge-am.com/foundations/opif-km-sekyuritiz/,html,2026-11-04T11:32:49+00:00,dfc1e45d97eb684618de7ca7e090b4d738ce82d7b4bf76826ef8ce85e4849353,88837,error: сайт недоступен (ConnectError)
-,https://www.redbridge-am.com/robots.txt,txt,2026-11-04T11:32:45+00:00,1ee69c597c83c34a3fa8f6b955157290d9d666a05b18585a11b4b4b790021a81,1044,error: сайт недоступен (ConnectError)
+0668-94120070 0976-58229693,https://www.redbridge-am.com/foundations/,html,2026-11-06T09:50:33+00:00,27f06a49085bcf932669758ab16badc32b29ee4298613a21cc2195d08541a602,26866,ok
+0668-94120070,https://www.redbridge-am.com/foundations/opif-km-merkuri/,html,2026-11-06T09:50:35+00:00,d352bbad19fdf8113c04302bc98c7ab3ced977ed809491dfb2e9e05f87250e10,78129,ok
+0976-58229693,https://www.redbridge-am.com/foundations/opif-km-sekyuritiz/,html,2026-11-06T09:50:36+00:00,8fafc99c8dad2b36f6da76a5deabfc892e05d7d826d506f3453d9e5735209040,88731,ok
+,https://www.redbridge-am.com/robots.txt,txt,2026-11-06T09:50:33+00:00,1ee69c597c83c34a3fa8f6b955157290d9d666a05b18585a11b4b4b790021a81,1044,"ok (304, не изменился)"
+0976-58229693,https://www.redbridge-am.com/upload/iblock/6d8/gag5f7te0f4xwe9by49xz2rgr6dbd4n6.csv,csv,2026-11-06T09:50:37+00:00,f40da16853cf423f2be0cca58105d738aa43d7b848a4a3a50506a48b226a4544,149639,ok
 0668-94120070,https://www.redbridge-am.com/upload/iblock/95f/mf1lzv6455j0qgufm4da7ssx0lox8kc5.csv,csv,2026-11-04T11:32:48+00:00,52f07133dd17ac54e6ca3a92179c94fc961a3496218db36f197eae7eb6e66624,163513,error: сайт недоступен (ConnectError)
 0976-58229693,https://www.redbridge-am.com/upload/iblock/f06/ro9y5qqr615h9ivy5z16k7n4w8w352mn.csv,csv,2026-11-04T11:32:50+00:00,8fafa5f442a4fcf02fbec4cef12c81f2024dc8a69b5222a2081dc39a0b4aad03,149571,error: сайт недоступен (ConnectError)
 8100,https://www.rencapwealth.ru/api/marketdata/chart-points?view=marketdata.fund_robl_nav,json,2026-11-05T23:16:51+00:00,254e9886a23685da3a4862effb1bbdcfa595bac36a0db6fcbd72c2ea86093f5b,996,ok

@@ -18982,14 +18982,14 @@
   ],
   "method": "GET",
   "path": "www.redbridge-am.com/1a76de471a66a6e5881b.html",
-  "fetched_at": "2026-11-04T11:32:45+00:00",
-  "sha256": "afc19bab2b16a77a217ca28f29b813107b931f432036262bde9d42cb723038f9",
+  "fetched_at": "2026-11-06T09:50:33+00:00",
+  "sha256": "27f06a49085bcf932669758ab16badc32b29ee4298613a21cc2195d08541a602",
   "bytes": 26866,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт недоступен (ConnectError)"
+  "status": "ok"
  },
  {
   "key": "ec4cc34b7b2223011cba",
@@ -19001,14 +19001,14 @@
   ],
   "method": "GET",
   "path": "www.redbridge-am.com/ec4cc34b7b2223011cba.html",
-  "fetched_at": "2026-11-04T11:32:46+00:00",
-  "sha256": "f1ad6be6f33d3da3e48a8b4d522a8c76600501a1d4f73672b66f909e5e99db18",
-  "bytes": 78181,
+  "fetched_at": "2026-11-06T09:50:35+00:00",
+  "sha256": "d352bbad19fdf8113c04302bc98c7ab3ced977ed809491dfb2e9e05f87250e10",
+  "bytes": 78129,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт недоступен (ConnectError)"
+  "status": "ok"
  },
  {
   "key": "58f3944d48a58a302fb3",
@@ -19020,14 +19020,14 @@
   ],
   "method": "GET",
   "path": "www.redbridge-am.com/58f3944d48a58a302fb3.html",
-  "fetched_at": "2026-11-04T11:32:49+00:00",
-  "sha256": "dfc1e45d97eb684618de7ca7e090b4d738ce82d7b4bf76826ef8ce85e4849353",
-  "bytes": 88837,
+  "fetched_at": "2026-11-06T09:50:36+00:00",
+  "sha256": "8fafc99c8dad2b36f6da76a5deabfc892e05d7d826d506f3453d9e5735209040",
+  "bytes": 88731,
   "http_status": 200,
   "etag": null,
   "last_modified": null,
   "content_type": "text/html; charset=UTF-8",
-  "status": "error: сайт недоступен (ConnectError)"
+  "status": "ok"
  },
  {
   "key": "514353014f68c77b7f63",
@@ -19037,14 +19037,33 @@
   "funds": [],
   "method": "GET",
   "path": "www.redbridge-am.com/514353014f68c77b7f63.txt",
-  "fetched_at": "2026-11-04T11:32:45+00:00",
+  "fetched_at": "2026-11-06T09:50:33+00:00",
   "sha256": "1ee69c597c83c34a3fa8f6b955157290d9d666a05b18585a11b4b4b790021a81",
   "bytes": 1044,
-  "http_status": 200,
+  "http_status": 304,
   "etag": "W/\"5ebe7c91-414\"",
   "last_modified": "Fri, 15 May 2020 11:27:13 GMT",
   "content_type": "text/plain; charset=utf-8",
-  "status": "error: сайт недоступен (ConnectError)"
+  "status": "ok (304, не изменился)"
+ },
+ {
+  "key": "e416e9c441ba77437437",
+  "url": "https://www.redbridge-am.com/upload/iblock/6d8/gag5f7te0f4xwe9by49xz2rgr6dbd4n6.csv",
+  "domain": "www.redbridge-am.com",
+  "fmt": "csv",
+  "funds": [
+   "0976-58229693"
+  ],
+  "method": "GET",
+  "path": "www.redbridge-am.com/e416e9c441ba77437437.csv",
+  "fetched_at": "2026-11-06T09:50:37+00:00",
+  "sha256": "f40da16853cf423f2be0cca58105d738aa43d7b848a4a3a50506a48b226a4544",
+  "bytes": 149639,
+  "http_status": 200,
+  "etag": "\"24887-65f987e648bb7\"",
+  "last_modified": "Fri, 06 Nov 2026 09:47:00 GMT",
+  "content_type": "application/octet-stream",
+  "status": "ok"
  },
  {
   "key": "63ad43fab738c824da7a",
