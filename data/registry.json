@@ -4,12 +4,12 @@
   "source_page": "https://www.cbr.ru/registries/RSCI/",
   "uk_source": "https://www.cbr.ru/vfs/finmarkets/files/supervision/list_managementcompanies.xlsx",
   "isin_source": "https://iss.moex.com/iss/securities.json (группа stock_ppif)",
-  "fetched_at": "2026-11-10T01:10:15+00:00",
-  "fund_registry_sha256": "a56c97b305f3e7bac3c80258dd1751f0945f5949bec99d593f0896bdc88d621b",
-  "uk_registry_as_of": "2026-11-09",
+  "fetched_at": "2026-11-10T22:49:32+00:00",
+  "fund_registry_sha256": "04cc697ffd06aaf16c6f5d48956e1a750fa29249e62c97b850cbf9f5c0465b38",
+  "uk_registry_as_of": "2026-11-10",
   "skipped": {
    "qualified_only": 164,
-   "other_type_or_status": 7597,
+   "other_type_or_status": 7601,
    "no_uk_in_license_registry": 0
   },
   "with_isin": 185,
